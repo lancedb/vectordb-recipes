@@ -1,1 +1,1 @@
-# vectordb-recipies
+# vectordb-recipes
