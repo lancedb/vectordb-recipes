@@ -11,5 +11,5 @@ Example Applications
 ### Setup
 TODO
 
-### Applications
+### Modules
 TODO: Dataset Explorer
