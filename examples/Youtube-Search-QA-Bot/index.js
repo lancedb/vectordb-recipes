@@ -5,7 +5,7 @@ const { stdin: input, stdout: output } = require('process')
 const { Configuration, OpenAIApi } = require('openai')
 
 // Download file from XYZ
-const INPUT_FILE_NAME = 'data/youtube-transcriptions_sample.jsonl';
+const INPUT_FILE_NAME = 'youtube-transcriptions_sample.jsonl';
 
 (async () => {
   // You need to provide an OpenAI API key, here we read it from the OPENAI_API_KEY environment variable
@@ -14,7 +14,7 @@ const INPUT_FILE_NAME = 'data/youtube-transcriptions_sample.jsonl';
   const embedFunction = new lancedb.OpenAIEmbeddingFunction('context', apiKey)
 
   // Connects to LanceDB
-  const db = await lancedb.connect('data/youtube-lancedb')
+  const db = await lancedb.connect('.tmp/youtube-lancedb')
 
   // Open the vectors table or create one if it does not exist
   let tbl

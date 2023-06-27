@@ -4,12 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "dev@lance",
     "license": "Apache-2.0",
     "dependencies": {
-      "vectordb": "file:../..",
-      "openai": "^3.2.1"
+        "openai": "^3.3.0",
+        "vectordb": "^0.1.8"
     }
-  }
+}
