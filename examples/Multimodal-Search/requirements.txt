@@ -1,0 +1,6 @@
+argparse
+lancedb
+gradio 
+transformers 
+torch 
+torchvision
