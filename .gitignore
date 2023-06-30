@@ -3,5 +3,6 @@ node_modules
 package-lock.json
 .ipynb_checkpoints
 *.tar.gz
-**/.DS_Store
+**.DS_Store
 *tmp*
+**.pkl
