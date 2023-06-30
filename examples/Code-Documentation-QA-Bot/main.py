@@ -1,8 +1,8 @@
 # %% [markdown]
 # # Code documentation Q&A bot example with LangChain
-# 
-# This Q&A bot will allow you to query your own documentation easily using questions. We'll also demonstrate the use of LangChain and LanceDB using the OpenAI API. 
-# 
+#
+# This Q&A bot will allow you to query your own documentation easily using questions. We'll also demonstrate the use of LangChain and LanceDB using the OpenAI API.
+#
 # In this example we'll use Pandas 2.0 documentation, but, this could be replaced for your own docs as well
 
 import os
@@ -65,7 +65,7 @@ if __name__ == "__main__":
                 continue
             loader = BSHTMLLoader(p, open_encoding="utf8")
             raw_document = loader.load()
-            
+
             m = {}
             m["title"] = get_document_title(raw_document[0])
             m["version"] = "2.0rc0"
