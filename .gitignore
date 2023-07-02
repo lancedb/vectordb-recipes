@@ -5,3 +5,5 @@ package-lock.json
 *tmp*
 **.DS_Store
 **.pkl
+pandas_docs
+**.lance
