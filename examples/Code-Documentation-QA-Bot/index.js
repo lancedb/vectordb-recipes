@@ -29,7 +29,7 @@ async function read_data(){
   var docs = [];
   const docsPath = "pandas_docs/pandas.documentation"
   const options = {
-    apiKey: "bbIkFRMzIT8M7ZMatjQIiVL8RjyYM7",
+    apiKey: "UNSTRUCTURED_API_KEY",
   };
   
   console.log("fs.existsSync(docsPath)", fs.existsSync(docsPath))
