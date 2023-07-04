@@ -1,7 +1,7 @@
 import { LanceDB } from "langchain/vectorstores/lancedb";
 import { RetrievalQAChain } from "langchain/chains";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
-import { UnstructuredLoader } from "langchain/document_loaders/fs/unstructured";
+import { UnstructuredLoader,  } from "langchain/document_loaders/fs/unstructured";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { OpenAI } from "langchain/llms/openai";
 import fs from 'fs';
@@ -10,10 +10,6 @@ import { download } from '@guoyunhe/downloader';
 import { connect } from "vectordb";
 
 
-async function download_data(){
-    const res = await download("https://eto-public.s3.us-west-2.amazonaws.com/datasets/pandas_docs/pandas.documentation.zip", "pandas_docs", { extract: true })
-  };
-  
 function get_document_title(document) {
   const source = document.metadata.source;
   const regex = /pandas.documentation(.*).html/;
@@ -26,13 +22,18 @@ function get_document_title(document) {
 }
 
 async function read_data(){
+  const unstructuredKey = process.env.UNSTRUCTURED_API_KEY
+  if (unstructuredKey == null || unstructuredKey == undefined) {
+    console.warn(`You need to provide an Unstructured API key, here we read it from the 
+                  UNSTRUCTURED_API_KEY environment variable. Alternatively you can also host it locally on
+                  docker- https://js.langchain.com/docs/modules/indexes/document_loaders/examples/file_loaders/unstructured `)
+  }
   var docs = [];
   const docsPath = "pandas_docs/pandas.documentation"
   const options = {
-    apiKey: "UNSTRUCTURED_API_KEY",
+    apiKey: unstructuredKey,
   };
   
-  console.log("fs.existsSync(docsPath)", fs.existsSync(docsPath))
   if (fs.existsSync(docsPath)) {
     for (const p of fs.readdirSync(docsPath).filter((f) => f.endsWith('.html'))) {
       const docPath = path.join(docsPath, p);
@@ -61,14 +62,14 @@ async function read_data(){
 
 
 (async () => {
-  const apiKey = process.env.OPENAI_API_KEY
-  if (apiKey == null || apiKey == undefined) {
+  const openaiApiKey = process.env.OPENAI_API_KEY
+  if (openaiApiKey == null || openaiApiKey == undefined) {
     throw new Error("You need to provide an OpenAI API key, here we read it from the OPENAI_API_KEY environment variable")
   }
 
   const db = await connect("data/sample-lancedb")
 
-  await download_data();
+  await download("https://eto-public.s3.us-west-2.amazonaws.com/datasets/pandas_docs/pandas.documentation.zip", "pandas_docs", { extract: true })
   var docs = await read_data();
   //make table here
   const splitter = new RecursiveCharacterTextSplitter({
@@ -90,8 +91,4 @@ async function read_data(){
     query: "How do I make use of installing optional dependencies?",
   });
   console.log({ res });
- 
-  // get zip file, extract, make metadata, something about splitters, emebeddings, etc.
-  // then make table, query, result.
-
 })();

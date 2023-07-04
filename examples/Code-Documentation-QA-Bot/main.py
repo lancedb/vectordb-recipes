@@ -15,7 +15,7 @@ import requests
 import zipfile
 from pathlib import Path
 
-from langchain.document_loaders import UnstructuredHTMLLoader, BSHTMLLoader
+from langchain.document_loaders import BSHTMLLoader
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import LanceDB
@@ -97,4 +97,3 @@ if __name__ == "__main__":
     result = qa.run(args.query)
     print(result)
 
-# %%
