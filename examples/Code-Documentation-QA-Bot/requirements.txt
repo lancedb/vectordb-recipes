@@ -1,0 +1,6 @@
+argparse
+openai
+langchain
+lancedb
+unstructured
+tiktoken
