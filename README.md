@@ -1,4 +1,4 @@
-# vectordb-recipies
+# VectorDB-recipies
 Example Applications
 
 | Example | Interactive Envs | Scripts  |
