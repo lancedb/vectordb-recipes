@@ -1,6 +1,6 @@
 # Code documentation Q&A bot example with LangChain
 
-![imgonline-com-ua-twotoone-WTf6rm7OMX](https://github.com/lancedb/vectordb-recipes/assets/15766192/0b2c1352-c2f9-4cc3-bcbb-07dcab06370b)
+![imgonline-com-ua-twotoone-RaRlTe66ft3RUvK](https://github.com/lancedb/vectordb-recipes/assets/15766192/4682b39d-62f4-4722-bc64-f45d45ec8a22)
 
 
 This Q&A bot will allow you to query your own documentation easily using questions. We'll also demonstrate the use of LangChain and LanceDB using the OpenAI API. In this example we'll use Pandas 2.0 documentation, but, this could be replaced for your own docs as well.
