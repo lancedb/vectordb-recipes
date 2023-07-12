@@ -15,9 +15,9 @@
 'use strict'
 
 
-const lancedb = require('vectordb')
-
 async function example() {
+
+    const lancedb = require('vectordb')
 
     // Import transformers and the all-MiniLM-L6-v2 model (https://huggingface.co/Xenova/all-MiniLM-L6-v2)
     const { pipeline } = await import('@xenova/transformers')
@@ -35,16 +35,15 @@ async function example() {
         return result
     }
 
-
     // Link a folder and create a table with data
     const db = await lancedb.connect('data/sample-lancedb')
 
     const data = [
-        { id: 1, text: 'Cherry', type: 'fruit'},
-        { id: 2, text: 'Carrot', type: 'vegetable'},
-        { id: 3, text: 'Cauliflower', type: 'vegetable'},
-        { id: 4, text: 'Apple', type: 'fruit'},
-        { id: 5, text: 'Banana', type: 'fruit'}
+        { id: 1, text: 'Cherry', type: 'fruit '},
+        { id: 2, text: 'Carrot', type: 'vegetable' },
+        { id: 3, text: 'Cauliflower', type: 'vegetable' },
+        { id: 4, text: 'Apple', type: 'fruit' },
+        { id: 5, text: 'Banana', type: 'fruit' }
     ]
 
     const table = await db.createTable('food_table', data, "create", embed_fun)
@@ -52,7 +51,8 @@ async function example() {
 
     // Query the table
     const results = await table
-        .search('something sweet to eat')
+        .search(['something sweet'])
+        .metricType("cosine")
         .limit(2)
         .execute()
     console.log(results)
