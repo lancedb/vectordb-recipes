@@ -20,14 +20,14 @@ const lancedb = require('vectordb')
 async function example() {
 
     // Import transformers and the all-MiniLM-L6-v2 model (https://huggingface.co/Xenova/all-MiniLM-L6-v2)
-
     const { pipeline } = await import('@xenova/transformers')
     let pipe = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
 
 
     // Create embedding function from pipeline
-
-    async function embed(batch) {
+    const embed_fun = {}
+    embed_fun.sourceColumn = 'text'
+    embed_fun.embed = async function (batch) {
         let result = []
         for (let text of batch) {
             result.push((await pipe(text))['data'])
@@ -35,26 +35,22 @@ async function example() {
         return result
     }
 
-    console.log(await embed(['Hello World!']))
-
 
     // Link a folder and create a table with data
-
     const db = await lancedb.connect('data/sample-lancedb')
 
     const data = [
-        { id: 1, text: 'Cherry', type: 'fruit', vector: [0.5, 0.5] },
-        { id: 2, text: 'Carrot', type: 'vegetable', vector: [0.5, 0.5] },
-        { id: 3, text: 'Cauliflower', type: 'vegetable', vector: [0.5, 0.5] },
-        { id: 4, text: 'Apple', type: 'fruit', vector: [0.5, 0.5] },
-        { id: 5, text: 'Banana', type: 'fruit', vector: [0.5, 0.5] }
+        { id: 1, text: 'Cherry', type: 'fruit'},
+        { id: 2, text: 'Carrot', type: 'vegetable'},
+        { id: 3, text: 'Cauliflower', type: 'vegetable'},
+        { id: 4, text: 'Apple', type: 'fruit'},
+        { id: 5, text: 'Banana', type: 'fruit'}
     ]
 
-    const table = await db.createTable('food_table', data, "create", embed)
+    const table = await db.createTable('food_table', data, "create", embed_fun)
 
 
     // Query the table
-
     const results = await table
         .search('something sweet to eat')
         .limit(2)
