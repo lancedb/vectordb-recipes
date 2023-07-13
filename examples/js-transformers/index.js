@@ -21,27 +21,31 @@ async function example() {
 
     // Import transformers and the all-MiniLM-L6-v2 model (https://huggingface.co/Xenova/all-MiniLM-L6-v2)
     const { pipeline } = await import('@xenova/transformers')
-    let pipe = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
+    const pipe = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
 
 
-    // Create embedding function from pipeline
+    // Create embedding function from pipeline which returns a list of vectors from batch
+    // sourceColumn is the name of the column in the data to be embedded
+    //
+    // Output of pipe is a Tensor { data: Float32Array(384) }, so filter for the vector
     const embed_fun = {}
     embed_fun.sourceColumn = 'text'
     embed_fun.embed = async function (batch) {
         let result = []
         for (let text of batch) {
-            result.push((await pipe(text))['data'])
+            const res = await pipe(text)
+            result.push(Array.from(res['data']))
         }
-        return result
+        return (result)
     }
 
     // Link a folder and create a table with data
     const db = await lancedb.connect('data/sample-lancedb')
 
     const data = [
-        { id: 1, text: 'Cherry', type: 'fruit '},
+        { id: 1, text: 'Cherry', type: 'fruit' },
         { id: 2, text: 'Carrot', type: 'vegetable' },
-        { id: 3, text: 'Cauliflower', type: 'vegetable' },
+        { id: 3, text: 'Potato', type: 'vegetable' },
         { id: 4, text: 'Apple', type: 'fruit' },
         { id: 5, text: 'Banana', type: 'fruit' }
     ]
@@ -51,7 +55,7 @@ async function example() {
 
     // Query the table
     const results = await table
-        .search(['something sweet'])
+        .search("fruit")
         .metricType("cosine")
         .limit(2)
         .execute()
