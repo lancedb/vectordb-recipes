@@ -33,7 +33,7 @@ async function example() {
     embed_fun.embed = async function (batch) {
         let result = []
         for (let text of batch) {
-            const res = await pipe(text)
+            const res = await pipe(text, { pooling: 'mean', normalize: true })
             result.push(Array.from(res['data']))
         }
         return (result)
@@ -55,7 +55,7 @@ async function example() {
 
     // Query the table
     const results = await table
-        .search("fruit")
+        .search("a sweet fruit to eat")
         .metricType("cosine")
         .limit(2)
         .execute()
