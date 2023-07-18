@@ -1,6 +1,6 @@
 # Reducing Hallucinations from AI Agents using Long-Term Memory
 ### Introduction to Critique-Based Contexting with OpenAI, LangChain, and LanceDB
-AI agents can help simplify and automate tedious workflows. By going through this fitness trainer agent example, we'll introduce how you can reduce hallucinations of AI agents by using critique-based contexting.
+AI agents can help simplify and automate tedious workflows. By going through this fitness trainer agent example, we'll introduce how you can reduce hallucinations from AI agents by using critique-based contexting.
 
 Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/reducing_hallucinations_ai_agents/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
