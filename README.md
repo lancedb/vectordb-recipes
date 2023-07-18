@@ -19,5 +19,8 @@ pip install -r requirements.txt
 npm i
 ```
 
-### Modules
-TODO: Dataset Explorer
+## Projects Gallery
+Some real-world vectordb projects and packages
+### [YOLOExplorer](https://github.com/lancedb/yoloexplorer)
+YOLOExplorer : Iterate on your YOLO / CV datasets using SQL, Vector semantic search, and more within seconds
+![dash_intro](https://github.com/lancedb/vectordb-recipes/assets/15766192/ae513a29-8f15-4e0b-99a1-ccd8272b6131)
