@@ -1,4 +1,5 @@
 # Multi-modal search using CLIP
+![Uploading 243051535-09c5afc5-7816-4687-bae4-f2ca194426ec.gif…]()
 
 
 Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/multimodal_clip/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
