@@ -1,0 +1,6 @@
+lancedb
+tensorflow
+keras
+numpy
+pandas
+sklearn
