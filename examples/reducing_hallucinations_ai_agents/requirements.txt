@@ -1,0 +1,5 @@
+argparse
+openai
+lancedb
+langchain==0.0.222
+google-search-results
