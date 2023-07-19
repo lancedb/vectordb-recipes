@@ -4,3 +4,4 @@ keras
 numpy
 pandas
 sklearn
+tqdm
