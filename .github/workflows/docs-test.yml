@@ -78,8 +78,8 @@ jobs:
       run: |
         node compile_testing.js
         cd testing-folder
-        cat merge-package.sh
         bash merge-package.sh
+        cat package.json
         npm install
     - uses: swatinem/rust-cache@v2
     - name: Install LanceDB
