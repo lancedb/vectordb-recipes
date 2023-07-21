@@ -49,6 +49,8 @@ jobs:
           cd testing-folder
           bash commands.sh
       - name: Run tests
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           cd testing-folder
           for d in *; do
@@ -58,8 +60,6 @@ jobs:
             fi
           cd ..;
           done
-        env:
-          credentials: ${{ secrets.OPENAI_API_KEY }}
   test-node:
     name: Test node examples
     runs-on: ubuntu-latest
@@ -98,6 +98,8 @@ jobs:
         cd testing-folder
         bash commands.sh
     - name: Run tests
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
         cd testing-folder
         for d in *; do
@@ -107,5 +109,3 @@ jobs:
           fi
         cd ..;
         done
-      env:
-        credentials: ${{ secrets.OPENAI_API_KEY }}
