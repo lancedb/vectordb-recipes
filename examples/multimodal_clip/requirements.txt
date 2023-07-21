@@ -1,0 +1,6 @@
+duckdb
+gradio
+transformers
+pyarrow
+argparse
+lancedb

@@ -35,8 +35,12 @@ jobs:
           python compile_testing.py
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          sudo apt-get install unzip
           pip install -r joined-requirements.txt
+      - name: Download datasets
+        run: |
+          cd testing-folder
+          bash commands.sh
       - name: Run tests
         run: |
           cd testing-folder
@@ -45,3 +49,52 @@ jobs:
             python "$d".py;
             cd ..;
           done
+        env:
+          credentials: ${{ secrets.OPENAI_API_KEY }}
+  test-node:
+    name: Test node examples
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ "18" ]
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        lfs: true
+    - uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y protobuf-compiler libssl-dev
+        npm install -g package-json-merge
+    - name: Create files
+      run: |
+        node compile_testing.js
+        cd testing-folder
+        cat merge-package.sh
+        bash merge-package.sh
+        npm install
+    - uses: swatinem/rust-cache@v2
+    - name: Install LanceDB
+      run: |
+        cd testing-folder/node_modules/vectordb
+        npm ci
+        npm run build-release
+        npm run tsc
+    - name: Download datasets
+      run: |
+        cd testing-folder
+        bash commands.sh
+    - name: Run tests
+      run: |
+        cd testing-folder
+        for d in *; do
+          echo "$d".js;
+          node "$d".js;
+          cd ..;
+        done
+      env:
+        credentials: ${{ secrets.OPENAI_API_KEY }}

@@ -3,12 +3,12 @@
 
 ### Setup
 Install node dependencies
-```bash
+```javascript
 npm install
 ```
 
 ### Javascript
 Run the script
-```bash
+```javascript
 node index.js
 ```

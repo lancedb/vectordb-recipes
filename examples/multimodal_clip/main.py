@@ -63,7 +63,7 @@ def find_image_sql(query):
         "tbl = db.open_table('diffusiondb')\n\n"
         "diffusiondb = tbl.to_lance()\n"
         f"duckdb.sql('{query}').to_df()"
-    )    
+    )
     diffusiondb = tbl.to_lance()
     return (_extract(duckdb.sql(query).to_df()), code)
 
@@ -92,12 +92,12 @@ def create_gradio_dash():
         with gr.Row():
             gallery = gr.Gallery(
                     label="Found images", show_label=False, elem_id="gallery"
-                ).style(columns=[3], rows=[3], object_fit="contain", height="auto")   
-            
+                ).style(columns=[3], rows=[3], object_fit="contain", height="auto")
+
         b1.click(find_image_vectors, inputs=vector_query, outputs=[gallery, code])
         b2.click(find_image_keywords, inputs=keyword_query, outputs=[gallery, code])
         b3.click(find_image_sql, inputs=sql_query, outputs=[gallery, code])
-        
+
     demo.launch()
 
 def args_parse():
