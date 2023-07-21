@@ -1,3 +1,3 @@
-lancedb
+lancedb @ git+https://github.com/lancedb/lancedb.git#egg=subdir&subdirectory=python
 openai
-datasets 
+datasets
