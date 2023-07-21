@@ -52,9 +52,11 @@ jobs:
         run: |
           cd testing-folder
           for d in *; do
-            echo "$d".py;
-            python "$d".py;
-            cd ..;
+            if [[ $d == *.py ]]; then
+              echo "$d";
+              python "$d";
+            fi
+          cd ..;
           done
         env:
           credentials: ${{ secrets.OPENAI_API_KEY }}
@@ -99,9 +101,11 @@ jobs:
       run: |
         cd testing-folder
         for d in *; do
-          echo "$d".js;
-          node "$d".js;
-          cd ..;
+          if [[ $d == *.js ]]; then
+            echo "$d";
+            python "$d";
+          fi
+        cd ..;
         done
       env:
         credentials: ${{ secrets.OPENAI_API_KEY }}
