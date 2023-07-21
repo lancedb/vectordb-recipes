@@ -25,9 +25,7 @@ for folders in os.listdir(root):
                 shutil.copy(os.path.join(folder, file), os.path.join("./testing-folder", dup_name))
             # If the file is a jupyter notebook, convert it to a python file and copy it to the testing folder
             if file.endswith(".ipynb"):
-                print("Converting " + os.path.join(folder, file) + " to python")
                 dup_name = folder.split("/")[-1] + "_IPYNB"
-                print(dup_name)
                 with open("convert-ipynb.sh", "a+") as f:
                     f.write("jupyter nbconvert --output " + dup_name + " --output-dir=\"./testing-folder\" --RegexRemovePreprocessor.patterns=\"^[!%]\" --to python " + os.path.join(folder, file) + "\n")
             # If the file is a README.md file, add the dataset download commands to the list of commands
