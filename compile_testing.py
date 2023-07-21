@@ -22,11 +22,14 @@ for folders in os.listdir(root):
             # If the file is a python file, copy it to the testing folder
             if file.endswith(".py"):
                 dup_name = folder.split("/")[-1] + ".py"
-                shutil.copy(os.path.join(folder, file), os.path.join("testing-folder", dup_name))
+                shutil.copy(os.path.join(folder, file), os.path.join("./testing-folder", dup_name))
             # If the file is a jupyter notebook, convert it to a python file and copy it to the testing folder
             if file.endswith(".ipynb"):
+                print("Converting " + os.path.join(folder, file) + " to python")
                 dup_name = folder.split("/")[-1] + "_IPYNB"
-                subprocess.Popen("jupyter nbconvert --output " + dup_name + " --output-dir=\"./testing-folder\" --RegexRemovePreprocessor.patterns=\"^[!%]\" --to python " + os.path.join(folder, file)).wait()
+                print(dup_name)
+                with open("convert-ipynb.sh", "a+") as f:
+                    f.write("jupyter nbconvert --output " + dup_name + " --output-dir=\"./testing-folder\" --RegexRemovePreprocessor.patterns=\"^[!%]\" --to python " + os.path.join(folder, file) + "\n")
             # If the file is a README.md file, add the dataset download commands to the list of commands
             if file.endswith("README.md"):
                 with open(os.path.join(folder, file), "r") as f:
@@ -51,11 +54,11 @@ for i in requirements:
 requirements.append("lancedb @ git+https://github.com/lancedb/lancedb.git#egg=subdir&subdirectory=python")
 
 # Write the requirements and commands to files
-with open("testing-folder/joined-requirements.txt", "w") as f:
+with open("./testing-folder/joined-requirements.txt", "w") as f:
     for i in requirements:
         f.write(i + "\n")
 
-with open('testing-folder/commands.sh', 'w') as f:
+with open('./testing-folder/commands.sh', 'w') as f:
     for i in commands:
         f.write(i + "\n")
 
