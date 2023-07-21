@@ -1,4 +1,4 @@
-name: CI
+name: Docs Code Test
 
 on:
   push:
@@ -7,10 +7,14 @@ on:
     paths:
       - examples/**
       - .github/workflows/docs-test.yml
+      - compile_testing.py
+      - compile_testing.js
   pull_request:
     paths:
       - examples/**
       - .github/workflows/docs-test.yml
+      - compile_testing.py
+      - compile_testing.js
 
   workflow_dispatch:
 
