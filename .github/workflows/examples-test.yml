@@ -57,6 +57,8 @@ jobs:
           for d in *; do
             if [[ $d == *.py ]]; then
               echo "$d";
+              pwd
+              ls
               python "$d";
             fi
           cd ..;
