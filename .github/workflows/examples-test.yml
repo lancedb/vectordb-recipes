@@ -53,6 +53,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         working-directory: testing-folder
         run: |
+          pwd
+          cd testing-folder
           for d in *; do
             if [[ $d == *.py ]]; then
               echo "$d";
@@ -86,7 +88,7 @@ jobs:
         cd testing-folder
         bash merge-package.sh
         cat package.json.temp
-        iconv -f UTF-16 -t UTF-16 package.json.temp > package.json
+        iconv -f UTF-8 -t UTF-8 package.json.temp > package.json
         cat package.json
         npm install
     - uses: swatinem/rust-cache@v2
