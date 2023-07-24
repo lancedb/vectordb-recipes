@@ -79,10 +79,10 @@ jobs:
         sudo apt update
         sudo apt install -y protobuf-compiler libssl-dev
         npm install -g package-json-merge
-    - name: Create files
-      run: |
         node compile_testing.js
-        cd testing-folder
+    - name: Create files
+      working-directory: testing-folder
+      run: |
         bash merge-package.sh
         iconv -f UTF-8 -t UTF-8 package.json.temp > package.json
         cat package.json

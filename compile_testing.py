@@ -3,7 +3,7 @@ import os, shutil
 excluded_folders = [
     "Code-Documentation-QA-Bot",
     "youtube_bot",
-    "movie-recommender",
+    "reducing_hallucinations_ai_agents",
     "multimodal_clip",
 ]
 
