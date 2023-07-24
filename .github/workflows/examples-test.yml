@@ -53,7 +53,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         working-directory: testing-folder
         run: |
-          for d in /*; do
+          for d in *; do
             if [[ $d == *.py ]]; then
               echo "$d";
               python "$d";
