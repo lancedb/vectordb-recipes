@@ -51,8 +51,8 @@ jobs:
       - name: Run tests
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        working-directory: testing-folder
         run: |
-          cd testing-folder
           pwd
           for d in *; do
             if [[ $d == *.py ]]; then
