@@ -54,6 +54,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           cd testing-folder
+          ls
           for d in *; do
             if [[ $d == *.py ]]; then
               echo "$d";
@@ -86,7 +87,7 @@ jobs:
         node compile_testing.js
         cd testing-folder
         bash merge-package.sh
-        cat package.json
+        cat package.json > package.json
         npm install
     - uses: swatinem/rust-cache@v2
     - name: Install LanceDB
