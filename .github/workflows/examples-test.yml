@@ -90,7 +90,7 @@ jobs:
       working-directory: testing-folder
       run: |
         ls
-        npm init
+        npm init -y
         pwd
         ls
         npm install
