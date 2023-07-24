@@ -86,6 +86,9 @@ jobs:
         bash merge-package.sh
         iconv -f UTF-8 -t UTF-8 package.json.temp > package.json
         cat package.json
+    - name: Install dependencies 2
+      working-directory: testing-folder
+      run: |
         pwd
         ls
         npm install
