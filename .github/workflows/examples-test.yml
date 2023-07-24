@@ -51,8 +51,8 @@ jobs:
       - name: Run tests
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        working-directory: testing-folder
         run: |
+          cd testing-folder
           pwd
           for d in *; do
             if [[ $d == *.py ]]; then
@@ -81,10 +81,10 @@ jobs:
         sudo apt update
         sudo apt install -y protobuf-compiler libssl-dev
         npm install -g package-json-merge
-        node compile_testing.js
     - name: Create files
-      working-directory: testing-folder
       run: |
+        node compile_testing.js
+        cd testing-folder
         bash merge-package.sh
         iconv -f UTF-8 -t UTF-8 package.json.temp > package.json
         cat package.json
