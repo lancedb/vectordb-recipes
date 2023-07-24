@@ -80,19 +80,14 @@ jobs:
         sudo apt install -y protobuf-compiler libssl-dev
         npm install -g package-json-merge
         node compile_testing.js
+    - name: Debug
+      uses: mxschmitt/action-tmate@v3
     - name: Create files
       working-directory: testing-folder
       run: |
         bash merge-package.sh
         iconv -f UTF-8 -t UTF-8 temp.json > package.json
         cat package.json
-    - name: Install dependencies 2
-      working-directory: testing-folder
-      run: |
-        ls
-        npm init -y
-        pwd
-        ls
         npm install
     - uses: swatinem/rust-cache@v2
     - name: Install LanceDB
