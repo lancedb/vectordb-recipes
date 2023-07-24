@@ -76,7 +76,7 @@ fs.copyFile("package.json", './testing-folder/' + "old-package.json", (err) => {
 package_files.push("old-package.json");
 
 // Create package merge command
-var command = "package-json-merge " + package_files.join(' ') + " > package.json";
+var command = "package-json-merge " + package_files.join(' ') + " > package.json.temp";
 fs.writeFile('./testing-folder/merge-package.sh', command, function (err) {});
 
 // Create dataset download command
