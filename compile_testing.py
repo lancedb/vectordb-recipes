@@ -4,7 +4,7 @@ excluded_folders = [
     "Code-Documentation-QA-Bot",
     "youtube_bot",
     "movie-recommender",
-    "multimodal_clip",
+    "reducing_hallucinations_ai_agents",
 ]
 
 try:
