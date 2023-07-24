@@ -10,6 +10,6 @@
     "license": "Apache-2.0",
     "dependencies": {
         "openai": "^3.3.0",
-        "vectordb": "https://gitpkg.now.sh/lancedb/lancedb/node?main"
+        "vectordb": "https://gitpkg.now.sh/lancedb/lancedb?main"
     }
 }

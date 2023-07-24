@@ -1,4 +1,4 @@
-name: Docs Code Test
+name: Examples Code Test
 
 on:
   push:
@@ -6,13 +6,13 @@ on:
       - main
     paths:
       - examples/**
-      - .github/workflows/docs-test.yml
+      - .github/workflows/examples-test.yml
       - compile_testing.py
       - compile_testing.js
   pull_request:
     paths:
       - examples/**
-      - .github/workflows/docs-test.yml
+      - .github/workflows/examples-test.yml
       - compile_testing.py
       - compile_testing.js
 

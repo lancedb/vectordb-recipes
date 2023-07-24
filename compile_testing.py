@@ -1,4 +1,9 @@
-import os, shutil, subprocess
+import os, shutil
+
+excluded_folders = [
+    "Code-Documentation-QA-Bot",
+    "youtube_bot"
+]
 
 try:
     os.mkdir("testing-folder")
@@ -13,7 +18,7 @@ commands = []
 # For each folder in the examples folder
 for folders in os.listdir(root):
     folder = os.path.join(root, folders)
-    if os.path.isdir(folder):
+    if os.path.isdir(folder) and folders not in excluded_folders:
         for file in os.listdir(folder):
             # If the file is a requirements.txt file, add it to the list of requirements
             if file.endswith("requirements.txt"):

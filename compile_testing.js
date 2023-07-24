@@ -1,6 +1,11 @@
 var fs = require('fs');
 var dir = './testing-folder';
 
+const excluded_folders = [
+    "Code-Documentation-QA-Bot",
+    "youtube_bot"
+];
+
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 }
@@ -13,7 +18,7 @@ var examples = fs.readdirSync('./examples');
 for (var i = 0; i < examples.length; i++) {
     var example = examples[i];
     var examplePath = './examples/' + example;
-    if (fs.lstatSync(examplePath).isDirectory()) {
+    if (fs.lstatSync(examplePath).isDirectory() && !excluded_folders.includes(example)) {
         var files = fs.readdirSync(examplePath);
         for (var j = 0; j < files.length; j++) {
             var file = files[j];
