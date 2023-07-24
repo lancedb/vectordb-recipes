@@ -86,7 +86,7 @@ jobs:
         cd testing-folder
         bash merge-package.sh
         cat package.json.temp
-        iconv -f UTF-16 -t UTF-8 package.json.temp > package.json
+        iconv -f UTF-16 -t UTF-16 package.json.temp > package.json
         cat package.json
         npm install
     - uses: swatinem/rust-cache@v2
