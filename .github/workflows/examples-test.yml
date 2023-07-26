@@ -17,6 +17,7 @@ on:
       - compile_testing.js
 
   workflow_dispatch:
+  repository_dispatch:
 
 
 jobs:
