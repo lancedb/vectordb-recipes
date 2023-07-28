@@ -101,7 +101,8 @@ jobs:
         iconv -f UTF-8 -t UTF-8 temp.json > package.json
         cat package.json
         npm install
-        npm uninstall @lancedb/vectordb-linux-x64-gnu
+        : # npm uninstall @lancedb/vectordb-linux-x64-gnu
+    - uses: mxschmitt/action-tmate@v3
     - name: Install LanceDB
       working-directory: lancedb/node
       run: |
@@ -111,7 +112,6 @@ jobs:
             npm install "$d";
           fi
         done
-    - uses: swatinem/rust-cache@v2
     - name: Download datasets
       run: |
         cd testing-folder

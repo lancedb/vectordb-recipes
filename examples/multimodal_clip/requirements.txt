@@ -4,3 +4,6 @@ transformers
 pyarrow
 argparse
 lancedb
+torch
+torchvision
+torchaudio
