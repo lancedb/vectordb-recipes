@@ -101,8 +101,7 @@ jobs:
         iconv -f UTF-8 -t UTF-8 temp.json > package.json
         cat package.json
         npm install
-        : # npm uninstall @lancedb/vectordb-linux-x64-gnu
-    - uses: mxschmitt/action-tmate@v3
+        npm uninstall vectordb
     - name: Install LanceDB
       working-directory: testing-folder
       run: |
