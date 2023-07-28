@@ -84,7 +84,7 @@ jobs:
         sudo apt update
         sudo apt install -y protobuf-compiler libssl-dev
         npm install -g package-json-merge
-    - name: Install LanceDB
+    - name: Build LanceDB
       working-directory: lancedb/node
       run: |
         npm ci
@@ -100,6 +100,16 @@ jobs:
         iconv -f UTF-8 -t UTF-8 temp.json > package.json
         cat package.json
         npm install
+        npm uninstall vectordb
+    - name: Install LanceDB
+      working-directory: lancedb/node
+      run: |
+        for d in *; do
+          if [[ $d == *.tgz ]]; then
+            echo "$d";
+            npm install "$d";
+          fi
+        done
     - uses: swatinem/rust-cache@v2
     - name: Download datasets
       run: |
