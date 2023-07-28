@@ -7,6 +7,7 @@ import lance
 import pyarrow.compute as pc
 from transformers import CLIPModel, CLIPProcessor, CLIPTokenizerFast
 import gradio as gr
+import pytest
 
 MODEL_ID = None
 MODEL = None
@@ -109,5 +110,15 @@ def args_parse():
 if __name__ == "__main__":
     args = args_parse()
     setup_clip_model(args.model_id)
+    tbl = create_table(args.dataset)
+    create_gradio_dash()
+
+
+# TESTING ==============================================================
+
+def test_main():
+    args = argparse.Namespace(model_id="openai/clip-vit-base-patch32", dataset="rawdata.lance")
+    setup_clip_model(args.model_id)
+    global tbl
     tbl = create_table(args.dataset)
     create_gradio_dash()

@@ -57,7 +57,7 @@ jobs:
           for d in *; do
             if [[ $d == *.py ]]; then
               echo "$d";
-              pytest "$d";
+              pytest "$d" -s;
             fi
           done
   test-node:
@@ -101,7 +101,7 @@ jobs:
         iconv -f UTF-8 -t UTF-8 temp.json > package.json
         cat package.json
         npm install
-        npm uninstall vectordb
+        npm uninstall @lancedb/vectordb-linux-x64-gnu
     - name: Install LanceDB
       working-directory: lancedb/node
       run: |
