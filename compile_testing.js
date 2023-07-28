@@ -4,8 +4,6 @@ var dir = './testing-folder';
 const excluded_folders = [
     "Code-Documentation-QA-Bot",
     "youtube_bot",
-    "movie-recommender",
-    "multimodal_clip",
 ];
 
 if (!fs.existsSync(dir)){

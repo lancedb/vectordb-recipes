@@ -1,7 +1,7 @@
 import os, shutil
 
 excluded_folders = [
-    "Code-Documentation-QA-Bot",
+
 ]
 
 try:

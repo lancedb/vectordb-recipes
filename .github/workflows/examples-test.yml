@@ -104,23 +104,22 @@ jobs:
         : # npm uninstall @lancedb/vectordb-linux-x64-gnu
     - uses: mxschmitt/action-tmate@v3
     - name: Install LanceDB
-      working-directory: lancedb/node
+      working-directory: testing-folder
       run: |
-        for d in *; do
+        for d in ../lancedb/node/*; do
           if [[ $d == *.tgz ]]; then
             echo "$d";
             npm install "$d";
           fi
         done
     - name: Download datasets
-      run: |
-        cd testing-folder
-        bash commands.sh
+      working-directory: testing-folder
+      run: bash commands.sh
     - name: Run tests
+      working-directory: testing-folder
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
-        cd testing-folder
         for d in *; do
           if [[ $d == *.js ]]; then
             echo "$d";
