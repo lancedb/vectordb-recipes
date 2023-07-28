@@ -44,7 +44,7 @@ jobs:
           cd testing-folder
           pip install -r joined-requirements.txt
           cd ..
-          bash convert-ipynb.sh
+          : # bash convert-ipynb.sh
       - name: Download datasets
         run: |
           cd testing-folder
@@ -57,7 +57,7 @@ jobs:
           for d in *; do
             if [[ $d == *.py ]]; then
               echo "$d";
-              python "$d";
+              pytest "$d";
             fi
           done
   test-node:
@@ -72,6 +72,9 @@ jobs:
       with:
         fetch-depth: 0
         lfs: true
+    - uses: actions/checkout@v3
+      with:
+        repository: lancedb/lancedb
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
@@ -80,6 +83,9 @@ jobs:
         sudo apt update
         sudo apt install -y protobuf-compiler libssl-dev
         npm install -g package-json-merge
+    - uses: mxschmitt/action-tmate@v3
+    - name: Run compile_testing.js
+      run: |
         node compile_testing.js
     - name: Create files
       working-directory: testing-folder

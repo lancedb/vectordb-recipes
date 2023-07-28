@@ -2,3 +2,4 @@ lancedb
 openai
 datasets
 nbconvert
+pytest

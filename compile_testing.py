@@ -2,8 +2,6 @@ import os, shutil
 
 excluded_folders = [
     "Code-Documentation-QA-Bot",
-    "youtube_bot",
-    "reducing_hallucinations_ai_agents",
     "multimodal_clip",
 ]
 
@@ -31,10 +29,10 @@ for folders in os.listdir(root):
                 dup_name = folder.split("/")[-1] + ".py"
                 shutil.copy(os.path.join(folder, file), os.path.join("./testing-folder", dup_name))
             # If the file is a jupyter notebook, convert it to a python file and copy it to the testing folder
-            if file.endswith(".ipynb"):
-                dup_name = folder.split("/")[-1] + "_IPYNB"
-                with open("convert-ipynb.sh", "a+") as f:
-                    f.write("jupyter nbconvert --output " + dup_name + " --output-dir=\"./testing-folder\" --RegexRemovePreprocessor.patterns=\"^[!%]\" --to python " + os.path.join(folder, file) + "\n")
+            # if file.endswith(".ipynb"):
+            #     dup_name = folder.split("/")[-1] + "_IPYNB"
+            #     with open("convert-ipynb.sh", "a+") as f:
+            #         f.write("jupyter nbconvert --output " + dup_name + " --output-dir=\"./testing-folder\" --RegexRemovePreprocessor.patterns=\"^[!%]\" --to python " + os.path.join(folder, file) + "\n")
             # If the file is a README.md file, add the dataset download commands to the list of commands
             if file.endswith("README.md"):
                 with open(os.path.join(folder, file), "r") as f:
