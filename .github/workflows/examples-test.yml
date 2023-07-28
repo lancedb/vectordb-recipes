@@ -76,6 +76,7 @@ jobs:
       with:
         repository: lancedb/lancedb
         path: './lancedb'
+        ref: main
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
