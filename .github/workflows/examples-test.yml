@@ -84,7 +84,12 @@ jobs:
         sudo apt update
         sudo apt install -y protobuf-compiler libssl-dev
         npm install -g package-json-merge
-    - uses: mxschmitt/action-tmate@v3
+    - name: Install LanceDB
+      working-directory: lancedb/node
+      run: |
+        npm ci
+        npm run tsc
+        npm pack
     - name: Run compile_testing.js
       run: |
         node compile_testing.js
@@ -96,12 +101,6 @@ jobs:
         cat package.json
         npm install
     - uses: swatinem/rust-cache@v2
-    - name: Install LanceDB
-      run: |
-        cd testing-folder/node_modules/vectordb
-        npm ci
-        npm run build-release
-        npm run tsc
     - name: Download datasets
       run: |
         cd testing-folder
