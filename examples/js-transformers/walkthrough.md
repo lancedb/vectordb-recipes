@@ -64,7 +64,7 @@ const data = [
 ]
 
 // Create the table with the embedding function
-const table = await db.createTable('food_table', data, "create", embed_fun)
+const table = await db.createTable('food_table', data, embed_fun)
 ```
 
 ### Performing the search
