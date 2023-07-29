@@ -4,7 +4,7 @@ var dir = './testing-folder';
 const excluded_folders = [
     "Code-Documentation-QA-Bot",
     "youtube_bot",
-    "reducing_hallucinations_ai_agents_index",
+    "reducing_hallucinations_ai_agents",
 ];
 
 if (!fs.existsSync(dir)){
