@@ -1,7 +1,7 @@
 import os, shutil
 
 excluded_folders = [
-
+    "multimodal_clip"
 ]
 
 try:
