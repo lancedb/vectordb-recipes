@@ -45,12 +45,12 @@ jobs:
         working-directory: examples
         run: |
           for folder in *; do
-            pwd
+            echo "$folder";
             if [ ! -f "$folder"/test.py ]; then
               continue
             fi
             for file in "$folder"/*; do
-              pwd
+              echo "$file";
               if [[ $file == requirements.txt ]]; then
                 echo "$file";
                 python -m pip install -r "$file";
