@@ -30,14 +30,11 @@ YOLOExplorer : Iterate on your YOLO / CV datasets using SQL, Vector semantic sea
 ## Developing Examples
 
 Create a new folder with either a `main.py` or `index.js` file. If you are writing solely in python, be sure also include a `main.ipynb`
-file that walks through your example. Additionally, please include `pytest` unit tests for your functions (or main). Take a look at some
-of the other examples, and please mock your api calls using `pytest`. If you are writing api calls in javascript, add to the files ignored
+file that walks through your example. Additionally, please include `test.py` file that include `pytest` unit tests for your functions (or main). Take a look at some of the other examples, and please mock your api calls using `pytest`. If you are writing api calls in javascript, add to the files ignored
 within the `compile_testing.js` file in the root directory.
 
-If you require a dataset to be downloaded before you can run either files, please include bash script within your `README.md` file, like this:
+If you require a dataset to be downloaded before you can run either files, please include bash script within your `test.py` file, like this:
 
-(from the movie-recommender example)
 ```bash
-curl https://files.grouplens.org/datasets/movielens/ml-latest-small.zip -o ml-latest-small.zip
-unzip ml-latest-small.zip
+subprocess.Popen("wget dataset.zip", shell=True).wait()
 ```

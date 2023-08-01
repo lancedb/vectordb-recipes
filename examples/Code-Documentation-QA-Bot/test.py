@@ -1,4 +1,3 @@
-import main
 import pytest
 import os
 import openai
@@ -9,6 +8,7 @@ import pickle
 import requests
 import zipfile
 from pathlib import Path
+from main import get_document_title
 
 from langchain.document_loaders import BSHTMLLoader
 from langchain.embeddings import OpenAIEmbeddings
@@ -49,7 +49,7 @@ def test_main(mock_embed):
             raw_document = loader.load()
 
             m = {}
-            m["title"] = main.get_document_title(raw_document[0])
+            m["title"] = get_document_title(raw_document[0])
             m["version"] = "2.0rc0"
             raw_document[0].metadata = raw_document[0].metadata | m
             raw_document[0].metadata["source"] = str(raw_document[0].metadata["source"])

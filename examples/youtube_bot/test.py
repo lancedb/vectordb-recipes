@@ -7,6 +7,7 @@ from datasets import load_dataset
 import openai
 import pytest
 import subprocess
+from main import embed_func, create_prompt, complete
 
 # DOWNLOAD ==============================================================
 

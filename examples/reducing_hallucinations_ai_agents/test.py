@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 import argparse
 import lancedb
 import pytest
+from main import insert_critiques, retrieve_critiques, create_prompt, run_agent
 
 # TESTING ===========================================================
 

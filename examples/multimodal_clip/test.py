@@ -9,6 +9,7 @@ from transformers import CLIPModel, CLIPProcessor, CLIPTokenizerFast
 import gradio as gr
 import pytest
 import subprocess
+from main import create_table, setup_clip_model, find_image_vectors, find_image_keywords, find_image_sql, embed_func, create_gradio_dash, _extract
 
 # DOWNLOAD ==============================================================
 
