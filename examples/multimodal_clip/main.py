@@ -112,13 +112,3 @@ if __name__ == "__main__":
     setup_clip_model(args.model_id)
     tbl = create_table(args.dataset)
     create_gradio_dash()
-
-
-# TESTING ==============================================================
-
-def test_main():
-    args = argparse.Namespace(model_id="openai/clip-vit-base-patch32", dataset="rawdata.lance")
-    setup_clip_model(args.model_id)
-    global tbl
-    tbl = create_table(args.dataset)
-    create_gradio_dash()
