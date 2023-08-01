@@ -5,7 +5,7 @@ import pandas as pd
 import pytest
 
 
-def get_recommendations(title):
+def get_recommendations(data, title):
     pd_data = pd.DataFrame(data)
     # Table Search
     result = table.search(pd_data[pd_data['title'] == title]["vector"].values[0]).limit(5).to_df()
