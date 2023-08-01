@@ -27,6 +27,7 @@ def mock_embed(monkeypatch):
 
 
 def test_main(mock_embed):
+    os.mkdir("./tmp")
     args = argparse.Namespace(query="test", openai_key="test")
     os.environ['OPENAI_API_KEY'] = "test"
 
