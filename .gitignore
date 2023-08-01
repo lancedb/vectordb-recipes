@@ -7,4 +7,6 @@ package-lock.json
 **.pkl
 pandas_docs
 **.lance
+/examples/movie-recommender/ml-latest-small
+/examples/movie-recommender/trained_model*
 __pycache__
