@@ -7,7 +7,6 @@ import lance
 import pyarrow.compute as pc
 from transformers import CLIPModel, CLIPProcessor, CLIPTokenizerFast
 import gradio as gr
-import pytest
 
 MODEL_ID = None
 MODEL = None

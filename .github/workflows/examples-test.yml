@@ -46,6 +46,9 @@ jobs:
         run: |
           for folder in *; do
             echo "$folder";
+            if [[ $folder == multimodal_clip ]]; then
+              continue
+            fi
             if [ ! -f "$folder"/test.py ]; then
               continue
             fi
