@@ -1,0 +1,4 @@
+panns-inference
+torch
+tqdm
+ipython

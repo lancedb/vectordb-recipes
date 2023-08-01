@@ -7,3 +7,4 @@ package-lock.json
 **.pkl
 pandas_docs
 **.lance
+__pycache__
