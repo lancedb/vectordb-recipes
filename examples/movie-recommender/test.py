@@ -4,7 +4,8 @@ import numpy as np
 import pandas as pd
 import pytest
 import subprocess
-from main import get_recommendations, data, table
+from main import get_recommendations, data
+import main
 
 # DOWNLOAD ======================================================
 
@@ -45,9 +46,9 @@ def test_main():
 
     db = lancedb.connect("./data/test-db")
     try:
-        table = db.create_table("movie_set", data=data)
+        main.table = db.create_table("movie_set", data=data)
     except:
-        table = db.open_table("movie_set")
+        main.table = db.open_table("movie_set")
 
 
     print(get_recommendations("Moana (2016)"))
