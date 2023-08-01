@@ -41,5 +41,7 @@ def search_audio(id):
 
 if __name__ == "__main__":
 
-    insert_audio()
-    search_audio(400)
+    # insert_audio()
+
+    # The audio won't display in command line, but it will display in Jupyter Notebook
+    search_audio(500)
