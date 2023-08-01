@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import pytest
 import subprocess
-from main import get_recommendations
+from main import get_recommendations, data, table
 
 # DOWNLOAD ======================================================
 
@@ -36,8 +36,6 @@ def test_main():
     movies = pd.read_csv('./ml-latest-small/movies.csv', header=0, names=["movie id", "title", "genres"])
     movies = movies[movies['movie id'].isin(reviewmatrix.columns)]
 
-    global data
-    data = []
     for i in range(len(movies)):
         data.append({"id": movies.iloc[i]["movie id"], "title": movies.iloc[i]['title'], "vector": vectors[i], "genre": movies.iloc[i]['genres']})
     print(pd.DataFrame(data))
@@ -46,12 +44,11 @@ def test_main():
     # Connect to LanceDB
 
     db = lancedb.connect("./data/test-db")
-    global table
     try:
         table = db.create_table("movie_set", data=data)
     except:
         table = db.open_table("movie_set")
 
 
-    print(get_recommendations(data, "Moana (2016)"))
-    print(get_recommendations(data, "Rogue One: A Star Wars Story (2016)"))
+    print(get_recommendations("Moana (2016)"))
+    print(get_recommendations("Rogue One: A Star Wars Story (2016)"))

@@ -2,10 +2,13 @@ import lancedb
 
 import numpy as np
 import pandas as pd
-import pytest
 
+global data
+data = []
+global table
+table = None
 
-def get_recommendations(data, title):
+def get_recommendations(title):
     pd_data = pd.DataFrame(data)
     # Table Search
     result = table.search(pd_data[pd_data['title'] == title]["vector"].values[0]).limit(5).to_df()
@@ -61,6 +64,6 @@ if __name__ == "__main__":
         table = db.open_table("movie_set")
 
 
-    print(get_recommendations(data, "Moana (2016)"))
-    print(get_recommendations(data, "Rogue One: A Star Wars Story (2016)"))
+    print(get_recommendations("Moana (2016)"))
+    print(get_recommendations("Rogue One: A Star Wars Story (2016)"))
 
