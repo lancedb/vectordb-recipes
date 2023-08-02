@@ -1,0 +1,9 @@
+duckdb
+gradio
+transformers
+pyarrow
+argparse
+lancedb
+torch
+torchvision
+torchaudio

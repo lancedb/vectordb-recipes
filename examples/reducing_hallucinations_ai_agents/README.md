@@ -8,13 +8,13 @@ Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/ve
 
 Set environment variables for SerpApi and OpenAI API
 
-```bash
+```javascript
 export OPENAI_API_KEY=...
 export SERPAPI_API_KEY=...
 ```
 
 ### Python
-Run the script 
+Run the script
 ```python
 python main.py --query "university student, loves running"
 ```

@@ -7,8 +7,9 @@ from langchain.tools import tool
 from pydantic import BaseModel, Field
 import argparse
 import lancedb
+import pytest
 
-def embed_func(c):    
+def embed_func(c):
     rs = openai.Embedding.create(input=c, engine=EMBEDDINGS_MODEL)
     return [record["embedding"] for record in rs["data"]]
 
@@ -53,7 +54,7 @@ def create_prompt(info: str) -> str:
         "\n\n1. Retrieve using user info and review the past actions and critiques if there is any\n"+
         "2. Keep past actions and critiques in mind while researching for an exercise routine with steps which we respond to the user\n"+
         "3. Before returning the response, it is of upmost importance to insert the actions you took (numbered list: searched for, found this, etc.) and critiques (negative feedback: limitations, potential biases, and more) into the database for getting better exercise routines in the future. \n"
-    )   
+    )
     return prompt_start + info + prompt_end
 
 def run_agent(info):

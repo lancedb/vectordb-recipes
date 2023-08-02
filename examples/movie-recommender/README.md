@@ -5,6 +5,10 @@ Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/ve
 
 ### Get dataset
 Download and unzip the dataset from [MovieLens](https://grouplens.org/datasets/movielens/latest/). The example uses the 100k small dataset.
+```bash
+curl https://files.grouplens.org/datasets/movielens/ml-latest-small.zip -o ml-latest-small.zip
+unzip ml-latest-small.zip
+```
 
 ### Python
 Run the script

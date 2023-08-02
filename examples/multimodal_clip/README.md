@@ -6,13 +6,13 @@ Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/ve
 
 ### Get dataset
 ```bash
-!wget https://eto-public.s3.us-west-2.amazonaws.com/datasets/diffusiondb_lance.tar.gz
-!tar -xvf diffusiondb_lance.tar.gz
-!mv diffusiondb_test rawdata.lance
+wget https://eto-public.s3.us-west-2.amazonaws.com/datasets/diffusiondb_lance.tar.gz
+tar -xvf diffusiondb_lance.tar.gz
+mv diffusiondb_test rawdata.lance
 ```
 
 ### Python
-Run the script 
+Run the script
 ```python
 python main.py
 ```

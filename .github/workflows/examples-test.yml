@@ -1,0 +1,137 @@
+name: Examples Code Test
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - examples/**
+      - .github/workflows/examples-test.yml
+      - compile_testing.py
+      - compile_testing.js
+  pull_request:
+    paths:
+      - examples/**
+      - .github/workflows/examples-test.yml
+      - compile_testing.py
+      - compile_testing.js
+
+  workflow_dispatch:
+  repository_dispatch:
+
+
+jobs:
+  test-python:
+    name: Test python examples
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ "11" ]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.${{ matrix.python-version }}
+          cache: "pip"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          sudo apt-get install unzip
+      - name: Run tests
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        working-directory: examples
+        run: |
+          for folder in *; do
+            echo "$folder";
+            if [[ $folder == multimodal_clip ]]; then
+              continue
+            fi
+            if [ ! -f "$folder"/test.py ]; then
+              continue
+            fi
+            cd "$folder"
+            for file in *; do
+              echo "$file";
+              if [[ $file == requirements.txt ]]; then
+                echo "$file";
+                python -m pip install -r "$file";
+                pip uninstall lancedb -y
+                pip install "lancedb @ git+https://github.com/lancedb/lancedb.git#egg=subdir&subdirectory=python"
+              fi
+            done
+            for file in *; do
+              if [[ $file == test.py ]]; then
+                echo "$file";
+                pytest "$file";
+              fi
+            done
+            cd ..
+          done
+  test-node:
+    name: Test node examples
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ "18" ]
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        lfs: true
+    - uses: actions/checkout@v3
+      with:
+        repository: lancedb/lancedb
+        path: './lancedb'
+        ref: main
+    - uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y protobuf-compiler libssl-dev
+        npm install -g package-json-merge
+    - name: Build LanceDB
+      working-directory: lancedb/node
+      run: |
+        npm ci
+        npm run tsc
+        npm pack
+    - name: Run compile_testing.js
+      run: |
+        node compile_testing.js
+    - name: Create files
+      working-directory: testing-folder
+      run: |
+        bash merge-package.sh
+        iconv -f UTF-8 -t UTF-8 temp.json > package.json
+        cat package.json
+        npm install
+        npm uninstall vectordb
+    - name: Install LanceDB
+      working-directory: testing-folder
+      run: |
+        for d in ../lancedb/node/*; do
+          if [[ $d == *.tgz ]]; then
+            echo "$d";
+            npm install "$d";
+          fi
+        done
+    - name: Download datasets
+      working-directory: testing-folder
+      run: bash commands.sh
+    - name: Run tests
+      working-directory: testing-folder
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: |
+        for d in *; do
+          if [[ $d == *.js ]]; then
+            echo "$d";
+            node "$d";
+          fi
+        done
