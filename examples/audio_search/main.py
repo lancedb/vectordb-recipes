@@ -41,7 +41,9 @@ def search_audio(id):
 
 if __name__ == "__main__":
 
-    # insert_audio()
+    # This function will take a while to run
+    # Run if you don't have the LanceDB table yet, but skip if you already have it
+    insert_audio()
 
     # The audio won't display in command line, but it will display in Jupyter Notebook
     search_audio(500)

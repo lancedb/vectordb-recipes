@@ -1,2 +1,0 @@
-pillow
-git+https://github.com/openai/CLIP.git
