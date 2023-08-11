@@ -1,3 +1,5 @@
 lancedb
 openai
-datasets 
+datasets
+nbconvert
+pytest

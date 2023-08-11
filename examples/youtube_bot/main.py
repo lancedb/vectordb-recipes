@@ -5,6 +5,7 @@ from lancedb.context import contextualize
 from lancedb.embeddings import with_embeddings
 from datasets import load_dataset
 import openai
+import pytest
 
 OPENAI_MODEL = None
 
@@ -36,7 +37,7 @@ def create_prompt(query, context):
                 prompt_start +
                 "\n\n---\n\n".join(context.text) +
                 prompt_end
-            )    
+            )
     return prompt
 
 def complete(prompt):
@@ -98,4 +99,4 @@ if __name__ == "__main__":
     complete(prompt)
     top_match = context.iloc[0]
     print(f"Top Match: {top_match['url']}&t={top_match['start']}")
-    
+
