@@ -74,7 +74,6 @@ def _extract(df):# Define a 3x3 Python list to store the HTML code
     grid_html = '<div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 20px;">'
 
     for _, row in df.iterrows():
-        print(row['text'])
         iframe_code = f'<iframe width="100%" height="315" src="https://www.youtube.com/embed/{row[video_id_col]}?start={str(row[start_time_col])}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
         grid_html += f'<div style="width: 100%;">{iframe_code}</div>'
 
