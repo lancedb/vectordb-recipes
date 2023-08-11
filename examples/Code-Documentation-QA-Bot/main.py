@@ -96,4 +96,3 @@ if __name__ == "__main__":
 
     result = qa.run(args.query)
     print(result)
-
