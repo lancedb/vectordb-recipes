@@ -7,3 +7,7 @@ package-lock.json
 **.pkl
 pandas_docs
 **.lance
+venv
+
+# multi-modal search example
+examples/multimodal_video_search/videos
