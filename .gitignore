@@ -7,6 +7,12 @@ package-lock.json
 **.pkl
 pandas_docs
 **.lance
+venv
+__pycache__
+
+# multi-modal search example
+examples/multimodal_video_search/videos
+
+# movie recommender example
 /examples/movie-recommender/ml-latest-small
 /examples/movie-recommender/trained_model*
-__pycache__
