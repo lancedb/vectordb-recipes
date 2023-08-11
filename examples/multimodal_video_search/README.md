@@ -11,7 +11,7 @@ Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/ve
 ```bash
 wget https://vectordb-recipes.s3.us-west-2.amazonaws.com/multimodal_video_lance.tar.gz
 tar -xvf multimodal_video_lance.tar.gz
-mv multimodal_video_test rawdata.lance
+mv multimodal_video.lance rawdata.lance
 ```
 
 ### Python
