@@ -16,11 +16,6 @@ mv multimodal_video.lance data/video-lancedb/
 
 ### Python
 
-Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
 Run the script 
 ```python
 python main.py
