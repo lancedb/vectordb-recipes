@@ -1,9 +1,6 @@
 import argparse
-import io
-import PIL
 import duckdb
 import lancedb
-import lance
 import pyarrow.compute as pc
 from transformers import CLIPModel, CLIPProcessor, CLIPTokenizerFast
 import gradio as gr
@@ -13,16 +10,9 @@ MODEL = None
 TOKENIZER = None
 PROCESSOR = None
 
-def create_table(dataset):
+def get_table():
     db = lancedb.connect("data/video-lancedb")
-    if "multimodal_video" in db.table_names():
-        tbl = db.open_table("multimodal_video")
-        return tbl
-    data = lance.dataset(dataset).to_table()
-    tbl = db.create_table("multimodal_video", data.filter(~pc.field("text").is_null()), mode="overwrite")
-    # tbl.create_fts_index(["text"])
-
-    return tbl
+    return db.open_table("multimodal_video")
 
 def setup_clip_model(model_id):
     global MODEL_ID, MODEL, TOKENIZER, PROCESSOR
@@ -52,7 +42,7 @@ def find_video_keywords(query):
         "import lancedb\n"
         "db = lancedb.connect('data/video-lancedb')\n"
         "tbl = db.open_table('multimodal_video')\n\n"
-        f"tbl.search('{query}').where(video_id IN (SELECT DISTINCT video_id FROM videos);).limit(9).to_df()"
+        f"tbl.search('{query}').limit(9).to_df()"
     )
     return (_extract(tbl.search(query).limit(9).to_df()), code)
 
@@ -85,17 +75,17 @@ def create_gradio_dash():
         gr.Markdown('''
                     # Multimodal Video Search with LanceDB
                     We used LanceDB to store frames every thirty seconds and the title of 13000+ videos, 5 random from each top category from the Youtube 8M dataset. 
-                    Then, we used the CLIP model to embed frames and titles together. Here are the results.
+                    Then, we used the CLIP model to embed frames and titles together. With LanceDB, we can perform embedding, keyword, and SQL search on these videos.
                     ''')
         with gr.Row():
             with gr.Tab("Embeddings"):
-                vector_query = gr.Textbox(value="cooking show", show_label=False)
+                vector_query = gr.Textbox(value="retro gaming", show_label=False)
                 b1 = gr.Button("Submit")
-            # with gr.Tab("Keywords"):
-            #     keyword_query = gr.Textbox(value="ninja turtle", show_label=False)
-            #     b2 = gr.Button("Submit")
+            with gr.Tab("Keywords"):
+                keyword_query = gr.Textbox(value="ninja turtles", show_label=False)
+                b2 = gr.Button("Submit")
             with gr.Tab("SQL"):
-                sql_query = gr.Textbox(value="SELECT DISTINCT * from videos WHERE start_time > 0 LIMIT 9", show_label=False)
+                sql_query = gr.Textbox(value="SELECT DISTINCT video_id, * from videos WHERE start_time > 0 LIMIT 9", show_label=False)
                 b3 = gr.Button("Submit")
         with gr.Row():
             code = gr.Code(label="Code", language="python")
@@ -103,7 +93,7 @@ def create_gradio_dash():
             gallery = gr.HTML()
             
         b1.click(find_video_vectors, inputs=vector_query, outputs=[gallery, code])
-        # b2.click(find_video_keywords, inputs=keyword_query, outputs=[gallery, code])
+        b2.click(find_video_keywords, inputs=keyword_query, outputs=[gallery, code])
         b3.click(find_video_sql, inputs=sql_query, outputs=[gallery, code])
         
     demo.launch()
@@ -111,11 +101,10 @@ def create_gradio_dash():
 def args_parse():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_id", type=str, default="openai/clip-vit-base-patch32")
-    parser.add_argument("--dataset", type=str, default="rawdata.lance")
     return parser.parse_args()
 
 if __name__ == "__main__":
     args = args_parse()
     setup_clip_model(args.model_id)
-    tbl = create_table(args.dataset)
+    tbl = get_table()
     create_gradio_dash()
