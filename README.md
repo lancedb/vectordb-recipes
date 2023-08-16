@@ -22,17 +22,6 @@ Examples
 | [YOLOExplorer](https://github.com/lancedb/yoloexplorer) | Iterate on your YOLO / CV datasets using SQL, Vector semantic search, and more within seconds                  | ![YOLOExplorer](https://github.com/lancedb/vectordb-recipes/assets/15766192/ae513a29-8f15-4e0b-99a1-ccd8272b6131) |
 | [Website Chatbot (Deployable Vercel Template)](https://github.com/lancedb/lancedb-vercel-chatbot) | Create a chatbot from the sitemap of any website/docs of your choice. Built using vectorDB serverless native javascript package. | ![Chatbot](assets/vercel-template.gif)    |
 
-## Projects
-Some real-world vectordb projects and packages
-### [YOLOExplorer](https://github.com/lancedb/yoloexplorer)
-YOLOExplorer : Iterate on your YOLO / CV datasets using SQL, Vector semantic search, and more within seconds
-![dash_intro](https://github.com/lancedb/vectordb-recipes/assets/15766192/ae513a29-8f15-4e0b-99a1-ccd8272b6131)
-
-### [Website Chatbot (Deployable Vercel Template)](https://github.com/lancedb/lancedb-vercel-chatbot)
-Create a chatbot from the sitemap of any website/docs of your choice. Built using vectorDB serverless native javascript package.
-![vercel-template](assets/vercel-template.gif)
-
-
 
 ## Contributing Examples
 
