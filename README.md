@@ -1,5 +1,5 @@
 # VectorDB-recipes
-Example Applications
+Examples
 
 | Example | Interactive Envs | Scripts  |
 |-------- | ---------------- | ------   |
@@ -13,24 +13,17 @@ Example Applications
 | [Movie Recommender](./examples/movie-recommender/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/movie-recommender/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> | [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./examples/movie-recommender/main.py)  |
 | [Audio Search](./examples/audio_search/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/audio_search/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> | [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./examples/audio_search/main.py)  |
 | [Multimodal Image + Text Search](./examples/multimodal_search/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/multimodal_search/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> | [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./examples/multimodal_search/main.py)  |
+| [Evaluating Prompts with Prompttools](./examples/prompttools-eval-prompts/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/prompttools-eval-prompts/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> |  |
 
-## Setup
-### Quickstart
-Install python and javascript dependencies for all examples. Some examples might have extra folder level dependencies.
-```bash
-pip install -r requirements.txt
-```
-```bas
-npm i
-```
+## Projects & Applications
 
-## Projects Gallery
-Some real-world vectordb projects and packages
-### [YOLOExplorer](https://github.com/lancedb/yoloexplorer)
-YOLOExplorer : Iterate on your YOLO / CV datasets using SQL, Vector semantic search, and more within seconds
-![dash_intro](https://github.com/lancedb/vectordb-recipes/assets/15766192/ae513a29-8f15-4e0b-99a1-ccd8272b6131)
+| Project Name                                        | Description                                                                                                          | Screenshot                                |
+|-----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
+| [YOLOExplorer](https://github.com/lancedb/yoloexplorer) | Iterate on your YOLO / CV datasets using SQL, Vector semantic search, and more within seconds                  | ![YOLOExplorer](https://github.com/lancedb/vectordb-recipes/assets/15766192/ae513a29-8f15-4e0b-99a1-ccd8272b6131) |
+| [Website Chatbot (Deployable Vercel Template)](https://github.com/lancedb/lancedb-vercel-chatbot) | Create a chatbot from the sitemap of any website/docs of your choice. Built using vectorDB serverless native javascript package. | ![Chatbot](assets/vercel-template.gif)    |
 
-## Developing Examples
+
+## Contributing Examples
 
 Create a new folder with either a `main.py` or `index.js` file. If you are writing solely in python, be sure also include a `main.ipynb`
 file that walks through your example. Additionally, please include `test.py` file that include `pytest` unit tests for your functions (or main). Take a look at some of the other examples, and please mock your api calls using `pytest`. If you are writing api calls in javascript, add to the files ignored
@@ -41,3 +34,5 @@ If you require a dataset to be downloaded before you can run either files, pleas
 ```bash
 subprocess.Popen("wget dataset.zip", shell=True).wait()
 ```
+
+Note: If you're not sure about the steps, please simply open a PR with your example and we'll be happy to help you out!
