@@ -1,7 +1,7 @@
 # Product Recommender using Collaborative Filtering and LanceDB
 
 Use LanceDB and collaborative filtering to recommend products based on a user's past buying history. We used the Instacart dataset as our data for this example.
-Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/product_recommender/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/product-recommender/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 To run this example, you must first create a Kaggle account. Then, go to the 'Account' tab of your user profile and select 'Create New Token'. This will trigger the download of kaggle.json, a file containing your API credentials.
 
