@@ -1,5 +1,3 @@
-"""
-
 import openai
 import argparse
 import lancedb
@@ -14,6 +12,7 @@ def mock_embed_func(monkeypatch):
         return {"data": [{"embedding": [0.1, 0.2, 0.3]}, {"embedding": [0.4, 0.5, 0.6]}]}
     monkeypatch.setattr(openai.Embedding, 'create', mock_api_call)
 
+@pytest.mark.skip(reason="Temporarily excluded")
 def test_main(mock_embed_func):
     args = argparse.Namespace(query="test", llm="test", embeddings="test")
 
@@ -22,4 +21,3 @@ def test_main(mock_embed_func):
 
     print(insert_critiques)
     print(retrieve_critiques)
-"""
