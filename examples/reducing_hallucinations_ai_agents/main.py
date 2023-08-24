@@ -7,7 +7,6 @@ from langchain.tools import tool
 from pydantic import BaseModel, Field
 import argparse
 import lancedb
-import pytest
 
 def embed_func(c):
     rs = openai.Embedding.create(input=c, engine=EMBEDDINGS_MODEL)
