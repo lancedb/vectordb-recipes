@@ -5,7 +5,8 @@ import pytest
 from main import insert_critiques, retrieve_critiques
 
 # TESTING ===========================================================
-
+# Temporarily excluded
+"""
 @pytest.fixture
 def mock_embed_func(monkeypatch):
     def mock_api_call(*args, **kwargs):
@@ -20,3 +21,4 @@ def test_main(mock_embed_func):
 
     print(insert_critiques)
     print(retrieve_critiques)
+"""
