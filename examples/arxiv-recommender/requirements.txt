@@ -1,0 +1,3 @@
+lancedb
+open_clip_torch
+arxiv
