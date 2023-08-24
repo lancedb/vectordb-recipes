@@ -1,4 +1,8 @@
 # VectorDB-recipes
+
+<a href="https://discord.gg/zMM32dvNtd">Discord</a> •
+<a href="https://twitter.com/lancedb">Twitter</a>
+
 Examples
 
 | Example | Interactive Envs | Scripts  |
