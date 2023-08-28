@@ -17,6 +17,7 @@ def create_table(dataset):
     db = lancedb.connect("~/datasets/demo")
     if "diffusiondb" in db.table_names():
         return db.open_table("diffusiondb")
+    
     data = lance.dataset(dataset).to_table()
     tbl = db.create_table("diffusiondb", data.filter(~pc.field("prompt").is_null()), mode="overwrite")
     tbl.create_fts_index(["prompt"])
@@ -103,7 +104,7 @@ def create_gradio_dash():
 def args_parse():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_id", type=str, default="openai/clip-vit-base-patch32")
-    parser.add_argument("--dataset", type=str, default="rawdata.lance")
+    parser.add_argument("--dataset", type=str, default="rawdata.lance/diffusiondb_test")
     return parser.parse_args()
 
 if __name__ == "__main__":
