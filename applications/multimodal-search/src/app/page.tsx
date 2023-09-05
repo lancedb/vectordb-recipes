@@ -77,12 +77,14 @@ export default function Home() {
           (loading || imgs.length==0) ? (
             <div className="flex flex-col items-center justify-center flex-1">
               loading...
+              {error}
             </div>
           ) : (
             <div className="flex flex-col flex-1">              
               <SearchBar handleQuery={search}/>
               <Gallery imgs={imgs} />
             </div>
+        
           )
         }
         </div>
