@@ -25,6 +25,7 @@ export default function SearchBar({ handleQuery }: { handleQuery: any }) {
           accept="image/*"
           style={{ display: "none" }}
           onChange={(e) => {
+            if (e.target.files === null) return;
             const file = e.target.files[0];
             const reader = new FileReader();
             reader.readAsDataURL(file);
