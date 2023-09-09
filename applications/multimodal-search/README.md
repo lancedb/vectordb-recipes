@@ -1,7 +1,6 @@
 # Multimodal Search Engine -  Next.js Template
 
-
-
+![ezgif com-optimize (7)](https://github.com/lancedb/vectordb-recipes/assets/15766192/9805fec8-da72-44c0-be12-ddbe1c2d6afc)
 
 ## Development
 
