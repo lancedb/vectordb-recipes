@@ -18,10 +18,13 @@ Get hands-on experience with QLoRA implementation using Transformers and Bits & 
 
 For a deeper dive into cutting-edge technology and to access all the technical knowledge, read our [Medium Blog](https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755).
 
-## Access the Colab Notebook
+## Access the Colab Notebook 
 
-Try it out in the [Google Colab Notebook](https://colab.research.google.com/drive/1-KLXbVZjxOtA_B5EjWWlcHOTM477Fka2?usp=sharing).
+Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Code-Documentation-QA-Bot/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
-Stay tuned for more insights into the world of Large Language Models (LLMs) in our upcoming blogs. Your support is greatly appreciated—please leave a like if you found our exploration enlightening.
+## Learn More in Our Blog
 
-For an in-depth understanding of these technologies and to ignite your next project, explore the [vector-recipes repository](https://github.com/lancedb/vectordb-recipes), packed with real-world examples, use cases, and recipes. We hope you find this journey both informative and inspiring. Cheers!
+For an in-depth understanding of our chatbot's capabilities and the technologies behind it, read our blog post. It's a comprehensive resource that delves into the intricacies of our approach.
+
+[Read the Blog Post](https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755)
+
