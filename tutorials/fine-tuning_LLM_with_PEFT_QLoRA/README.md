@@ -20,8 +20,10 @@ For a deeper dive into cutting-edge technology and to access all the technical k
 
 ## Access the Colab Notebook
 
-Try it out in the [Google Colab Notebook](https://colab.research.google.com/drive/1-KLXbVZjxOtA_B5EjWWlcHOTM477Fka2?usp=sharing).
+Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/chatbot_using_Llama2_&_lanceDB/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
-Stay tuned for more insights into the world of Large Language Models (LLMs) in our upcoming blogs. Your support is greatly appreciated—please leave a like if you found our exploration enlightening.
+### Learn More in Our Blog
 
-For an in-depth understanding of these technologies and to ignite your next project, explore the [vector-recipes repository](https://github.com/lancedb/vectordb-recipes), packed with real-world examples, use cases, and recipes. We hope you find this journey both informative and inspiring. Cheers!
+For a detailed understanding of PEFT,lora-Qlora technologies check out our blog post. It explains our approach in a clear and thorough manner.
+
+[Read the Blog Post](https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755)
