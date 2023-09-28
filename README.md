@@ -35,7 +35,7 @@ Examples
 | Tutorial | Interactive Environment | Blog Link |
 | --------- | -------------------------- | ----------- |
 |           |                            |             |
-| [Fine-Tuning LLM using PEFT & QLoRA](./tutorials/fine-tuning_LLM_with_PEFT_QLoRA) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/chatbot_using_Llama2_&_lanceDB/main.ipynb) | [Read the Blog](https://blog.lancedb.com/fine-tuning-llm-using-peft-qlora-methods-12345678) |
+| [Fine-Tuning LLM using PEFT & QLoRA](./tutorials/fine-tuning_LLM_with_PEFT_QLoRA) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/chatbot_using_Llama2_&_lanceDB/main.ipynb) | [Read the Blog](https://blog.lancedb.com/optimizing-llms-a-step-by-step-guide-to-fine-tuning-with-peft-and-qlora-22eddd13d25b) |
 | [Context-Aware Chatbot using Llama 2 & LanceDB](./tutorials/chatbot_using_Llama2_&_lanceDB) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/fine-tuning_LLM_with_PEFT_QLoRA/main.ipynb) | [Read the Blog](https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755) |
 
 
