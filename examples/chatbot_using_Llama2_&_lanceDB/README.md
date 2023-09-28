@@ -18,7 +18,7 @@ We demonstrate the powerful combination of LangChain and LanceDB alongside the L
 
 Dive into the world of context-aware chatbots by starting with our Colab walkthrough. It's an interactive guide that takes you through the process step by step.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1-KLXbVZjxOtA_B5EjWWlcHOTM477Fka2?usp=sharing)
+Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/chatbot_using_Llama2_&_lanceDB/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 ### Learn More in Our Blog
 
