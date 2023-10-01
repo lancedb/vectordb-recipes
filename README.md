@@ -7,7 +7,7 @@ This repository contains examples, applications, starter code, & tutorials to he
 - It **integrates into python data ecosystem** so you can simply start using these in your existing data pipelines in pandas, arrow, pydantic etc.
 - LanceDB has **native javascript library** using which you can **run vector search applications in your browser** as serverless functions!
 
-<img src="./assets/lancedb-illustration.png" />
+<img src="./assets/lancedb-illustration.png" height="85%" width="85%" />
 <br />
 Join our community for support - <a href="https://discord.gg/zMM32dvNtd">Discord</a> •
 <a href="https://twitter.com/lancedb">Twitter</a>
