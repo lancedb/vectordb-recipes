@@ -5,7 +5,7 @@ This repository contains examples, applications, starter code, & tutorials to he
 
 - These are built using LanceDB, a free, open-source, serverless vectorDB that **requires no setup**. 
 - It **integrates into python data ecosystem** so you can simply start using these in your existing data pipelines in pandas, arrow, pydantic etc.
-- LanceDB has **native javascript library** using which you can **run vector search applications in your browser** as serverless functions!
+- LanceDB has **native Typescript SDK** using which you can **run vector search** in serverless functions!
 
 <img src="./assets/lancedb-illustration.png" height="85%" width="85%" />
 <br />
@@ -24,7 +24,7 @@ Applied examples that get right into the code with minimal introduction, aimed a
 Examples are available as:
 * **Colab notebooks** - that builds the application is stages allowing you to investigate results at every intermediate stage.
 * **Python scripts** - for cases where you'd like directly to use the file or snippets to integrate in your application
-* **JS/TS scripts** - Some examples are written using lancedb's native js library that allows you to run vector search right inside your brower! These script/snippets can also be directly integrated in your web applications.
+* **JS/TS scripts** - Some examples are written using lancedb's native js library! These script/snippets can also be directly integrated in your web applications.
 
 If you're looking for in-depth tutorial-like examples, checkout the [tutorials](#tutorials) section!
 
