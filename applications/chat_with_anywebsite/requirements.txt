@@ -1,1 +1,6 @@
 openai
+langchain 
+tiktoken
+lancedb
+ctransformers
+sentence-transformers
