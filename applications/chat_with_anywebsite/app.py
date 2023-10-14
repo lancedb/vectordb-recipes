@@ -53,11 +53,13 @@ class ChatbotHelper:
         return documents
 
     def load_llm(self):
-        llm = CTransformers(
-            model="mistral-7b-instruct-v0.1.Q5_K_M.gguf",
-            model_type="mistral"
+        # download your llm in system or use it else
+        #llm = CTransformers(
+        #    model="mistral-7b-instruct-v0.1.Q5_K_M.gguf",
+        #    model_type="mistral"
         )
-        return llm
+        llm = CTransformers(model='TheBloke/Mistral-7B-v0.1-GGUF', model_file='mistral-7b-v0.1.Q4_K_M.gguf',model_type="mistral")
+        return llm 
 
     def split_text(self, documents):
         text_splitter = RecursiveCharacterTextSplitter(
