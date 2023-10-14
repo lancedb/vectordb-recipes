@@ -1,3 +1,4 @@
+#import libraries
 import os
 import re
 import openai
@@ -23,178 +24,131 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.document_loaders import DirectoryLoader
 from langchain.document_loaders.csv_loader import CSVLoader
 
-# Set OpenAI API key as an environment variable
-#os.environ["OPENAI_API_KEY"] = getpass.getpass("Enter your OpenAI API key: ")
-#OPENAI_API_KEY  ='YOURTKEYpaste her-sk-9Tnu7YtoZNNqs
-
-def find_urls(text: str) -> List:
-
-    # Regular expression to match common URLs and ones starting with 'www.'
-    url_pattern = re.compile(r'https?://\S+|www\.\S+')
-    return url_pattern.findall(text)
-
-# for pdf reading
-def get_pdf_text(pdf_docs):
-    text = ""
-    for pdf in pdf_docs:
-        pdf_reader = PdfReader(pdf)
-        for page in pdf_reader.pages:
-            text += page.extract_text()
-    return text
 
 
-def website_loader(website: Union[str, list[str]]) -> List[langchain.schema.document.Document]:
+class ChatbotHelper:
 
-    print("Loading website(s) into Documents...")
-    documents = WebBaseLoader(web_path=website).load()
-    print("Done loading website(s).")
-    return documents
+    def __init__(self):
+        self.chatbot_instance = None
+        self.chat_history = []
+        self.chunks = None
 
+    def find_urls(self, text: str) -> List[str]:
+        url_pattern = re.compile(r'https?://\S+|www\.\S+')
+        return url_pattern.findall(text)
 
-def split_text(documents: List) -> List[langchain.schema.document.Document]:
+    def initialize_chatbot(self, urls: List[str]):
+        documents = self.load_website_content(urls)
+        chunks = self.split_text(documents)
+        embedder = self.bge_embedding(chunks)
+        vectorstore = self.create_vector_store(chunks, embedder)
+        retriever = self.create_retriever(vectorstore)
+        self.chatbot_instance = self.create_chatbot(retriever)
+        return "Chatbot initialized! How can I assist you? now ask your Quetions" 
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=120,
-                                                   chunk_overlap=20,
-                                                   length_function=len
-                                                   )
-    chunks = text_splitter.transform_documents(documents)
-    print("Done splitting documents.")
-    return chunks
+    def load_website_content(self, urls):
+        print("Loading website(s) into Documents...")
+        documents = WebBaseLoader(web_path=urls).load()
+        print("Done loading website(s).")
+        return documents
 
-
-
-def bge_embedding(chunks:List):
-
-    print("Creating bge embedder...")
-    
-    model_name = "BAAI/bge-base-en"
-    encode_kwargs = {'normalize_embeddings': True} # set True to compute cosine similarity
-
-    embedder = HuggingFaceBgeEmbeddings(
-        model_name=model_name,
-        model_kwargs={'device': 'cpu'},
-        encode_kwargs=encode_kwargs
-    )
-
-    return embedder
-
-
-def create_vector_store(chunks: List[langchain.schema.document.Document],
-                        embedder):
-  
-    print("Creating vectorstore...")
-    #vectorstore = FAISS.from_documents(chunks, embedder)
-    #return vectorstore
-
-    db = lancedb.connect('/tmp/lancedb')
-    table = db.create_table("pdf_sear1ch", data=[
-        {"vector": embedder.embed_query("Hello World"), "text": "Hello World", "id": "1"}
-    ], mode="overwrite")
-    vectorstore = LanceDB.from_documents(chunks, embedder, connection=table)
-    return vectorstore
-
-# download llm  model & put in working directory
-# https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF
-
-def load_llm():
-    # Load the locally downloaded model here
-    llm = CTransformers(
-        model = "mistral-7b-instruct-v0.1.Q5_K_M.gguf",    
-        model_type="mistral"
-    )
-    return llm
-
-
-
-def create_retriever(vectorstore) :
-
-    print("Creating vectorstore retriever...")
-    retriever = vectorstore.as_retriever()
-    return retriever
-
-
-def embed_user_query(query: str) -> List[float]:
-
-    core_embeddings_model = bge_embedding(chunks)  # bge ranked top on leaderbord  https://huggingface.co/spaces/mteb/leaderboard
-    #HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2",
-    #                                model_kwargs={'device':"cpu"})
-    
-    #OpenAIEmbeddings() 
-    embedded_query = core_embeddings_model.embed_query(query)
-    return embedded_query
-
-def similarity_search(vectorstore: langchain.vectorstores,
-                      embedded_query: List[float]) -> List[langchain.schema.document.Document]:
-
-    response = vectorstore.similarity_search_by_vector(embedded_query, k=4)
-    return response
-
-
-def create_chatbot(retriever):
-
-    #llm = ChatOpenAI(model="gpt-3.5-turbo")
-    llm = load_llm()
-    memory = ConversationBufferMemory(
-        memory_key='chat_history',
-        return_messages=True
+    def load_llm(self):
+        llm = CTransformers(
+            model="mistral-7b-instruct-v0.1.Q5_K_M.gguf",
+            model_type="mistral"
         )
+        return llm
 
-    conversation_chain = ConversationalRetrievalChain.from_llm(
-        llm=llm,
-        retriever=retriever,
-        memory=memory
+    def split_text(self, documents):
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=120,
+            chunk_overlap=20,
+            length_function=len
         )
-    return conversation_chain
+        chunks = text_splitter.transform_documents(documents)
+        print("Done splitting documents.")
+        return chunks
 
-def chat(conversation_chain, input: str) -> str:
+    def bge_embedding(self, chunks):
+        print("Creating bge embedder...")
+        model_name = "BAAI/bge-base-en"
+        encode_kwargs = {'normalize_embeddings': True}
+        embedder = HuggingFaceBgeEmbeddings(
+            model_name=model_name,
+            model_kwargs={'device': 'cpu'},
+            encode_kwargs=encode_kwargs
+        )
+        return embedder
 
-    return conversation_chain.run(input)
+    def create_vector_store(self, chunks, embedder):
+        print("Creating vectorstore...")
+        db = lancedb.connect('/tmp/lancedb')
+        table = db.create_table("pdf_search", data=[
+            {"vector": embedder.embed_query("Hello World"), "text": "Hello World", "id": "1"}
+        ], mode="overwrite")
+        vectorstore = LanceDB.from_documents(chunks, embedder, connection=table)
+        return vectorstore
 
-text = """
-your expert at answering the quetions which asked by user. I need you to go to the following URLs and get information about them 
-https://blog.lancedb.com/llms-rag-the-missing-storage-layer-for-ai-28ded35fa984
-and this https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755
+    def create_retriever(self, vectorstore):
+        print("Creating vectorstore retriever...")
+        retriever = vectorstore.as_retriever()
+        return retriever
 
-if you dont know the answer said that 'i dont know this dude'
-"""
+    def embed_user_query(self, query):
+        if self.chunks is None:
+            return "Chatbot not initialized. Please provide a URL first."
+        core_embeddings_model = self.bge_embedding(self.chunks)
+        embedded_query = core_embeddings_model.embed_query(query)
+        return embedded_query
 
+    def create_chatbot(self, retriever):
+        llm = self.load_llm()
+        memory = ConversationBufferMemory(
+            memory_key='chat_history',
+            return_messages=True
+        )
+        conversation_chain = ConversationalRetrievalChain.from_llm(
+            llm=llm,
+            retriever=retriever,
+            memory=memory
+        )
+        return conversation_chain
 
-# This chatbot_instance will be initialized once a URL is provided.
-chatbot_instance = None
+    def chat(self, conversation_chain, input):
+        return conversation_chain.run(input)
 
-def respond(message, chat_history):
-    global chatbot_instance
-    if message.lower() == "clear":
-        chatbot_instance = None  # Reset the chatbot instance
-        chat_history.clear()  # Clear chat history
-        return "", chat_history
+    def respond(self, message):
+        if message.lower() == "clear":
+            self.chatbot_instance = None
+            self.chat_history.clear()
+            return "", self.chat_history
 
-    urls = find_urls(message)
+        urls = self.find_urls(message)
 
-    # If the chatbot is not yet initialized and we have URLs, initialize it
-    if not chatbot_instance and urls:
-        #documents = load_pdf(path)
-        documents = website_loader(urls)
-        chunks = split_text(documents)
-        embedder = bge_embedding(chunks)
-        vectorstore = create_vector_store(chunks, embedder)
-        retriever = create_retriever(vectorstore)
-        chatbot_instance = create_chatbot(retriever)
-        bot_message = "Chatbot initialized ! Now how can I help you?"
-    else:
-        if chatbot_instance:
-            bot_message = chat(chatbot_instance, message)
+        if not self.chatbot_instance and urls:
+            bot_message = self.initialize_chatbot(urls)
         else:
-            bot_message = "Please provide a URL to initialize the chatbot first, then ask any questions related to that site."
+            if self.chatbot_instance:
+                bot_message = self.chat(self.chatbot_instance, message)
+            else:
+                bot_message = "Please provide a URL to initialize the chatbot first, then ask any questions related to that site."
 
-    chat_history.append((message, bot_message))
-    return "", chat_history
+        self.chat_history.append((message, bot_message))
+        chat_history_text = "\n".join([f"User: {msg[0]}\nBot: {msg[1]}\n" for msg in self.chat_history])
+        return bot_message
 
-with gr.Blocks() as demo:
-    chatbot = gr.Chatbot()
-    user_query = gr.Textbox(label="Your Query", placeholder="How can I assist you today?")
-    clear = gr.ClearButton([user_query, chatbot])
+    def run_interface(self):
 
-    user_query.submit(respond, [user_query, chatbot], [user_query, chatbot])
+ 
+        iface = gr.Interface(
+            fn=self.respond,
+            title="Chatbot with URL or any website ",
+            inputs=gr.Textbox(label="Your Query", placeholder="Type your query here...",lines=5),
+            outputs=[gr.Textbox(label="Chatbot Response", type="text", default="Chatbot response will appear here.", lines=10)],
+    
+        )
+        iface.launch()
 
-demo.launch(debug=True)
+if __name__ == "__main__":
+    chatbot_helper = ChatbotHelper()
+    chatbot_helper.run_interface()
