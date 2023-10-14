@@ -1,0 +1,7 @@
+openai
+langchain 
+tiktoken
+lancedb
+gradio
+ctransformers
+sentence-transformers
