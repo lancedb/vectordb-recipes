@@ -57,7 +57,7 @@ class ChatbotHelper:
         #llm = CTransformers(
         #    model="mistral-7b-instruct-v0.1.Q5_K_M.gguf",
         #    model_type="mistral"
-        )
+        #)
         llm = CTransformers(model='TheBloke/Mistral-7B-v0.1-GGUF', model_file='mistral-7b-v0.1.Q4_K_M.gguf',model_type="mistral")
         return llm 
 
