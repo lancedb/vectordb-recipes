@@ -54,6 +54,7 @@ def main(query=None):
         # add in batches to avoid token limit
         tbl.add(data)
         data = []
+        print("Added batch. Sleeping for 20 seconds to avoid rate limit")
         time.sleep(20) # wait for 20 seconds to avoid rate limit
 
     if not query:
