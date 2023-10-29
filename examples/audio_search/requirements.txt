@@ -2,3 +2,5 @@ panns-inference
 torch
 tqdm
 ipython
+lancedb
+datasets

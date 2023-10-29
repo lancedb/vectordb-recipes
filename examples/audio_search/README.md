@@ -1,5 +1,7 @@
 # Audio Similarity Search using Vector Embeddings
-This notebook demonstrates how to create vector embeddings of audio files to store into the LanceDB vector store, and then to find similar audio files.
+
+This notebook demonstrates how to create vector embeddings of audio files to store in the LanceDB vector store, and then to find similar audio files.
+
 Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/audio_search/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 ### Get dataset
