@@ -5,7 +5,7 @@ from streamlit_chat import message
 from scripts.models_preprocess import HRChatbot
 
 # Create an instance of the HRChatbot class
-chatbot = HRChatbot("employee_data_akash_modified.csv", "hr_policy_sample.txt", "aks desai")
+chatbot = HRChatbot("data/employee_data_akash_modified.csv", "data/hr_policy_sample.txt", "aks desai")
 
 def process_input(user_input):
     response = chatbot.get_response(user_input)
