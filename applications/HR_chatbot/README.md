@@ -14,11 +14,19 @@ HR Policy Data: The HR policy data is generated using open-source models and ser
 
 Employee Data: Dummy employee data is used for demonstration purposes. You have the flexibility to replace this data with your organization's employee data.
 
+
 Using LanceDB as Vectordb
 To facilitate efficient document retrieval and similarity-based queries, we utilize LanceDB as the vectordb. LanceDB helps optimize the chatbot's performance by enabling fast and accurate information retrieval.
 
 ## Getting Started
 Follow these steps to run the Autonomous HR Assistant Chatbot:
+
+```
+## main.py
+## Change these files for custom data.I'm using aks desai  as a default user 
+chatbot = HRChatbot("data/employee_info.csv", "data/hr_policy_sample.txt", "aks desai")
+
+```
 
 ### Install Requirements
 Use pip to install the necessary dependencies by running:
