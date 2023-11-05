@@ -20,10 +20,6 @@ from langchain.document_loaders import TextLoader
 from scripts.load_llm import llm_openai
 
 
-
-
-
-
 class HRChatbot:
     def __init__(self, df_path, text_data_path, user):
         self.df_path = df_path
