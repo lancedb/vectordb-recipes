@@ -18,11 +18,23 @@ Employee Data: Dummy employee data is used for demonstration purposes. You have 
 Using LanceDB as Vectordb
 To facilitate efficient document retrieval and similarity-based queries, we utilize LanceDB as the vectordb. LanceDB helps optimize the chatbot's performance by enabling fast and accurate information retrieval.
 
-## Getting Started
+### Getting Started
 Follow these steps to run the Autonomous HR Assistant Chatbot:
 
 ```
-## main.py
+# OpenAI API Key Setup
+1. Rename the `.env-example` file to `.env`.
+2. Inside the `.env` file, set your OpenAI API key as follows:
+   OPENAI_API_KEY=your_api_key_here
+3. Save the changes to the `.env` file.
+
+Your OpenAI API key is now securely stored in the `.env` file, and your project will automatically read it when needed.
+Remember to keep your `.env` file private and not share it publicly, as it contains sensitive information.```
+```
+
+
+```
+Edit file path in - main.py
 ## Change these files for custom data.I'm using aks desai  as a default user 
 chatbot = HRChatbot("data/employee_info.csv", "data/hr_policy_sample.txt", "aks desai")
 
