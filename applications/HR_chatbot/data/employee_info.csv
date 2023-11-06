@@ -1,0 +1,6 @@
+employee_id,name,designation,organizational_unit,date_of_joing,vacation_leave,sick_leave,month,basic,HRA,LTA,Special allowance,pf,employee_pf,PT,total deductuon,total_salary,inhand salary,employment_status,reporting_manger
+202,alex vag,Accounts Recievable Supervisor,Finance Department,02/01/13,30,15,november,60000,24000,4000,12000,3000,3000,200,6000,100000,94000,Permanent,Richard Santos
+203, Delos champ,HR Assistant,HR Department,12/1/2023,20,2,December,40001,24001,4001,10000,3000,2000,200,5000,78003,73003,Probation,Jinky Francisco
+204,hardik pandya,Account Recievable Assistant,Finance Department,9/8/2017,45,8,January,50002,22002,4002,8000,3002,1000,200,4002,84006,80004,Permanent,Joseph Santos
+205,Virat kolhi ,Recruitment Supervisor,HR Department,22/05/21,16,4,February,60003,24003,4003,90000,3000,3000,200,6000,178009,172009,Permanent,ayush chaur
+206,aks desai,ml engineer,Engineering Depatment,03/06/23,50,11,March,30004,10004,4004,10000,3000,2000,200,5000,54012,49012,Permanent,ayush cha
