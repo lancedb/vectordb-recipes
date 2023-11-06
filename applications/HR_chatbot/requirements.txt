@@ -32,7 +32,7 @@ Jinja2==3.1.2
 jsonschema==4.17.3
 jupyter_client==8.3.0
 jupyter_core==5.3.1
-langchain==0.0.220
+langchain==0.0.325
 langchainplus-sdk==0.0.19
 loguru==0.7.0
 markdown-it-py==3.0.0
