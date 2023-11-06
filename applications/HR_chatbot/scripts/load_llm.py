@@ -1,10 +1,17 @@
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chat_models import  ChatOpenAI
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.chat_models import  ChatOpenAI
+from langchain.chains import RetrievalQA
+from dotenv import load_dotenv
+import openai
+import os
 
+load_dotenv()
 class llm_openai:
     def __init__(self):
         self.llm = ChatOpenAI(
-            openai_api_key="sk-yourapikey",
+            openai_api_key= os.environ["OPENAI_API_KEY"],
             model_name="gpt-3.5-turbo",
             temperature=0.0,
         )
