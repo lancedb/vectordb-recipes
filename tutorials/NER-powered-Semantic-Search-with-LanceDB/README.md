@@ -1,4 +1,4 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1XgpnvtFR-azqzYZC226og3_iTa2wzUuY?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/NER-powered-Semantic-Search-with-LanceDB/NER_powered_Semantic_Search_with_LanceDB.ipynb)
 
 ## Methods of Named Entity Recognition
 - **Dictionary-Based NER** — In this method, a vocabulary-based dictionary is utilized, and basic string-matching algorithms are employed to determine if an entity exists within the provided text by comparing it with the entries in the vocabulary. However, this method is typically avoided due to the necessity of regularly updating and maintaining the dictionary.
