@@ -2,7 +2,7 @@
 
 Using this application, You can talk to any Youtube Video using GPT4 Vision API.
 
-[![Watch the video](demo_video/demo.png)](demo_video/demo.mp4)
+[![Watch the video](applications/talk-with-youtube-gpt4-vision-api/demo_video/demo.png)](applications/talk-with-youtube-gpt4-vision-api/demo_video/demo.mp4)
 
 ## Quickstart
 - Change `OPENAPIKEY` in .env file
