@@ -1,0 +1,7 @@
+opencv-python
+openai==0.28.1
+pytube
+langchain 
+lancedb 
+tiktoken
+streamlit
