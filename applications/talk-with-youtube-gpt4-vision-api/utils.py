@@ -35,7 +35,7 @@ def prompting(base64Frames, openai_key):
         "role": "user",
         "content": [
             "These are frames from a video that I want to upload. Generate a description so that I can get all the information about video to chat with it.",
-            *map(lambda x: {"image": x, "resize": 360}, base64Frames[0::100]),],},]
+            *map(lambda x: {"image": x, "resize": 360}, base64Frames),],},]
     
     params = {
         "model": "gpt-4-vision-preview",
