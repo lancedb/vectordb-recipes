@@ -4,13 +4,12 @@ This repository is dedicated to showcasing the implementation of two groundbreak
 Overview
 The project is structured around two main components:
 
-FLAREChain for ArXiv Paper Q&A: An application (app.py) that demonstrates the FLARE technology, enabling users to ask questions directly to academic papers, particularly focusing on ArXiv papers.
+FLAREChain for ArXiv Paper Q&A: An application (app.py) that demonstrates the FLARE technology,
+enabling users to ask questions directly to academic papers, particularly focusing on ArXiv papers.
 
-HyDE: A Colab notebook implementation demonstrating the HyDE technology for advanced information retrieval without the need for relevance labels.
+Getting Started for Flaire chain 
 
-Getting Started
-Prerequisites
-Ensure you have the following dependencies installed:
+### install the pacages
 
 ```
 pip install -r requirements.txt
@@ -30,9 +29,10 @@ The Gradio app should now be running and accessible for interactions.
 ### Accessing the HyDE Colab Notebook
 For a practical demonstration of the HyDE technology, access our Colab notebook:
 
-Open In Colab - HyDE Walkthrough
-Additional Resources
-Medium Blog
+Colab walkthrough - HyDE Walkthrough  <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/chatbot_using_Llama2_&_lanceDB/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+
+### Learn deeper in Our Blog
+
 For a deeper dive into the cutting-edge technologies of FLARE and HyDE, and to access detailed technical knowledge, check out our Medium Blog.
 
-
+[Read the Blog Post](https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755)
