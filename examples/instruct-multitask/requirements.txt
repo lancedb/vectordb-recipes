@@ -1,0 +1,7 @@
+InstructorEmbedding 
+
+sentence-transformers 
+
+torch 
+
+pandas
