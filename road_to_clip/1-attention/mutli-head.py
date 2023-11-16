@@ -44,7 +44,7 @@ class MultiHeadAttention(nn.Module):
         K = K.transpose(1, 2)
         V = V.transpose(1, 2)
 
-        # Calculate attention scores using scaled dot-product attention
+        # Calculate attention scores using scaled dot-product attention. Dim of scores: (batch_size, self.num_heads, seq_len, seq_len)
         scores = torch.matmul(Q, K.transpose(-2, -1)) / torch.sqrt(torch.tensor(self.head_dim).float())
 
         # Apply mask (if provided)
@@ -54,13 +54,34 @@ class MultiHeadAttention(nn.Module):
         # Apply softmax to get attention weights
         attn_weights = F.softmax(scores, dim=-1)
 
-        # Apply attention weights to the value vectors
+        # Apply attention weights to the value vectors. Dim of context: (batch_size, self.num_heads, seq_len, self.head_dim)
         context = torch.matmul(attn_weights, V)
 
-        # Transpose and concatenate to get back to the input dimensions
+        # Transpose and concatenate to get back to the input dimensions. Dim: (batch_size, seq_len, input_dim)
         context = context.transpose(1, 2).contiguous().view(batch_size, -1, self.num_heads * self.head_dim)
 
-        # Apply output linear layer
+        # Apply output linear layer. Dim: (batch_size, seq_len, input_dim)
         output = self.W_out(context)
 
-        return output, attn_weights
+        return output
+
+
+if __name__ == "__main__":
+    # Test case
+    input_size = 128
+    num_heads = 8
+    seq_len = 10
+    batch_size = 32
+
+    # Create a random input tensor
+    input_tensor = torch.randn(batch_size, seq_len, input_size)
+
+    # Instantiate the MultiHeadAttention module
+    attention = MultiHeadAttention(input_size, num_heads)
+
+    # Forward pass
+    query = key = value = input_tensor
+    output = attention(query, key, value)
+
+    print("Input shape:", input_tensor.shape)
+    print("Output shape:", output.shape)
