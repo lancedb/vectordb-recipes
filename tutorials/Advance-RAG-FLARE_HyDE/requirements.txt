@@ -1,7 +1,0 @@
-langchain 
-openai 
-tiktoken
-lancedb
-pypdf
-gradio
-arxivloader
