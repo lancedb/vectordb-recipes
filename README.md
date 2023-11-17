@@ -85,15 +85,4 @@ Learn about GenAI and vectorDBs using LanceDB in the recently launched [Udacity 
 
 
 ## Contributing Examples
-
-Create a new folder with either a `main.py` or `index.js` file. If you are writing solely in python, be sure also include a `main.ipynb`
-file that walks through your example. Additionally, please include `test.py` file that include `pytest` unit tests for your functions (or main). Take a look at some of the other examples, and please mock your api calls using `pytest`. If you are writing api calls in javascript, add to the files ignored
-within the `compile_testing.js` file in the root directory.
-
-If you require a dataset to be downloaded before you can run either files, please include bash script within your `test.py` file, like this:
-
-```bash
-subprocess.Popen("wget dataset.zip", shell=True).wait()
-```
-
-Note: If you're not sure about the steps, please simply open a PR with your example and we'll be happy to help you out!
+If you're working on some cool applications that you'd like to add to this repo, please open a PR!
