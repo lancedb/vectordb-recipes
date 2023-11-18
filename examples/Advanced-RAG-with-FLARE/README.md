@@ -30,4 +30,4 @@ also we provided Colab walkthrough for HyDE   <a href="https://colab.research.go
 
 For a deeper dive into the cutting-edge technologies of FLARE, and to access detailed technical knowledge, check out our Medium Blog.
 
-[Read the Blog Post](https://medium.com/@aksdesai1998/better-rag-enhancing-ai-with-active-retrieval-augmented-generation-flare-3b66646e2a9f)
+[Read the Blog Post](https://blog.lancedb.com/better-rag-with-active-retrieval-augmented-generation-flare-3b66646e2a9f)
