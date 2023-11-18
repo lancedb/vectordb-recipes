@@ -1,9 +1,0 @@
-langchain 
-openai 
-tiktoken
-lancedb
-pypdf
-gradio
-sentence_transformers
-arxiv
-pymupdf
