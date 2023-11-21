@@ -1,5 +1,5 @@
 # LLM Pre-training Data loading with Lance
-![GPT](https://github.com/lancedb/vectordb-recipes/assets/15766192/11b3b900-0bcb-4a4a-8fd4-804611c85972)
+![GPT](https://raw.githubusercontent.com/tanaymeh/vectordb-recipes/add_llm_pretraining_example/examples/llm-pretraining-dataloading/gpt_model_architecture.png)
 
 In this example, we will Pre-train a GPT model from scratch on the TinyStories dataset. For the complex task of memory-efficient data loading, we will be using lance.
 
