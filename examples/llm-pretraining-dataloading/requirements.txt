@@ -1,0 +1,8 @@
+numpy
+torch
+pyarrow
+pylance
+lightning
+tqdm
+transformers
+datasets
