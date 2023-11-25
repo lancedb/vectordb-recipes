@@ -1,8 +1,8 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/NER-powered-Semantic-Search-with-LanceDB/NER_powered_Semantic_Search_with_LanceDB.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/NER-powered-Semantic-Search/NER_powered_Semantic_Search_with_LanceDB.ipynb)
 
 ## Methods of Named Entity Recognition
 - **Dictionary-Based NER** — In this method, a vocabulary-based dictionary is utilized, and basic string-matching algorithms are employed to determine if an entity exists within the provided text by comparing it with the entries in the vocabulary. However, this method is typically avoided due to the necessity of regularly updating and maintaining the dictionary.
 - **Rule-Based NER** — This approach relies on employing a predefined collection of rules for extracting information, with these rules being categorized into two types: pattern-based and context-based. Pattern-based rules analyze the morphological patterns of words, while context-based rules examine the context in which the words appear within the text document.
 - **Deep Learning- Based NER** — Deep learning NER outperforms all other methods in terms of accuracy due to its ability to construct word associations, leading to a superior understanding of the semantic and syntactic connections among words. Additionally, it possesses the capability to automatically analyze topic-specific and high-level terminology.
 
-[Read More](https://medium.com/@prasantdixit/ner-powered-semantic-search-using-lancedb-51051dc3e493)
+[Read More](https://medium.com/etoai/ner-powered-semantic-search-using-lancedb-51051dc3e493)
