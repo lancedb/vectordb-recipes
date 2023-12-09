@@ -24,4 +24,4 @@ also we provided Colab walkthrough for Hybrid search  <a href="https://colab.res
 Learn deeper in Our Blog
 For a deeper dive into the cutting-edge technologies of Hybrid search, and to access detailed technical knowledge, check out our Medium Blog.
 
-[Read the Blog Post](https://blog.lancedb.com/hybrid-search-combining-bm25-and-lancedb-for-better-results-1358038fe7e6)
+[Read the Blog Post](https://aksdesai1998.medium.com/hybrid-search-combining-bm25-and-semantic-search-for-better-results-with-lan-1358038fe7e6)
