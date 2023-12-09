@@ -18,9 +18,10 @@ LanceDB's Magic: Deep semantic analysis to align search results with query inten
 Combined Power: Harmonizing both methods for superior search accuracy and relevance.
 
 
-also we provided Colab walkthrough for HYbrid search  
+also we provided Colab walkthrough for HYbrid search  <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Hybrid_search_bm25_lancedb/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+
 
 Learn deeper in Our Blog
-For a deeper dive into the cutting-edge technologies of Hybrid serch , and to access detailed technical knowledge, check out our Medium Blog.
+For a deeper dive into the cutting-edge technologies of Hybrid search, and to access detailed technical knowledge, check out our Medium Blog.
 
-Read the Blog Post 
+[Read the Blog Post](https://blog.lancedb.com/hybrid-search-combining-bm25-and-lancedb-for-better-results-1358038fe7e6)
