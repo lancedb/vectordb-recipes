@@ -52,8 +52,7 @@ If you're looking for in-depth tutorial-like examples, checkout the [tutorials](
 | [NER powered with Semantic Search](./tutorials/NER-powered-Semantic-Search-with-LanceDB) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/NER-powered-Semantic-Search/NER_powered_Semantic_Search_with_LanceDB.ipynb) | [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://blog.lancedb.com/ner-powered-semantic-search-using-lancedb-51051dc3e493)|
 [Sentiment Analysis : Analysing Hotel Reviews](./tutorials/Sentiment-Analysis-using-LanceDB) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/Sentiment-Analysis-Analyse-Hotel-Reviews/Sentiment-Analysis-using-LanceDB.ipynb) | [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://blog.lancedb.com/sentiment-analysis-using-lancedb-2da3cb1e3fa6)|
 | [Facial Recognition](./examples/facial_recognition) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/facial_recognition/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> | |
-
-
+| [Search Engine with SAM and CLIP](./examples/instruct-multitask) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Search-Engine-with-SAM-and-CLIP/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> | [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://blog.lancedb.com/multitask-embedding-with-lancedb-be18ec397543)|
 
 
 
