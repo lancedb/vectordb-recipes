@@ -1,6 +1,6 @@
 # 🔍Search engine using SAM & CLIP
 
-<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Search-Engine-with-SAM-and-CLIP/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755)
+<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Search-within-with-SAM-and-CLIP/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755)
 ![“A Dog”](https://github.com/kaushal07wick/vectordb-recipes/assets/57106063/3907c1e5-009b-4ffb-8ea2-2eddb58f3346)
 
 ###   🚀Create a Search Engine within an Image use **SAM**(Segment Anything) and **CLIP** (Constrastive Language Image Pretraining) model.
