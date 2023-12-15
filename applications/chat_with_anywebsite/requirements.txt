@@ -5,3 +5,4 @@ lancedb
 gradio
 ctransformers
 sentence-transformers
+bs4
