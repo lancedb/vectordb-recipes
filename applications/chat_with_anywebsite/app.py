@@ -1,28 +1,15 @@
 #import libraries
-import os
 import re
-import openai
 import gradio as gr
 from typing import List, Union
 import lancedb
-import langchain
 from langchain.vectorstores import LanceDB
-from langchain.chains import RetrievalQA
 from langchain.llms import CTransformers
-from langchain.document_loaders import UnstructuredHTMLLoader
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.document_loaders import TextLoader
-from langchain.embeddings import OpenAIEmbeddings
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
-from langchain.chat_models import ChatOpenAI
 from langchain.embeddings import HuggingFaceBgeEmbeddings
 from langchain.document_loaders import WebBaseLoader
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.document_loaders import DirectoryLoader
-from langchain.document_loaders.csv_loader import CSVLoader
 
 
 
@@ -146,7 +133,7 @@ class ChatbotHelper:
             fn=self.respond,
             title="Chatbot with URL or any website ",
             inputs=gr.Textbox(label="Your Query", placeholder="Type your query here...",lines=5),
-            outputs=[gr.Textbox(label="Chatbot Response", type="text", default="Chatbot response will appear here.", lines=10)],
+            outputs=[gr.Textbox(label="Chatbot Response", type="text", placeholder="Chatbot response will appear here.", lines=10)],
     
         )
         iface.launch()
