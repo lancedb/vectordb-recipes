@@ -16,14 +16,14 @@ Get hands-on experience with QLoRA implementation using Transformers and Bits & 
 
 ## Explore Further
 
-For a deeper dive into cutting-edge technology and to access all the technical knowledge, read our [Medium Blog](https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755).
+For a deeper dive into cutting-edge technology and to access all the technical knowledge, read our [Medium Blog](https://blog.lancedb.com/optimizing-llms-a-step-by-step-guide-to-fine-tuning-with-peft-and-qlora-22eddd13d25b).
 
 ## Access the Colab Notebook
 
-Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/chatbot_using_Llama2_&_lanceDB/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/fine-tuning_LLM_with_PEFT_QLoRA/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 ### Learn More in Our Blog
 
 For a detailed understanding of PEFT,lora-Qlora technologies check out our blog post. It explains our approach in a clear and thorough manner.
 
-[Read the Blog Post](https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755)
+[Read the Blog Post](https://blog.lancedb.com/optimizing-llms-a-step-by-step-guide-to-fine-tuning-with-peft-and-qlora-22eddd13d25b)
