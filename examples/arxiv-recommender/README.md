@@ -1,4 +1,9 @@
-# Arixiv Search with OpenCLIP and LanceDB
+# arXiv Search with OpenCLIP and LanceDB
+
+<p align="center">
+  <img src="https://github.com/lancedb/vectordb-recipes/assets/54981696/ecab563b-ec35-44a3-8311-54d168427d67">
+</p>
+
 ![CLIP (1)](https://github.com/lancedb/vectordb-recipes/assets/15766192/11b3b900-0bcb-4a4a-8fd4-804611c85972)
 
 In this example we'll build a Arxiv Search or a recommender based on semantic search using LanceDB. We'll also compare the results with keyword based search on Nomic's atlast
