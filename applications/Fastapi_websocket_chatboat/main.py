@@ -46,8 +46,10 @@ def setup_chain():
         raise HTTPException(status_code=400, detail="No PDF file uploaded or file not found.")
 
     template = """Use the following pieces of context to answer the question at the end.
-    If you don't know the answer, just say that you don't know, don't try to make up an answer.
-    Use three sentences maximum and keep the answer as concise as possible.
+    Given the context from the uploaded document, provide a concise and
+    accurate answer to the question. The document contains detailed and 
+    specific information, so the answer should directly reflect the content of the document.
+    If the answer is not known, or if the document does not contain the information, state that the answer is not available in the document.
     
     {context}
     Question: {question}
