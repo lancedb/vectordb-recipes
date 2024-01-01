@@ -26,3 +26,6 @@ The --reload flag enables auto-reload so the server will restart upon file chang
 Once the server is running, navigate to http://localhost:8000/docs to interact with the chatbot using Swagger UI.
 
 
+![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/0dc29b74-a534-4ebc-8ac1-eea8e877f325)
+
+
