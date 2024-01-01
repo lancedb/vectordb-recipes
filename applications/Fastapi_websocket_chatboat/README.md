@@ -23,9 +23,10 @@ uvicorn main:app --reload
 The --reload flag enables auto-reload so the server will restart upon file changes.
 
 ## Usage
-Once the server is running, navigate to http://localhost:8000/docs to interact with the chatbot using Swagger UI.
 
-
+##### 1.Once the server is running, navigate to http://localhost:8000/docs to interact with the chatbot using Swagger UI.
+##### 2.Upload the pdf
+##### 3.Ask the quetions based on your pdf
 ![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/0dc29b74-a534-4ebc-8ac1-eea8e877f325)
 
 
