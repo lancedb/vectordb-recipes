@@ -1,41 +1,71 @@
-import openai
+
 import uvicorn
-import lancedb
-from fastapi import FastAPI, Request, Form
+from fastapi import FastAPI, HTTPException, UploadFile, File
+from pydantic import BaseModel
+import openai
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
-import openai
 from langchain.document_loaders import PyPDFLoader
 from langchain.vectorstores import LanceDB
-from langchain.chat_models import ChatOpenAI
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+import lancedb
+import shutil
+import os
 
-app = FastAPI()
-# Set your OpenAI API key here
-OPENAI_API_KEY = "sk-"
+# Initialize FastAPI app with metadata
+app = FastAPI(title="Chatbot RAG API",
+              description="This is a chatbot API template for RAG system.",
+              version="1.0.0")
 
+# Pydantic model for chatbot request and response
+class ChatRequest(BaseModel):
+    prompt: str
+
+class ChatResponse(BaseModel):
+    response: str
+
+# Global variable to store the path of the uploaded file
+uploaded_file_path = None
+
+# Endpoint to upload PDF
+@app.post("/upload-pdf/")
+async def upload_pdf(file: UploadFile = File(...)):
+    global uploaded_file_path
+    uploaded_file_path = f"uploaded_files/{file.filename}"
+    os.makedirs(os.path.dirname(uploaded_file_path), exist_ok=True)
+    with open(uploaded_file_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+    return {"filename": file.filename}
+
+# Setup LangChain
 def setup_chain():
-    # Define file path and template
-    filepath= "Food_and_Nutrition.pdf"
+    global uploaded_file_path
+    if not uploaded_file_path or not os.path.exists(uploaded_file_path):
+        raise HTTPException(status_code=400, detail="No PDF file uploaded or file not found.")
 
     template = """Use the following pieces of context to answer the question at the end.
     If you don't know the answer, just say that you don't know, don't try to make up an answer.
     Use three sentences maximum and keep the answer as concise as possible.
-    Always say "thanks for asking!" at the end of the answer.
+    
     {context}
     Question: {question}
     Helpful Answer:"""
 
-    # Initialize embeddings, loader, and prompt
-    embeddings = OpenAIEmbeddings(openai_api_key="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")
-   # loader = CSVLoader(file_path=file, encoding='utf-8')
-    loader = PyPDFLoader(filepath)
-    # docs = loader.load()
-    docs = loader.load_and_split()
-    prompt = PromptTemplate(input_variables=["context", "question"], template=template)
 
-    
+    OPENAI_API_KEY = "sk-yorapikey"
+
+    loader = PyPDFLoader(uploaded_file_path)
+    docs = loader.load_and_split()
+
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=50)
+    documents = text_splitter.split_documents(docs)
+
+    prompt = PromptTemplate(input_variables=["context", "question"], template=template)
+    embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+
+
     db_lance = lancedb.connect("/tmp/lancedb")
     table = db_lance.create_table(
         "my_table",
@@ -49,33 +79,28 @@ def setup_chain():
         mode="overwrite",
     )
 
-    db = LanceDB.from_documents(docs, embeddings, connection=table)
+    db = LanceDB.from_documents(documents, embeddings, connection=table)
     retriever = db.as_retriever()
     chain_type_kwargs = {"prompt": prompt}
 
-    # Initialize ChatOpenAI
-    llm =  ChatOpenAI(openai_api_key="sk-")
-  
-    # Setup RetrievalQA chain
-    chain = RetrievalQA.from_chain_type(
-        llm=llm,
-        chain_type="stuff",
-        retriever=retriever,
-        chain_type_kwargs=chain_type_kwargs,
-        verbose=True
-    )
+    llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY)
+
+    chain = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever, chain_type_kwargs=chain_type_kwargs, verbose=True)
     return chain
-  
-agent = setup_chain()
 
-@app.get("/")
-def read_root(request: Request):
-    return {"message": "Welcome to the health food  Chatbot API!"}
-
-@app.post("/prompt")
-def process_prompt(prompt: str = Form(...)):
-    response = agent.run(prompt)
+# Endpoint for chatbot interaction
+@app.post("/chat", response_model=ChatResponse)
+async def chat(request: ChatRequest):
+    agent = setup_chain()  # Setup agent for each request to use the latest uploaded file
+    response = agent.run(request.prompt)
     return {"response": response}
 
+# Health check endpoint
+@app.get("/", tags=["Health Check"])
+async def read_root():
+    return {"message": "Chatbot API is running!"}
+
+# Main function to run the app
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
