@@ -73,6 +73,7 @@ These are ready to use applications built using LanceDB serverless vector databa
 | [ Hr chatbot  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/HR_chatbot/) | Hr chatbot - ask your personal query using zero-shot React agent & tools |![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/0ea78428-44be-4bff-874b-79b1fcc3b7d6)|
 | [ Talk with Youtube Video using GPT4 Vision API ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/talk-with-youtube-gpt4-vision-api/) | Talk with Youtube Video using GPT4 Vision API and Langchain |![demo](https://github.com/PrashantDixit0/vectordb-recipes/assets/54981696/205ad2b4-5d74-40e4-abfc-e72f6946fc83) |
 | [ Document Chat with Langroid ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/docchat-with-langroid) | Talk with your Documents using Langroid | ![Screenshot from 2023-12-21 06-08-44](https://github.com/PrashantDixit0/vectordb-recipes/assets/54981696/73f3360f-0624-4c41-8b74-f01ccd9f89c5)|
+| [ Fastapi RAG template  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Fastapi_websocket_chatboat) | Fatapi based RAG template with websocket support | ![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/0a72fd53-54d5-4c86-84e1-34707c7110ef)|
 
 
 
