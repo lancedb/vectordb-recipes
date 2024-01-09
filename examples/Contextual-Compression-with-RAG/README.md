@@ -1,7 +1,7 @@
 # 🔍Search engine using SAM & CLIP
 
-<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Search-Engine-with-SAM-and-CLIP/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  
-[![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755)
+<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Contextual-Compression-with-RAG/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  
+[![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/etoai/enhance-rag-integrate-contextual-compression-and-filtering-for-precision-a29d4a810301)
 
 
 ###  🎫 Enhance RAG: Integrate Contextual Compression and Filtering for Precision.
