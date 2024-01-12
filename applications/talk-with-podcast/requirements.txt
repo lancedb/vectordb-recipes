@@ -1,0 +1,12 @@
+# for podcast download
+https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz
+
+opencv-python
+openai==0.28.1
+langchain 
+lancedb 
+tiktoken
+streamlit
+
+# speed2text
+insanely-fast-whisper --force --ignore-requires-python
