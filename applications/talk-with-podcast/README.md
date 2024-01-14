@@ -5,6 +5,7 @@ Using this application, You can talk to any Youtube Podcast. All you need is fol
 1. Install Dependencies
 ```
 pip install -r requirements.txt
+pip install insanely-fast-whisper --force --ignore-requires-python
 ```
 2. Ollama Installation
 ```

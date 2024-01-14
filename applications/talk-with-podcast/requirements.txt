@@ -9,6 +9,3 @@ lancedb
 tiktoken
 streamlit
 st-annotated-text
-
-# speed2text
-insanely-fast-whisper --force --ignore-requires-python
