@@ -46,7 +46,7 @@ if url :
     filename = glob.glob("*.mp3")[0]
     transcribe(filename)
     
-    st.markdown(f"##### `{framework}` Framework Selected for Talk with Podcast")
+    st.markdown(f"##### `{framework}` Framework Selected for talking with Podcast")
     # Chat Agent getting ready
     qa = video_data_retreival(framework)
         
