@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
     db_url = "db://your-project-name"
     api_key="sk_..."
-    region = "us-east-1-dev"
+    region = "us-east-1"
     db = lancedb.connect(db_url, api_key=api_key, region=region)
     class ProductModel(pydantic.BaseModel):
         product_id: int
