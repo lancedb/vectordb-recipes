@@ -1,0 +1,11 @@
+# for podcast download - yt-dlp
+https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz
+
+opencv-python
+openai==0.28.1
+langchain 
+langroid
+lancedb 
+tiktoken
+streamlit
+st-annotated-text
