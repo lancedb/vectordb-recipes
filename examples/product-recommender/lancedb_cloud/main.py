@@ -103,7 +103,7 @@ if __name__ == "__main__":
                             show_progress=True, num_threads=1)
     
 
-    db_url = "your-project-name"
+    db_url = "db://your-project-name"
     api_key="sk_..."
     region = "us-east-1-dev"
     db = lancedb.connect(db_url, api_key=api_key, region=region)
