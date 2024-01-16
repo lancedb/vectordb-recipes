@@ -1,0 +1,6 @@
+*.mp3
+*.rttm
+*.json
+.lancedb
+langroid_doc.txt
+logs/

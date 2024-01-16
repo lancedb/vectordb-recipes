@@ -1,3 +1,2 @@
 .lancedb
-*.txt
-tempDir/
+/logs
