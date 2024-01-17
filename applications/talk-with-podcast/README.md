@@ -14,7 +14,7 @@ ollama pull llama2
 ```
 
 ### Youtube Demo
-[<img src="demo.png">](https://youtu.be/AGpl1h5K5v4)
+[<img src="https://github.com/lancedb/vectordb-recipes/blob/main/assets/talk-with-podcast.png">](https://youtu.be/AGpl1h5K5v4)
 
 You are ready to start
 
