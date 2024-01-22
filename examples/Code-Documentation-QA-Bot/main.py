@@ -78,7 +78,7 @@ if __name__ == "__main__":
     else:
         with docs_path.open("rb") as fh:
             docs = pickle.load(fh)
-
+    print("Loaded {} documents".format(len(docs)))
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,
         chunk_overlap=200,
