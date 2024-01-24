@@ -1,0 +1,7 @@
+lancedb
+transformers
+datasets
+FlagEmbedding
+unstructured
+langchain
+torch
