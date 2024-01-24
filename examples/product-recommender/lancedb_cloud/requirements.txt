@@ -1,0 +1,7 @@
+numpy
+pandas
+scipy
+kaggle
+implicit
+torch
+lancedb
