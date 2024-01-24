@@ -120,7 +120,7 @@ if __name__ == "__main__":
     product_entries = products[['product_id', 'product_name']].drop_duplicates()
     product_entries['product_id'] = product_entries.product_id.astype('int64')
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    item_embeddings = items_factors[1:].to_numpy().tolist() if device == "cuda" else items_factors[1:].tolist()
+    item_embeddings = items_factors[1:].tolist()
     product_entries['vector'] = item_embeddings
 
     tbl.add(product_entries)
@@ -130,7 +130,7 @@ if __name__ == "__main__":
     test_user_factors = model.user_factors[user_to_index[test_user_ids]]
     
     # Query by user factors
-    test_user_embeddings = test_user_factors.to_numpy().tolist() if device == "cuda" else test_user_factors.tolist()
+    test_user_embeddings = test_user_factors.tolist()
     for embedding, id in zip(test_user_embeddings, test_user_ids):
         results = tbl.search(embedding).limit(10).to_pandas()
         print(results.drop(columns=['vector']).to_string(max_cols=None))
