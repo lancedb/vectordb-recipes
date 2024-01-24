@@ -104,7 +104,7 @@ def create_gradio_dash():
 def args_parse():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_id", type=str, default="openai/clip-vit-base-patch32")
-    parser.add_argument("--dataset", type=str, default="rawdata.lance/diffusiondb_test")
+    parser.add_argument("--dataset", type=str, default="rawdata.lance")
     return parser.parse_args()
 
 if __name__ == "__main__":
