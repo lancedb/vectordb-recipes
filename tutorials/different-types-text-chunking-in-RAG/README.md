@@ -1,4 +1,4 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1UPcjM7Y8dgWqKkEAcX0je-KGLdqPd4am?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/different-types-text-chunking-in-RAG/Text_Chunking_on_RAG_application_with_LanceDB.ipynb)
 
 ## Why is Text Chunking Important?
 There are various reasons why Text Chunking becomes important when working with LLMs, we’ll share a few of them which have a significant impact on the results.
