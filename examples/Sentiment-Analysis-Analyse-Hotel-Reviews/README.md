@@ -1,4 +1,4 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/Sentiment-Analysis-Analyse-Hotel-Reviews/Sentiment-Analysis-using-LanceDB.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Sentiment-Analysis-Analyse-Hotel-Reviews/Sentiment_Analysis_using_LanceDB.ipynb)
 
 
 ## Methods of Sentiment Analysis
