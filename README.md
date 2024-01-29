@@ -75,6 +75,7 @@ These are ready to use applications built using LanceDB serverless vector databa
 | [ Hr chatbot  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/HR_chatbot/) | Hr chatbot - ask your personal query using zero-shot React agent & tools |![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/0ea78428-44be-4bff-874b-79b1fcc3b7d6)|
 | [ Talk with Youtube Video using GPT4 Vision API ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/talk-with-youtube-gpt4-vision-api/) | Talk with Youtube Video using GPT4 Vision API and Langchain |![demo](./assets/talk-using-gpt4v.png) |
 | [ Talk with Podcast ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/talk-with-podcast) | Talk with Youtube Podcast using Ollama and insanely-fast-whisper | ![demo](./assets/talk-with-podcast.png)|
+| [ Talk with Wikipedia ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/talk-with-wikipedia) | Talk with Wikipedia Pages | ![demo](./assets/talk-with-wikipedia.png)|
 | [ Document Chat with Langroid ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/docchat-with-langroid) | Talk with your Documents using Langroid | ![demo](./assets/document-chat-langroid.png)|
 | [ Fastapi RAG template  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Fastapi_websocket_chatboat) | Fatapi based RAG template with websocket support | ![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/0a72fd53-54d5-4c86-84e1-34707c7110ef)|
 
