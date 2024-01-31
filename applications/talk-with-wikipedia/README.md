@@ -11,6 +11,15 @@ pip install -r requirements.txt
 curl https://ollama.ai/install.sh | sh
 ollama pull llama2
 ```
+for Mac:
+```
+brew install ollama
+
+```
+On a separate terminal, run the following command:
+```
+ollama pull llama2
+```
 
 ### Youtube Demo
 ![demo_img](../../assets/talk-with-wikipedia.png)
