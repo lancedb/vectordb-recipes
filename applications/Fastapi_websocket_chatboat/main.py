@@ -1,4 +1,3 @@
-
 import uvicorn
 from fastapi import FastAPI, HTTPException, UploadFile, File
 from pydantic import BaseModel
@@ -15,19 +14,25 @@ import shutil
 import os
 
 # Initialize FastAPI app with metadata
-app = FastAPI(title="Chatbot RAG API",
-              description="This is a chatbot API template for RAG system.",
-              version="1.0.0")
+app = FastAPI(
+    title="Chatbot RAG API",
+    description="This is a chatbot API template for RAG system.",
+    version="1.0.0",
+)
+
 
 # Pydantic model for chatbot request and response
 class ChatRequest(BaseModel):
     prompt: str
 
+
 class ChatResponse(BaseModel):
     response: str
 
+
 # Global variable to store the path of the uploaded file
 uploaded_file_path = None
+
 
 # Endpoint to upload PDF
 @app.post("/upload-pdf/")
@@ -39,11 +44,14 @@ async def upload_pdf(file: UploadFile = File(...)):
         shutil.copyfileobj(file.file, buffer)
     return {"filename": file.filename}
 
+
 # Setup LangChain
 def setup_chain():
     global uploaded_file_path
     if not uploaded_file_path or not os.path.exists(uploaded_file_path):
-        raise HTTPException(status_code=400, detail="No PDF file uploaded or file not found.")
+        raise HTTPException(
+            status_code=400, detail="No PDF file uploaded or file not found."
+        )
 
     template = """Use the following pieces of context to answer the question at the end.
     Given the context from the uploaded document, provide a concise and
@@ -55,7 +63,6 @@ def setup_chain():
     Question: {question}
     Helpful Answer:"""
 
-
     OPENAI_API_KEY = "sk-yorapikey"
 
     loader = PyPDFLoader(uploaded_file_path)
@@ -66,7 +73,6 @@ def setup_chain():
 
     prompt = PromptTemplate(input_variables=["context", "question"], template=template)
     embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
-
 
     db_lance = lancedb.connect("/tmp/lancedb")
     table = db_lance.create_table(
@@ -87,22 +93,32 @@ def setup_chain():
 
     llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY)
 
-    chain = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever, chain_type_kwargs=chain_type_kwargs, verbose=True)
+    chain = RetrievalQA.from_chain_type(
+        llm=llm,
+        chain_type="stuff",
+        retriever=retriever,
+        chain_type_kwargs=chain_type_kwargs,
+        verbose=True,
+    )
     return chain
+
 
 # Endpoint for chatbot interaction
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
-    agent = setup_chain()  # Setup agent for each request to use the latest uploaded file
+    agent = (
+        setup_chain()
+    )  # Setup agent for each request to use the latest uploaded file
     response = agent.run(request.prompt)
     return {"response": response}
+
 
 # Health check endpoint
 @app.get("/", tags=["Health Check"])
 async def read_root():
     return {"message": "Chatbot API is running!"}
 
+
 # Main function to run the app
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
-

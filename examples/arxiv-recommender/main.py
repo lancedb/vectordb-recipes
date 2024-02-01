@@ -6,13 +6,14 @@ from collections import defaultdict
 import arxiv
 import lancedb
 
+
 def get_arxiv_df(embed_func):
     length = 30000
     results = arxiv.Search(
-      query= "cat:cs.AI OR cat:cs.CV OR cat:stat.ML",
-      max_results = length,
-      sort_by = arxiv.SortCriterion.Relevance,
-      sort_order = arxiv.SortOrder.Descending
+        query="cat:cs.AI OR cat:cs.CV OR cat:stat.ML",
+        max_results=length,
+        sort_by=arxiv.SortCriterion.Relevance,
+        sort_order=arxiv.SortOrder.Descending,
     ).results()
     df = defaultdict(list)
     for result in tqdm(results, total=length):
@@ -25,12 +26,15 @@ def get_arxiv_df(embed_func):
 
         except Exception as e:
             print("error: ", e)
-    
+
     return pd.DataFrame(df)
 
+
 def embed_func_clip(text):
-    model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-32', pretrained='laion2b_s34b_b79k')
-    tokenizer = open_clip.get_tokenizer('ViT-B-32')
+    model, _, preprocess = open_clip.create_model_and_transforms(
+        "ViT-B-32", pretrained="laion2b_s34b_b79k"
+    )
+    tokenizer = open_clip.get_tokenizer("ViT-B-32")
     with torch.no_grad():
         text_features = model.encode_text(tokenizer(text))
     return text_features
@@ -41,6 +45,7 @@ def create_table(embed_func=embed_func_clip):
     df = get_arxiv_df(embed_func)
 
     tbl = db.create_table("arxiv", data=df, mode="overwrite")
+
 
 def search_table(query, embed_func=embed_func_clip):
     db = lancedb.connect("db")
@@ -56,7 +61,8 @@ if __name__ == "__main__":
     if "arxiv" not in db.table_names():
         tbl = create_table()
 
-    search_table("""
+    search_table(
+        """
     Segment Anything Model (SAM) has attracted significant attention due to its impressive zero-shot
     transfer performance and high versatility for numerous vision applications (like image editing with
     fine-grained control). Many of such applications need to be run on resource-constraint edge devices,
@@ -73,4 +79,5 @@ if __name__ == "__main__":
     on the mask decoder. With superior performance, our MobileSAM is around 5 times faster than the
     concurrent FastSAM and 7 times smaller, making it more suitable for mobile applications. Moreover,
     we show that MobileSAM can run relatively smoothly on CPU
-    """)
+    """
+    )

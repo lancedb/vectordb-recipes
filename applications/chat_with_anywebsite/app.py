@@ -1,4 +1,4 @@
-#import libraries
+# import libraries
 import re
 import gradio as gr
 from typing import List, Union
@@ -12,7 +12,6 @@ from langchain.embeddings import HuggingFaceBgeEmbeddings
 from langchain.document_loaders import WebBaseLoader
 
 
-
 class ChatbotHelper:
 
     def __init__(self):
@@ -21,7 +20,7 @@ class ChatbotHelper:
         self.chunks = None
 
     def find_urls(self, text: str) -> List[str]:
-        url_pattern = re.compile(r'https?://\S+|www\.\S+')
+        url_pattern = re.compile(r"https?://\S+|www\.\S+")
         return url_pattern.findall(text)
 
     def initialize_chatbot(self, urls: List[str]):
@@ -31,7 +30,7 @@ class ChatbotHelper:
         vectorstore = self.create_vector_store(chunks, embedder)
         retriever = self.create_retriever(vectorstore)
         self.chatbot_instance = self.create_chatbot(retriever)
-        return "Chatbot initialized! How can I assist you? now ask your Quetions" 
+        return "Chatbot initialized! How can I assist you? now ask your Quetions"
 
     def load_website_content(self, urls):
         print("Loading website(s) into Documents...")
@@ -41,18 +40,20 @@ class ChatbotHelper:
 
     def load_llm(self):
         # download your llm in system or use it else
-        #llm = CTransformers(
+        # llm = CTransformers(
         #    model="mistral-7b-instruct-v0.1.Q5_K_M.gguf",
         #    model_type="mistral"
-        #)
-        llm = CTransformers(model='TheBloke/Mistral-7B-v0.1-GGUF', model_file='mistral-7b-v0.1.Q4_K_M.gguf',model_type="mistral")
-        return llm 
+        # )
+        llm = CTransformers(
+            model="TheBloke/Mistral-7B-v0.1-GGUF",
+            model_file="mistral-7b-v0.1.Q4_K_M.gguf",
+            model_type="mistral",
+        )
+        return llm
 
     def split_text(self, documents):
         text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=120,
-            chunk_overlap=20,
-            length_function=len
+            chunk_size=120, chunk_overlap=20, length_function=len
         )
         chunks = text_splitter.transform_documents(documents)
         print("Done splitting documents.")
@@ -61,20 +62,28 @@ class ChatbotHelper:
     def bge_embedding(self, chunks):
         print("Creating bge embedder...")
         model_name = "BAAI/bge-base-en"
-        encode_kwargs = {'normalize_embeddings': True}
+        encode_kwargs = {"normalize_embeddings": True}
         embedder = HuggingFaceBgeEmbeddings(
             model_name=model_name,
-            model_kwargs={'device': 'cpu'},
-            encode_kwargs=encode_kwargs
+            model_kwargs={"device": "cpu"},
+            encode_kwargs=encode_kwargs,
         )
         return embedder
 
     def create_vector_store(self, chunks, embedder):
         print("Creating vectorstore...")
-        db = lancedb.connect('/tmp/lancedb')
-        table = db.create_table("pdf_search", data=[
-            {"vector": embedder.embed_query("Hello World"), "text": "Hello World", "id": "1"}
-        ], mode="overwrite")
+        db = lancedb.connect("/tmp/lancedb")
+        table = db.create_table(
+            "pdf_search",
+            data=[
+                {
+                    "vector": embedder.embed_query("Hello World"),
+                    "text": "Hello World",
+                    "id": "1",
+                }
+            ],
+            mode="overwrite",
+        )
         vectorstore = LanceDB.from_documents(chunks, embedder, connection=table)
         return vectorstore
 
@@ -93,13 +102,10 @@ class ChatbotHelper:
     def create_chatbot(self, retriever):
         llm = self.load_llm()
         memory = ConversationBufferMemory(
-            memory_key='chat_history',
-            return_messages=True
+            memory_key="chat_history", return_messages=True
         )
         conversation_chain = ConversationalRetrievalChain.from_llm(
-            llm=llm,
-            retriever=retriever,
-            memory=memory
+            llm=llm, retriever=retriever, memory=memory
         )
         return conversation_chain
 
@@ -123,20 +129,30 @@ class ChatbotHelper:
                 bot_message = "Please provide a URL to initialize the chatbot first, then ask any questions related to that site."
 
         self.chat_history.append((message, bot_message))
-        chat_history_text = "\n".join([f"User: {msg[0]}\nBot: {msg[1]}\n" for msg in self.chat_history])
+        chat_history_text = "\n".join(
+            [f"User: {msg[0]}\nBot: {msg[1]}\n" for msg in self.chat_history]
+        )
         return bot_message
 
     def run_interface(self):
 
- 
         iface = gr.Interface(
             fn=self.respond,
             title="Chatbot with URL or any website ",
-            inputs=gr.Textbox(label="Your Query", placeholder="Type your query here...",lines=5),
-            outputs=[gr.Textbox(label="Chatbot Response", type="text", placeholder="Chatbot response will appear here.", lines=10)],
-    
+            inputs=gr.Textbox(
+                label="Your Query", placeholder="Type your query here...", lines=5
+            ),
+            outputs=[
+                gr.Textbox(
+                    label="Chatbot Response",
+                    type="text",
+                    placeholder="Chatbot response will appear here.",
+                    lines=10,
+                )
+            ],
         )
         iface.launch()
+
 
 if __name__ == "__main__":
     chatbot_helper = ChatbotHelper()
