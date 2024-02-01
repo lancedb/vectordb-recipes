@@ -4,3 +4,4 @@ langchain
 lancedb
 unstructured
 tiktoken
+polars

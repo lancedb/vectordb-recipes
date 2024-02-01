@@ -22,28 +22,35 @@ from langchain.vectorstores import LanceDB
 from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
 
+
 def get_document_title(document):
     m = str(document.metadata["source"])
     title = re.findall("pandas.documentation(.*).html", m)
     if title[0] is not None:
-        return(title[0])
-    return ''
+        return title[0]
+    return ""
+
 
 def arg_parse():
     default_query = "What are the major differences in pandas 2.0?"
 
-    parser = argparse.ArgumentParser(description='Code Documentation QA Bot')
-    parser.add_argument('--query', type=str, default=default_query, help='query to search')
-    parser.add_argument('--openai-key', type=str, help='OpenAI API Key')
+    parser = argparse.ArgumentParser(description="Code Documentation QA Bot")
+    parser.add_argument(
+        "--query", type=str, default=default_query, help="query to search"
+    )
+    parser.add_argument("--openai-key", type=str, help="OpenAI API Key")
     args = parser.parse_args()
 
     if not args.openai_key:
         if "OPENAI_API_KEY" not in os.environ:
-            raise ValueError("OPENAI_API_KEY environment variable not set. Please set it or pass --openai_key")
+            raise ValueError(
+                "OPENAI_API_KEY environment variable not set. Please set it or pass --openai_key"
+            )
     else:
         openai.api_key = args.openai_key
 
     return args
+
 
 if __name__ == "__main__":
     args = arg_parse()
@@ -51,8 +58,10 @@ if __name__ == "__main__":
     docs_path = Path("docs.pkl")
     docs = []
 
-    pandas_docs = requests.get("https://eto-public.s3.us-west-2.amazonaws.com/datasets/pandas_docs/pandas.documentation.zip")
-    with open('/tmp/pandas.documentation.zip', 'wb') as f:
+    pandas_docs = requests.get(
+        "https://eto-public.s3.us-west-2.amazonaws.com/datasets/pandas_docs/pandas.documentation.zip"
+    )
+    with open("/tmp/pandas.documentation.zip", "wb") as f:
         f.write(pandas_docs.content)
 
     file = zipfile.ZipFile("/tmp/pandas.documentation.zip")
@@ -86,13 +95,23 @@ if __name__ == "__main__":
     documents = text_splitter.split_documents(docs)
     embeddings = OpenAIEmbeddings()
 
-    db = lancedb.connect('/tmp/lancedb')
-    table = db.create_table("pandas_docs", data=[
-        {"vector": embeddings.embed_query("Hello World"), "text": "Hello World", "id": "1"}
-    ], mode="overwrite")
+    db = lancedb.connect("/tmp/lancedb")
+    table = db.create_table(
+        "pandas_docs",
+        data=[
+            {
+                "vector": embeddings.embed_query("Hello World"),
+                "text": "Hello World",
+                "id": "1",
+            }
+        ],
+        mode="overwrite",
+    )
     docsearch = LanceDB.from_documents(documents, embeddings, connection=table)
 
-    qa = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=docsearch.as_retriever())
+    qa = RetrievalQA.from_chain_type(
+        llm=OpenAI(), chain_type="stuff", retriever=docsearch.as_retriever()
+    )
 
     result = qa.run(args.query)
     print(result)

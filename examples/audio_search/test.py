@@ -6,11 +6,14 @@ import main
 
 # ==================== TESTING ====================
 
+
 @pytest.fixture
 def mock_embed(monkeypatch):
     def mock_inference(audio_data):
         return (None, [[0.5, 0.5]])
+
     monkeypatch.setattr(main, "create_audio_embedding", mock_inference)
+
 
 def test_main(mock_embed):
     global dataset, db, table_name

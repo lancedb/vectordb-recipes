@@ -19,23 +19,27 @@ from langchain.chains import RetrievalQA
 
 # TESTING ===============================================================
 
+
 @pytest.fixture
 def mock_embed(monkeypatch):
     def mock_embed_query(query, x):
         return [0.5, 0.5]
+
     monkeypatch.setattr(OpenAIEmbeddings, "embed_query", mock_embed_query)
 
 
 def test_main(mock_embed):
     os.mkdir("./tmp")
     args = argparse.Namespace(query="test", openai_key="test")
-    os.environ['OPENAI_API_KEY'] = "test"
+    os.environ["OPENAI_API_KEY"] = "test"
 
     docs_path = Path("docs.pkl")
     docs = []
 
-    pandas_docs = requests.get("https://eto-public.s3.us-west-2.amazonaws.com/datasets/pandas_docs/pandas.documentation.zip")
-    with open('./tmp/pandas.documentation.zip', 'wb') as f:
+    pandas_docs = requests.get(
+        "https://eto-public.s3.us-west-2.amazonaws.com/datasets/pandas_docs/pandas.documentation.zip"
+    )
+    with open("./tmp/pandas.documentation.zip", "wb") as f:
         f.write(pandas_docs.content)
 
     file = zipfile.ZipFile("./tmp/pandas.documentation.zip")
@@ -68,10 +72,18 @@ def test_main(mock_embed):
     )
     documents = text_splitter.split_documents(docs)
 
-    db = lancedb.connect('./tmp/lancedb')
-    table = db.create_table("pandas_docs", data=[
-        {"vector": OpenAIEmbeddings().embed_query("Hello World"), "text": "Hello World", "id": "1"}
-    ], mode="overwrite")
+    db = lancedb.connect("./tmp/lancedb")
+    table = db.create_table(
+        "pandas_docs",
+        data=[
+            {
+                "vector": OpenAIEmbeddings().embed_query("Hello World"),
+                "text": "Hello World",
+                "id": "1",
+            }
+        ],
+        mode="overwrite",
+    )
     # docsearch = LanceDB.from_documents(documents, OpenAIEmbeddings, connection=table)
 
     # qa = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=docsearch.as_retriever())
