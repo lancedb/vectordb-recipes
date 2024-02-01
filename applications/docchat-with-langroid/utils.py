@@ -6,19 +6,20 @@ from langroid.language_models.openai_gpt import OpenAIChatModel, OpenAIGPTConfig
 import os
 import streamlit as st
 
-OPENAI_KEY =os.environ["OPENAI_API_KEY"]
+OPENAI_KEY = os.environ["OPENAI_API_KEY"]
+
 
 @st.cache_data
 def configure(filename):
     llm_cfg = OpenAIGPTConfig(chat_model=OpenAIChatModel.GPT4_TURBO)
-    
+
     oai_embed_config = OpenAIEmbeddingsConfig(
         model_type="openai",
         model_name="text-embedding-ada-002",
         dims=1536,
     )
 
-    #Configuring DocChatAgent
+    # Configuring DocChatAgent
     cfg = DocChatAgentConfig(
         parsing=ParsingConfig(
             chunk_size=100,
@@ -31,16 +32,18 @@ def configure(filename):
         vecdb=LanceDBConfig(
             embedding=oai_embed_config,
             collection_name="lease",
-            replace_collection=True,),
-        doc_paths=[f"tempDir/{filename}"])
+            replace_collection=True,
+        ),
+        doc_paths=[f"tempDir/{filename}"],
+    )
 
     return cfg
 
+
 def agent(cfg, prompt):
-    
-    #Creating DocChatAgent
+
+    # Creating DocChatAgent
     rag_agent = DocChatAgent(cfg)
-    
+
     response = rag_agent.llm_response(prompt)
     return response.content
-    
