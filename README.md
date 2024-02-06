@@ -77,7 +77,7 @@ These are ready to use applications built using LanceDB serverless vector databa
 | [ Talk with Podcast ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/talk-with-podcast) | Talk with Youtube Podcast using Ollama and insanely-fast-whisper | ![demo](./assets/talk-with-podcast.png)|
 | [ Talk with Wikipedia ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/talk-with-wikipedia) | Talk with Wikipedia Pages | ![demo](./assets/talk-with-wikipedia.png)|
 | [ Document Chat with Langroid ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/docchat-with-langroid) | Talk with your Documents using Langroid | ![demo](./assets/document-chat-langroid.png)|
-| [ Fastapi RAG template  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Fastapi_websocket_chatboat) | Fatapi based RAG template with websocket support | ![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/0a72fd53-54d5-4c86-84e1-34707c7110ef)|
+| [ Fastapi RAG template  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Chatbot_RAG_with_FASTAPI) | FastAPI based RAG template with Websocket support | ![image](./assets/chatbot_fastapi.png)|
 | [ GTE MLX RAG ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/GTE_mlx_RAG/CLI_example.ipynb) | mlx based RAG model using lancedb api support | ![image](./assets/apple_mlx.png)|
 
 
