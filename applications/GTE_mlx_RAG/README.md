@@ -15,7 +15,7 @@ It is built using `lancedb.embeddings.gte` embedding function which uses General
 
 Please install lancedb via git instead of PyPI as some latest features might be missing, to get the latest code, run the following in your virtual env :
 ```bash
-pip install -e "git+https://github.com/lancedb/lancedb.git#egg=lancedb&subdirectory=python" 
+python3 -m pip install -e "git+https://github.com/lancedb/lancedb.git#egg=lancedb&subdirectory=python" 
 
 python3 -m pip install -r requirements.txt
 ```
