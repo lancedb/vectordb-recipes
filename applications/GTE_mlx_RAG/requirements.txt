@@ -1,3 +1,4 @@
 unstructured[pdf]
 mlx
 mlx_lm
+ai2-olmo
