@@ -1,10 +1,12 @@
 
-## chatbot  api using  using FastAPI and WebSocket. 
+## Chatbot API using FastAPI and WebSocket
 It is designed to provide users with quick and accurate responses to their queries through a convenient interface accessible via Swagger FastAPI.
 
 ## Features
 FastAPI Backend: Utilizes FastAPI for handling backend logic and API responses.
+
 WebSocket Integration: Offers real-time communication between the client and server.
+
 Swagger UI: Easy testing and interaction with the chatbot through the FastAPI's built-in Swagger UI.
 
 
@@ -24,9 +26,10 @@ The --reload flag enables auto-reload so the server will restart upon file chang
 
 ## Usage
 
-##### 1.Once the server is running, navigate to http://localhost:8000/docs to interact with the chatbot using Swagger UI.
-##### 2.Upload the pdf
-##### 3.Ask the quetions based on your pdf
-![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/0dc29b74-a534-4ebc-8ac1-eea8e877f325)
+1. Once the server is running, navigate to http://localhost:8000/docs to interact with the chatbot using Swagger UI.
+2. Upload the pdf
+3. Ask the quetions based on your pdf
+
+![image](../../assets/chatbot_fastapi.png)
 
 
