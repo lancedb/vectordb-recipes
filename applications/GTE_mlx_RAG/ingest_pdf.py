@@ -41,7 +41,7 @@ def pdf_to_lancedb(pdf_file: str, path: str = "/tmp/lancedb"):
 
     Parameters:
     - pdf_file (str): The path to the input PDF file.
-    - vdb_file (str): The path to store the vector DB.
+    - path (str): The path to store the vector DB.
                       default: /tmp/lancedb
 
     Returns:
