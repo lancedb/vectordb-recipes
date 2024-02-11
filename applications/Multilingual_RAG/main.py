@@ -144,7 +144,7 @@ def answer_question(question, input_language, output_language, db):
     - db (LanceDB): The LanceDB instance to use for information retrieval.
 
     Returns:
-    - str: The answer to the question, in the desired output
+    - str: The answer to the question, in the desired output language
     """
     try:
         input_lang_code = LANGUAGE_ISO_CODES[input_language]
@@ -180,6 +180,16 @@ def answer_question(question, input_language, output_language, db):
 
 
 def setup_gradio_interface(db):
+    """
+    Setup a Gradio interface for interacting with the multilingual chatbot.
+
+    Parameters:
+    - db (LanceDB): The database instance to use for information retrieval.
+
+    Returns:
+    - gr.Interface: A Gradio interface object for the chatbot.
+    """
+    
     return gr.Interface(
         fn=lambda question, input_language, output_language: answer_question(
             question, input_language, output_language, db
@@ -197,6 +207,9 @@ def setup_gradio_interface(db):
 
 # Main Function
 def main():
+    """
+    Main function to execute the multilingual chatbot setup and launch the Gradio interface.
+    """
     INPUT_FILE_PATH = "healthy-diet-fact-sheet-394.pdf"
     texts, embeddings = initialize_documents_and_embeddings(INPUT_FILE_PATH)
     db = initialize_database(texts, embeddings)
