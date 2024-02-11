@@ -33,6 +33,15 @@ logger = logging.getLogger(__name__)
 
 
 def initialize_documents_and_embeddings(input_file_path):
+    """
+    Initialize documents and their embeddings from a given file.
+
+    Parameters:
+    - input_file_path (str): The path to the input file. Supported formats are .txt and .pdf.
+
+    Returns:
+    - tuple: A tuple containing a list of texts split from the document and the embeddings object.
+    """
     file_extension = os.path.splitext(input_file_path)[1]
     if file_extension == ".txt":
         logger.info("txt file processing")
@@ -59,6 +68,16 @@ def initialize_documents_and_embeddings(input_file_path):
 
 # Database Initialization
 def initialize_database(texts, embeddings):
+    """
+    Initialize and populate a LanceDB database with documents and their embeddings.
+
+    Parameters:
+    - texts (list): A list of texts to be stored in the database.
+    - embeddings (CohereEmbeddings): An embeddings object used to generate vector embeddings for the texts.
+
+    Returns:
+    - LanceDB: An instance of LanceDB with the documents and their embeddings stored.
+    """
     db = lancedb.connect(DB_PATH)
     table = db.create_table(
         "multiling-rag",
@@ -76,6 +95,17 @@ def initialize_database(texts, embeddings):
 
 # Translation Function
 def translate_text(text, from_code, to_code):
+    """
+    Translate a given text from one language to another.
+
+    Parameters:
+    - text (str): The text to translate.
+    - from_code (str): The ISO language code of the source language.
+    - to_code (str): The ISO language code of the target language.
+
+    Returns:
+    - str: The translated text.
+    """
     try:
         argostranslate.package.update_package_index()
         available_packages = argostranslate.package.get_available_packages()
@@ -104,6 +134,18 @@ PROMPT = PromptTemplate(
 
 # Question Answering Function
 def answer_question(question, input_language, output_language, db):
+    """
+    Answer a given question by retrieving relevant information from a database,
+    translating the question and answer if necessary.
+    Parameters:
+    - question (str): The question to answer.
+    - input_language (str): The language of the input question.
+    - output_language (str): The desired language of the answer.
+    - db (LanceDB): The LanceDB instance to use for information retrieval.
+
+    Returns:
+    - str: The answer to the question, in the desired output
+    """
     try:
         input_lang_code = LANGUAGE_ISO_CODES[input_language]
         output_lang_code = LANGUAGE_ISO_CODES[output_language]
