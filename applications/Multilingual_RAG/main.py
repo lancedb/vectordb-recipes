@@ -207,9 +207,6 @@ def setup_gradio_interface(db):
 
 # Main Function
 def main():
-    """
-    Main function to execute the multilingual chatbot setup and launch the Gradio interface.
-    """
     INPUT_FILE_PATH = "healthy-diet-fact-sheet-394.pdf"
     texts, embeddings = initialize_documents_and_embeddings(INPUT_FILE_PATH)
     db = initialize_database(texts, embeddings)
