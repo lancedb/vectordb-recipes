@@ -11,7 +11,6 @@ st.header("DocChatAgent by Langroid", divider="rainbow")
 uploadedFile = st.file_uploader("Choose a txt file")
 
 if uploadedFile is not None:
-
     with open(os.path.join("tempDir", uploadedFile.name), "wb") as f:
         f.write(uploadedFile.getbuffer())
 
