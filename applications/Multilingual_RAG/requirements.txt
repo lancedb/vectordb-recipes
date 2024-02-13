@@ -1,0 +1,5 @@
+cohere 
+langchain 
+lancedb 
+python-dotenv 
+gradio
