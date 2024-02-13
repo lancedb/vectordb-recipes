@@ -48,9 +48,7 @@ def main(query=None):
     data = []
 
     for i in tqdm(range(0, num_records, batch_size)):
-
         for lang, dataset in datasets.items():
-
             batch = [next(dataset) for _ in range(batch_size)]
 
             texts = [x["text"] for x in batch]

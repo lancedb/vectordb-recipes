@@ -189,7 +189,7 @@ def setup_gradio_interface(db):
     Returns:
     - gr.Interface: A Gradio interface object for the chatbot.
     """
-    
+
     return gr.Interface(
         fn=lambda question, input_language, output_language: answer_question(
             question, input_language, output_language, db
