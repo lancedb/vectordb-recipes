@@ -36,7 +36,6 @@ def get_recommendations(title):
 
 
 if __name__ == "__main__":
-
     # Load and prepare data
     ratings = pd.read_csv(
         "./ml-latest-small/ratings.csv",
