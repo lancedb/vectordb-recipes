@@ -12,7 +12,6 @@ import argparse
 
 
 def products_bought_by_user_in_the_past(user_id: int, top: int = 10):
-
     selected = data[data.user_id == user_id].sort_values(
         by=["total_orders"], ascending=False
     )

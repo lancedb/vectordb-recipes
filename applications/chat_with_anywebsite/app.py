@@ -13,7 +13,6 @@ from langchain.document_loaders import WebBaseLoader
 
 
 class ChatbotHelper:
-
     def __init__(self):
         self.chatbot_instance = None
         self.chat_history = []
@@ -135,7 +134,6 @@ class ChatbotHelper:
         return bot_message
 
     def run_interface(self):
-
         iface = gr.Interface(
             fn=self.respond,
             title="Chatbot with URL or any website ",
