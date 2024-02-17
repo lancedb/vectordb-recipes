@@ -2,7 +2,6 @@
 Chatbot for talking to Github Codespaces using Langchain, Qwen and LanceDB
 """
 
-
 import os
 import shutil
 import lancedb
