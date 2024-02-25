@@ -2,7 +2,7 @@
 We used LanceDB to store frames every thirty seconds and the title of 13000+ videos, 5 random from each top category from the Youtube 8M dataset. 
 Then, we used the CLIP model to embed frames and titles together. With LanceDB, we can perform embedding, keyword, and SQL search on these videos.
 
-![lancedb video search demo](https://github.com/lancedb/vectordb-recipes/assets/43354492/17ecaa3d-ef65-4baa-8d91-168f9f1069c0)
+![lancedb video search demo](../../assets/multimodal_video_search.gif)
 
 Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/multimodal_video_search/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
