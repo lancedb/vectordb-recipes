@@ -17,3 +17,8 @@ Question | Huygens Principle |
 RAG Retrieval | Huygens' principle is a principle of wave propagation that states that each point on a wavefront can be thought of as a source of secondary wavelets that spread out in all directions. These secondary wavelets combine together to form the shape of the wavefront at a later time. It can be used to explain phenomena such as reflection, refraction, interference, diffraction, and polarization.
 ### CODE
 Colab Demo for the RAG Fusion <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/RAG_Fusion/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+
+### Dive deeper in our Blog
+For a deeper dive into the cutting-edge technologies of RAG Fusion, and to access detailed technical knowledge, check out our Medium Blog.
+
+[Read the Blog ](https://medium.com/@nishant7264/rag-fusion-the-new-star-of-search-technology-68c9dc43790d)
