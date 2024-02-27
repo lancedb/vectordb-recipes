@@ -41,7 +41,6 @@ def configure(filename):
 
 
 def agent(cfg, prompt):
-
     # Creating DocChatAgent
     rag_agent = DocChatAgent(cfg)
 

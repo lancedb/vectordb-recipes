@@ -14,13 +14,18 @@ Find more about the Instruct Multitask Model [here](https://instructor-embedding
 - **Conversational Agent:** Identify the closest examples of known intents to the user's messages.
 
 
-## Getting Hands-On with LanceDB
-See, the above colab link for live coding and experimentation.
+## Using Colab
 
-## For using the python file, make sure to first install LanceDB this way.
+<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/instruct-multitask/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+
+## Using Python file
+### Install Requirements
 
 ```bash
-pip install git+https://github.com/lancedb/lancedb.git@main#subdirectory=python
+pip install -r requirements.txt
 ```
-Install other dependecies from requirements.txt file of this folder.
 
+### Run
+```
+python3 main.py
+```
