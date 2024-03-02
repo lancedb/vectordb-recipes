@@ -7,6 +7,7 @@ from downloader import dowload_and_save_audio, dowload_and_save_image, base_path
 
 model = get_registry().get("imagebind").create()
 
+
 class TextModel(LanceModel):
     text: str
     image_uri: str = model.SourceField()
