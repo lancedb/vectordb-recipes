@@ -3,7 +3,9 @@
 A gradio app showcasing multi-modal capabilities of Imagebind supported via lanceDB API
 
 ## Usage
-you can run it locally by cloning the project as mentioned below, or access via Colab - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/imagebind_demo/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+you can run it locally by cloning the project as mentioned below, or access via Spaces: <a href="https://huggingface.co/spaces/raghavd99/imagebind2">
+    <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-with-title.svg" alt="hf spaces" style="width: 5.75rem; vertical-align: middle; background-color: white;">
+</a>
 
 ```bash
 git clone https://github.com/lancedb/vectordb-recipes.git
