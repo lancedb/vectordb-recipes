@@ -7,8 +7,10 @@ package-lock.json
 **.pkl
 pandas_docs
 **.lance
+.venv
 venv
-__pycache__
+*__pycache__*
+*.DS_Store*
 
 # multi-modal search example
 examples/multimodal_video_search/videos
