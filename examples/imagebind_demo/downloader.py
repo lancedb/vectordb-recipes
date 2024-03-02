@@ -18,6 +18,9 @@ image_urls = [
     "https://github.com/raghavdixit99/assets/assets/34462078/a20bff32-155c-4bad-acf1-97856c493099",
     "https://github.com/raghavdixit99/assets/assets/34462078/4f7dadd8-b38c-4c14-ac8a-5a2e74414f6a",
     "https://github.com/raghavdixit99/assets/assets/34462078/ac11eeab-7b2b-4db3-981b-d5fed08d9bc2",
+    "https://github.com/raghavdixit99/assets/assets/34462078/a20bff32-155c-4bad-acf1-97856c493099",
+    "https://github.com/raghavdixit99/assets/assets/34462078/4f7dadd8-b38c-4c14-ac8a-5a2e74414f6a",
+    "https://github.com/raghavdixit99/assets/assets/34462078/ac11eeab-7b2b-4db3-981b-d5fed08d9bc2",
 ]
 
 base_path = os.path.dirname(os.path.abspath(__file__))
