@@ -15,7 +15,7 @@ class TextModel(LanceModel):
     vector: Vector(model.ndims()) = model.VectorField()
 
 
-text_list = ["A bird", "A dragon", "A car"]
+text_list = ["A bird", "A dragon", "A car","A guitar","A witch","Thunder"]
 image_paths = dowload_and_save_image()
 audio_paths = dowload_and_save_audio()
 
