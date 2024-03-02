@@ -5,7 +5,6 @@ from lancedb.context import contextualize
 from lancedb.embeddings import with_embeddings
 from datasets import load_dataset
 import openai
-import pytest
 
 OPENAI_MODEL = None
 

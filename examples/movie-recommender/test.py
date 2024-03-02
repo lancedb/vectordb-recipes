@@ -2,7 +2,6 @@ import lancedb
 
 import numpy as np
 import pandas as pd
-import pytest
 import subprocess
 from main import get_recommendations, data
 import main

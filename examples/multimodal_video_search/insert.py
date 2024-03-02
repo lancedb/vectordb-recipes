@@ -1,5 +1,3 @@
-from dotenv import load_dotenv
-import os
 import lancedb
 import torch
 from PIL import Image
@@ -35,7 +33,6 @@ def embed_func(image):
     return text_features.detach().numpy()[0]
 
 
-from concurrent.futures import ThreadPoolExecutor
 
 db = lancedb.connect("data/video-lancedb")
 setup_clip_model("openai/clip-vit-base-patch32")

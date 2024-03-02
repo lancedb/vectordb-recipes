@@ -1,13 +1,7 @@
-from dotenv import load_dotenv
-import os
 import lancedb
-import clip
-import torch
-from PIL import Image
 import glob
 import re
 
-from concurrent.futures import ThreadPoolExecutor
 import yt_dlp
 from transformers import CLIPModel, CLIPProcessor, CLIPTokenizerFast
 

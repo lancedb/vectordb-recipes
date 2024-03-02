@@ -1,7 +1,6 @@
 import argparse
 import duckdb
 import lancedb
-import pyarrow.compute as pc
 from transformers import CLIPModel, CLIPProcessor, CLIPTokenizerFast
 import gradio as gr
 

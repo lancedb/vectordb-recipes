@@ -1,9 +1,7 @@
 import pytest
 import os
-import openai
 import argparse
 import lancedb
-import re
 import pickle
 import requests
 import zipfile
@@ -13,9 +11,6 @@ from main import get_document_title
 from langchain.document_loaders import BSHTMLLoader
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import LanceDB
-from langchain.llms import OpenAI
-from langchain.chains import RetrievalQA
 
 # TESTING ===============================================================
 

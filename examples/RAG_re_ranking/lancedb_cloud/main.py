@@ -1,7 +1,5 @@
 from FlagEmbedding import LLMEmbedder, FlagReranker
 import lancedb
-import re
-import pandas as pd
 import random
 
 from datasets import load_dataset

@@ -1,20 +1,12 @@
-from langchain import PromptTemplate, LLMChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import Chroma
-from langchain.chains import RetrievalQA
 from langchain.embeddings import HuggingFaceBgeEmbeddings
-from io import BytesIO
-from langchain.document_loaders import PyPDFLoader
 import gradio as gr
 import lancedb
 from langchain.vectorstores import LanceDB
 from langchain.document_loaders import ArxivLoader
 from langchain.chains import FlareChain
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
 import os
 from langchain.llms import OpenAI
-import getpass
 
 os.environ["OPENAI_API_KEY"] = "sk-yourapikeyforopenai"
 

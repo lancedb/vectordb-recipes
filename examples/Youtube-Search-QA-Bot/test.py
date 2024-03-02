@@ -1,4 +1,3 @@
-import os
 import argparse
 import lancedb
 from lancedb.context import contextualize
