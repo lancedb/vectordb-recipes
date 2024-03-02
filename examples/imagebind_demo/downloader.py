@@ -7,11 +7,17 @@ audio_file_urls = [
     "https://github.com/raghavdixit99/assets/raw/main/bird_audio.wav",
     "https://github.com/raghavdixit99/assets/raw/main/dragon-growl-37570.wav",
     "https://github.com/raghavdixit99/assets/raw/main/car_audio.wav",
+    "https://github.com/raghavdixit99/assets/raw/main/acoustic-guitar.wav",
+    "https://github.com/raghavdixit99/assets/raw/main/witch-103635.wav",
+    "https://github.com/raghavdixit99/assets/raw/main/thunder-25689.wav"
 ]
 image_urls = [
     "https://github.com/raghavdixit99/assets/assets/34462078/abf47cc4-d979-4aaa-83be-53a2115bf318",
     "https://github.com/raghavdixit99/assets/assets/34462078/93be928e-522b-4e37-889d-d4efd54b2112",
     "https://github.com/raghavdixit99/assets/assets/34462078/025deaff-632a-4829-a86c-3de6e326402f",
+    "https://github.com/raghavdixit99/assets/assets/34462078/a20bff32-155c-4bad-acf1-97856c493099",
+    "https://github.com/raghavdixit99/assets/assets/34462078/4f7dadd8-b38c-4c14-ac8a-5a2e74414f6a",
+    "https://github.com/raghavdixit99/assets/assets/34462078/ac11eeab-7b2b-4db3-981b-d5fed08d9bc2"
 ]
 
 base_path = os.path.dirname(os.path.abspath(__file__))

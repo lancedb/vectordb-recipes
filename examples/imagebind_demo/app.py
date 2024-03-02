@@ -7,7 +7,6 @@ from downloader import dowload_and_save_audio, dowload_and_save_image, base_path
 
 model = get_registry().get("imagebind").create()
 
-
 class TextModel(LanceModel):
     text: str
     image_uri: str = model.SourceField()
@@ -63,21 +62,21 @@ def process_audio(inp_audio) -> str:
 im_to_at = gr.Interface(
     process_image,
     gr.Image(type="filepath", value=image_paths[0]),
-    ["text", "audio"],
+    [gr.Text(label="Output Text"), gr.Audio(label="Output Audio")],
     examples=image_paths,
     allow_flagging="never",
 )
 txt_to_ia = gr.Interface(
     process_text,
     gr.Textbox(label="Enter a prompt:"),
-    ["image", "audio"],
+    [gr.Image(label="Output Image"), gr.Audio(label="Output Audio")],
     allow_flagging="never",
     examples=text_list,
 )
 a_to_it = gr.Interface(
     process_audio,
     gr.Audio(type="filepath", value=audio_paths[0]),
-    ["image", "text"],
+    [gr.Image(label="Output Image"), gr.Text(label="Output Text")],
     examples=audio_paths,
     allow_flagging="never",
 )
