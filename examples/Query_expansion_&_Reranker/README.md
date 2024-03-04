@@ -8,12 +8,9 @@ Our focus is on improving the precision and recall of document retrieval process
 
 ### Key Features
 - Query Expansion: Utilizes Large Language Models (LLMs) to generate meaningful expansions of search queries, addressing issues like query ambiguity and improving document matching.
-
 - Reranking Methods: Implements advanced reranking models including Cross-Encoder reranking, ColBERT v2, and FlashRank to refine search results and prioritize relevant documents.
 
-
 ### code 
-
 Google Colab walkthrough    <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/query_expansion_reranker/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 ### Learn deeper in Our Blog
