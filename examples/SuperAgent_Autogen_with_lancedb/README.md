@@ -46,5 +46,5 @@ The Super Agent's implementation involves several key steps:
 
 - **Google Colab**: For hands-on examples and detailed code snippets for implementing the Super Agent, visit our [Google Colab Notebook](https://colab.research.google.com/drive/12LjrteGKfFOgJL8gB7KTZmJGvXda4KsJ?usp=sharing).
 
-- **Blog Post**: For a more in-depth exploration of the concepts and methodologies discussed in this project, please visit our [blog post](https://lance-blog.ghost.io/p/61dc1f90-6ba1-48fd-af5d-15e3dc4673ee/).
+- **Blog Post**: For a more in-depth exploration of the concepts and methodologies discussed in this project, please visit our [blog post](https://blog.lancedb.com/optimizing-ai-agents-harnessing-openai-compatible-technologies-and-vector-databases/).
 
