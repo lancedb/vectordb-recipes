@@ -1,4 +1,5 @@
 ## Enhancing RAG with Query Expansion & Reranking Models
+![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/8d1c28a3-4129-43f6-a76c-b633348e61a7)
 
 
 ### Overview
@@ -17,5 +18,4 @@ Google Colab walkthrough    <a href="https://colab.research.google.com/github/la
 For a detailed exploration of the concepts and methodologies discussed in this project, 
 visit our blog
 
-[Read the Blog Post](https://lance-blog.ghost.io/p/61dc1f90-6ba1-48fd-af5d-15e3dc4673ee/
-)
+[Read the Blog Post](https://blog.lancedb.com/improving-rag-with-query-expansion-reranking-models/)
