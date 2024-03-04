@@ -7,8 +7,9 @@ expansion and the integration of advanced reranking models such as Cross Encoder
 Our focus is on improving the precision and recall of document retrieval processes, thereby refining the performance of RAG models in handling information retrieval tasks.
 
 ### Key Features
-Query Expansion: Utilizes Large Language Models (LLMs) to generate meaningful expansions of search queries, addressing issues like query ambiguity and improving document matching.
-Reranking Methods: Implements advanced reranking models including Cross-Encoder reranking, ColBERT v2, and FlashRank to refine search results and prioritize relevant documents.
+- Query Expansion: Utilizes Large Language Models (LLMs) to generate meaningful expansions of search queries, addressing issues like query ambiguity and improving document matching.
+
+- Reranking Methods: Implements advanced reranking models including Cross-Encoder reranking, ColBERT v2, and FlashRank to refine search results and prioritize relevant documents.
 
 
 ### code 
