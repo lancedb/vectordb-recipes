@@ -1,7 +1,9 @@
+ <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/SuperAgent_Autogen/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+
 # Super Agent: Integrating Autogen Technologies and Vector Databases
 
 ## Overview
-![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/dafa79aa-2eb8-4fc9-8e01-048a08ab0319)
+![image](../../assets/superagent-autogen.png)
 
 
 The Super Agent project showcases the integration of cutting-edge technologies including Ollama, LiteLLM, Autogen, LanceDB, and LangChain to create a powerful AI agent. This agent leverages the strengths of vector databases and conversational AI to provide sophisticated data management and context-aware interactions. The goal is to harness the capabilities of LanceDB's vector database and Autogen's conversational AI framework to build a Super Agent that excels in understanding and processing complex queries.
@@ -10,7 +12,7 @@ The Super Agent project showcases the integration of cutting-edge technologies i
 
 For detailed installation instructions, please refer to our comprehensive guide available in the Google Colaboratory notebook:
 
-Google Colab Notebook  <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/SuperAgent_Autogen_with_lancedb/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+ <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/SuperAgent_Autogen/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 
 This guide will walk you through setting up each component of the Super Agent, ensuring a seamless integration process.
@@ -44,7 +46,7 @@ The Super Agent's implementation involves several key steps:
 
 ## Resources
 
-- **Google Colab**: For hands-on examples and detailed code snippets for implementing the Super Agent, visit our [Google Colab Notebook](https://colab.research.google.com/drive/12LjrteGKfFOgJL8gB7KTZmJGvXda4KsJ?usp=sharing).
+- **Google Colab**: For hands-on examples and detailed code snippets for implementing the Super Agent, visit our [Google Colab Notebook](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/SuperAgent_Autogen/main.ipynb).
 
-- **Blog Post**: For a more in-depth exploration of the concepts and methodologies discussed in this project, please visit our [blog post](https://blog.lancedb.com/optimizing-ai-agents-harnessing-openai-compatible-technologies-and-vector-databases/).
+- **Blog Post**: For a more in-depth exploration of the concepts and methodologies discussed in this project, please visit our [Blog Post](https://blog.lancedb.com/optimizing-ai-agents-harnessing-openai-compatible-technologies-and-vector-databases/).
 
