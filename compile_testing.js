@@ -3,7 +3,7 @@ var dir = './testing-folder';
 
 const excluded_folders = [
     "Code-Documentation-QA-Bot",
-    "youtube_bot",
+    "Youtube-Search-QA-Bot",
     "reducing_hallucinations_ai_agents",
     "product-recommender"
 ];
