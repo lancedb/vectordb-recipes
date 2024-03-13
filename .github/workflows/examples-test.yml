@@ -46,7 +46,7 @@ jobs:
         run: |
           for folder in *; do
             echo "$folder";
-            if [[ $folder == multimodal_clip ]]; then
+            if [[ $folder == multimodal_clip_diffusiondb ]]; then
               continue
             fi
             if [ ! -f "$folder"/test.py ]; then
