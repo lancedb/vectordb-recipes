@@ -82,7 +82,7 @@ These are ready to use applications built using LanceDB serverless vector databa
 | [ Talk with Github ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/talk-with-github) | Talk with Github Codespaces using Qwen1.5 | ![demo](./assets/talk-with-github.gif)|
 | [ Document Chat with Langroid ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/docchat-with-langroid) | Talk with your Documents using Langroid | ![demo](./assets/document-chat-langroid.png)|
 | [ Fastapi RAG template  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Chatbot_RAG_with_FASTAPI) | FastAPI based RAG template with Websocket support | ![image](./assets/chatbot_fastapi.png)|
-| [ GTE MLX RAG ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/GTE_mlx_RAG/CLI_example.ipynb) | mlx based RAG model using lancedb api support | ![image](./assets/apple_mlx.png)|
+| [ GTE MLX RAG ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/GTE_mlx_RAG) | mlx based RAG model using lancedb api support | ![image](./assets/rag-mlx.png)|
 | [Multilingual-RAG](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Multilingual_RAG/) | Multilingual RAG with cohere embedding & support 100+ languages|![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/be65eb39-25c4-4441-98fc-6ded09689819)|
 
 ## Tutorials
