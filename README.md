@@ -84,6 +84,7 @@ These are ready to use applications built using LanceDB serverless vector databa
 | [ Fastapi RAG template  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Chatbot_RAG_with_FASTAPI) | FastAPI based RAG template with Websocket support | ![image](./assets/chatbot_fastapi.png)|
 | [ GTE MLX RAG ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/GTE_mlx_RAG) | mlx based RAG model using lancedb api support | ![image](./assets/rag-mlx.png)|
 | [Multilingual-RAG](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Multilingual_RAG/) | Multilingual RAG with cohere embedding & support 100+ languages|![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/be65eb39-25c4-4441-98fc-6ded09689819)|
+| [Multimodal Myntra Fashion Search Engine](https://github.com/ishandutta0098/lancedb-multimodal-myntra-fashion-search-engine) | This app uses OpenAI's CLIP to make a search engine that can understand and deal with both written words and pictures.|![image](./assets/myntra-search-engine.png)|
 
 ## Tutorials
 Looking to get started with LLMs, vectorDBs, and the world of Generative AI? These in-depth tutorials and courses cover these concepts with practical follow along colabs where possible.
