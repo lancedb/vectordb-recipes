@@ -115,7 +115,12 @@ jobs:
     - name: Install LanceDB
       working-directory: testing-folder
       run: |
-        npm install vectordb
+        for d in ../lancedb/node/*; do
+          if [[ $d == *.tgz ]]; then
+            echo "$d";
+            npm install "$d";
+          fi
+        done
     - name: Download datasets
       working-directory: testing-folder
       run: bash commands.sh
@@ -124,6 +129,7 @@ jobs:
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
+        npm install @lancedb/vectordb-linux-x64-gnu
         for d in *; do
           if [[ $d == *.js ]]; then
             echo "$d";
