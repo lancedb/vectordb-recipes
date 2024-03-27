@@ -129,6 +129,7 @@ jobs:
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
+        npm install @lancedb/vectordb-linux-x64-gnu
         for d in *; do
           if [[ $d == *.js ]]; then
             echo "$d";
