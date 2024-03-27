@@ -111,7 +111,7 @@ jobs:
         iconv -f UTF-8 -t UTF-8 temp.json > package.json
         cat package.json
         npm install
-        npm uninstall vectordb
+        npm install vectordb
     - name: Install LanceDB
       working-directory: testing-folder
       run: |
