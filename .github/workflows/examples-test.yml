@@ -111,16 +111,11 @@ jobs:
         iconv -f UTF-8 -t UTF-8 temp.json > package.json
         cat package.json
         npm install
-        npm install vectordb
+        npm uninstall vectordb
     - name: Install LanceDB
       working-directory: testing-folder
       run: |
-        for d in ../lancedb/node/*; do
-          if [[ $d == *.tgz ]]; then
-            echo "$d";
-            npm install "$d";
-          fi
-        done
+        npm install vectordb
     - name: Download datasets
       working-directory: testing-folder
       run: bash commands.sh
