@@ -7,7 +7,8 @@ This repository contains examples, applications, starter code, & tutorials to he
 - It **integrates into python data ecosystem** so you can simply start using these in your existing data pipelines in pandas, arrow, pydantic etc.
 - LanceDB has **native Typescript SDK** using which you can **run vector search** in serverless functions!
 
-<img src="https://github.com/lancedb/vectordb-recipes/assets/15766192/a4959e02-1eda-415b-ab1b-de3c6a2a7d63" height="85%" width="85%" />
+<img src="https://github.com/lancedb/vectordb-recipes/assets/5846846/d284accb-24b9-4404-8605-56483160e579" height="85%" width="85%" />
+
 <br />
 Join our community for support - <a href="https://discord.gg/zMM32dvNtd">Discord</a> •
 <a href="https://twitter.com/lancedb">Twitter</a>
