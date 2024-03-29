@@ -7,7 +7,8 @@ This repository contains examples, applications, starter code, & tutorials to he
 - It **integrates into python data ecosystem** so you can simply start using these in your existing data pipelines in pandas, arrow, pydantic etc.
 - LanceDB has **native Typescript SDK** using which you can **run vector search** in serverless functions!
 
-<img src="https://github.com/lancedb/vectordb-recipes/assets/15766192/a4959e02-1eda-415b-ab1b-de3c6a2a7d63" height="85%" width="85%" />
+<img src="https://github.com/lancedb/vectordb-recipes/assets/5846846/d284accb-24b9-4404-8605-56483160e579" height="85%" width="85%" />
+
 <br />
 Join our community for support - <a href="https://discord.gg/zMM32dvNtd">Discord</a> •
 <a href="https://twitter.com/lancedb">Twitter</a>
@@ -81,7 +82,7 @@ These are ready to use applications built using LanceDB serverless vector databa
 | [ Talk with Podcast ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/talk-with-podcast) | Talk with Youtube Podcast using Ollama and insanely-fast-whisper | ![demo](./assets/talk-with-podcast.gif)|
 | [ Talk with Wikipedia ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/talk-with-wikipedia) | Talk with Wikipedia Pages | ![demo](./assets/talk-with-wikipedia.gif)|
 | [ Talk with Github ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/talk-with-github) | Talk with Github Codespaces using Qwen1.5 | ![demo](./assets/talk-with-github.gif)|
-| [ Document Chat with Langroid ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/docchat-with-langroid) | Talk with your Documents using Langroid | ![demo](./assets/document-chat-langroid.png)|
+| [ Document Chat with Langroid ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/docchat-with-langroid) | Talk with your Documents using Langroid | ![demo](https://github.com/lancedb/vectordb-recipes/assets/5846846/e55c45a3-b5b0-478b-bf77-290c0d69daae)|
 | [ Fastapi RAG template  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Chatbot_RAG_with_FASTAPI) | FastAPI based RAG template with Websocket support | ![image](./assets/chatbot_fastapi.png)|
 | [ GTE MLX RAG ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/GTE_mlx_RAG) | mlx based RAG model using lancedb api support | ![image](./assets/rag-mlx.png)|
 | [Multilingual-RAG](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Multilingual_RAG/) | Multilingual RAG with cohere embedding & support 100+ languages|![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/be65eb39-25c4-4441-98fc-6ded09689819)|
