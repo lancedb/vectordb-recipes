@@ -1,7 +1,7 @@
 # 🔍Search engine using SAM & CLIP
 
-<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/search-within-images-with-sam-and-clip/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/etoai/search-within-an-image-331b54e4285e)
-![“A Dog”](https://github.com/kaushal07wick/vectordb-recipes/assets/57106063/3907c1e5-009b-4ffb-8ea2-2eddb58f3346)
+<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/search-within-images-with-sam-and-clip/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/search-within-an-image-331b54e4285e)
+![“A Dog”](../../assets/search-within-image.png)
 
 ###   🚀Create a Search Engine within an Image use **SAM**(Segment Anything) and **CLIP** (Constrastive Language Image Pretraining) model.
 Follow the Colab Notebook for full code.
@@ -16,4 +16,6 @@ Follow the Colab Notebook for full code.
 6. Use Search method to find the closest match of Image Embedding (particular Segmentation Mask) and User Query.
 7. Output the Highlighted closest object present.
 
- Read the Full blog post on **Medium**
+
+![“A Dog”](../../assets/search-within-image-flow.png)
+ Read the Full [blog post](https://blog.lancedb.com/search-within-an-image-331b54e4285e)
