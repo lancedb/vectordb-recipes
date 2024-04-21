@@ -1,5 +1,6 @@
 import nltk
 import pandas as pd
+
 nltk.download("punkt")
 import re
 import ollama
@@ -44,12 +45,15 @@ def recursive_text_splitter(text, max_chunk_length=1000, overlap=100):
 
 # define schema for table with embedding api
 
-model = get_registry().get("colbert").create(name='colbert-ir/colbertv2.0')
+model = get_registry().get("colbert").create(name="colbert-ir/colbertv2.0")
+
+
 class TextModel(LanceModel):
     text: str = model.SourceField()
     vector: Vector(model.ndims()) = model.VectorField()
 
-# add in vector db 
+
+# add in vector db
 def lanceDBConnection(df):
     """
     LanceDB insertion
@@ -62,6 +66,7 @@ def lanceDBConnection(df):
     )
     table.add(df)
     return table
+
 
 # Read Document
 with open("lease.txt", "r") as file:
@@ -93,11 +98,14 @@ Contexts:
 # llm
 prompt = f"{base_prompt.format(question, context)}"
 
-response = ollama.chat(model='llama3', messages=[
-  {
-    'role': 'system',
-    'content': prompt,
-  },
-])
+response = ollama.chat(
+    model="llama3",
+    messages=[
+        {
+            "role": "system",
+            "content": prompt,
+        },
+    ],
+)
 
-print(response['message']['content'])
+print(response["message"]["content"])
