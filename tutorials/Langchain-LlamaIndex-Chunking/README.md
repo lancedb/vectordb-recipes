@@ -4,4 +4,4 @@
 
 We have comprehensively covered all the chunking techniques available in Langchain and LlamaIndex.
 
-[Read More in Blog](https://blog.lancedb.com/chunking-techiniques-with-langchain-and-llamaindex/)
+[Read More in Blog](https://blog.lancedb.com/chunking-techniques-with-langchain-and-llamaindex/)
