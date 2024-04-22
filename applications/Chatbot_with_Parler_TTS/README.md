@@ -3,7 +3,7 @@ This application integrates a PDF chat functionality using LanceDB with advanced
 leverages the Paler Text-to-Speech (TTS) model for audio output.
 
 It is designed to enable high-quality text and speech interaction with PDF documents.
-![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/a4446072-8d8a-4048-a78d-a6030cc20bae)
+![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/7b4edbbe-cde7-44cb-9a70-c79c91df68a1)
 
 ## Features
 
