@@ -26,6 +26,8 @@ pip install -r requirements.txt
 ## Running the Application
 Start the application by running the main script. This will launch a Gradio interface accessible via a web browser:
 
+create  ```.env ``` file & pass the openai_api_key. or simply rename the ```.env-example ``` file to ```.env``` 
+
 ```
 python3 main.py  # Gradio app will run
 ```
