@@ -2,20 +2,24 @@ import os
 import torch
 import lancedb
 from dotenv import load_dotenv
+from constants import input_pdf
+from prompts import rag_prompt
 from langchain_community.vectorstores import LanceDB
+from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.document_loaders import PyPDFLoader
+from langchain_core.messages import HumanMessage, SystemMessage
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.prompts import PromptTemplate
 from lancedb.embeddings import get_registry
 from lancedb.pydantic import Vector, LanceModel
 from lancedb.rerankers import ColbertReranker
 
+
 load_dotenv()
+
 
 class Document:
     def __init__(self, page_content, metadata=None):
@@ -27,7 +31,7 @@ class Document:
 
 
 def get_rag_output(question):
-    input_pdf_file = "https://d18rn0p25nwr6d.cloudfront.net/CIK-0001559720/8a9ebed0-815a-469a-87eb-1767d21d8cec.pdf"
+    input_pdf_file = input_pdf
 
     # Create your PDF loader
     loader = PyPDFLoader(input_pdf_file)
@@ -35,7 +39,7 @@ def get_rag_output(question):
     # Load the PDF document
     documents = loader.load()
 
-    # Chunk the pdf data 
+    # Chunk the financial report
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=0)
     docs = text_splitter.split_documents(documents)
 
@@ -49,7 +53,7 @@ def get_rag_output(question):
 
     db = lancedb.connect("~/langchain")
     table = db.create_table(
-        "pdf_data",
+        "airbnb",
         schema=Schema,
         mode="overwrite",
     )
@@ -73,33 +77,13 @@ def get_rag_output(question):
     ]
 
     vectorstore = LanceDB.from_documents(
-        documents=docs,
+        documents=docs_with_metadata,
         embedding=OpenAIEmbeddings(openai_api_key=os.environ["OPENAI_API_KEY"]),
     )
 
     retriever = vectorstore.as_retriever()
 
-    print("retriver", retriever)
-
-    rag_prompt_template = """
-    As an AI Assistant, your role is to provide authentic and accurate responses. Analyze the question and its context thoroughly to determine the most appropriate answer.
-
-    **Instructions:**
-    - Understand the context and nuances of the question to identify relevant and precise information.
-    - if its general greeting then  answer should be  hellow how can i help you,please ask related quetions so i can help
-    - If an answer cannot be conclusively determined from the provided information, inform the user rather than making up an answer.
-    - When multiple interpretations of a question exist, briefly present these viewpoints, then provide the most plausible answer based on the context.
-    - Focus on providing concise and factual responses, excluding irrelevant details.
-    - For sensitive or potentially harmful topics, advise users to seek professional advice or consult authoritative sources.
-    - Keep your answer clear and within 500 words.
-
-    **Context:**
-    {context}
-
-    **Question:**
-    {question}
-
-    """
+    rag_prompt_template = rag_prompt
 
     prompt = PromptTemplate(
         template=rag_prompt_template,
