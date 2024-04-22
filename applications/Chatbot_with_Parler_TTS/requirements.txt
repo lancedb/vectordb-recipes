@@ -1,0 +1,9 @@
+pip install  langchain 
+langchain-community 
+langchain-openai 
+lancedb 
+bs4 
+tantivy==0.20.1 
+pypdf 
+gradio
+git+https://github.com/huggingface/parler-tts.git
