@@ -87,7 +87,7 @@ These are ready to use applications built using LanceDB serverless vector databa
 | [ GTE MLX RAG ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/GTE_mlx_RAG) | mlx based RAG model using lancedb api support | ![image](./assets/rag-mlx.png)|
 | [Multilingual-RAG](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Multilingual_RAG/) | Multilingual RAG with cohere embedding & support 100+ languages|![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/be65eb39-25c4-4441-98fc-6ded09689819)|
 | [Multimodal Myntra Fashion Search Engine](https://github.com/ishandutta0098/lancedb-multimodal-myntra-fashion-search-engine) | This app uses OpenAI's CLIP to make a search engine that can understand and deal with both written words and pictures.|![image](./assets/myntra-search-engine.png)|
-| [Advance Chatbot with Parler TTS ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/chatbot_with_TTS/applications/Chatbot_with_Parler_TTS) | This Chatbot app uses Lancedb Hybrid search, FTS & reranker method with Parlers TTS library.|![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/f076e6b3-e78f-45cf-a461-08d577c31720)|
+| [Advance Chatbot with Parler TTS ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/chatbot_with_TTS/applications/Chatbot_with_Parler_TTS) | This Chatbot app uses Lancedb Hybrid search, FTS & reranker method with Parlers TTS library.|![image](./assets/chatbot_tts.png)|
 
 
 
