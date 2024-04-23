@@ -91,8 +91,6 @@ These are ready to use applications built using LanceDB serverless vector databa
 
 
 
-chatbot_with_TTS/applications/Chatbot_with_Parler_TTS
-
 ## Tutorials
 Looking to get started with LLMs, vectorDBs, and the world of Generative AI? These in-depth tutorials and courses cover these concepts with practical follow along colabs where possible.
 | Tutorial | Interactive Environment | Blog Link |
