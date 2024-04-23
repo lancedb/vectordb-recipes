@@ -1,3 +1,5 @@
 llama-index
 llama-index-llms-databricks
 llama-index-embeddings-huggingface
+llama-index-readers-web
+llama-index-vector-stores-lancedb
