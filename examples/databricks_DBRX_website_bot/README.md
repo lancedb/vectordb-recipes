@@ -1,6 +1,6 @@
-## Hogwarts chatbot with Open source RAG using DBRX, LanceDB, and LLama-index with Hugginface Embeddings
+## Hogwarts chatbot with Open source RAG using DBRX, LanceDB, and LLama-index with Huggingface Embeddings
 
-This application is a website chatbot that uses the Open source RAG model with DBRX, LanceDB, and LLama-index with Hugginface Embeddings. The chatbot is built using the RAG model, which is a retrieval-augmented generation model that can be used for a variety of tasks, including question answering, text generation, and more.
+This application is a website chatbot that uses the Open source RAG model with DBRX, LanceDB, and LLama-index with Hugginface Embeddings.
 
 ### Steps to Run the Application
 
