@@ -64,6 +64,9 @@ If you're looking for in-depth tutorial-like examples, checkout the [tutorials](
 | [Imagebind demo app](/examples/imagebind_demo/) | <a href="https://huggingface.co/spaces/raghavd99/imagebind2"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-with-title.svg" alt="hf spaces" style="width: 80px; vertical-align: middle; background-color: white;"></a>|
 | [SuperAgent Autogen](/examples/SuperAgent_Autogen) |<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/SuperAgent_Autogen/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![local LLM](https://img.shields.io/badge/local-llm-green)](#) |[![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/optimizing-ai-agents-harnessing-openai-compatible-technologies-and-vector-databases)|
 | [AI Trends Searcher with CrewAI](./examples/AI-Trends-with-CrewAI/) |<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/AI-Trends-with-CrewAI/CrewAI_AI_Trends.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![LLM](https://img.shields.io/badge/openai-api-white)](#) |[![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/track-ai-trends-crewai-agents-rag/)|
+| [Databricks DBRX Website Bot](./examples/databricks_DBRX_website_bot/) | [![local LLM](https://img.shields.io/badge/local-llm-green)](#) |
+| [CLI-based SDK Manual Chatbot with Phidata](/examples/CLI-SDK-Manual-Chatbot-Locally/) | [![local LLM](https://img.shields.io/badge/local-llm-green)](#) |
+
 
 
 
