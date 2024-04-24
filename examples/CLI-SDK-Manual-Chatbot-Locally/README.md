@@ -34,7 +34,7 @@ Now you are ready to run CLI SDK manual Chatbot locally
 python3 assistant.py
 ```
 
-*Note: This Chatbot utilizes `data\manual.pdf`. For running it on your document change path of document in `assistant.py`*
+*Note: This Chatbot utilizes `data/manual.pdf`. For running it on your document change path of document in `assistant.py`*
 
 
 
