@@ -11,7 +11,7 @@ pip install -r requirements.txt
 
 2. Setup Databricks Serving Endpoint and token as environment variables for using databricks serving endpoint. You can also use the dbrx model locally as it is open source.
 ```
-export DATABRICKS_API_KEY=<your api key>
+export DATABRICKS_TOKEN=<your api key>
 DATABRICKS_SERVING_ENDPOINT=<your api serving endpoint>
 ```
 
