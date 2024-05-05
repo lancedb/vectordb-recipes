@@ -7,26 +7,10 @@ this chatbot is adept at processing and responding to medical data queries.
 
 ## Key Features
 ### Language Model: 
-For demo purpose  here we are using openeai llm model.
-but you can try OpenBioLLM-Llama3 or medical-specific llm model.
 
 To utilize OpenBioLLM-Llama3 .download model in the local system & pass the path of it 
-link for downloading ggmf version moedl https://huggingface.co/PrunaAI/OpenBioLLM-Llama3-8B-GGUF-smashed
-
-use below code for replacing it with openai llm
-```
-from langchain_community.llms import LlamaCpp
-
-llm = LlamaCpp(
-    model_path="/content/OpenBioLLM-Llama3-8B.Q2_K.gguf",
-    temperature=0.75,
-    n_ctx=2048,
-    top_p=1,
-    verbose=True,  # Verbose is required to pass to the callback manager
-)
-```
-
-
+link for downloading ggmf version model https://huggingface.co/PrunaAI/OpenBioLLM-Llama3-8B-GGUF-smashed
+change this model based on requirements & performace 
 
 ### Embeddings: 
 Uses NeuML's PubMedBERT (https://huggingface.co/NeuML/pubmedbert-base-embeddings), which is fine-tuned on PubMed data with the BERT architecture to ensure high relevance and contextual accuracy in responses.
