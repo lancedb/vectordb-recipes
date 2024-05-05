@@ -7,7 +7,8 @@ this chatbot is adept at processing and responding to medical data queries.
 
 ## Key Features
 ### Language Model: 
-Im using openeai llm model but you can try OpenBioLLM-Llama3 or medical specific llm model.
+For demo purpose  here we are using openeai llm model.
+but you can try OpenBioLLM-Llama3 or medical-specific llm model.
 
 To utilize OpenBioLLM-Llama3 .download model in the local system & pass the path of it 
 link for downloading ggmf version moedl https://huggingface.co/PrunaAI/OpenBioLLM-Llama3-8B-GGUF-smashed
