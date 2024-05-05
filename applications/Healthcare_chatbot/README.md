@@ -9,8 +9,8 @@ this chatbot is adept at processing and responding to medical data queries.
 ### Language Model: 
 
 To utilize OpenBioLLM-Llama3 .download model in the local system & pass the path of it 
-link for downloading ggmf version model https://huggingface.co/PrunaAI/OpenBioLLM-Llama3-8B-GGUF-smashed
-change this model based on requirements & performace 
+link for downloading gguf version model https://huggingface.co/PrunaAI/OpenBioLLM-Llama3-8B-GGUF-smashed
+change this model based on requirements & performance 
 
 ### Embeddings: 
 Uses NeuML's PubMedBERT (https://huggingface.co/NeuML/pubmedbert-base-embeddings), which is fine-tuned on PubMed data with the BERT architecture to ensure high relevance and contextual accuracy in responses.
