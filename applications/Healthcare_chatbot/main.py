@@ -47,7 +47,16 @@ docs = loader.load()
 logging.info("Document loader done.")
 
 # Set up the text processing and model chain
-llm = ChatOpenAI(model="gpt-4", temperature=0, openai_api_key=OPENAI_API_KEY)
+#llm = ChatOpenAI(model="gpt-4", temperature=0, openai_api_key=OPENAI_API_KEY)
+
+# download weights from https://huggingface.co/PrunaAI/OpenBioLLM-Llama3-8B-GGUF-smashed/tree/main
+llm = LlamaCpp(
+    model_path="/content/OpenBioLLM-Llama3-8B.Q4_K_S.gguf",  # path of gguf weight
+    temperature=0.75,
+    n_ctx=2048,
+    verbose=False,  # Verbose is required to pass to the callback manager
+)
+
 embeddings_med = SentenceTransformerEmbeddings(model_name="NeuML/pubmedbert-base-embeddings")
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 
