@@ -2,8 +2,7 @@
 This project introduces a healthcare-related Retrieval-Augmented Generation (RAG) chatbot, designed to deliver quick  responses to medical inquiries. Utilizing  OpenBioLLM-Llama3 / openai llm and the NeuML's PubMedBERT for embedding,
 this chatbot is adept at processing and responding to medical data queries.
 
-![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/6027ccb2-0917-45e4-97f4-6739aa420082)
-
+![image](../../assets/chatbot_medical.png)
 
 ## Key Features
 ### Language Model: 
