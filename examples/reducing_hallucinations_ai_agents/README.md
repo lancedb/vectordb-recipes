@@ -4,7 +4,7 @@ AI agents can help simplify and automate tedious workflows. By going through thi
 
 Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/reducing_hallucinations_ai_agents/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
-![Untitled (34)](https://github.com/lancedb/vectordb-recipes/assets/15766192/e87d5fcc-6f04-4592-b9ec-0156ee2c98df)
+![alt text](../../assets/critique-based-contexting.png)
 
 
 ### Setup

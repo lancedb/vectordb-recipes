@@ -23,16 +23,16 @@ def evaluate(
     query_type="auto",
     verbose=False,
 ):
-    #corpus = dataset['corpus']
-    #queries = dataset['queries']
-    #relevant_docs = dataset['relevant_docs']
+    # corpus = dataset['corpus']
+    # queries = dataset['queries']
+    # relevant_docs = dataset['relevant_docs']
 
     vector_store = LanceDBVectorStore(uri=f"/tmp/lancedb_cohere-bench-{time.time()}")
     storage_context = StorageContext.from_defaults(vector_store=vector_store)
     service_context = ServiceContext.from_defaults(embed_model=embed_model)
     index = VectorStoreIndex.from_documents(
         docs,
-        service_context=service_context, 
+        service_context=service_context,
         show_progress=True,
         storage_context=storage_context,
     )
@@ -42,37 +42,48 @@ def evaluate(
     eval_results = []
     ds = dataset.to_pandas()
     for idx in tqdm(range(len(ds))):
-        query = ds['query'][idx]
-        reference_context = ds['reference_contexts'][idx]
+        query = ds["query"][idx]
+        reference_context = ds["reference_contexts"][idx]
         query_vector = embed_model.get_query_embedding(query)
         try:
             if reranker is None:
                 rs = tbl.search(query_vector).limit(top_k).to_pandas()
             elif query_type == "auto":
-                rs = tbl.search((query_vector, query)).rerank(reranker=reranker).limit(top_k).to_pandas()
+                rs = (
+                    tbl.search((query_vector, query))
+                    .rerank(reranker=reranker)
+                    .limit(top_k)
+                    .to_pandas()
+                )
             elif query_type == "vector":
-                rs = tbl.search(query_vector).rerank(reranker=reranker, query_string=query).limit(top_k*2).to_pandas() # Overfetch for vector only reranking
+                rs = (
+                    tbl.search(query_vector)
+                    .rerank(reranker=reranker, query_string=query)
+                    .limit(top_k * 2)
+                    .to_pandas()
+                )  # Overfetch for vector only reranking
         except Exception as e:
-            print(f'Error with query: {idx} {e}')
+            print(f"Error with query: {idx} {e}")
             continue
-        retrieved_texts = rs['text'].tolist()[:top_k]
+        retrieved_texts = rs["text"].tolist()[:top_k]
         expected_text = reference_context[0]
         is_hit = expected_text in retrieved_texts  # assume 1 relevant doc
         eval_result = {
-            'is_hit': is_hit,
-            'retrieved': retrieved_texts,
-            'expected': expected_text,
-            'query': query,
+            "is_hit": is_hit,
+            "retrieved": retrieved_texts,
+            "expected": expected_text,
+            "query": query,
         }
         eval_results.append(eval_result)
     return eval_results
+
 
 rag_dataset = LabelledRagDataset.from_json("./data/rag_dataset.json")
 documents = SimpleDirectoryReader(input_dir="./data/source_files").load_data()
 
 embed_models = {
-"bge": HuggingFaceEmbedding(model_name="BAAI/bge-large-en-v1.5"),
-"colbert": HuggingFaceEmbedding(model_name="colbert-ir/colbertv2.0")
+    "bge": HuggingFaceEmbedding(model_name="BAAI/bge-large-en-v1.5"),
+    "colbert": HuggingFaceEmbedding(model_name="colbert-ir/colbertv2.0"),
 }
 rerankers = {
     "None": None,
@@ -93,7 +104,7 @@ for embed_name, embed_model in embed_models.items():
             verbose=True,
         )
         print(f" Embedder {embed_name} Reranker: {reranker_name}")
-        score = pd.DataFrame(eval_results)['is_hit'].mean()
+        score = pd.DataFrame(eval_results)["is_hit"].mean()
         print(score)
         scores[reranker_name] = score
 
@@ -108,6 +119,6 @@ for embed_name, embed_model in embed_models.items():
                 verbose=True,
             )
             print(f"Embedder {embed_name} Reranker: {reranker_name} (vector)")
-            score = pd.DataFrame(eval_results)['is_hit'].mean()
+            score = pd.DataFrame(eval_results)["is_hit"].mean()
             print(score)
             scores[f"{reranker_name}_vector"] = score

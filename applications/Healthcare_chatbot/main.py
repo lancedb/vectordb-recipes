@@ -28,10 +28,10 @@ app = FastAPI(title="Medical Information Retrieval API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],  
-    allow_headers=["*"],  
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
@@ -39,15 +39,13 @@ app.add_middleware(
 DATA_PATH = "data/"
 
 
-loader = DirectoryLoader(DATA_PATH,
-                             glob='*.pdf',
-                             loader_cls=PyPDFLoader)
+loader = DirectoryLoader(DATA_PATH, glob="*.pdf", loader_cls=PyPDFLoader)
 
 docs = loader.load()
 logging.info("Document loader done.")
 
 # Set up the text processing and model chain
-#llm = ChatOpenAI(model="gpt-4", temperature=0, openai_api_key=OPENAI_API_KEY)
+# llm = ChatOpenAI(model="gpt-4", temperature=0, openai_api_key=OPENAI_API_KEY)
 
 # download weights from https://huggingface.co/PrunaAI/OpenBioLLM-Llama3-8B-GGUF-smashed/tree/main
 llm = LlamaCpp(
@@ -57,7 +55,9 @@ llm = LlamaCpp(
     verbose=False,  # Verbose is required to pass to the callback manager
 )
 
-embeddings_med = SentenceTransformerEmbeddings(model_name="NeuML/pubmedbert-base-embeddings")
+embeddings_med = SentenceTransformerEmbeddings(
+    model_name="NeuML/pubmedbert-base-embeddings"
+)
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 
 logging.info("Embedding and LLM setup done.")
@@ -68,7 +68,9 @@ retriever = vectorstore.as_retriever()
 logging.info("Retriever setup done.")
 
 compressor = CohereRerank(cohere_api_key=COHERE_API_KEY)
-compression_retriever = ContextualCompressionRetriever(base_compressor=compressor, base_retriever=retriever)
+compression_retriever = ContextualCompressionRetriever(
+    base_compressor=compressor, base_retriever=retriever
+)
 logging.info("Cohere compression retriever setup done.")
 
 chain = RetrievalQA.from_chain_type(llm=llm, retriever=compression_retriever)
@@ -80,17 +82,18 @@ chain = RetrievalQA.from_chain_type(llm=llm, retriever=compression_retriever)
 class QueryRequest(BaseModel):
     query: str
 
+
 @app.post("/query/", response_model=dict)
 async def handle_query(request: QueryRequest):
     try:
         compressed_docs = compression_retriever.invoke(request.query)
         # Assuming pretty_print_docs function returns a string
         response = chain({"query": request.query})
-        print("response",response['result'])
-        return {"answer": response['result']}
+        print("response", response["result"])
+        return {"answer": response["result"]}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
-
