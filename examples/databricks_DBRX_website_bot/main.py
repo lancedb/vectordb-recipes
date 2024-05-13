@@ -15,7 +15,7 @@ def get_doc_from_url(url):
 def build_RAG(
     url="https://harrypotter.fandom.com/wiki/Hogwarts_School_of_Witchcraft_and_Wizardry",
     embed_model="mixedbread-ai/mxbai-embed-large-v1",
-    uri="~/tmp/lancedb_hogwarts_12",
+    uri="~/tmp/lancedb_hogwart",
     force_create_embeddings=False,
 ):
     Settings.embed_model = HuggingFaceEmbedding(model_name=embed_model)
