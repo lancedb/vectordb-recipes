@@ -1,0 +1,4 @@
+ollama
+nltk
+pandas
+lancedb

@@ -14,4 +14,4 @@ Text-to-Image and Image-to-Image Search using CLIP
 
 **These Results are on 13th Gen Intel(R) Core(TM) i5–13420H using OpenVINO=2023.2 and NNCF=2.7.0 version.**
 
-[Read More in Blog](https://blog.lancedb.com/accelerate-vector-search-applications-using-openvino-51366eabf866)
+[Read More in Blog](https://blog.lancedb.com/accelerate-vector-search-applications-using-openvino-lancedb/)
