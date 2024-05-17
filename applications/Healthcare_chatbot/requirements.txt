@@ -1,0 +1,11 @@
+langchain
+langchain-community
+langchainhub
+langchain-openai
+lancedb
+PyPDF2
+llama-cpp-python # for using openbiollm
+huggingface-hub
+sentence-transformers
+ctransformers
+langchain-cohere

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .chat-container {
+            background: white;
+            width: 95%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .chat-header {
+            background: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .chat-body {
+            padding: 20px;
+            height: 400px;
+            overflow-y: auto;
+        }
+        .user-message, .bot-response {
+            margin-bottom: 20px;
+            line-height: 1.5;
+            position: relative;
+        }
+        .user-message p, .bot-response p {
+            background: #007BFF;
+            color: white;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            max-width: 80%;
+        }
+        .bot-response p {
+            background: #e7e7e8;
+            color: #333;
+        }
+        .chat-footer {
+            background: #f0f0f0;
+            padding: 10px 20px;
+            display: flex;
+        }
+        .input-message {
+            flex-grow: 1;
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+        }
+        button {
+            border: none;
+            background: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            .chat-header, .user-message p, .bot-response p {
+                font-size: 18px;
+            }
+            .chat-body {
+                height: 300px;
+            }
+            .input-message, button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+            .chat-footer {
+                padding: 8px 10px;
+            }
+        }
+        @media (max-width: 400px) {
+            .chat-header, .user-message p, .bot-response p {
+                font-size: 16px;
+            }
+            .chat-body {
+                height: 250px;
+            }
+            .input-message, button {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+            .chat-footer {
+                padding: 5px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">Healthcare AI Chatbot</div>
+        <div class="chat-body" id="chatBody">
+            <!-- Messages will be dynamically added here -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="messageInput" class="input-message" placeholder="Type your question here..." onkeypress="handleKeypress(event)">
+            <button onclick="submitQuestion()">Send</button>
+            <button onclick="clearChat()">Clear</button>
+        </div>
+    </div>
+
+    <script>
+        function submitQuestion() {
+            const input = document.getElementById('messageInput');
+            const chatBody = document.getElementById('chatBody');
+            const question = input.value.trim();
+            if (question === '') {
+                return; // Ignore empty questions
+            }
+            const data = { query: question };
+
+            input.value = '';
+
+            const userDiv = document.createElement('div');
+            userDiv.className = 'user-message';
+            userDiv.innerHTML = `<p>${question}</p>`;
+            chatBody.appendChild(userDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            fetch('http://127.0.0.1:8000/query/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'bot-response';
+                botDiv.innerHTML = `<p>${data.answer}</p>`;
+                chatBody.appendChild(botDiv);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'bot-response';
+                errorDiv.innerHTML = `<p>Error: Could not retrieve the answer. Please try again.</p>`;
+                chatBody.appendChild(errorDiv);
+            });
+        }
+
+        function handleKeypress(event) {
+            if (event.key === 'Enter') {
+                submitQuestion();
+            }
+        }
+
+        function clearChat() {
+            const chatBody = document.getElementById('chatBody');
+            chatBody.innerHTML = ''; // Clears all content in the chat body
+        }
+    </script>
+</body>
+</html>
