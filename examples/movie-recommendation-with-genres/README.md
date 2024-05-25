@@ -1,4 +1,4 @@
-# Movie Recommendation using Genre Spectrum Emebeddings
+# Movie Recommendation using Emebeddings and VectorDB
 
 ![image](https://github.com/vipul-maheshwari/vipul-maheshwari.github.io/blob/main/images/movie-recommendation-using-rag/doc2vec_final.png?raw=true)
 
