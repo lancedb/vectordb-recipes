@@ -6,4 +6,4 @@ This example  provides a comprehensive guide on creating a movie recommendation 
 
 Colab walkthrough - <a href="https://colab.research.google.com/drive/17cfqJXzuS7cKeZ0Cby8QeGAKMniqNtlv?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
-[Read the Blog Post](https://vipul-maheshwari.github.io/2024/05/17/movie-recommendation-system-with-vdb)
+[Read the Blog Post](https://blog.lancedb.com/movie-recommendation-system-using-lancedb-and-doc2vec/)
