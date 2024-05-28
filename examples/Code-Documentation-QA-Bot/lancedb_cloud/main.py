@@ -108,13 +108,14 @@ if __name__ == "__main__":
     documents = text_splitter.split_documents(docs)
     embeddings = OpenAIEmbeddings()
 
-    uri = "db://qian-test2-5c94f6"
+    db_url = "db://your-project-slug"
+    api_key = "sk_..."
+    region = "us-east-1"
     table_name = "langchain_vectorstore"
-    api_key = "sk_GHTF5EBZ65HPRFZQPJNWJM5TSATHFGTXT6CA7CCPWPO2NAIHSEZQ===="
 
     vectorstore = LanceDB(
         embedding=embeddings,
-        uri=uri,  # your remote database URI
+        uri=db_url,  # your remote database URI
         api_key=api_key,
         region="us-east-1",
         table_name=table_name,  # Optional, defaults to "vectors"
