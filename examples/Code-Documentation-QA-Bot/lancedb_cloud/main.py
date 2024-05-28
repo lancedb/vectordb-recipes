@@ -5,21 +5,20 @@
 #
 # In this example we'll use Pandas 2.0 documentation, but, this could be replaced for your own docs as well
 
-import os
-import openai
 import argparse
-import re
+import os
 import pickle
-import requests
+import re
 import zipfile
 from pathlib import Path
 
-from langchain_community.document_loaders import BSHTMLLoader
-from langchain_openai import OpenAIEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import LanceDB
-from langchain_openai import OpenAI
+import openai
+import requests
 from langchain.chains import RetrievalQA
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.document_loaders import BSHTMLLoader
+from langchain_community.vectorstores import LanceDB
+from langchain_openai import OpenAI, OpenAIEmbeddings
 
 
 def get_document_title(document_list):
@@ -61,6 +60,7 @@ def arg_parse():
 
 def pre_process():
     from tqdm import tqdm
+
     docs = []
     docs_path = Path("docs.pkl")
     for p in tqdm(Path("numpy_docs").rglob("*.html")):
@@ -76,7 +76,6 @@ def pre_process():
             raw_document[0].metadata.update(m)
             raw_document[0].metadata["source"] = str(raw_document[0].metadata["source"])
             docs.extend(raw_document)
-
 
     if docs:
         with open(docs_path, "wb") as fh:
@@ -124,9 +123,9 @@ if __name__ == "__main__":
 
     # insert documents in batches
     batch_size = 10000
-    for i in range (0,len(documents), batch_size ) :
-        print(f'ingesting batch of {i} : {i+batch_size}')
-        batch = documents[i:i+batch_size]
+    for i in range(0, len(documents), batch_size):
+        print(f"ingesting batch of {i} : {i+batch_size}")
+        batch = documents[i : i + batch_size]
         vectorstore.add_documents(batch)
 
     qa = RetrievalQA.from_chain_type(
