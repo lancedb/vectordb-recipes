@@ -9,6 +9,7 @@ from gen_image import load_models, generate_image, RESPONSE_TO_DIFFUSER_PROMPT
 
 MODEL, STEPS = None, None
 
+
 def get_doc_from_url(url):
     documents = SimpleWebPageReader(html_to_text=True).load_data([url])
     return documents
@@ -42,9 +43,14 @@ def build_RAG(
         response = query_engine.chat(query)
         print(response)
         print("\n Illustrating the response...:")
-        image = generate_image(model, steps, Settings.llm.complete(RESPONSE_TO_DIFFUSER_PROMPT.format(str(response.response))).text)
+        image = generate_image(
+            model,
+            steps,
+            Settings.llm.complete(
+                RESPONSE_TO_DIFFUSER_PROMPT.format(str(response.response))
+            ).text,
+        )
         image.show()
-
 
 
 if __name__ == "__main__":
@@ -89,4 +95,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
     # hardcode model because no one should use sd
     args.diffuser_model = "sdxl"
-    build_RAG(args.url, args.embed_model, args.uri, args.force_create_embeddings, args.illustrate, args.diffuser_model)
+    build_RAG(
+        args.url,
+        args.embed_model,
+        args.uri,
+        args.force_create_embeddings,
+        args.illustrate,
+        args.diffuser_model,
+    )
