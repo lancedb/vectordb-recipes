@@ -25,3 +25,8 @@ Accepted arguments:
 - `embed_model`: Huggingface model to use for embeddings. Default is `mixedbread-ai/mxbai-embed-large-v1`.
 - `uri`: URI of the vector store. Default is `~/tmp/lancedb_hogwarts`.
 - `force_create_embeddings`: Whether to force create embeddings. Default is `False`.
+- `illustrate`: Whether to illustrate the responses. Default is `True`.
+
+
+## MLX SDXL
+The MLX SDXL implementation is taken from MLX [examples repo](https://github.com/ml-explore/mlx-examples/tree/main/stable_diffusion). The implementation is modified a bit to make it work faster with the current application.

@@ -3,3 +3,10 @@ llama-index-llms-databricks
 llama-index-embeddings-huggingface
 llama-index-readers-web
 llama-index-vector-stores-lancedb
+diffusers
+mlx>=0.11
+huggingface-hub
+regex
+numpy
+tqdm
+Pillow
