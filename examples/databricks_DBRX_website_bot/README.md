@@ -15,7 +15,7 @@ export DATABRICKS_TOKEN=<your api key>
 DATABRICKS_SERVING_ENDPOINT=<your api serving endpoint>
 ```
 
-3. Run the application
+3. Run the application in CLI mode
 ```
 python main.py
 ```
@@ -27,6 +27,10 @@ Accepted arguments:
 - `force_create_embeddings`: Whether to force create embeddings. Default is `False`.
 - `illustrate`: Whether to illustrate the responses. Default is `True`.
 
+4. Run the application in GUI mode
+```
+streamlit run gui.py
+```
 
 ## MLX SDXL
 The MLX SDXL implementation is taken from MLX [examples repo](https://github.com/ml-explore/mlx-examples/tree/main/stable_diffusion). The implementation is modified a bit to make it work faster with the current application.
