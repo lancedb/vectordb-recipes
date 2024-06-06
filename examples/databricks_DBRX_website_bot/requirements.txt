@@ -10,3 +10,4 @@ regex
 numpy
 tqdm
 Pillow
+streamlit

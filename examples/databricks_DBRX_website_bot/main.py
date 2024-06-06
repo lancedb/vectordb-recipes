@@ -37,20 +37,7 @@ def build_RAG(
     index = VectorStoreIndex.from_documents(documents, storage_context=storage_context)
     query_engine = index.as_chat_engine()
 
-    print("Ask a question relevant to the given context:")
-    while True:
-        query = input()
-        response = query_engine.chat(query)
-        print(response)
-        print("\n Illustrating the response...:")
-        image = generate_image(
-            model,
-            steps,
-            Settings.llm.complete(
-                RESPONSE_TO_DIFFUSER_PROMPT.format(str(response.response))
-            ).text,
-        )
-        image.show()
+    return query_engine, model, steps
 
 
 if __name__ == "__main__":
@@ -95,7 +82,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     # hardcode model because no one should use sd
     args.diffuser_model = "sdxl"
-    build_RAG(
+    query_engine, model, steps = build_RAG(
         args.url,
         args.embed_model,
         args.uri,
@@ -103,3 +90,18 @@ if __name__ == "__main__":
         args.illustrate,
         args.diffuser_model,
     )
+
+    print("Ask a question relevant to the given context:")
+    while True:
+        query = input()
+        response = query_engine.chat(query)
+        print(response)
+        print("\n Illustrating the response...:")
+        image = generate_image(
+            model,
+            steps,
+            Settings.llm.complete(
+                RESPONSE_TO_DIFFUSER_PROMPT.format(str(response.response))
+            ).text,
+        )
+        image.show()
