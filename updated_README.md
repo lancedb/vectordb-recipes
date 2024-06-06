@@ -102,7 +102,7 @@ Examples are available as:
 ||||
 
 
-| Recommenders &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
+| Recommender Systems &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
 ||||
 | [Movie Recommender](/examples/movie-recommender/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/movie-recommender/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./examples/movie-recommender/main.py) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
@@ -111,7 +111,7 @@ Examples are available as:
 | [Arxiv paper recommender](/examples/arxiv-recommender) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/arxiv-recommender/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./examples/arxiv-recommender/main.py) [![LLM](https://img.shields.io/badge/local-llm-green)](#)  [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
 ||||
 
-| Concept | Interactive Notebook | Blog Link |
+| Concepts | Interactive Notebook | Blog Link |
 | --------- | -------------------------- | ----------- |
 |           |                            |             |
 | [A Primer on Text Chunking and its Types](./tutorials/different-types-text-chunking-in-RAG) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/different-types-text-chunking-in-RAG/Text_Chunking_on_RAG_application_with_LanceDB.ipynb) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)| [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/a-primer-on-text-chunking-and-its-types-a420efc96a13) |
