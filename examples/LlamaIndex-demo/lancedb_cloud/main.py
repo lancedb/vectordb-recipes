@@ -1,12 +1,16 @@
+import os
+import textwrap
 from datetime import datetime
+
 import openai
 import requests
-import os
-
-from llama_index.core import SimpleDirectoryReader,Document, StorageContext
-from llama_index.core import VectorStoreIndex
+from llama_index.core import (
+    Document,
+    SimpleDirectoryReader,
+    StorageContext,
+    VectorStoreIndex,
+)
 from llama_index.vector_stores.lancedb import LanceDBVectorStore
-import textwrap
 
 if __name__ == "__main__":
     if "OPENAI_API_KEY" not in os.environ:
@@ -40,10 +44,10 @@ if __name__ == "__main__":
 
     # Query via MetadataFilters
     from llama_index.core.vector_stores import (
-        MetadataFilters,
-        FilterOperator,
         FilterCondition,
+        FilterOperator,
         MetadataFilter,
+        MetadataFilters,
     )
 
     date = datetime.today().strftime("%Y-%m-%d")
