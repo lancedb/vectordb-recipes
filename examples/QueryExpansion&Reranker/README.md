@@ -19,4 +19,4 @@ Our focus is on improving the precision and recall of document retrieval process
 For a detailed exploration of the concepts and methodologies discussed in this project, 
 visit our blog
 
-[Read the Blog Post](https://blog.lancedb.com/improving-rag-with-query-expansion-reranking-models/)
+[Read the Blog Post](https://aksdesai1998.medium.com/improving-rag-with-query-expansion-reranking-models-31d252856580)
