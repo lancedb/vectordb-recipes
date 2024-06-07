@@ -1,0 +1,5 @@
+llama-index-vector-stores-lancedb
+llama-index-readers-file 
+llama-index-embeddings-openai 
+llama-index-llms-openai
+lancedb
