@@ -31,9 +31,3 @@ region="us-east-1"
 ```python
 OPENAI_API_KEY=... python main.py --query "what is a vectordb?"
 ```
-
-### Javascript
-Run the script
-```javascript
-OPENAI_API_KEY=... node index.js
-```
