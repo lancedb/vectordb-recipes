@@ -11,11 +11,11 @@ understand context, evaluate data quality, and make informed decisions.
 
 Install necessary packages:
 ```
-pip install  langchain-openai langchain-text-splitters langchain-chains langchain-memory langchain-core langchain-community gradio
+!pip install langchain-community tiktoken langchain-openai langchainhub lancedb  langchain langgraph langchain-text-splitters langchain_openai gradio
 
 ```
 
-$$ Google Colab Walkthrough
+## Google Colab Walkthrough
 For a detailed, interactive walkthrough of this implementation, you can explore the Google Colab notebook provided below. 
 This notebook includes support for Gradio, making it easier to create UIs for your machine-learning models, 
 ensuring a more interactive and user-friendly experience.
