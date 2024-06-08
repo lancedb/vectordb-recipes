@@ -20,3 +20,5 @@ For a detailed, interactive walkthrough of this implementation, you can explore 
 This notebook includes support for Gradio, making it easier to create UIs for your machine-learning models, 
 ensuring a more interactive and user-friendly experience.
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/Agentic+RAG/main.ipynb)
+
