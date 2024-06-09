@@ -29,6 +29,10 @@ Examples are available as:
 
 The following examples are organized into different tables to make similar types of examples easily accessible.
 
+### Build from Scratch
+
+Build applications/examples using LanceDB for efficient vector-based document retrieval.
+
 | Build from Scratch &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | 
 |-------- | -------------: |
 |||
@@ -36,6 +40,9 @@ The following examples are organized into different tables to make similar types
 | [Local RAG from Scratch with Llama3](./tutorials/Local-RAG-from-Scratch) | [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./tutorials/Local-RAG-from-Scratch/rag.py) [![local LLM](https://img.shields.io/badge/local-llm-green)](#) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
 ||||
 
+### MultiModal
+
+Create a multimodal search application using LanceDB for efficient vector-based retrieval of text and image data. Input text or image queries to find the most relevant documents and images from your corpus.
 
 | Multimodal &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
@@ -45,7 +52,11 @@ The following examples are organized into different tables to make similar types
 | [Multimodal Image + Text Search](/examples/multimodal_search/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/multimodal_search/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./examples/multimodal_search/main.py) [![LLM](https://img.shields.io/badge/local-llm-green)](#)   [![intermediate](https://img.shields.io/badge/intermediate-FFDA33)](#)| [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/multi-modal-ai-made-easy-with-lancedb-clip-5aaf8801c939/)|
 ||||
 
-| RAG &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
+### RAG
+
+Develop a Retrieval-Augmented Generation (RAG) application using LanceDB for efficient vector-based information retrieval. Input text queries to retrieve relevant documents and generate comprehensive answers by combining retrieved information.
+
+| RAG &nbsp; &nbsp;| Interactive Notebook & Scripts | Blog |
 | --------- | -------------------------- | ----------- |
 ||||
 | [Improve RAG with Re-ranking](/examples/RAG_Reranking/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/RAG_Reranking/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![LLM](https://img.shields.io/badge/local-llm-green)](#) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|[![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/simplest-method-to-improve-rag-pipeline-re-ranking-cf6eaec6d544)|
@@ -61,6 +72,9 @@ The following examples are organized into different tables to make similar types
 | [Agentic RAG ](/tutorials/Agentic_RAG/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/Agentic_RAG/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)|
 ||||
 
+### Vector Search
+
+Build a vector search application using LanceDB for efficient vector-based document retrieval. Input text queries to find the most relevant documents from your corpus.
 
 | Vector Search &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
@@ -78,6 +92,10 @@ The following examples are organized into different tables to make similar types
 | [Accelerate Vector Search Applications Using OpenVINO](/examples/Accelerate-Vector-Search-Applications-Using-OpenVINO/) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Accelerate-Vector-Search-Applications-Using-OpenVINO/clip_text_image_search.ipynb) [![local LLM](https://img.shields.io/badge/local-llm-green)](#) [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)| [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/accelerate-vector-search-applications-using-openvino-lancedb/)|
 ||||
 
+### Chatbot
+
+Create a chatbot application using LanceDB for efficient vector-based response generation. Input user queries to retrieve relevant context and generate coherent, context-aware replies.
+
 | Chatbot &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog &nbsp;|
 | --------- | -------------------------- | ----------- |
 ||||
@@ -88,12 +106,21 @@ The following examples are organized into different tables to make similar types
 | [Context-Aware Chatbot using Llama 2 & LanceDB](./tutorials/chatbot_using_Llama2_&_lanceDB) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/chatbot_using_Llama2_&_lanceDB/main.ipynb) [![local LLM](https://img.shields.io/badge/local-llm-green)](#) [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)| [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/context-aware-chatbot-using-llama-2-lancedb-as-vector-database-4d771d95c755) |
 ||||
 
+
+### Evaluation
+
+Develop an evaluation application. Input reference and candidate texts to measure their performance on various metrics.
+
 | Evaluation &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
 ||||
 | [Evaluating Prompts with Prompttools](/examples/prompttools-eval-prompts/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/prompttools-eval-prompts/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>   [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![local LLM](https://img.shields.io/badge/local-llm-green)](#) [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)|  |
 | [Evaluating RAG with RAGAs](./examples/Evaluating_RAG_with_RAGAs/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Evaluating_RAG_with_RAGAs/Evaluating_RAG_with_RAGAs.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>   [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![intermediate](https://img.shields.io/badge/intermediate-FFDA33)](#)|  |
 ||||
+
+### AI Agents
+
+Design an AI agents coordination application with LanceDB for efficient vector-based communication and collaboration. Input queries to enable AI agents to exchange information, coordinate tasks, and achieve shared goals effectively.
 
 | AI Agents &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
@@ -103,8 +130,11 @@ The following examples are organized into different tables to make similar types
 | [SuperAgent Autogen](/examples/SuperAgent_Autogen) |<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/SuperAgent_Autogen/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![intermediate](https://img.shields.io/badge/intermediate-FFDA33)](#)||
 ||||
 
+### Recommender Systems
 
-| Recommender Systems &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
+Create a recommender system application with LanceDB for efficient vector-based item recommendation. Input user preferences or item features to generate personalized recommendations and enhance user experience.
+
+| Recommender Systems | Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
 ||||
 | [Movie Recommender](/examples/movie-recommender/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/movie-recommender/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./examples/movie-recommender/main.py) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
@@ -113,7 +143,11 @@ The following examples are organized into different tables to make similar types
 | [Arxiv paper recommender](/examples/arxiv-recommender) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/arxiv-recommender/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./examples/arxiv-recommender/main.py) [![LLM](https://img.shields.io/badge/local-llm-green)](#)  [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
 ||||
 
-| Concepts | Interactive Notebook | Blog Link |
+### Concepts
+
+Checkout concepts of LLM applications pipeline to ensures accurate information retrieval.
+
+| Concepts | Interactive Notebook | Blog |
 | --------- | -------------------------- | ----------- |
 |           |                            |             |
 | [A Primer on Text Chunking and its Types](./tutorials/different-types-text-chunking-in-RAG) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/different-types-text-chunking-in-RAG/Text_Chunking_on_RAG_application_with_LanceDB.ipynb) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)| [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/a-primer-on-text-chunking-and-its-types-a420efc96a13) |
