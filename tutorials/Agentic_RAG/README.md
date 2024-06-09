@@ -21,3 +21,8 @@ This notebook includes support for ***Gradio***, making it easier to create UIs 
 ensuring a more interactive and user-friendly experience.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/Agentic_RAG/main.ipynb)
+
+
+## Blog
+
+For a detailed explanation of agentic rag, check out  [blog post on Medium](https://aksdesai1998.medium.com/662bac582da9).
