@@ -4,7 +4,7 @@ Dive into building GenAI applications!
 This repository contains examples, applications, starter code, & tutorials to help you kickstart your GenAI projects.
 
 - These are built using LanceDB, a free, open-source, serverless vectorDB that **requires no setup**. 
-- It **integrates into python data ecosystem** so you can simply start using these in your existing data pipelines in pandas, arrow, pydantic etc.
+- It **integrates into Python data ecosystem** so you can simply start using these in your existing data pipelines in pandas, arrow, pydantic etc.
 - LanceDB has **native Typescript SDK** using which you can **run vector search** in serverless functions!
 
 <img src="https://github.com/lancedb/vectordb-recipes/assets/5846846/d284accb-24b9-4404-8605-56483160e579" height="85%" width="85%" />
@@ -58,7 +58,7 @@ The following examples are organized into different tables to make similar types
 | [Improve RAG with FLARE](./examples/better-rag-FLAIR) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/better-rag-FLAIR/main.ipynb) [![local LLM](https://img.shields.io/badge/local-llm-green)](#) [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)|[![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/better-rag-with-active-retrieval-augmented-generation-flare-3b66646e2a9f/) |
 | [Query Expansion and Reranker ](/examples/QueryExpansion&Reranker/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/QueryExpansion&Reranker/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)|[![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/improving-rag-with-query-expansion-reranking-models/)|
 | [RAG Fusion](/examples/RAG_Fusion/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/RAG_Fusion/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>   [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)|
-| [Agentic RAG ](/tutorials/Agentic_RAG/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/Agentic_RAG/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)|[![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/improving-rag-with-query-expansion-reranking-models/)|
+| [Agentic RAG ](/tutorials/Agentic_RAG/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/Agentic_RAG/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)|
 ||||
 
 
