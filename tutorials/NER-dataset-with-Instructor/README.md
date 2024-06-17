@@ -20,6 +20,4 @@ python3 main.py
 ```
 **NOTE**: Check `main.py` for changing dataset or entities to be extracted in schemas mentioned.
 
-Blog in detail: [Create a structured dataset using the Instructor](#)
-
 Once you have created this dataset, You are ready to do [NER-powered semantic search](https://blog.lancedb.com/ner-powered-semantic-search-using-lancedb-51051dc3e493/) 
