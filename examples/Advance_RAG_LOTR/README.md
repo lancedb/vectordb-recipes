@@ -15,7 +15,7 @@ Domain-Specific Embeddings: Incorporates specialized embeddings for medical and 
  Colab walkthrough for LOTR   <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Advance_RAG_LOTR/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 ### Learn deeper in Our Blog
-For a deeper dive into the cutting-edge technologies of FLARE, and to access detailed technical knowledge, check out our Medium Blog.
+For a deeper dive into the cutting-edge technologies of LOTR, and to access detailed technical knowledge, check out our Medium Blog.
 
 
-[Read the Blog Post](https://medium.com/@aksdesai1998/better-rag-enhancing-ai-with-active-retrieval-augmented-generation-flare-3b66646e2a9f)
+[Read the Blog Post](https://medium.com/etoai/better-rag-with-lotr-lord-of-retriever-23c8336b9a35)
