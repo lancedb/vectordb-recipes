@@ -10,9 +10,7 @@ from datasets import load_dataset
 
 # load the dataset and convert to pandas dataframe
 df = load_dataset(
-    "fabiochiu/medium-articles",
-    data_files="medium_articles.csv",
-    split="train"
+    "fabiochiu/medium-articles", data_files="medium_articles.csv", split="train"
 ).to_pandas()
 
 df = df.dropna().sample(20000, random_state=32)
@@ -28,9 +26,11 @@ class UserData(LanceModel):
     entity: str
     content: str
 
+
 # schema for instructor output
 class structureData(BaseModel):
     entity: str
+
 
 # Patch the OpenAI client
 client = instructor.from_openai(OpenAI())
@@ -50,7 +50,9 @@ for index, row in df[:10].iterrows():
     )
 
     embedding = openai_embedding.embed_query(row["title_text"])
-    userdata = UserData(vector=embedding, entity=structured_info.entity, content=row["title_text"])
+    userdata = UserData(
+        vector=embedding, entity=structured_info.entity, content=row["title_text"]
+    )
     table.add([userdata])
 
 # show table content
