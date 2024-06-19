@@ -18,6 +18,6 @@ Once you have added key as env variable, You are ready to run following code.
 ```bash
 python3 main.py
 ```
-**NOTE**: Check `main.py` for changing dataset or entities to be extracted in schemas mentioned.
+**NOTE**: For this example, we are using [**medium article dataset**](https://huggingface.co/datasets/fabiochiu/medium-articles), check `main.py` for changing dataset or entities to be extracted in schemas mentioned.
 
 Once you have created this dataset, You are ready to do [NER-powered semantic search](https://blog.lancedb.com/ner-powered-semantic-search-using-lancedb-51051dc3e493/) 

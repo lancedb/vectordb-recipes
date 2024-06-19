@@ -23,13 +23,19 @@ df["title_text"] = df["title"] + ". " + df["text"]
 # schema for table
 class UserData(LanceModel):
     vector: Vector(1536)
-    entity: str
+    headline: str
     content: str
+    entity: str
+    sentiment: str
+    news_article: bool
 
 
 # schema for instructor output
 class structureData(BaseModel):
+    headline: str
     entity: str
+    sentiment: str
+    news: bool
 
 
 # Patch the OpenAI client
@@ -51,7 +57,12 @@ for index, row in df[:10].iterrows():
 
     embedding = openai_embedding.embed_query(row["title_text"])
     userdata = UserData(
-        vector=embedding, entity=structured_info.entity, content=row["title_text"]
+        vector=embedding,
+        headline=structured_info.headline,
+        content=row["title_text"],
+        entity=structured_info.entity,
+        sentiment=structured_info.sentiment,
+        news_article=structured_info.news,
     )
     table.add([userdata])
 
