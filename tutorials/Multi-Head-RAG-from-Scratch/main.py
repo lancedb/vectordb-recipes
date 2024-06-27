@@ -15,7 +15,7 @@ from lancedb.pydantic import LanceModel, Vector
 # Recursive Text Splitter
 def recursive_text_splitter(text, max_chunk_length=1000, overlap=100):
     """
-        Helper function for chunking text recursively
+    Helper function for chunking text recursively
     """
     # Initialize result
     result = []
@@ -55,9 +55,11 @@ class TextModel1(LanceModel):
     text: str = model1.SourceField()
     vector: Vector(model1.ndims()) = model1.VectorField()
 
+
 class TextModel2(LanceModel):
     text: str = model2.SourceField()
     vector: Vector(model2.ndims()) = model2.VectorField()
+
 
 class TextModel3(LanceModel):
     text: str = model3.SourceField()
@@ -67,10 +69,10 @@ class TextModel3(LanceModel):
 # Embedding Spaces
 def LanceDBEmbeddingSpace(df):
     """
-        Create 3 Embedding spaces with Colbert, Llama3 and Mistral
+    Create 3 Embedding spaces with Colbert, Llama3 and Mistral
     """
     db = lancedb.connect("/tmp/lancedb")
-    
+
     print("Embedding spaces creation started \U0001F6A7.....")
     table1 = db.create_table(
         "embed_space1",
@@ -98,16 +100,16 @@ def LanceDBEmbeddingSpace(df):
     return table1, table2, table3
 
 
-
 if __name__ == "__main__":
-
-    filename = input("Enter filepath(.txt), you want to query(Default file: lease.txt) : ")
+    filename = input(
+        "Enter filepath(.txt), you want to query(Default file: lease.txt) : "
+    )
 
     if filename == "":
         filename = "lease.txt"
     else:
         if not os.path.exists(filename):
-            print("Given " ,filename, " doesn't exists \U0000274c")
+            print("Given ", filename, " doesn't exists \U0000274c")
             exit()
     # Read Document
     with open(filename, "r") as file:
@@ -119,20 +121,24 @@ if __name__ == "__main__":
     table1, table2, table3 = LanceDBEmbeddingSpace(df)
 
     # Query  Question
-    while(True):
+    while True:
         question = input("Enter Query: ")
-        if question in ['q', 'exit', 'quit']:
+        if question in ["q", "exit", "quit"]:
             break
-        
+
         # Query Search
         print("Query Search started ......")
         result1 = table1.search(question).limit(3).to_list()
         result2 = table2.search(question).limit(3).to_list()
         result3 = table3.search(question).limit(3).to_list()
 
-        context = [r["text"] for r in result1] + [r["text"] for r in result2] + [r["text"] for r in result3]
+        context = (
+            [r["text"] for r in result1]
+            + [r["text"] for r in result2]
+            + [r["text"] for r in result3]
+        )
         print("Answer generation started ....")
-        
+
         # Context Prompt
         base_prompt = """You are an AI assistant. Your task is to understand the user question, and provide an answer using the provided contexts. Every answer you generate should have citations in this pattern  "Answer [position].", for example: "Earth is round [1][2].," if it's relevant.
         Your answers are correct, high-quality, and written by an domain expert. If the provided context does not contain the answer, simply state, "The provided context does not have the answer."
@@ -157,5 +163,3 @@ if __name__ == "__main__":
         )
 
         print("Answer: ", response["message"]["content"])
-
-    
