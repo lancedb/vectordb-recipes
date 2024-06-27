@@ -13,7 +13,7 @@ Build a chat application that interacts with CSV and Excel files using LanceDBâ€
 ## Quick Start
 Install dependencies:
 
-```pip install -r requirements.txt```
+```pip install -U  openai lancedb  langchain-experimental langchain-openai langchain sentence-transformers```
 
 ## Blog Tutorial
 For a detailed tutorial, check out our blog post.
