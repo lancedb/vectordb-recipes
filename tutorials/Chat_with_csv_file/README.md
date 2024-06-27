@@ -17,9 +17,16 @@ Install dependencies:
 
 ## Blog Tutorial
 For a detailed tutorial, check out our blog post.
-https://blog.lancedb.com/p/d8c71df4-e55f-479a-819e-cde13354a6a3/
 
 
-## Google Colab Notebook
-Explore more in our Google Colab Notebook.
+## Google Colab Walkthrough
+For a detailed, interactive walkthrough of this implementation, you can explore the Google Colab notebook provided below. 
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/Chat_with_csv_file/main.ipynb)
+
+
+## Blog
+
+For a detailed explanation of agentic rag, check out  [blog link ](https://blog.lancedb.com/p/d8c71df4-e55f-479a-819e-cde13354a6a3/
+).
 
