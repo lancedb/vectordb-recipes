@@ -1,6 +1,0 @@
-openai
-lancedb
-langchain-experimental
-langchain-openai
-langchain
-sentence-transformers
