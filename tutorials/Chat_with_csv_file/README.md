@@ -8,7 +8,7 @@ Build a chat application that interacts with CSV and Excel files using LanceDBâ€
 
 * Integration with Pandas: Passes search results to a pandas DataFrame agent for further processing. 
 
-* Uses LangChain and OpenAI for AI-driven data interaction.
+* Uses LangChain and OpenAI LLM .
 
 ## Quick Start
 Install dependencies:
