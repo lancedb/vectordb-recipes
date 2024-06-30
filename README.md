@@ -38,6 +38,7 @@ Build applications/examples using LanceDB for efficient vector-based document re
 |||
 | [Build RAG from Scratch](./tutorials/RAG-from-Scratch) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/RAG-from-Scratch/RAG_from_Scratch.ipynb) [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
 | [Local RAG from Scratch with Llama3](./tutorials/Local-RAG-from-Scratch) | [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./tutorials/Local-RAG-from-Scratch/rag.py) [![local LLM](https://img.shields.io/badge/local-llm-green)](#) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
+| [Multi-Head RAG from Scratch](./tutorials/Multi-Head-RAG-from-Scratch/) | [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./tutorials/Multi-Head-RAG-from-Scratch/main.py) [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![local LLM](https://img.shields.io/badge/local-llm-green)](#) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
 ||||
 
 ### MultiModal
