@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: psf/black
+      - uses: psf/black@main
         with:
           options: "--check --verbose"
           src: "../../vectordb-recipes"
