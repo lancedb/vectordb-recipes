@@ -4,10 +4,10 @@ jobs:
   linter_name:
     name: runner / black formatter
     runs-on: ubuntu-latest
-    name: Install black 
-        run: 
-          pip install "black[jupyter]"
     steps:
+      - name: Install black 
+          run: pip install "black[jupyter]"
+    
       - uses: actions/checkout@v4
       - uses: rickstaa/action-black@v1
         with:
