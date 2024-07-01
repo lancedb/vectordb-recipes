@@ -1,14 +1,13 @@
-name: Lint
-
+name: black-action
 on: [push, pull_request]
-
 jobs:
-  lint:
+  linter_name:
+    name: runner / black formatter
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: psf/black
+      - name: Install Black
+        run: pip install "black[jupyter]"
+      - uses: actions/checkout@v4
+      - uses: rickstaa/action-black@v1
         with:
-          options: "--check --verbose"
-          src: "../../vectordb-recipes"
-          jupyter: true
+          black_args: ". --check --verbose"
