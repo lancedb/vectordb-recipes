@@ -5,7 +5,7 @@ jobs:
     name: runner / black formatter
     runs-on: ubuntu-latest
     name: Install black 
-        run: |
+        run: 
           pip install "black[jupyter]"
     steps:
       - uses: actions/checkout@v4
