@@ -6,7 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install black 
-          run: pip install "black[jupyter]"
+          run: |
+            pip install "black[jupyter]"
     
       - uses: actions/checkout@v4
       - uses: rickstaa/action-black@v1
