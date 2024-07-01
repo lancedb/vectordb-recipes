@@ -4,10 +4,12 @@ jobs:
   linter_name:
     name: runner / black formatter
     runs-on: ubuntu-latest
+    name: Install black 
+        run: |
+          pip install "black[jupyter]"
     steps:
       - uses: actions/checkout@v4
       - uses: rickstaa/action-black@v1
         with:
           black_args: ". --check --verbose"
-          src: "../../vectordb-recipes"
           jupyter: true
