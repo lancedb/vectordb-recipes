@@ -1,6 +1,7 @@
 # Credit Card Statement Analysis with AI Chatbot
 This project uses AI to analyze credit card statements. By uploading a PDF file, the AI converts it to Markdown format, splits it into chunks, and allows you to ask questions about the statement. The project uses various libraries like Gradio, LangChain, and PyMuPDF4LLM to achieve this functionality.
 
+![diagram](../../assets/chat_memory.png)
 # Features
 - PDF to Markdown Conversion: Converts complex PDFs to Markdown for better understanding by LLMs.
 - Chunk Splitting: Splits the document into manageable chunks for efficient processing.
