@@ -1,5 +1,7 @@
-import gradio as gr
 import os
+import gradio as gr
+import pymupdf4llm
+from dotenv import load_dotenv
 from tempfile import mkdtemp
 from langchain.chains.question_answering import load_qa_chain
 from langchain.memory import ConversationBufferMemory
@@ -10,7 +12,11 @@ from lancedb.rerankers import LinearCombinationReranker
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.document_loaders import UnstructuredMarkdownLoader
-import pymupdf4llm
+
+
+# Load environment variables from .env file
+load_dotenv()
+
 
 # Temporary directory for file processing
 temp_dir = mkdtemp()
@@ -43,7 +49,7 @@ def process_file(file):
     chunks = text_splitter.split_documents(documents)
     
     # Setup embeddings and vector store
-    embeddings = OpenAIEmbeddings(openai_api_key='')
+    embeddings = OpenAIEmbeddings(openai_api_key=os.getenv('OPENAI_API_KEY'))
     reranker = LinearCombinationReranker(weight=0.3)
     docsearch = LanceDB.from_documents(chunks, embeddings, reranker=reranker)
     
@@ -90,7 +96,7 @@ prompt = PromptTemplate(
 # Set up the memory and chain
 memory = ConversationBufferMemory(memory_key="chat_history", input_key="human_input")
 chain = load_qa_chain(
-    OpenAI(temperature=0, openai_api_key=''),
+    OpenAI(temperature=0,openai_api_key=os.getenv('OPENAI_API_KEY')),
     chain_type="stuff",
     memory=memory,
     prompt=prompt
