@@ -4,4 +4,4 @@
 
 This example covers the concept of zero-shot image classification. It is the process where a model can classify images without being trained on a particular use case.
 
-Colab walkthrough - <a href=""><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/zero-shot-image-classification/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
