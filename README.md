@@ -186,8 +186,8 @@ These are ready to use applications built using LanceDB serverless vector databa
 | [ Fastapi RAG template  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Chatbot_RAG_with_FASTAPI) | FastAPI based RAG template with Websocket support | ![image](./assets/chatbot_fastapi.png)|
 | [ GTE MLX RAG ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/GTE_mlx_RAG) | mlx based RAG model using lancedb api support | ![image](./assets/rag-mlx.png)|
 | [ Healthcare Chatbot  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Healthcare_chatbot/) | Healthcare chatbot using domain specific LLM  & Embedding model | ![image](./assets/chatbot_medical.png)|
-| [ Zero Shot Image Classification ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/zero-shot-image-classification) | Zero shot image classification using LanceDB | ![image](./assets/zero-shot-prediction.png)|
 | [ Chatbot with Memory ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Chatbot_with_memory) | Chatbot with memory support | ![image](./assets/chat_memory.png)|||||
+
 
 
 **🌟 New! 🌟 Applied GenAI and VectorDB course on Udacity**
