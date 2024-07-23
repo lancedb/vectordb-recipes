@@ -93,6 +93,10 @@ Build a vector search application using LanceDB for efficient vector-based docum
 | [Search Within Images](/examples/search-within-images-with-sam-and-clip/) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/search-within-images-with-sam-and-clip/main.ipynb) [![local LLM](https://img.shields.io/badge/local-llm-green)](#)   [![intermediate](https://img.shields.io/badge/intermediate-FFDA33)](#)| [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/search-within-an-image-331b54e4285e)|
 | [Vector Search with TransformersJS](./examples/js-transformers/) |[![JS](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](./examples/js-transformers/index.js) [![LLM](https://img.shields.io/badge/local-llm-green)](#) [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)|  |
 | [Accelerate Vector Search Applications Using OpenVINO](/examples/Accelerate-Vector-Search-Applications-Using-OpenVINO/) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Accelerate-Vector-Search-Applications-Using-OpenVINO/clip_text_image_search.ipynb) [![local LLM](https://img.shields.io/badge/local-llm-green)](#) [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)| [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/accelerate-vector-search-applications-using-openvino-lancedb/)|
+<<<<<<< HEAD
+=======
+| [Zero Shot Image Classification](./examples/zero-shot-image-classification) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/zero-shot-image-classification/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)| [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/zero-shot-image-classification-with-vector-search/)|
+>>>>>>> 1461385b0f11ab57282c5f6aeb1384a2f23d9475
 ||||
 
 ### Chatbot
@@ -185,7 +189,8 @@ These are ready to use applications built using LanceDB serverless vector databa
 | [ Fastapi RAG template  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Chatbot_RAG_with_FASTAPI) | FastAPI based RAG template with Websocket support | ![image](./assets/chatbot_fastapi.png)|
 | [ GTE MLX RAG ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/GTE_mlx_RAG) | mlx based RAG model using lancedb api support | ![image](./assets/rag-mlx.png)|
 | [ Healthcare Chatbot  ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Healthcare_chatbot/) | Healthcare chatbot using domain specific LLM  & Embedding model | ![image](./assets/chatbot_medical.png)|
-||||
+| [ Chatbot with Memory ](https://github.com/lancedb/vectordb-recipes/tree/main/applications/Chatbot_with_memory) | Chatbot with memory support | ![image](./assets/chat_memory.png)|||||
+
 
 
 **🌟 New! 🌟 Applied GenAI and VectorDB course on Udacity**
