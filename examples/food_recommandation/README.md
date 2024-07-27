@@ -24,11 +24,15 @@ To set up the project, follow these steps:
 
 ## Usage
 
+
+##### Download data from  https://www.kaggle.com/datasets/schemersays/food-recommendation-system
+
 1. **Data Preparation**:
+
    - Include important columns (e.g., food name, type, rating) into the `text` column for better FTS and search performance.
    - Add both numerical and string representations of ratings to improve accuracy.
 
-2. **Query the System**:
+3. **Query the System**:
    - Ask about favorite food items and specify rating types.
    - The system will provide recommendations based on the given preferences.
 
