@@ -1,5 +1,3 @@
-
-
 # Food Recommendation System
 
 ## Overview
@@ -11,7 +9,7 @@ This project is a vector-based food recommendation system utilizing LanceDB for 
 - **Vector-Based Recommendations**: Utilizes advanced vector search to find similar food items.
 - **Full-Text Search (FTS)**: Enables efficient searching of food items based on text descriptions.
 - **Hybrid Search**: Combines both vector search and full-text search for comprehensive results.
-- **Jina Reranker Model**: Improves search result accuracy by reranking the results.
+- **Jina Reranker Model**: Improves search result accuracy by reranking models. 
 
 ## Setup
 
@@ -36,6 +34,11 @@ To set up the project, follow these steps:
 
 ## Example
 
+
+
+Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/food_recommandation/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+
+
 Here's a basic example of how to use the food recommendation system:
 
 ```python
@@ -46,6 +49,7 @@ print(recommendations)
 ```
 
 ![image](https://github.com/user-attachments/assets/487ef4b3-484d-44fe-b0c2-a34b491d629a)
+
 
 ## Additional Resources
 
