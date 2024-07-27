@@ -52,9 +52,6 @@ recommendations = get_recommendations(query)
 print(recommendations)
 ```
 
-![image](https://github.com/user-attachments/assets/487ef4b3-484d-44fe-b0c2-a34b491d629a)
-
-
 ## Additional Resources
 
 - **LanceDB Documentation**: [LanceDB Docs](https://lancedb.github.io/lancedb/)
