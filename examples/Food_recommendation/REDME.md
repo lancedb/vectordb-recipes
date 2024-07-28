@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Food Recommendation System
 
 ## Overview
