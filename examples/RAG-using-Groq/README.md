@@ -1,8 +1,15 @@
 ## URL Scrapping RAG
 
 ### Overview
-This repository contains code and implementation for URL Scrapping RAG. 
-The main feature of this repo is it scraps the input URL but that's not the end of it. This builds different it goes to the depths of URL can say nested and then scraps those URLs as well. After chunking of data, uses Lance DB as vector database to store and retrieve documents related to queries via Sentence Transformers Embeddings. It uses open source llama-3.1 for generating outputs deployed on Groq. You can feed any URL to it and asks related questions.
+This repository contains code and implementation for URL Scrapping RAG.  
+Below are the mentioned step wise explanation :-  
+Step 1 - Using the given URL, scrap the data and find all the existing URLs.  
+Step 2 - Create a graph of base url along with it's scrapped sub URLs with the given depth.  
+Step 3 - Traverse through the graph and store URL along with it's scrapped data in json format.  
+Step 4 - Convert the data into chunks and store embeddings along with chunks in Vector DB.  
+Step 5 - Retrieve the most 5 relevant documents related to query from DB.  
+Step 6 - Send the query along with documents to llama 3.1 deployed on Groq.  
+Step 7 - The returned output is the answer to your query.  
 
 ### Examples
 Question | What is CUDA ? |
