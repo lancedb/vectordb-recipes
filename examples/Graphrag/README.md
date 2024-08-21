@@ -20,7 +20,7 @@ Both GraphRAG and traditional RAG have their strengths, and this repository offe
 
 For a detailed explanation of GraphRAG check out our blog post:
 
-[Read the Blog Post](https://blog.lancedb.com/p/4107b81a-8acf-49fe-9bd0-8781d1291fad/)
+[Read the Blog Post](https://blog.lancedb.com/graphrag-hierarchical-approach-to-retrieval-augmented-generation/)
 
 
 ## Experimentation and Source Code
