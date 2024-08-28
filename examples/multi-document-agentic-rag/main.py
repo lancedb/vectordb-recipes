@@ -93,7 +93,7 @@ def create_retriever(index: VectorStoreIndex) -> VectorIndexRetriever:
     return index.as_retriever(similarity_top_k=5)
 
 # Load and index documents directly from file paths
-problems_index = load_and_index_document_from_file("../multi-document-agentic-rag/json_files/cars_models.json", problems_vector_store)
+problems_index = load_and_index_document_from_file("../multi-document-agentic-rag/json_files/problems.json", problems_vector_store)
 parts_index = load_and_index_document_from_file("../multi-document-agentic-rag/json_files/parts.json", parts_vector_store)
 cars_index = load_and_index_document_from_file("../multi-document-agentic-rag/json_files/cars_models.json", cars_vector_store)
 diagnostics_index = load_and_index_document_from_file("../multi-document-agentic-rag/json_files/diagnostics.json", diagnostics_vector_store)

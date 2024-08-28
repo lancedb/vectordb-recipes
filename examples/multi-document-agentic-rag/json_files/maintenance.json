@@ -1,0 +1,222 @@
+[
+    {
+        "mileage": 30000,
+        "tasks": [
+            "Oil and filter change",
+            "Tire rotation",
+            "Air filter replacement",
+            "Brake inspection"
+        ],
+        "importance": "Regular maintenance",
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 60000,
+        "tasks": [
+            "Transmission fluid change",
+            "Spark plug replacement",
+            "Timing belt inspection/replacement",
+            "Brake fluid change"
+        ],
+        "importance": "Major service",
+        "estimated_time": "4-6 hours"
+    },
+    {
+        "mileage": 90000,
+        "tasks": [
+            "Coolant flush",
+            "Battery replacement",
+            "Serpentine belt replacement",
+            "Brake pad replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 120000,
+        "tasks": [
+            "Fuel filter replacement",
+            "Cabin air filter replacement",
+            "Power steering fluid change",
+            "Brake fluid flush"
+        ],
+        "importance": "Major service",
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 150000,
+        "tasks": [
+            "Radiator replacement",
+            "Alternator replacement",
+            "Timing belt replacement",
+            "Water pump replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "5-6 hours"
+    },
+    {
+        "mileage": 180000,
+        "tasks": [
+            "Exhaust system replacement",
+            "Suspension system replacement",
+            "Clutch replacement",
+            "Differential fluid change"
+        ],
+        "importance": "Major service",
+        "estimated_time": "6-8 hours"
+    },
+    {
+        "mileage": 210000,
+        "tasks": [
+            "Drive belt replacement",
+            "Fuel injector cleaning",
+            "Throttle body cleaning",
+            "PCV valve replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 240000,
+        "tasks": [
+            "Oxygen sensor replacement",
+            "Radiator hose replacement",
+            "Thermostat replacement",
+            "Wheel bearing replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "4-5 hours"
+    },
+    {
+        "mileage": 270000,
+        "tasks": [
+            "Window regulator replacement",
+            "Door lock actuator replacement",
+            "Ignition coil replacement",
+            "Mass air flow sensor replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 300000,
+        "tasks": [
+            "Throttle position sensor replacement",
+            "EGR valve replacement",
+            "Catalytic converter replacement",
+            "Fuel pressure regulator replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "4-5 hours"
+    },
+    {
+        "mileage": 330000,
+        "tasks": [
+            "Idle air control valve replacement",
+            "Crankshaft position sensor replacement",
+            "Camshaft position sensor replacement",
+            "Brake pad replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 360000,
+        "tasks": [
+            "Oil and filter change",
+            "Tire rotation",
+            "Air filter replacement",
+            "Brake inspection"
+        ],
+        "importance": "Regular maintenance",
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 390000,
+        "tasks": [
+            "Transmission fluid change",
+            "Spark plug replacement",
+            "Timing belt inspection/replacement",
+            "Brake fluid change"
+        ],
+        "importance": "Major service",
+        "estimated_time": "4-6 hours"
+    },
+    {
+        "mileage": 420000,
+        "tasks": [
+            "Coolant flush",
+            "Battery replacement",
+            "Serpentine belt replacement",
+            "Brake pad replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 450000,
+        "tasks": [
+            "Fuel filter replacement",
+            "Cabin air filter replacement",
+            "Power steering fluid change",
+            "Brake fluid flush"
+        ],
+        "importance": "Major service",
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 480000,
+        "tasks": [
+            "Radiator replacement",
+            "Alternator replacement",
+            "Timing belt replacement",
+            "Water pump replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "5-6 hours"
+    },
+    {
+        "mileage": 510000,
+        "tasks": [
+            "Exhaust system replacement",
+            "Suspension system replacement",
+            "Clutch replacement",
+            "Differential fluid change"
+        ],
+        "importance": "Major service",
+        "estimated_time": "6-8 hours"
+    },
+    {
+        "mileage": 540000,
+        "tasks": [
+            "Drive belt replacement",
+            "Fuel injector cleaning",
+            "Throttle body cleaning",
+            "PCV valve replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 570000,
+        "tasks": [
+            "Oxygen sensor replacement",
+            "Radiator hose replacement",
+            "Thermostat replacement",
+            "Wheel bearing replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "4-5 hours"
+    },
+    {
+        "mileage": 600000,
+        "tasks": [
+            "Window regulator replacement",
+            "Door lock actuator replacement",
+            "Ignition coil replacement",
+            "Mass air flow sensor replacement"
+        ],
+        "importance": "Major service",
+        "estimated_time": "3-4 hours"
+    }
+]
