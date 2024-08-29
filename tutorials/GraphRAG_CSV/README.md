@@ -25,5 +25,4 @@ For a detailed, interactive walkthrough of this implementation, you can go over 
 
 ## Blog
 
-For a detailed explanation of GraphRAG with csv data for people finding usecase, check out  [blog link ](https://blog.lancedb.com/p/d8c71df4-e55f-479a-819e-cde13354a6a3/
-).
+For a detailed explanation of GraphRAG with csv data for people finding usecase, check out  [blog link ](https://aksdesai1998.medium.com/optimizing-graphrag-with-microsoft-for-csv-data-a-guide-with-lancedb-8e4150b93e37).
