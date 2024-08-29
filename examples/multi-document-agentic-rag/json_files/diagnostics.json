@@ -1,0 +1,142 @@
+[
+    {
+        "symptom": "Squealing brakes",
+        "possible_causes": ["Worn brake pads", "Glazed brake rotors", "Lack of lubrication on brake hardware"],
+        "severity": "Medium",
+        "recommended_action": "Inspect brake system and replace worn parts",
+        "related_problem": "Brake Pad Replacement"
+    },
+    {
+        "symptom": "Engine overheating",
+        "possible_causes": ["Low coolant level", "Faulty thermostat", "Broken water pump", "Clogged radiator"],
+        "severity": "High",
+        "recommended_action": "Stop driving immediately and have the cooling system inspected",
+        "related_problem": "Coolant Flush"
+    },
+    {
+        "symptom": "Poor engine performance",
+        "possible_causes": ["Dirty air filter", "Faulty spark plugs", "Clogged fuel filter"],
+        "severity": "Medium",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Air Filter Replacement"
+    },
+    {
+        "symptom": "Hard starting engine",
+        "possible_causes": ["Weak battery", "Faulty ignition coil", "Clogged fuel filter"],
+        "severity": "High",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Battery Replacement"
+    },
+    {
+        "symptom": "Rough idling",
+        "possible_causes": ["Faulty idle air control valve", "Dirty throttle body", "Vacuum leak"],
+        "severity": "Medium",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Idle Air Control Valve Replacement"
+    },
+    {
+        "symptom": "Check engine light on",
+        "possible_causes": ["Faulty oxygen sensor", "Faulty mass air flow sensor", "Faulty EGR valve"],
+        "severity": "High",
+        "recommended_action": "Perform diagnostic scan and replace faulty components",
+        "related_problem": "Mass Air Flow Sensor Replacement"
+    },
+    {
+        "symptom": "Noisy engine",
+        "possible_causes": ["Worn serpentine belt", "Faulty tensioner", "Low oil level"],
+        "severity": "Medium",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Serpentine Belt Replacement"
+    },
+    {
+        "symptom": "Poor fuel economy",
+        "possible_causes": ["Dirty air filter", "Faulty spark plugs", "Clogged fuel filter"],
+        "severity": "Medium",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Fuel Filter Replacement"
+    },
+    {
+        "symptom": "Steering wheel vibration",
+        "possible_causes": ["Unbalanced tires", "Worn suspension components", "Faulty wheel bearings"],
+        "severity": "Medium",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Tire Rotation"
+    },
+    {
+        "symptom": "Brake pedal feels spongy",
+        "possible_causes": ["Air in brake lines", "Worn brake pads", "Low brake fluid"],
+        "severity": "High",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Brake Fluid Flush"
+    },
+    {
+        "symptom": "Transmission slipping",
+        "possible_causes": ["Low transmission fluid", "Worn transmission components", "Faulty transmission filter"],
+        "severity": "High",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Transmission Fluid Change"
+    },
+    {
+        "symptom": "Engine misfire",
+        "possible_causes": ["Faulty spark plugs", "Faulty ignition coil", "Clogged fuel injector"],
+        "severity": "High",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Spark Plug Replacement"
+    },
+    {
+        "symptom": "Overheating transmission",
+        "possible_causes": ["Low transmission fluid", "Clogged transmission cooler", "Faulty transmission filter"],
+        "severity": "High",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Transmission Fluid Change"
+    },
+    {
+        "symptom": "Power steering noise",
+        "possible_causes": ["Low power steering fluid", "Worn power steering pump", "Air in power steering system"],
+        "severity": "Medium",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Power Steering Fluid Change"
+    },
+    {
+        "symptom": "Fuel odor",
+        "possible_causes": ["Leaking fuel line", "Faulty fuel pressure regulator", "Clogged fuel filter"],
+        "severity": "High",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Fuel Pressure Regulator Replacement"
+    },
+    {
+        "symptom": "AC not cooling",
+        "possible_causes": ["Low refrigerant", "Faulty AC compressor", "Clogged condenser"],
+        "severity": "High",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "AC Compressor Replacement"
+    },
+    {
+        "symptom": "Heater not working",
+        "possible_causes": ["Low coolant level", "Faulty heater core", "Faulty thermostat"],
+        "severity": "High",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Heater Core Replacement"
+    },
+    {
+        "symptom": "Window not operating",
+        "possible_causes": ["Faulty window regulator", "Blown fuse", "Faulty window switch"],
+        "severity": "Medium",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Window Regulator Replacement"
+    },
+    {
+        "symptom": "Door lock not working",
+        "possible_causes": ["Faulty door lock actuator", "Blown fuse", "Faulty door lock switch"],
+        "severity": "Medium",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Door Lock Actuator Replacement"
+    },
+    {
+        "symptom": "Engine stalling",
+        "possible_causes": ["Faulty crankshaft position sensor", "Faulty camshaft position sensor", "Clogged fuel filter"],
+        "severity": "High",
+        "recommended_action": "Inspect and replace necessary components",
+        "related_problem": "Crankshaft Position Sensor Replacement"
+    }
+]
