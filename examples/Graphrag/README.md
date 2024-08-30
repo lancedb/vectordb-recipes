@@ -29,7 +29,7 @@ To explore and run experiments with both GraphRAG and traditional RAG, access th
 
 Run Experiments in Google Colab
 
-<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/graphrag/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Graphrag/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 
 
