@@ -23,7 +23,7 @@ python3 app.py
 
 The Gradio app should now be running and accessible for interactions.
 
-also we provided Colab walkthrough for HyDE   <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/tutorials/better-rag-FLAIR/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+also we provided Colab walkthrough for HyDE   <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/better-rag-FLAIR/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 
 ### Learn deeper in Our Blog 
