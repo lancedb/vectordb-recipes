@@ -184,6 +184,12 @@ Checkout concepts of LLM applications pipeline to ensures accurate information r
 ## Projects & Applications
 These are ready to use applications built using LanceDB serverless vector database. You can explore these open source projects, use parts of them in your projects or build your applications on top of these. 
 
+### Node applications powered by LanceDB
+| Project Name                                        | Description                                                                                                          | Screenshot                                |
+|-----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
+| [Writing assistant](https://github.com/lancedb/vectordb-recipes/tree/rf/applications/node/lanchain_writing_assistant) | Writing assistant app using lanchain.js with LanceDB, allows you to get real time relevant suggestions and facts based on you written text to help you with your writing.                  | ![Writing assistant](https://github.com/user-attachments/assets/87354e93-df4d-40ad-922b-abcbb62d667c) |
+
+
 | Project Name                                        | Description                                                                                                          | Screenshot                                |
 |-----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
 | [YOLOExplorer](https://github.com/lancedb/yoloexplorer) | Iterate on your YOLO / CV datasets using SQL, Vector semantic search, and more within seconds                  | ![YOLOExplorer](https://github.com/lancedb/vectordb-recipes/assets/15766192/ae513a29-8f15-4e0b-99a1-ccd8272b6131) |
