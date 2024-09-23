@@ -188,7 +188,7 @@ These are ready to use applications built using LanceDB serverless vector databa
 ### Node applications powered by LanceDB
 | Project Name                                        | Description                                                                                                          | Screenshot                                |
 |-----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
-| [Writing assistant](https://github.com/lancedb/vectordb-recipes/tree/rf/applications/node/lanchain_writing_assistant) | Writing assistant app using lanchain.js with LanceDB, allows you to get real time relevant suggestions and facts based on you written text to help you with your writing.                  | ![Writing assistant](https://github.com/user-attachments/assets/87354e93-df4d-40ad-922b-abcbb62d667c) |
+| [Writing assistant](https://github.com/lancedb/vectordb-recipes/tree/main/applications/node/lanchain_writing_assistant) | Writing assistant app using lanchain.js with LanceDB, allows you to get real time relevant suggestions and facts based on you written text to help you with your writing.                  | ![Writing assistant](https://github.com/user-attachments/assets/87354e93-df4d-40ad-922b-abcbb62d667c) |
 
 
 | Project Name                                        | Description                                                                                                          | Screenshot                                |
