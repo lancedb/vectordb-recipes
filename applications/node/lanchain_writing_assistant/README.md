@@ -1,6 +1,6 @@
 # writing assistant using lanchain.js and LanceDB
 
-(https://github.com/lancedb/assets/blob/main/recipes/demo_vid_langchain_integration-ezgif.com-video-to-gif-converter.gif)
+![](https://github.com/lancedb/assets/blob/main/recipes/demo_vid_langchain_integration-ezgif.com-video-to-gif-converter.gif)
 
 # add your open_ai_key (run this command in your terminal)
  export OPENAI_API_KEY= your_key
