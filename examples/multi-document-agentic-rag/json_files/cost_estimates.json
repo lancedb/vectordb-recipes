@@ -1,0 +1,306 @@
+[
+    {
+        "repair": "Brake pad replacement",
+        "average_cost": 150,
+        "cost_range": {
+            "min": 100,
+            "max": 300
+        }
+    },
+    {
+        "repair": "Oil change",
+        "average_cost": 50,
+        "cost_range": {
+            "min": 20,
+            "max": 100
+        }
+    },
+    {
+        "repair": "Air Filter Replacement",
+        "average_cost": 30,
+        "cost_range": {
+            "min": 15,
+            "max": 50
+        }
+    },
+    {
+        "repair": "Battery Replacement",
+        "average_cost": 120,
+        "cost_range": {
+            "min": 80,
+            "max": 200
+        }
+    },
+    {
+        "repair": "Idle Air Control Valve Replacement",
+        "average_cost": 150,
+        "cost_range": {
+            "min": 100,
+            "max": 250
+        }
+    },
+    {
+        "repair": "Mass Air Flow Sensor Replacement",
+        "average_cost": 200,
+        "cost_range": {
+            "min": 150,
+            "max": 300
+        }
+    },
+    {
+        "repair": "Serpentine Belt Replacement",
+        "average_cost": 100,
+        "cost_range": {
+            "min": 50,
+            "max": 150
+        }
+    },
+    {
+        "repair": "Fuel Filter Replacement",
+        "average_cost": 80,
+        "cost_range": {
+            "min": 50,
+            "max": 150
+        }
+    },
+    {
+        "repair": "Tire Rotation",
+        "average_cost": 40,
+        "cost_range": {
+            "min": 20,
+            "max": 60
+        }
+    },
+    {
+        "repair": "Brake Fluid Flush",
+        "average_cost": 100,
+        "cost_range": {
+            "min": 70,
+            "max": 150
+        }
+    },
+    {
+        "repair": "Transmission Fluid Change",
+        "average_cost": 200,
+        "cost_range": {
+            "min": 150,
+            "max": 300
+        }
+    },
+    {
+        "repair": "Spark Plug Replacement",
+        "average_cost": 120,
+        "cost_range": {
+            "min": 80,
+            "max": 200
+        }
+    },
+    {
+        "repair": "Coolant Flush",
+        "average_cost": 150,
+        "cost_range": {
+            "min": 100,
+            "max": 250
+        }
+    },
+    {
+        "repair": "Power Steering Fluid Change",
+        "average_cost": 100,
+        "cost_range": {
+            "min": 70,
+            "max": 150
+        }
+    },
+    {
+        "repair": "Cabin Air Filter Replacement",
+        "average_cost": 40,
+        "cost_range": {
+            "min": 20,
+            "max": 60
+        }
+    },
+    {
+        "repair": "Headlight Bulb Replacement",
+        "average_cost": 30,
+        "cost_range": {
+            "min": 15,
+            "max": 50
+        }
+    },
+    {
+        "repair": "Windshield Wiper Replacement",
+        "average_cost": 25,
+        "cost_range": {
+            "min": 10,
+            "max": 40
+        }
+    },
+    {
+        "repair": "Radiator Replacement",
+        "average_cost": 500,
+        "cost_range": {
+            "min": 300,
+            "max": 700
+        }
+    },
+    {
+        "repair": "Alternator Replacement",
+        "average_cost": 400,
+        "cost_range": {
+            "min": 300,
+            "max": 600
+        }
+    },
+    {
+        "repair": "Timing Belt Replacement",
+        "average_cost": 600,
+        "cost_range": {
+            "min": 400,
+            "max": 800
+        }
+    },
+    {
+        "repair": "Water Pump Replacement",
+        "average_cost": 350,
+        "cost_range": {
+            "min": 250,
+            "max": 500
+        }
+    },
+    {
+        "repair": "Oxygen Sensor Replacement",
+        "average_cost": 200,
+        "cost_range": {
+            "min": 150,
+            "max": 300
+        }
+    },
+    {
+        "repair": "Radiator Hose Replacement",
+        "average_cost": 100,
+        "cost_range": {
+            "min": 70,
+            "max": 150
+        }
+    },
+    {
+        "repair": "Thermostat Replacement",
+        "average_cost": 150,
+        "cost_range": {
+            "min": 100,
+            "max": 250
+        }
+    },
+    {
+        "repair": "Wheel Bearing Replacement",
+        "average_cost": 300,
+        "cost_range": {
+            "min": 200,
+            "max": 400
+        }
+    },
+    {
+        "repair": "Shock Absorber Replacement",
+        "average_cost": 400,
+        "cost_range": {
+            "min": 300,
+            "max": 600
+        }
+    },
+    {
+        "repair": "Fuel Pump Replacement",
+        "average_cost": 500,
+        "cost_range": {
+            "min": 400,
+            "max": 700
+        }
+    },
+    {
+        "repair": "AC Compressor Replacement",
+        "average_cost": 800,
+        "cost_range": {
+            "min": 600,
+            "max": 1000
+        }
+    },
+    {
+        "repair": "Heater Core Replacement",
+        "average_cost": 700,
+        "cost_range": {
+            "min": 500,
+            "max": 900
+        }
+    },
+    {
+        "repair": "Window Regulator Replacement",
+        "average_cost": 250,
+        "cost_range": {
+            "min": 150,
+            "max": 350
+        }
+    },
+    {
+        "repair": "Door Lock Actuator Replacement",
+        "average_cost": 200,
+        "cost_range": {
+            "min": 150,
+            "max": 300
+        }
+    },
+    {
+        "repair": "Ignition Coil Replacement",
+        "average_cost": 150,
+        "cost_range": {
+            "min": 100,
+            "max": 250
+        }
+    },
+    {
+        "repair": "Throttle Position Sensor Replacement",
+        "average_cost": 200,
+        "cost_range": {
+            "min": 150,
+            "max": 300
+        }
+    },
+    {
+        "repair": "EGR Valve Replacement",
+        "average_cost": 250,
+        "cost_range": {
+            "min": 200,
+            "max": 350
+        }
+    },
+    {
+        "repair": "Catalytic Converter Replacement",
+        "average_cost": 1000,
+        "cost_range": {
+            "min": 800,
+            "max": 1500
+        }
+    },
+    {
+        "repair": "Fuel Pressure Regulator Replacement",
+        "average_cost": 200,
+        "cost_range": {
+            "min": 150,
+            "max": 300
+        }
+    },
+    {
+        "repair": "Crankshaft Position Sensor Replacement",
+        "average_cost": 250,
+        "cost_range": {
+            "min": 200,
+            "max": 350
+        }
+    },
+    {
+        "repair": "Camshaft Position Sensor Replacement",
+        "average_cost": 250,
+        "cost_range": {
+            "min": 200,
+            "max": 350
+        }
+    }
+]

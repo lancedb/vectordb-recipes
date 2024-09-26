@@ -1,0 +1,614 @@
+[
+    {
+        "name": "Brake Pads",
+        "description": "High-quality brake pads designed for optimal stopping power and durability.",
+        "metadata": {
+            "category": "Brake System",
+            "brand": "AutoMaster",
+            "quantity": "Set of 4"
+        }
+    },
+    {
+        "name": "Engine Oil",
+        "description": "Synthetic engine oil that provides superior protection and performance.",
+        "metadata": {
+            "category": "Lubricants",
+            "brand": "EnginePro",
+            "quantity": "1 Liter"
+        }
+    },
+    {
+        "name": "Air Filter",
+        "description": "Premium air filter to ensure clean air flow to the engine, improving fuel efficiency.",
+        "metadata": {
+            "category": "Air Intake System",
+            "brand": "FilterMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Brake Fluid",
+        "description": "High-performance brake fluid to ensure optimal braking performance.",
+        "metadata": {
+            "category": "Brake System",
+            "brand": "BrakeMaster",
+            "quantity": "500 ml"
+        }
+    },
+    {
+        "name": "Caliper Grease",
+        "description": "Specialized grease for lubricating brake calipers.",
+        "metadata": {
+            "category": "Brake System",
+            "brand": "GreasePro",
+            "quantity": "100 g"
+        }
+    },
+    {
+        "name": "Oil Filter",
+        "description": "High-efficiency oil filter to keep engine oil clean.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "FilterPro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Drain Pan",
+        "description": "Durable drain pan for collecting used fluids.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "ToolMaster",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Jack",
+        "description": "Heavy-duty jack for lifting vehicles.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "LiftPro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Jack Stands",
+        "description": "Sturdy jack stands for supporting lifted vehicles.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "StandMaster",
+            "quantity": "Set of 2"
+        }
+    },
+    {
+        "name": "Torque Wrench",
+        "description": "Precision torque wrench for tightening bolts to specific torque values.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "TorquePro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Car Battery",
+        "description": "High-capacity car battery for reliable starting power.",
+        "metadata": {
+            "category": "Electrical System",
+            "brand": "BatteryMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Battery Terminal Cleaner",
+        "description": "Cleaner for removing corrosion from battery terminals.",
+        "metadata": {
+            "category": "Electrical System",
+            "brand": "CleanPro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Spark Plugs",
+        "description": "High-performance spark plugs for optimal engine ignition.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "SparkMax",
+            "quantity": "Set of 4"
+        }
+    },
+    {
+        "name": "Spark Plug Wrench",
+        "description": "Specialized wrench for removing and installing spark plugs.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "WrenchPro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Dielectric Grease",
+        "description": "Grease for protecting electrical connections.",
+        "metadata": {
+            "category": "Electrical System",
+            "brand": "GreaseMax",
+            "quantity": "100 g"
+        }
+    },
+    {
+        "name": "Coolant",
+        "description": "High-quality coolant for engine cooling systems.",
+        "metadata": {
+            "category": "Cooling System",
+            "brand": "CoolMax",
+            "quantity": "1 Gallon"
+        }
+    },
+    {
+        "name": "Coolant Flush Kit",
+        "description": "Kit for flushing the cooling system.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "FlushPro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Transmission Fluid",
+        "description": "High-performance transmission fluid for smooth shifting.",
+        "metadata": {
+            "category": "Transmission System",
+            "brand": "TransMax",
+            "quantity": "1 Quart"
+        }
+    },
+    {
+        "name": "Transmission Filter",
+        "description": "Filter for keeping transmission fluid clean.",
+        "metadata": {
+            "category": "Transmission System",
+            "brand": "FilterMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Brake Bleeder Kit",
+        "description": "Kit for bleeding brake lines.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "BleedPro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Power Steering Fluid",
+        "description": "Fluid for smooth power steering operation.",
+        "metadata": {
+            "category": "Steering System",
+            "brand": "SteerMax",
+            "quantity": "1 Quart"
+        }
+    },
+    {
+        "name": "Funnel",
+        "description": "Funnel for easy fluid refills.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "FunnelPro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Fuel Filter",
+        "description": "Filter for keeping fuel clean.",
+        "metadata": {
+            "category": "Fuel System",
+            "brand": "FilterMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Cabin Air Filter",
+        "description": "Filter for clean air inside the vehicle.",
+        "metadata": {
+            "category": "Air Conditioning System",
+            "brand": "FilterMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Serpentine Belt",
+        "description": "Belt for driving multiple engine accessories.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "BeltMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Belt Tensioner Tool",
+        "description": "Tool for adjusting belt tension.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "TensionPro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Headlight Bulb",
+        "description": "High-intensity headlight bulb for clear visibility.",
+        "metadata": {
+            "category": "Lighting System",
+            "brand": "LightMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Gloves",
+        "description": "Protective gloves for handling automotive parts.",
+        "metadata": {
+            "category": "Safety Equipment",
+            "brand": "SafeHands",
+            "quantity": "Pair"
+        }
+    },
+    {
+        "name": "Windshield Wipers",
+        "description": "High-performance wipers for clear visibility.",
+        "metadata": {
+            "category": "Exterior Components",
+            "brand": "WipeMax",
+            "quantity": "Set of 2"
+        }
+    },
+    {
+        "name": "Radiator",
+        "description": "High-efficiency radiator for engine cooling.",
+        "metadata": {
+            "category": "Cooling System",
+            "brand": "CoolMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Hose Clamps",
+        "description": "Clamps for securing hoses.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "ClampPro",
+            "quantity": "Set of 4"
+        }
+    },
+    {
+        "name": "Alternator",
+        "description": "High-output alternator for charging the battery.",
+        "metadata": {
+            "category": "Electrical System",
+            "brand": "ChargeMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Timing Belt",
+        "description": "Belt for synchronizing engine components.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "BeltMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Timing Belt Tensioner",
+        "description": "Tensioner for maintaining timing belt tension.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "TensionPro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Water Pump",
+        "description": "Pump for circulating coolant through the engine.",
+        "metadata": {
+            "category": "Cooling System",
+            "brand": "PumpMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Gasket",
+        "description": "Seal for preventing leaks in engine components.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "SealPro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Exhaust System",
+        "description": "Complete exhaust system for optimal exhaust flow.",
+        "metadata": {
+            "category": "Exhaust System",
+            "brand": "ExhaustMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Exhaust Clamps",
+        "description": "Clamps for securing exhaust components.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "ClampPro",
+            "quantity": "Set of 4"
+        }
+    },
+    {
+        "name": "Suspension Components",
+        "description": "Components for replacing worn suspension parts.",
+        "metadata": {
+            "category": "Suspension System",
+            "brand": "SuspensionMax",
+            "quantity": "Set"
+        }
+    },
+    {
+        "name": "Clutch Kit",
+        "description": "Complete kit for replacing the clutch.",
+        "metadata": {
+            "category": "Transmission System",
+            "brand": "ClutchMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Differential Fluid",
+        "description": "Fluid for lubricating the differential.",
+        "metadata": {
+            "category": "Drivetrain",
+            "brand": "DiffMax",
+            "quantity": "1 Quart"
+        }
+    },
+    {
+        "name": "Drive Belt",
+        "description": "Belt for driving engine accessories.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "BeltMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Fuel Injector Cleaner",
+        "description": "Cleaner for maintaining fuel injector performance.",
+        "metadata": {
+            "category": "Fuel System",
+            "brand": "CleanMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Fuel System Cleaner",
+        "description": "Cleaner for the entire fuel system.",
+        "metadata": {
+            "category": "Fuel System",
+            "brand": "CleanPro",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Throttle Body Cleaner",
+        "description": "Cleaner for maintaining throttle body performance.",
+        "metadata": {
+            "category": "Air Intake System",
+            "brand": "CleanMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Rag",
+        "description": "Rag for cleaning automotive parts.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "CleanPro",
+            "quantity": "Pack of 10"
+        }
+    },
+    {
+        "name": "PCV Valve",
+        "description": "Valve for maintaining proper engine ventilation.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "ValveMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Oxygen Sensor",
+        "description": "Sensor for monitoring oxygen levels in the exhaust.",
+        "metadata": {
+            "category": "Exhaust System",
+            "brand": "SensorMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Radiator Hoses",
+        "description": "Hoses for circulating coolant through the radiator.",
+        "metadata": {
+            "category": "Cooling System",
+            "brand": "HoseMax",
+            "quantity": "Set of 2"
+        }
+    },
+    {
+        "name": "Thermostat",
+        "description": "Thermostat for regulating engine temperature.",
+        "metadata": {
+            "category": "Cooling System",
+            "brand": "ThermoMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Wheel Bearings",
+        "description": "Bearings for smooth wheel rotation.",
+        "metadata": {
+            "category": "Wheel System",
+            "brand": "BearingMax",
+            "quantity": "Set of 4"
+        }
+    },
+    {
+        "name": "Shock Absorbers",
+        "description": "Absorbers for maintaining ride comfort and handling.",
+        "metadata": {
+            "category": "Suspension System",
+            "brand": "ShockMax",
+            "quantity": "Set of 4"
+        }
+    },
+    {
+        "name": "Fuel Pump",
+        "description": "Pump for delivering fuel to the engine.",
+        "metadata": {
+            "category": "Fuel System",
+            "brand": "PumpMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Fuel Line Disconnect Tool",
+        "description": "Tool for disconnecting fuel lines.",
+        "metadata": {
+            "category": "Tools",
+            "brand": "ToolMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "AC Compressor",
+        "description": "Compressor for the air conditioning system.",
+        "metadata": {
+            "category": "Air Conditioning System",
+            "brand": "ACMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Refrigerant",
+        "description": "Refrigerant for the air conditioning system.",
+        "metadata": {
+            "category": "Air Conditioning System",
+            "brand": "CoolMax",
+            "quantity": "1 Can"
+        }
+    },
+    {
+        "name": "Heater Core",
+        "description": "Core for the vehicle's heating system.",
+        "metadata": {
+            "category": "Heating System",
+            "brand": "HeatMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Window Regulator",
+        "description": "Regulator for controlling window movement.",
+        "metadata": {
+            "category": "Interior Components",
+            "brand": "RegulateMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Door Lock Actuator",
+        "description": "Actuator for controlling door locks.",
+        "metadata": {
+            "category": "Interior Components",
+            "brand": "LockMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Ignition Coil",
+        "description": "Coil for providing high voltage to spark plugs.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "IgniteMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Mass Air Flow Sensor",
+        "description": "Sensor for measuring air flow into the engine.",
+        "metadata": {
+            "category": "Air Intake System",
+            "brand": "SensorMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Throttle Position Sensor",
+        "description": "Sensor for monitoring throttle position.",
+        "metadata": {
+            "category": "Air Intake System",
+            "brand": "SensorMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "EGR Valve",
+        "description": "Valve for recirculating exhaust gases.",
+        "metadata": {
+            "category": "Exhaust System",
+            "brand": "ValveMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Catalytic Converter",
+        "description": "Converter for reducing exhaust emissions.",
+        "metadata": {
+            "category": "Exhaust System",
+            "brand": "ConvertMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Fuel Pressure Regulator",
+        "description": "Regulator for maintaining fuel pressure.",
+        "metadata": {
+            "category": "Fuel System",
+            "brand": "RegulateMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Idle Air Control Valve",
+        "description": "Valve for controlling engine idle speed.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "ValveMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Crankshaft Position Sensor",
+        "description": "Sensor for monitoring crankshaft position.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "SensorMax",
+            "quantity": "Single"
+        }
+    },
+    {
+        "name": "Camshaft Position Sensor",
+        "description": "Sensor for monitoring camshaft position.",
+        "metadata": {
+            "category": "Engine Components",
+            "brand": "SensorMax",
+            "quantity": "Single"
+        }
+    }
+]

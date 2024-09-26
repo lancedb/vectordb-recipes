@@ -1,0 +1,552 @@
+[
+    {
+        "mileage": 5000,
+        "car_make": "Toyota",
+        "car_model": "Corolla",
+        "car_year": 2018,
+        "common_issues": [
+            "Brake wear",
+            "Oil leaks"
+        ],
+        "estimated_time": "1-2 hours"
+    },
+    {
+        "mileage": 10000,
+        "car_make": "Honda",
+        "car_model": "Civic",
+        "car_year": 2017,
+        "common_issues": [
+            "Transmission issues",
+            "Suspension problems"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 15000,
+        "car_make": "Ford",
+        "car_model": "Mustang",
+        "car_year": 2015,
+        "common_issues": [
+            "Engine misfires",
+            "Electrical issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 20000,
+        "car_make": "Chevrolet",
+        "car_model": "Malibu",
+        "car_year": 2016,
+        "common_issues": [
+            "Brake fluid leaks",
+            "Steering issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 25000,
+        "car_make": "Nissan",
+        "car_model": "Altima",
+        "car_year": 2019,
+        "common_issues": [
+            "Cabin air filter clogging",
+            "Tire wear"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 30000,
+        "car_make": "Ford",
+        "car_model": "Mustang",
+        "car_year": 2015,
+        "common_issues": [
+            "Brake wear",
+            "Oil leaks"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 35000,
+        "car_make": "Toyota",
+        "car_model": "Camry",
+        "car_year": 2018,
+        "common_issues": [
+            "Transmission issues",
+            "Suspension problems"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 40000,
+        "car_make": "Honda",
+        "car_model": "Accord",
+        "car_year": 2017,
+        "common_issues": [
+            "Engine misfires",
+            "Electrical issues"
+        ],
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 45000,
+        "car_make": "Chevrolet",
+        "car_model": "Impala",
+        "car_year": 2016,
+        "common_issues": [
+            "Brake fluid leaks",
+            "Steering issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 50000,
+        "car_make": "Nissan",
+        "car_model": "Maxima",
+        "car_year": 2019,
+        "common_issues": [
+            "Cabin air filter clogging",
+            "Tire wear"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 55000,
+        "car_make": "Toyota",
+        "car_model": "Corolla",
+        "car_year": 2018,
+        "common_issues": [
+            "Brake wear",
+            "Oil leaks"
+        ],
+        "estimated_time": "1-2 hours"
+    },
+    {
+        "mileage": 60000,
+        "car_make": "Honda",
+        "car_model": "Civic",
+        "car_year": 2017,
+        "common_issues": [
+            "Transmission issues",
+            "Suspension problems"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 65000,
+        "car_make": "Ford",
+        "car_model": "Mustang",
+        "car_year": 2015,
+        "common_issues": [
+            "Engine misfires",
+            "Electrical issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 70000,
+        "car_make": "Chevrolet",
+        "car_model": "Malibu",
+        "car_year": 2016,
+        "common_issues": [
+            "Brake fluid leaks",
+            "Steering issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 75000,
+        "car_make": "Nissan",
+        "car_model": "Altima",
+        "car_year": 2019,
+        "common_issues": [
+            "Cabin air filter clogging",
+            "Tire wear"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 80000,
+        "car_make": "Ford",
+        "car_model": "Mustang",
+        "car_year": 2015,
+        "common_issues": [
+            "Brake wear",
+            "Oil leaks"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 85000,
+        "car_make": "Toyota",
+        "car_model": "Camry",
+        "car_year": 2018,
+        "common_issues": [
+            "Transmission issues",
+            "Suspension problems"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 90000,
+        "car_make": "Honda",
+        "car_model": "Accord",
+        "car_year": 2017,
+        "common_issues": [
+            "Engine misfires",
+            "Electrical issues"
+        ],
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 95000,
+        "car_make": "Chevrolet",
+        "car_model": "Impala",
+        "car_year": 2016,
+        "common_issues": [
+            "Brake fluid leaks",
+            "Steering issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 100000,
+        "car_make": "Nissan",
+        "car_model": "Maxima",
+        "car_year": 2019,
+        "common_issues": [
+            "Cabin air filter clogging",
+            "Tire wear"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 105000,
+        "car_make": "Toyota",
+        "car_model": "Corolla",
+        "car_year": 2018,
+        "common_issues": [
+            "Brake wear",
+            "Oil leaks"
+        ],
+        "estimated_time": "1-2 hours"
+    },
+    {
+        "mileage": 110000,
+        "car_make": "Honda",
+        "car_model": "Civic",
+        "car_year": 2017,
+        "common_issues": [
+            "Transmission issues",
+            "Suspension problems"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 115000,
+        "car_make": "Ford",
+        "car_model": "Mustang",
+        "car_year": 2015,
+        "common_issues": [
+            "Engine misfires",
+            "Electrical issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 120000,
+        "car_make": "Chevrolet",
+        "car_model": "Malibu",
+        "car_year": 2016,
+        "common_issues": [
+            "Brake fluid leaks",
+            "Steering issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 125000,
+        "car_make": "Nissan",
+        "car_model": "Altima",
+        "car_year": 2019,
+        "common_issues": [
+            "Cabin air filter clogging",
+            "Tire wear"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 130000,
+        "car_make": "Ford",
+        "car_model": "Mustang",
+        "car_year": 2015,
+        "common_issues": [
+            "Brake wear",
+            "Oil leaks"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 135000,
+        "car_make": "Toyota",
+        "car_model": "Camry",
+        "car_year": 2018,
+        "common_issues": [
+            "Transmission issues",
+            "Suspension problems"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 140000,
+        "car_make": "Honda",
+        "car_model": "Accord",
+        "car_year": 2017,
+        "common_issues": [
+            "Engine misfires",
+            "Electrical issues"
+        ],
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 145000,
+        "car_make": "Chevrolet",
+        "car_model": "Impala",
+        "car_year": 2016,
+        "common_issues": [
+            "Brake fluid leaks",
+            "Steering issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 150000,
+        "car_make": "Nissan",
+        "car_model": "Maxima",
+        "car_year": 2019,
+        "common_issues": [
+            "Cabin air filter clogging",
+            "Tire wear"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 155000,
+        "car_make": "Toyota",
+        "car_model": "Corolla",
+        "car_year": 2018,
+        "common_issues": [
+            "Brake wear",
+            "Oil leaks"
+        ],
+        "estimated_time": "1-2 hours"
+    },
+    {
+        "mileage": 160000,
+        "car_make": "Honda",
+        "car_model": "Civic",
+        "car_year": 2017,
+        "common_issues": [
+            "Transmission issues",
+            "Suspension problems"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 165000,
+        "car_make": "Ford",
+        "car_model": "Mustang",
+        "car_year": 2015,
+        "common_issues": [
+            "Engine misfires",
+            "Electrical issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 170000,
+        "car_make": "Chevrolet",
+        "car_model": "Malibu",
+        "car_year": 2016,
+        "common_issues": [
+            "Brake fluid leaks",
+            "Steering issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 175000,
+        "car_make": "Nissan",
+        "car_model": "Altima",
+        "car_year": 2019,
+        "common_issues": [
+            "Cabin air filter clogging",
+            "Tire wear"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 180000,
+        "car_make": "Ford",
+        "car_model": "Mustang",
+        "car_year": 2015,
+        "common_issues": [
+            "Brake wear",
+            "Oil leaks"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 185000,
+        "car_make": "Toyota",
+        "car_model": "Camry",
+        "car_year": 2018,
+        "common_issues": [
+            "Transmission issues",
+            "Suspension problems"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 190000,
+        "car_make": "Honda",
+        "car_model": "Accord",
+        "car_year": 2017,
+        "common_issues": [
+            "Engine misfires",
+            "Electrical issues"
+        ],
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 195000,
+        "car_make": "Chevrolet",
+        "car_model": "Impala",
+        "car_year": 2016,
+        "common_issues": [
+            "Brake fluid leaks",
+            "Steering issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 200000,
+        "car_make": "Nissan",
+        "car_model": "Maxima",
+        "car_year": 2019,
+        "common_issues": [
+            "Cabin air filter clogging",
+            "Tire wear"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 205000,
+        "car_make": "Toyota",
+        "car_model": "Corolla",
+        "car_year": 2018,
+        "common_issues": [
+            "Brake wear",
+            "Oil leaks"
+        ],
+        "estimated_time": "1-2 hours"
+    },
+    {
+        "mileage": 210000,
+        "car_make": "Honda",
+        "car_model": "Civic",
+        "car_year": 2017,
+        "common_issues": [
+            "Transmission issues",
+            "Suspension problems"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 215000,
+        "car_make": "Ford",
+        "car_model": "Mustang",
+        "car_year": 2015,
+        "common_issues": [
+            "Engine misfires",
+            "Electrical issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 220000,
+        "car_make": "Chevrolet",
+        "car_model": "Malibu",
+        "car_year": 2016,
+        "common_issues": [
+            "Brake fluid leaks",
+            "Steering issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 225000,
+        "car_make": "Nissan",
+        "car_model": "Altima",
+        "car_year": 2019,
+        "common_issues": [
+            "Cabin air filter clogging",
+            "Tire wear"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 230000,
+        "car_make": "Ford",
+        "car_model": "Mustang",
+        "car_year": 2015,
+        "common_issues": [
+            "Brake wear",
+            "Oil leaks"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 235000,
+        "car_make": "Toyota",
+        "car_model": "Camry",
+        "car_year": 2018,
+        "common_issues": [
+            "Transmission issues",
+            "Suspension problems"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 240000,
+        "car_make": "Honda",
+        "car_model": "Accord",
+        "car_year": 2017,
+        "common_issues": [
+            "Engine misfires",
+            "Electrical issues"
+        ],
+        "estimated_time": "3-4 hours"
+    },
+    {
+        "mileage": 245000,
+        "car_make": "Chevrolet",
+        "car_model": "Impala",
+        "car_year": 2016,
+        "common_issues": [
+            "Brake fluid leaks",
+            "Steering issues"
+        ],
+        "estimated_time": "2-3 hours"
+    },
+    {
+        "mileage": 250000,
+        "car_make": "Nissan",
+        "car_model": "Maxima",
+        "car_year": 2019,
+        "common_issues": [
+            "Cabin air filter clogging",
+            "Tire wear"
+        ],
+        "estimated_time": "2-3 hours"
+    }
+]

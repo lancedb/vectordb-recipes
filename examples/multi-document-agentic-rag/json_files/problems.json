@@ -1,0 +1,771 @@
+[
+    {
+        "name": "Brake Pad Replacement",
+        "description": "A service to replace worn brake pads with new ones to ensure safe braking performance.",
+        "metadata": {
+            "source": "Automotive Manual A",
+            "difficulty": "Medium",
+            "service_time": "45 minutes",
+            "recommended_products": ["Brake Pads", "Brake Fluid", "Caliper Grease"]
+        },
+        "steps": [
+            "Raise the vehicle and remove the wheel.",
+            "Remove the old brake pads and inspect the brake caliper.",
+            "Apply caliper grease to the new brake pads.",
+            "Install the new brake pads and reassemble the brake caliper.",
+            "Refill brake fluid if necessary and test the brakes."
+        ]
+    },
+    {
+        "name": "Oil Change",
+        "description": "A service to replace old engine oil with new oil to ensure smooth engine performance.",
+        "metadata": {
+            "source": "Automotive Manual B",
+            "difficulty": "Easy",
+            "service_time": "30 minutes",
+            "recommended_products": ["Engine Oil", "Oil Filter", "Drain Pan"]
+        },
+        "steps": [
+            "Raise the vehicle and locate the oil drain plug.",
+            "Remove the drain plug and drain the old oil.",
+            "Replace the oil filter.",
+            "Reinstall the drain plug and add new engine oil.",
+            "Check the oil level and test the engine."
+        ]
+    },
+    {
+        "name": "Tire Rotation",
+        "description": "A service to rotate the tires to ensure even tire wear and extend tire life.",
+        "metadata": {
+            "source": "Automotive Manual C",
+            "difficulty": "Easy",
+            "service_time": "20 minutes",
+            "recommended_products": ["Jack", "Jack Stands", "Torque Wrench"]
+        },
+        "steps": [
+            "Raise the vehicle and remove the wheels.",
+            "Rotate the tires according to the recommended pattern.",
+            "Reinstall the wheels and lower the vehicle.",
+            "Torque the lug nuts to the manufacturer's specifications.",
+            "Check tire pressure and adjust if necessary."
+        ]
+    },
+    {
+        "name": "Battery Replacement",
+        "description": "A service to replace a dead or weak car battery with a new one.",
+        "metadata": {
+            "source": "Automotive Manual D",
+            "difficulty": "Easy",
+            "service_time": "15 minutes",
+            "recommended_products": ["Car Battery", "Wrench", "Battery Terminal Cleaner"]
+        },
+        "steps": [
+            "Turn off the vehicle and disconnect the negative battery terminal.",
+            "Disconnect the positive battery terminal and remove the old battery.",
+            "Clean the battery terminals and install the new battery.",
+            "Reconnect the positive and negative battery terminals.",
+            "Start the vehicle and check the battery voltage."
+        ]
+    },
+    {
+        "name": "Air Filter Replacement",
+        "description": "A service to replace a dirty or clogged air filter with a new one to ensure proper engine air flow.",
+        "metadata": {
+            "source": "Automotive Manual E",
+            "difficulty": "Easy",
+            "service_time": "10 minutes",
+            "recommended_products": ["Air Filter", "Screwdriver"]
+        },
+        "steps": [
+            "Locate the air filter housing and remove the cover.",
+            "Remove the old air filter and clean the housing.",
+            "Install the new air filter and replace the cover.",
+            "Ensure the cover is securely fastened.",
+            "Start the engine and check for proper air flow."
+        ]
+    },
+    {
+        "name": "Spark Plug Replacement",
+        "description": "A service to replace old or worn spark plugs with new ones to ensure proper engine ignition.",
+        "metadata": {
+            "source": "Automotive Manual F",
+            "difficulty": "Medium",
+            "service_time": "30 minutes",
+            "recommended_products": ["Spark Plugs", "Spark Plug Wrench", "Dielectric Grease"]
+        },
+        "steps": [
+            "Locate the spark plugs and remove the ignition coils.",
+            "Remove the old spark plugs using a spark plug wrench.",
+            "Apply dielectric grease to the new spark plugs.",
+            "Install the new spark plugs and reattach the ignition coils.",
+            "Start the engine and check for proper ignition."
+        ]
+    },
+    {
+        "name": "Coolant Flush",
+        "description": "A service to flush out old coolant and replace it with new coolant to ensure proper engine cooling.",
+        "metadata": {
+            "source": "Automotive Manual G",
+            "difficulty": "Medium",
+            "service_time": "45 minutes",
+            "recommended_products": ["Coolant", "Coolant Flush Kit", "Drain Pan"]
+        },
+        "steps": [
+            "Locate the radiator drain plug and drain the old coolant.",
+            "Flush the cooling system with a coolant flush kit.",
+            "Refill the cooling system with new coolant.",
+            "Bleed the cooling system to remove air pockets.",
+            "Check the coolant level and test the engine."
+        ]
+    },
+    {
+        "name": "Transmission Fluid Change",
+        "description": "A service to replace old transmission fluid with new fluid to ensure smooth transmission operation.",
+        "metadata": {
+            "source": "Automotive Manual H",
+            "difficulty": "Medium",
+            "service_time": "60 minutes",
+            "recommended_products": ["Transmission Fluid", "Transmission Filter", "Drain Pan"]
+        },
+        "steps": [
+            "Raise the vehicle and locate the transmission drain plug.",
+            "Remove the drain plug and drain the old transmission fluid.",
+            "Replace the transmission filter.",
+            "Reinstall the drain plug and add new transmission fluid.",
+            "Check the transmission fluid level and test the transmission."
+        ]
+    },
+    {
+        "name": "Brake Fluid Flush",
+        "description": "A service to flush out old brake fluid and replace it with new fluid to ensure proper braking performance.",
+        "metadata": {
+            "source": "Automotive Manual I",
+            "difficulty": "Medium",
+            "service_time": "30 minutes",
+            "recommended_products": ["Brake Fluid", "Brake Bleeder Kit", "Drain Pan"]
+        },
+        "steps": [
+            "Locate the brake fluid reservoir and remove the old brake fluid.",
+            "Flush the brake lines with a brake bleeder kit.",
+            "Refill the brake fluid reservoir with new brake fluid.",
+            "Bleed the brake lines to remove air pockets.",
+            "Check the brake fluid level and test the brakes."
+        ]
+    },
+    {
+        "name": "Power Steering Fluid Change",
+        "description": "A service to replace old power steering fluid with new fluid to ensure smooth steering operation.",
+        "metadata": {
+            "source": "Automotive Manual J",
+            "difficulty": "Medium",
+            "service_time": "30 minutes",
+            "recommended_products": ["Power Steering Fluid", "Drain Pan", "Funnel"]
+        },
+        "steps": [
+            "Locate the power steering fluid reservoir and remove the old fluid.",
+            "Flush the power steering system with new fluid.",
+            "Refill the power steering fluid reservoir with new fluid.",
+            "Bleed the power steering system to remove air pockets.",
+            "Check the power steering fluid level and test the steering."
+        ]
+    },
+    {
+        "name": "Fuel Filter Replacement",
+        "description": "A service to replace a clogged fuel filter with a new one to ensure proper fuel flow.",
+        "metadata": {
+            "source": "Automotive Manual K",
+            "difficulty": "Medium",
+            "service_time": "30 minutes",
+            "recommended_products": ["Fuel Filter", "Wrench", "Drain Pan"]
+        },
+        "steps": [
+            "Locate the fuel filter and relieve the fuel system pressure.",
+            "Remove the old fuel filter and install the new one.",
+            "Reconnect the fuel lines and check for leaks.",
+            "Start the engine and check for proper fuel flow.",
+            "Test drive the vehicle to ensure proper operation."
+        ]
+    },
+    {
+        "name": "Cabin Air Filter Replacement",
+        "description": "A service to replace a dirty or clogged cabin air filter with a new one to ensure clean air inside the vehicle.",
+        "metadata": {
+            "source": "Automotive Manual L",
+            "difficulty": "Easy",
+            "service_time": "10 minutes",
+            "recommended_products": ["Cabin Air Filter", "Screwdriver"]
+        },
+        "steps": [
+            "Locate the cabin air filter housing and remove the cover.",
+            "Remove the old cabin air filter and clean the housing.",
+            "Install the new cabin air filter and replace the cover.",
+            "Ensure the cover is securely fastened.",
+            "Test the air conditioning system for proper air flow."
+        ]
+    },
+    {
+        "name": "Serpentine Belt Replacement",
+        "description": "A service to replace a worn or damaged serpentine belt with a new one to ensure proper engine operation.",
+        "metadata": {
+            "source": "Automotive Manual M",
+            "difficulty": "Medium",
+            "service_time": "30 minutes",
+            "recommended_products": ["Serpentine Belt", "Wrench", "Belt Tensioner Tool"]
+        },
+        "steps": [
+            "Locate the serpentine belt and release the tension.",
+            "Remove the old serpentine belt and install the new one.",
+            "Reapply tension to the serpentine belt.",
+            "Check the belt alignment and adjust if necessary.",
+            "Start the engine and check for proper belt operation."
+        ]
+    },
+    {
+        "name": "Headlight Bulb Replacement",
+        "description": "A service to replace a burnt-out headlight bulb with a new one to ensure proper visibility.",
+        "metadata": {
+            "source": "Automotive Manual N",
+            "difficulty": "Easy",
+            "service_time": "15 minutes",
+            "recommended_products": ["Headlight Bulb", "Gloves"]
+        },
+        "steps": [
+            "Locate the headlight bulb and remove the cover.",
+            "Disconnect the old headlight bulb and install the new one.",
+            "Reconnect the wiring and replace the cover.",
+            "Ensure the cover is securely fastened.",
+            "Test the headlight for proper operation."
+        ]
+    },
+    {
+        "name": "Windshield Wiper Replacement",
+        "description": "A service to replace old or worn windshield wipers with new ones to ensure clear visibility.",
+        "metadata": {
+            "source": "Automotive Manual O",
+            "difficulty": "Easy",
+            "service_time": "10 minutes",
+            "recommended_products": ["Windshield Wipers"]
+        },
+        "steps": [
+            "Lift the windshield wiper arm and remove the old wiper blade.",
+            "Install the new wiper blade and lower the wiper arm.",
+            "Ensure the wiper blade is securely attached.",
+            "Test the windshield wipers for proper operation.",
+            "Check the windshield washer fluid level and refill if necessary."
+        ]
+    },
+    {
+        "name": "Radiator Replacement",
+        "description": "A service to replace a damaged or leaking radiator with a new one to ensure proper engine cooling.",
+        "metadata": {
+            "source": "Automotive Manual P",
+            "difficulty": "Hard",
+            "service_time": "90 minutes",
+            "recommended_products": ["Radiator", "Coolant", "Hose Clamps"]
+        },
+        "steps": [
+            "Drain the old coolant from the radiator.",
+            "Remove the old radiator and install the new one.",
+            "Reconnect the radiator hoses and fill with new coolant.",
+            "Bleed the cooling system to remove air pockets.",
+            "Check for leaks and test the engine."
+        ]
+    },
+    {
+        "name": "Alternator Replacement",
+        "description": "A service to replace a faulty alternator with a new one to ensure proper charging of the battery.",
+        "metadata": {
+            "source": "Automotive Manual Q",
+            "difficulty": "Hard",
+            "service_time": "60 minutes",
+            "recommended_products": ["Alternator", "Wrench", "Belt Tensioner Tool"]
+        },
+        "steps": [
+            "Disconnect the battery and remove the old alternator.",
+            "Install the new alternator and reconnect the wiring.",
+            "Reapply tension to the serpentine belt.",
+            "Reconnect the battery and start the engine.",
+            "Check the charging system for proper operation."
+        ]
+    },
+    {
+        "name": "Timing Belt Replacement",
+        "description": "A service to replace a worn or damaged timing belt with a new one to ensure proper engine timing.",
+        "metadata": {
+            "source": "Automotive Manual R",
+            "difficulty": "Hard",
+            "service_time": "120 minutes",
+            "recommended_products": ["Timing Belt", "Wrench", "Timing Belt Tensioner"]
+        },
+        "steps": [
+            "Remove the old timing belt and install the new one.",
+            "Reapply tension to the timing belt.",
+            "Check the timing marks and adjust if necessary.",
+            "Reassemble the engine components.",
+            "Start the engine and check for proper timing."
+        ]
+    },
+    {
+        "name": "Water Pump Replacement",
+        "description": "A service to replace a faulty water pump with a new one to ensure proper engine cooling.",
+        "metadata": {
+            "source": "Automotive Manual S",
+            "difficulty": "Hard",
+            "service_time": "90 minutes",
+            "recommended_products": ["Water Pump", "Coolant", "Gasket"]
+        },
+        "steps": [
+            "Drain the old coolant from the radiator.",
+            "Remove the old water pump and install the new one.",
+            "Reconnect the water pump and fill with new coolant.",
+            "Bleed the cooling system to remove air pockets.",
+            "Check for leaks and test the engine."
+        ]
+    },
+    {
+        "name": "Exhaust System Replacement",
+        "description": "A service to replace a damaged or leaking exhaust system with a new one to ensure proper exhaust flow.",
+        "metadata": {
+            "source": "Automotive Manual T",
+            "difficulty": "Hard",
+            "service_time": "120 minutes",
+            "recommended_products": ["Exhaust System", "Gaskets", "Exhaust Clamps"]
+        },
+        "steps": [
+            "Remove the old exhaust system and install the new one.",
+            "Reconnect the exhaust system and secure with clamps.",
+            "Check for leaks and adjust if necessary.",
+            "Start the engine and check for proper exhaust flow.",
+            "Test drive the vehicle to ensure proper operation."
+        ]
+    },
+    {
+        "name": "Suspension System Replacement",
+        "description": "A service to replace worn or damaged suspension components with new ones to ensure proper ride and handling.",
+        "metadata": {
+            "source": "Automotive Manual U",
+            "difficulty": "Hard",
+            "service_time": "180 minutes",
+            "recommended_products": ["Suspension Components", "Wrench", "Torque Wrench"]
+        },
+        "steps": [
+            "Raise the vehicle and remove the old suspension components.",
+            "Install the new suspension components and secure with bolts.",
+            "Lower the vehicle and check the suspension alignment.",
+            "Test drive the vehicle to ensure proper ride and handling.",
+            "Adjust the suspension alignment if necessary."
+        ]
+    },
+    {
+        "name": "Clutch Replacement",
+        "description": "A service to replace a worn or damaged clutch with a new one to ensure proper transmission operation.",
+        "metadata": {
+            "source": "Automotive Manual V",
+            "difficulty": "Hard",
+            "service_time": "240 minutes",
+            "recommended_products": ["Clutch Kit", "Wrench", "Torque Wrench"]
+        },
+        "steps": [
+            "Remove the old clutch and install the new one.",
+            "Reconnect the transmission and secure with bolts.",
+            "Check the clutch alignment and adjust if necessary.",
+            "Test drive the vehicle to ensure proper transmission operation.",
+            "Adjust the clutch alignment if necessary."
+        ]
+    },
+    {
+        "name": "Differential Fluid Change",
+        "description": "A service to replace old differential fluid with new fluid to ensure proper differential operation.",
+        "metadata": {
+            "source": "Automotive Manual W",
+            "difficulty": "Medium",
+            "service_time": "45 minutes",
+            "recommended_products": ["Differential Fluid", "Drain Pan", "Funnel"]
+        },
+        "steps": [
+            "Raise the vehicle and locate the differential drain plug.",
+            "Remove the drain plug and drain the old differential fluid.",
+            "Reinstall the drain plug and add new differential fluid.",
+            "Check the differential fluid level and adjust if necessary.",
+            "Test drive the vehicle to ensure proper differential operation."
+        ]
+    },
+    {
+        "name": "Drive Belt Replacement",
+        "description": "A service to replace a worn or damaged drive belt with a new one to ensure proper engine operation.",
+        "metadata": {
+            "source": "Automotive Manual X",
+            "difficulty": "Medium",
+            "service_time": "30 minutes",
+            "recommended_products": ["Drive Belt", "Wrench", "Belt Tensioner Tool"]
+        },
+        "steps": [
+            "Locate the drive belt and release the tension.",
+            "Remove the old drive belt and install the new one.",
+            "Reapply tension to the drive belt.",
+            "Check the belt alignment and adjust if necessary.",
+            "Start the engine and check for proper belt operation."
+        ]
+    },
+    {
+        "name": "Fuel Injector Cleaning",
+        "description": "A service to clean the fuel injectors to ensure proper fuel flow and engine performance.",
+        "metadata": {
+            "source": "Automotive Manual Y",
+            "difficulty": "Medium",
+            "service_time": "60 minutes",
+            "recommended_products": ["Fuel Injector Cleaner", "Fuel System Cleaner", "Wrench"]
+        },
+        "steps": [
+            "Add fuel injector cleaner to the fuel tank.",
+            "Run the engine to circulate the cleaner through the fuel system.",
+            "Remove the fuel injectors and clean them with fuel system cleaner.",
+            "Reinstall the fuel injectors and check for leaks.",
+            "Test drive the vehicle to ensure proper engine performance."
+        ]
+    },
+    {
+        "name": "Throttle Body Cleaning",
+        "description": "A service to clean the throttle body to ensure proper air flow and engine performance.",
+        "metadata": {
+            "source": "Automotive Manual Z",
+            "difficulty": "Medium",
+            "service_time": "30 minutes",
+            "recommended_products": ["Throttle Body Cleaner", "Screwdriver", "Rag"]
+        },
+        "steps": [
+            "Remove the air intake hose and locate the throttle body.",
+            "Spray throttle body cleaner into the throttle body.",
+            "Use a rag to clean the throttle body.",
+            "Reinstall the air intake hose and check for leaks.",
+            "Start the engine and check for proper air flow."
+        ]
+    },
+    {
+        "name": "PCV Valve Replacement",
+        "description": "A service to replace a faulty PCV valve with a new one to ensure proper engine ventilation.",
+        "metadata": {
+            "source": "Automotive Manual AA",
+            "difficulty": "Easy",
+            "service_time": "15 minutes",
+            "recommended_products": ["PCV Valve", "Wrench"]
+        },        "steps": [
+            "Locate the PCV valve and remove the old one.",
+            "Install the new PCV valve.",
+            "Reconnect any hoses or components.",
+            "Start the engine and check for proper operation."
+        ]
+    },
+    {
+        "name": "Oxygen Sensor Replacement",
+        "description": "A service to replace a faulty oxygen sensor with a new one to ensure proper engine performance and fuel efficiency.",
+        "metadata": {
+            "source": "Automotive Manual AB",
+            "difficulty": "Medium",
+            "service_time": "30 minutes",
+            "recommended_products": ["Oxygen Sensor", "Wrench"]
+        },
+        "steps": [
+            "Locate the faulty oxygen sensor and disconnect the wiring.",
+            "Remove the old oxygen sensor using a wrench.",
+            "Install the new oxygen sensor and reconnect the wiring.",
+            "Start the engine and check for proper operation."
+        ]
+    },
+    {
+        "name": "Radiator Hose Replacement",
+        "description": "A service to replace worn or damaged radiator hoses with new ones to ensure proper engine cooling.",
+        "metadata": {
+            "source": "Automotive Manual AC",
+            "difficulty": "Medium",
+            "service_time": "45 minutes",
+            "recommended_products": ["Radiator Hoses", "Coolant", "Hose Clamps"]
+        },
+        "steps": [
+            "Drain the coolant from the radiator.",
+            "Remove the old radiator hoses and install the new ones.",
+            "Secure the hoses with new hose clamps.",
+            "Refill the radiator with coolant.",
+            "Start the engine and check for leaks."
+        ]
+    },
+    {
+        "name": "Thermostat Replacement",
+        "description": "A service to replace a faulty thermostat with a new one to ensure proper engine temperature regulation.",
+        "metadata": {
+            "source": "Automotive Manual AD",
+            "difficulty": "Medium",
+            "service_time": "60 minutes",
+            "recommended_products": ["Thermostat", "Gasket", "Coolant"]
+        },
+        "steps": [
+            "Drain the coolant from the radiator.",
+            "Remove the old thermostat and gasket.",
+            "Install the new thermostat and gasket.",
+            "Refill the radiator with coolant.",
+            "Start the engine and check for proper temperature regulation."
+        ]
+    },
+    {
+        "name": "Wheel Bearing Replacement",
+        "description": "A service to replace worn or damaged wheel bearings with new ones to ensure smooth wheel rotation.",
+        "metadata": {
+            "source": "Automotive Manual AE",
+            "difficulty": "Hard",
+            "service_time": "120 minutes",
+            "recommended_products": ["Wheel Bearings", "Grease", "Wrench"]
+        },
+        "steps": [
+            "Raise the vehicle and remove the wheel.",
+            "Remove the old wheel bearings and clean the hub.",
+            "Install the new wheel bearings and apply grease.",
+            "Reassemble the wheel and lower the vehicle.",
+            "Test drive the vehicle to ensure proper operation."
+        ]
+    },
+    {
+        "name": "Shock Absorber Replacement",
+        "description": "A service to replace worn or damaged shock absorbers with new ones to ensure proper ride comfort and handling.",
+        "metadata": {
+            "source": "Automotive Manual AF",
+            "difficulty": "Medium",
+            "service_time": "90 minutes",
+            "recommended_products": ["Shock Absorbers", "Wrench", "Torque Wrench"]
+        },
+        "steps": [
+            "Raise the vehicle and remove the old shock absorbers.",
+            "Install the new shock absorbers and secure with bolts.",
+            "Lower the vehicle and check the suspension alignment.",
+            "Test drive the vehicle to ensure proper ride comfort and handling."
+        ]
+    },
+    {
+        "name": "Fuel Pump Replacement",
+        "description": "A service to replace a faulty fuel pump with a new one to ensure proper fuel delivery to the engine.",
+        "metadata": {
+            "source": "Automotive Manual AG",
+            "difficulty": "Hard",
+            "service_time": "120 minutes",
+            "recommended_products": ["Fuel Pump", "Wrench", "Fuel Line Disconnect Tool"]
+        },
+        "steps": [
+            "Relieve the fuel system pressure.",
+            "Remove the old fuel pump and install the new one.",
+            "Reconnect the fuel lines and check for leaks.",
+            "Start the engine and check for proper fuel delivery.",
+            "Test drive the vehicle to ensure proper operation."
+        ]
+    },
+    {
+        "name": "AC Compressor Replacement",
+        "description": "A service to replace a faulty AC compressor with a new one to ensure proper air conditioning operation.",
+        "metadata": {
+            "source": "Automotive Manual AH",
+            "difficulty": "Hard",
+            "service_time": "180 minutes",
+            "recommended_products": ["AC Compressor", "Refrigerant", "Wrench"]
+        },
+        "steps": [
+            "Recover the refrigerant from the AC system.",
+            "Remove the old AC compressor and install the new one.",
+            "Recharge the AC system with refrigerant.",
+            "Start the engine and check for proper AC operation.",
+            "Test the air conditioning system for proper cooling."
+        ]
+    },
+    {
+        "name": "Heater Core Replacement",
+        "description": "A service to replace a faulty heater core with a new one to ensure proper heating inside the vehicle.",
+        "metadata": {
+            "source": "Automotive Manual AI",
+            "difficulty": "Hard",
+            "service_time": "240 minutes",
+            "recommended_products": ["Heater Core", "Coolant", "Hose Clamps"]
+        },
+        "steps": [
+            "Drain the coolant from the radiator.",
+            "Remove the old heater core and install the new one.",
+            "Reconnect the heater hoses and fill with coolant.",
+            "Bleed the cooling system to remove air pockets.",
+            "Check for leaks and test the heating system."
+        ]
+    },
+    {
+        "name": "Window Regulator Replacement",
+        "description": "A service to replace a faulty window regulator with a new one to ensure proper window operation.",
+        "metadata": {
+            "source": "Automotive Manual AJ",
+            "difficulty": "Medium",
+            "service_time": "60 minutes",
+            "recommended_products": ["Window Regulator", "Screwdriver", "Wrench"]
+        },
+        "steps": [
+            "Remove the door panel and disconnect the wiring.",
+            "Remove the old window regulator and install the new one.",
+            "Reconnect the wiring and replace the door panel.",
+            "Test the window for proper operation."
+        ]
+    },
+    {
+        "name": "Door Lock Actuator Replacement",
+        "description": "A service to replace a faulty door lock actuator with a new one to ensure proper door locking and unlocking.",
+        "metadata": {
+            "source": "Automotive Manual AK",
+            "difficulty": "Medium",
+            "service_time": "45 minutes",
+            "recommended_products": ["Door Lock Actuator", "Screwdriver", "Wrench"]
+        },
+        "steps": [
+            "Remove the door panel and disconnect the wiring.",
+            "Remove the old door lock actuator and install the new one.",
+            "Reconnect the wiring and replace the door panel.",
+            "Test the door lock for proper operation."
+        ]
+    },
+    {
+        "name": "Ignition Coil Replacement",
+        "description": "A service to replace a faulty ignition coil with a new one to ensure proper engine ignition.",
+        "metadata": {
+            "source": "Automotive Manual AL",
+            "difficulty": "Easy",
+            "service_time": "30 minutes",
+            "recommended_products": ["Ignition Coil", "Wrench"]
+        },
+        "steps": [
+            "Locate the faulty ignition coil and disconnect the wiring.",
+            "Remove the old ignition coil and install the new one.",
+            "Reconnect the wiring and start the engine.",
+            "Check for proper engine ignition."
+        ]
+    },
+    {
+        "name": "Mass Air Flow Sensor Replacement",
+        "description": "A service to replace a faulty mass air flow sensor with a new one to ensure proper air-fuel mixture.",
+        "metadata": {
+            "source": "Automotive Manual AM",
+            "difficulty": "Easy",
+            "service_time": "20 minutes",
+            "recommended_products": ["Mass Air Flow Sensor", "Screwdriver"]
+        },
+        "steps": [
+            "Locate the mass air flow sensor and disconnect the wiring.",
+            "Remove the old mass air flow sensor and install the new one.",
+            "Reconnect the wiring and start the engine.",
+            "Check for proper air-fuel mixture."
+        ]
+    },
+    {
+        "name": "Throttle Position Sensor Replacement",
+        "description": "A service to replace a faulty throttle position sensor with a new one to ensure proper throttle response.",
+        "metadata": {
+            "source": "Automotive Manual AN",
+            "difficulty": "Easy",
+            "service_time": "20 minutes",
+            "recommended_products": ["Throttle Position Sensor", "Screwdriver"]
+        },
+        "steps": [
+            "Locate the throttle position sensor and disconnect the wiring.",
+            "Remove the old throttle position sensor and install the new one.",
+            "Reconnect the wiring and start the engine.",
+            "Check for proper throttle response."
+        ]
+    },
+    {
+        "name": "EGR Valve Replacement",
+        "description": "A service to replace a faulty EGR valve with a new one to ensure proper exhaust gas recirculation.",
+        "metadata": {
+            "source": "Automotive Manual AO",
+            "difficulty": "Medium",
+            "service_time": "45 minutes",
+            "recommended_products": ["EGR Valve", "Gasket", "Wrench"]
+        },
+        "steps": [
+            "Locate the EGR valve and disconnect the wiring.",
+            "Remove the old EGR valve and gasket.",
+            "Install the new EGR valve and gasket.",
+            "Reconnect the wiring and start the engine.",
+            "Check for proper exhaust gas recirculation."
+        ]
+    },
+    {
+        "name": "Catalytic Converter Replacement",
+        "description": "A service to replace a faulty catalytic converter with a new one to ensure proper exhaust emission control.",
+        "metadata": {
+            "source": "Automotive Manual AP",
+            "difficulty": "Hard",
+            "service_time": "120 minutes",
+            "recommended_products": ["Catalytic Converter", "Gaskets", "Wrench"]
+        },
+        "steps": [
+            "Raise the vehicle and locate the catalytic converter.",
+            "Remove the old catalytic converter and gaskets.",
+            "Install the new catalytic converter and gaskets.",
+            "Lower the vehicle and start the engine.",
+            "Check for proper exhaust emission control."
+        ]
+    },
+    {
+        "name": "Fuel Pressure Regulator Replacement",
+        "description": "A service to replace a faulty fuel pressure regulator with a new one to ensure proper fuel pressure.",
+        "metadata": {
+            "source": "Automotive Manual AQ",
+            "difficulty": "Medium",
+            "service_time": "45 minutes",
+            "recommended_products": ["Fuel Pressure Regulator", "Wrench"]
+        },
+        "steps": [
+            "Locate the fuel pressure regulator and disconnect the fuel lines.",
+            "Remove the old fuel pressure regulator and install the new one.",
+            "Reconnect the fuel lines and check for leaks.",
+            "Start the engine and check for proper fuel pressure."
+        ]
+    },
+    {
+        "name": "Idle Air Control Valve Replacement",
+        "description": "A service to replace a faulty idle air control valve with a new one to ensure proper engine idle.",
+        "metadata": {
+            "source": "Automotive Manual AR",
+            "difficulty": "Easy",
+            "service_time": "30 minutes",
+            "recommended_products": ["Idle Air Control Valve", "Screwdriver"]
+        },
+        "steps": [
+            "Locate the idle air control valve and disconnect the wiring.",
+            "Remove the old idle air control valve and install the new one.",
+            "Reconnect the wiring and start the engine.",
+            "Check for proper engine idle."
+        ]
+    },
+    {
+        "name": "Crankshaft Position Sensor Replacement",
+        "description": "A service to replace a faulty crankshaft position sensor with a new one to ensure proper engine timing.",
+        "metadata": {
+            "source": "Automotive Manual AS",
+            "difficulty": "Medium",
+            "service_time": "45 minutes",
+            "recommended_products": ["Crankshaft Position Sensor", "Wrench"]
+        },
+        "steps": [
+            "Locate the crankshaft position sensor and disconnect the wiring.",
+            "Remove the old crankshaft position sensor and install the new one.",
+            "Reconnect the wiring and start the engine.",
+            "Check for proper engine timing."
+        ]
+    },
+    {
+        "name": "Camshaft Position Sensor Replacement",
+        "description": "A service to replace a faulty camshaft position sensor with a new one to ensure proper engine timing.",
+        "metadata": {
+            "source": "Automotive Manual AT",
+            "difficulty": "Medium",
+            "service_time": "45 minutes",
+            "recommended_products": ["Camshaft Position Sensor", "Wrench"]
+        },
+        "steps": [
+            "Locate the camshaft position sensor and disconnect the wiring.",
+            "Remove the old camshaft position sensor and install the new one.",
+            "Reconnect the wiring and start the engine.",
+            "Check for proper engine timing."
+        ]
+    }
+]
