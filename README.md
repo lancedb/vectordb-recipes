@@ -31,7 +31,16 @@ The following examples are organized into different tables to make similar types
 
 ### Sections in Recipes
 
-[Build from Scratch](#build-from-scratch)...[Multimodal](#multimodal)...[RAG](#rag)...[Vector Search](#vector-search)...[Chatbot](#chatbot)...[Evalution](#evaluation)...[AI Agents](#ai-agents)...[Recommender Systems](#recommender-systems)...[Concepts](#concepts)
+Examples are divided into various sections:
+- [Build from Scratch](#build-from-scratch) - Build applications/examples from scratch using LanceDB for efficient vector-based document retrieval.
+- [Multimodal](#multimodal) - Build a multimodal search application with input text or image as queries.
+- [RAG](#rag) - Build a variety of RAG by loading data from different formats and query with text.
+- [Vector Search](#vector-search) - Build vector search application using different search algorithms.
+- [Chatbot](#chatbot) - Build chatbot application where user input queries to retrieve relevant context and generate coherent, context-aware replies.
+- [Evalution](#evaluation) - Evaluate reference and candidate texts to measure their performance on various metrics.
+- [AI Agents](#ai-agents) - Design an application powered with AI agents to exchange information, coordinate tasks, and achieve shared goals effectively.
+- [Recommender Systems](#recommender-systems) - Build Recommendation systems which generate personalized recommendations and enhance user experience.
+- [Concepts](#concepts) - Concepts related to LLM applications pipeline to ensures accurate information retrieval.
 
 
 ### 🌟 New 🌟 
