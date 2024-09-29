@@ -29,6 +29,11 @@ Examples are available as:
 
 The following examples are organized into different tables to make similar types of examples easily accessible.
 
+### Sections in Recipes
+
+[Build from Scratch](#build-from-scratch)...[Multimodal](#multimodal)...[RAG](#rag)...[Vector Search](#vector-search)...[Chatbot](#chatbot)...[Evalution](#evaluation)...[AI Agents](#ai-agents)...[Recommender Systems](#recommender-systems)...[Concepts](#concepts)
+
+
 ### 🌟 New 🌟 
 - Vision Retrieval with ColPali -  <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/ColPali-vision-retriever/colpali.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
