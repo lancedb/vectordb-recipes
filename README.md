@@ -20,13 +20,6 @@ This repository is divided into 2 sections:
 - [Applications](#projects--applications) - Ready to use Python and web apps using applied LLMs, VectorDB and GenAI tools
 
 
-## Examples
-Applied examples that get right into the code with minimal introduction, aimed at getting you from an idea to PoC within minutes!
-Examples are available as:
-* **Colab notebooks** - that builds the application is stages allowing you to investigate results at every intermediate stage.
-* **Python scripts** - for cases where you'd like directly to use the file or snippets to integrate in your application
-* **JS/TS scripts** - Some examples are written using lancedb's native js library! These script/snippets can also be directly integrated in your web applications.
-
 The following examples are organized into different tables to make similar types of examples easily accessible.
 
 ### Sections in Recipes
