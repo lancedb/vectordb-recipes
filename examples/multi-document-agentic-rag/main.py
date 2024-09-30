@@ -42,44 +42,47 @@ Settings.chunk_size = 512
 
 # Vector store setup
 problems_vector_store = LanceDBVectorStore(
-    uri='./lancedb',
-    table_name='problems_table',
+    uri="./lancedb",
+    table_name="problems_table",
     mode="overwrite",
 )
 
 parts_vector_store = LanceDBVectorStore(
-    uri='./lancedb',
-    table_name='parts_table',
+    uri="./lancedb",
+    table_name="parts_table",
     mode="overwrite",
 )
 
 diagnostics_vector_store = LanceDBVectorStore(
-    uri='./lancedb',
-    table_name='diagnostics_table',
+    uri="./lancedb",
+    table_name="diagnostics_table",
     mode="overwrite",
 )
 
 cost_estimates_vector_store = LanceDBVectorStore(
-    uri='./lancedb',
-    table_name='cost_estimates_table',
+    uri="./lancedb",
+    table_name="cost_estimates_table",
     mode="overwrite",
 )
 
 maintenance_schedules_vector_store = LanceDBVectorStore(
-    uri='./lancedb',
-    table_name='maintenance_schedules_table',
+    uri="./lancedb",
+    table_name="maintenance_schedules_table",
     mode="overwrite",
 )
 
 cars_vector_store = LanceDBVectorStore(
-    uri='./lancedb',
-    table_name='car_maintenance_table',
+    uri="./lancedb",
+    table_name="car_maintenance_table",
     mode="overwrite",
 )
 
-def load_and_index_document_from_file(file_path: str, vector_store: LanceDBVectorStore) -> VectorStoreIndex:
+
+def load_and_index_document_from_file(
+    file_path: str, vector_store: LanceDBVectorStore
+) -> VectorStoreIndex:
     """Load a document from a single file and index it."""
-    with open(file_path, 'r') as f:
+    with open(file_path, "r") as f:
         data = json.load(f)
         document = Document(text=json.dumps(data))
 
@@ -88,17 +91,34 @@ def load_and_index_document_from_file(file_path: str, vector_store: LanceDBVecto
     storage_context = StorageContext.from_defaults(vector_store=vector_store)
     return VectorStoreIndex(nodes, storage_context=storage_context)
 
+
 def create_retriever(index: VectorStoreIndex) -> VectorIndexRetriever:
     """Create a retriever from the index."""
     return index.as_retriever(similarity_top_k=5)
 
+
 # Load and index documents directly from file paths
-problems_index = load_and_index_document_from_file("../multi-document-agentic-rag/json_files/problems.json", problems_vector_store)
-parts_index = load_and_index_document_from_file("../multi-document-agentic-rag/json_files/parts.json", parts_vector_store)
-cars_index = load_and_index_document_from_file("../multi-document-agentic-rag/json_files/cars_models.json", cars_vector_store)
-diagnostics_index = load_and_index_document_from_file("../multi-document-agentic-rag/json_files/diagnostics.json", diagnostics_vector_store)
-cost_estimates_index = load_and_index_document_from_file("../multi-document-agentic-rag/json_files/cost_estimates.json", cost_estimates_vector_store)
-maintenance_schedules_index = load_and_index_document_from_file("../multi-document-agentic-rag/json_files/maintenance.json", maintenance_schedules_vector_store)
+problems_index = load_and_index_document_from_file(
+    "../multi-document-agentic-rag/json_files/problems.json", problems_vector_store
+)
+parts_index = load_and_index_document_from_file(
+    "../multi-document-agentic-rag/json_files/parts.json", parts_vector_store
+)
+cars_index = load_and_index_document_from_file(
+    "../multi-document-agentic-rag/json_files/cars_models.json", cars_vector_store
+)
+diagnostics_index = load_and_index_document_from_file(
+    "../multi-document-agentic-rag/json_files/diagnostics.json",
+    diagnostics_vector_store,
+)
+cost_estimates_index = load_and_index_document_from_file(
+    "../multi-document-agentic-rag/json_files/cost_estimates.json",
+    cost_estimates_vector_store,
+)
+maintenance_schedules_index = load_and_index_document_from_file(
+    "../multi-document-agentic-rag/json_files/maintenance.json",
+    maintenance_schedules_vector_store,
+)
 
 # Create retrievers
 problems_retriever = create_retriever(problems_index)
@@ -108,40 +128,47 @@ diagnostics_retriever = create_retriever(diagnostics_index)
 cost_estimates_retriever = create_retriever(cost_estimates_index)
 maintenance_schedules_retriever = create_retriever(maintenance_schedules_index)
 
+
 def retrieve_problems(query: str) -> str:
     """Searches the problem catalog to find relevant automotive problems for the query."""
     docs = problems_retriever.retrieve(query)
-    information = str([doc.text[:200]for doc in docs])
+    information = str([doc.text[:200] for doc in docs])
     return information
+
 
 def retrieve_parts(query: str) -> str:
     """Searches the parts catalog to find relevant parts for the query."""
     docs = parts_retriever.retrieve(query)
-    information = str([doc.text[:200]for doc in docs])
+    information = str([doc.text[:200] for doc in docs])
     return information
+
 
 def retrieve_car_details(make: str, model: str, year: int) -> str:
     """Retrieves the make, model, and year of the car."""
     docs = car_details_retriever.retrieve(make, model, year)
-    information = str([doc.text[:200]for doc in docs])
+    information = str([doc.text[:200] for doc in docs])
+
 
 def diagnose_car_problem(symptoms: str) -> str:
     """Uses the diagnostics database to find potential causes for given symptoms."""
     docs = diagnostics_retriever.retrieve(symptoms)
-    information = str([doc.text[:200]for doc in docs])
+    information = str([doc.text[:200] for doc in docs])
     return information
+
 
 def estimate_repair_cost(problem: str) -> str:
     """Provides a cost estimate for a given car problem or repair."""
     docs = cost_estimates_retriever.retrieve(problem)
-    information = str([doc.text[:200]for doc in docs])
+    information = str([doc.text[:200] for doc in docs])
     return information
+
 
 def get_maintenance_schedule(mileage: int) -> str:
     """Retrieves the recommended maintenance schedule based on mileage."""
     docs = maintenance_schedules_retriever.retrieve(str(mileage))
-    information = str([doc.text[:200]for doc in docs])
+    information = str([doc.text[:200] for doc in docs])
     return information
+
 
 def comprehensive_diagnosis(symptoms: str) -> str:
     """
@@ -172,19 +199,29 @@ def comprehensive_diagnosis(symptoms: str) -> str:
 
     return report
 
-def get_car_model_info(mileage: int, car_make: str, car_model: str, car_year: int) -> dict:
+
+def get_car_model_info(
+    mileage: int, car_make: str, car_model: str, car_year: int
+) -> dict:
     """Retrieve car model information from cars_models.json."""
-    with open('cars_models/cars_models.json', 'r') as file:
+    with open("cars_models/cars_models.json", "r") as file:
         car_models = json.load(file)
 
     for car in car_models:
-        if (car['car_make'].lower() == car_make.lower() and car['car_model'].lower() == car_model.lower() and car['car_year'] == car_year):
+        if (
+            car["car_make"].lower() == car_make.lower()
+            and car["car_model"].lower() == car_model.lower()
+            and car["car_year"] == car_year
+        ):
             return car
     return {}
 
+
 def retrieve_car_details(make: str, model: str, year: int) -> str:
     """Retrieves the make, model, and year of the car and return the common issues if any."""
-    car_details = get_car_model_info(0, make, model, year)  # Using 0 for mileage to get general details
+    car_details = get_car_model_info(
+        0, make, model, year
+    )  # Using 0 for mileage to get general details
     if car_details:
         return f"{year} {make} {model} - Common Issues: {', '.join(car_details['common_issues'])}"
     return f"{year} {make} {model} - No common issues found."
@@ -211,19 +248,23 @@ def plan_maintenance(mileage: int, car_make: str, car_model: str, car_year: int)
 
     if car_model_info:
         plan += f"Common Issues:\n"
-        for issue in car_model_info['common_issues']:
+        for issue in car_model_info["common_issues"]:
             plan += f"- {issue}\n"
 
         plan += f"\nEstimated Time: {car_model_info['estimated_time']}\n\n"
     else:
-        plan += "No specific maintenance tasks found for this car model and mileage.\n\n"
+        plan += (
+            "No specific maintenance tasks found for this car model and mileage.\n\n"
+        )
 
     plan += "Please consult with our certified mechanic for a more personalized maintenance plan."
 
     return plan
 
 
-def create_calendar_invite(event_type: str, car_details: str, duration: int = 60) -> str:
+def create_calendar_invite(
+    event_type: str, car_details: str, duration: int = 60
+) -> str:
     """
     Simulates creating a calendar invite for a car maintenance or repair event.
 
@@ -248,7 +289,10 @@ def create_calendar_invite(event_type: str, car_details: str, duration: int = 60
 
     return invite
 
-def coordinate_car_care(query: str, car_make: str, car_model: str, car_year: int, mileage: int) -> str:
+
+def coordinate_car_care(
+    query: str, car_make: str, car_model: str, car_year: int, mileage: int
+) -> str:
     """
     Coordinates overall car care by integrating diagnosis, maintenance planning, and scheduling.
 
@@ -311,19 +355,16 @@ tools = [
     maintenance_planner_tool,
     calendar_invite_tool,
     car_care_coordinator_tool,
-    retrieve_car_details_tool
+    retrieve_car_details_tool,
 ]
 
 
 # Function to reset the agent's memory
 def reset_agent_memory():
     global agent_worker, agent
-    agent_worker = FunctionCallingAgentWorker.from_tools(
-        tools,
-        llm=llm,
-        verbose=True
-    )
+    agent_worker = FunctionCallingAgentWorker.from_tools(tools, llm=llm, verbose=True)
     agent = AgentRunner(agent_worker)
+
 
 # Initialize the agent
 reset_agent_memory()
