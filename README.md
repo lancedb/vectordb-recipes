@@ -22,9 +22,8 @@ This repository is divided into 2 sections:
 
 The following examples are organized into different tables to make similar types of examples easily accessible.
 
-### Sections in Recipes
+### Sections
 
-Examples are divided into various sections:
 - [Build from Scratch](#build-from-scratch) - Build applications/examples from scratch using LanceDB for efficient vector-based document retrieval.
 - [Multimodal](#multimodal) - Build a multimodal search application with input text or image as queries.
 - [RAG](#rag) - Build a variety of RAG by loading data from different formats and query with text.
