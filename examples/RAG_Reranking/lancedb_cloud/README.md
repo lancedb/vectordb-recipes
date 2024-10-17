@@ -4,7 +4,7 @@ our <a href="https://blog.lancedb.com/simplest-method-to-improve-rag-pipeline-re
 
 This example shows to create a RAG application using LanceDB Cloud.
 
-Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/RAG_re_ranking/lancedb_cloud/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+Colab walkthrough - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/RAG_Reranking/lancedb_cloud/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 
 ### Set credentials
