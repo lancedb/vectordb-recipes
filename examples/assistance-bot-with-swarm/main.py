@@ -7,6 +7,7 @@ from swarm.repl import run_demo_loop
 db = lancedb.connect("/tmp/db")
 table = db.open_table("help-center")
 
+
 def query_lancedb(query, top_k=5):
     # Creates embedding vector from user query
     query_results = table.search(query).limit(top_k).to_pandas()
@@ -22,8 +23,8 @@ def query_docs(query):
 
     print(query_results)
     for index, article in query_results.iterrows():
-        output.append((article['title'], article['text'], article['url']))
-        
+        output.append((article["title"], article["text"], article["url"]))
+
     if output:
         title, content, _ = output[0]
         response = f"Title: {title}\nContent: {content}"

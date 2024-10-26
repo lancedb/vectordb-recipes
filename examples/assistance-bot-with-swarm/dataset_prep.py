@@ -29,6 +29,7 @@ from lancedb.embeddings import get_registry
 db = lancedb.connect("/tmp/db")
 func = get_registry().get("openai").create(name=EMBEDDING_MODEL)
 
+
 class Article(LanceModel):
     text: str = func.SourceField()
     vector: Vector(func.ndims()) = func.VectorField()
