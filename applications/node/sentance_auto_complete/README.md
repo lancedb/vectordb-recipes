@@ -7,7 +7,6 @@
 # add your open_ai_key (run this command in your terminal)
  export OPENAI_API_KEY= your_key
 
-# you will be required to add the api key in langChainProcessor.js file also
 # node version  above 20 required
 # to run only server use
 

@@ -22,7 +22,7 @@ let retriever;
 const llm = new OpenAI({
   temperature: 0.7, // Adjust based on how creative/responsive you want the LLM to be
   modelName: 'gpt-4o-mini', // Choose the model you're using, e.g., gpt - 4 or gpt - 3.5
-  apiKey: '', // Replace with your API key or use dotenv to load it
+  apiKey: 'process.env.OPENAI_API_KEY', // Replace with your API key or use dotenv to load it
 });
 
 export async function runLangChainProcess(rawDocsUploaded) {
