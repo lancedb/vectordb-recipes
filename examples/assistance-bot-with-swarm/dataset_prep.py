@@ -8,9 +8,9 @@ from datasets import load_dataset
 EMBEDDING_MODEL = "text-embedding-ada-002"
 
 # load dataset
-dataset_name = 'Prasant/openai-dataset'
+dataset_name = "Prasant/openai-dataset"
 dataset = load_dataset(dataset_name)
-article_df = pd.DataFrame(dataset['train'])
+article_df = pd.DataFrame(dataset["train"])
 
 # ingest data inside table
 db = lancedb.connect("/tmp/db")
