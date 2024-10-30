@@ -2,7 +2,7 @@
 #  upload your data source and start typeing your article and you will be suggested with relevent relea time  suggestions that will act as auto complete for your article sentance
 # you can also switch between gpt models.
 
-(https://github.com/lancedb/assets/blob/main/recipes/sentance_Auto_complete.gif)
+![](https://github.com/lancedb/assets/blob/main/recipes/sentance_Auto_complete.gif)
 
 # add your open_ai_key (run this command in your terminal)
  export OPENAI_API_KEY= your_key
