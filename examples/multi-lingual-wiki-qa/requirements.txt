@@ -1,4 +1,0 @@
-datasets
-cohere
-lancedb
-tqdm
