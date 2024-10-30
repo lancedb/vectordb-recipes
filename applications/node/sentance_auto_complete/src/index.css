@@ -1,0 +1,11 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "font-mono", system-ui, sans-serif;
+  }
+}
