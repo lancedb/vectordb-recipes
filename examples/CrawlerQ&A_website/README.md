@@ -16,26 +16,11 @@ An advanced Q&A tool for extracting and answering questions from any website URL
   - Zero-copy, versioning-friendly database with Python and JavaScript integration
   - Compatibility with LangChain, LlamaIndex, Apache-Arrow, Pandas, Polars, DuckDB, and more
 
-## 💡 Getting Started
 
-### Prerequisites
 
-- Python 3.8+
-- Install dependencies:
-  ```bash
-  pip install -r requirements.txt
-  ```
 
-### Setup
+1. **Set up Crawl4AI**: Configure Crawl4AI to handle the web crawling and data extraction from specified URLs.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/web-qa-crawl4ai-lancedb.git
-   cd web-qa-crawl4ai-lancedb
-   ```
+2. **Configure LanceDB**: Use LanceDB to manage vector-based data for Q&A. Add URL-based extracted data as embeddings for question answering.
 
-2. **Set up Crawl4AI**: Configure Crawl4AI to handle the web crawling and data extraction from specified URLs.
-
-3. **Configure LanceDB**: Use LanceDB to manage vector-based data for Q&A. Add URL-based extracted data as embeddings for question answering.
-
-4. **Run the notebook**: Try it now in our Colab notebook: [Launch Colab](https://colab.research.google.com/drive/1ReTHR-Ay8cmALXeKHRWHt59WwomCJ3Sk?usp=sharing) for a fully integrated, code-ready environment.
+3. **Run the notebook**: Try it now in our Colab notebook:   <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/CrawlerQ&A_website/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
