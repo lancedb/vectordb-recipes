@@ -1,5 +1,8 @@
 # Chatbot Q&A using Crawl4AI and LanceDB
 
+![lancedb video search demo](../../assets/qa_crawler4ai_lancdb.png)
+
+
 An advanced Q&A tool for extracting and answering questions from any website URL using [Crawl4AI](https://github.com/yourusername/crawl4ai) for efficient text extraction and [LanceDB](https://github.com/yourusername/lancedb) for vector-based semantic search.
 
 ## 🚀 Features
