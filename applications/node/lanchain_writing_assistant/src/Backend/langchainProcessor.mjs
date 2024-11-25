@@ -20,7 +20,6 @@ let retriever;
 
 export async function runLangChainProcess() {
   try {
-    console.log("called")
     const loader = new TextLoader("src/Backend/dataSourceFiles/data.txt");
     const rawDocs = await loader.load();
     const splitter = new RecursiveCharacterTextSplitter({

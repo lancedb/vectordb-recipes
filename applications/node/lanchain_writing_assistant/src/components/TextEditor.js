@@ -108,7 +108,7 @@ function TextEditor({ onProcess, onLoading }) {
         </h2>
         <ReactQuill
           value={input}
-          className = "h-[75vh] w-full bg-white rounded shadow-md rounded-lg border-2 border-gray-300 my-6 bg-white shadow-lg transition-shadow hover:shadow-2xl suggestion-box"
+          className = "h-[75vh] bg-white rounded shadow-md rounded-lg border-2 border-gray-300 my-6 bg-white shadow-lg transition-shadow hover:shadow-2xl suggestion-box mr-4"
           onChange={handleChange}
           theme="snow"
           placeholder="Start typing..."
