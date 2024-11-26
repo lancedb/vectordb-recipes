@@ -120,7 +120,7 @@ function TextEditor({ onProcess, onLoading }) {
         </h2>
         <ReactQuill
           value={input}
-          className = "h-[75vh] w-full bg-white rounded shadow-[0_4px_15px_rgba(0,0,0,0.8)] my-6 suggestion-box"
+          className = "h-[75vh] bg-white rounded shadow-[0_4px_15px_rgba(0,0,0,0.8)] my-6 suggestion-box mr-4"
           onChange={handleChange}
           theme="snow"
           placeholder="Start typing..."
