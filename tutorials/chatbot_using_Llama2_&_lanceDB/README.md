@@ -14,6 +14,10 @@ With our Chatbot, you can effortlessly engage in meaningful conversations with y
 
 We demonstrate the powerful combination of LangChain and LanceDB alongside the LLM model Llama 2. We leverage RAG (Retrieval Augmented Generation) to achieve this, enabling a truly context-aware chatbot experience.
 
+### Dataset
+
+This example utilizes two PDF files which can be download from [here](https://github.com/akashAD98/llam2_with_lancedb_/tree/main/multiple_pdf) and upload it in Google drive inside a folder to utilize it while running this example.
+
 ### Get Started with the Colab Walkthrough
 
 Dive into the world of context-aware chatbots by starting with our Colab walkthrough. It's an interactive guide that takes you through the process step by step.
