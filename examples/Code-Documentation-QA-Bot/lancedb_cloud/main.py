@@ -132,5 +132,5 @@ if __name__ == "__main__":
         llm=OpenAI(), chain_type="stuff", retriever=vectorstore.as_retriever()
     )
 
-    result = qa.run(args.query)
+    result = qa.invoke(args.query)
     print(result)

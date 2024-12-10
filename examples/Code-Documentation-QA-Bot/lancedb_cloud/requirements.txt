@@ -6,3 +6,4 @@ lancedb
 unstructured
 tiktoken
 polars
+httpx < 0.28
