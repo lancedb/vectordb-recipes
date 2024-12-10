@@ -107,8 +107,8 @@ if __name__ == "__main__":
     documents = text_splitter.split_documents(docs)
     embeddings = OpenAIEmbeddings()
 
-    db_url = "db://devrel-samp-9a5467"
-    api_key = "sk_7ARKG2PNGNFB3J3OKKLWUP4WHHKXDHQ6RMQTCVLOMT72TDZIOEEA===="
+    db_url = "db://your-project-slug"
+    api_key = "sk_..."
     region = "us-east-1"
     table_name = "langchain_vectorstore"
 
