@@ -1,4 +1,4 @@
-from FlagEmbedding import LLMEmbedder, FlagReranker
+from FlagEmbedding import FlagAutoModel, FlagAutoReranker
 import lancedb
 import re
 import pandas as pd
@@ -33,7 +33,7 @@ def search(table, query, top_k=10):
     Search a query from the table
     """
     query_vector = embed_model.encode_queries(
-        query, task=task
+        query
     )  # Encode the QUERY (it is done differently than the 'key')
     search_results = table.search(query_vector).limit(top_k)
     return search_results
