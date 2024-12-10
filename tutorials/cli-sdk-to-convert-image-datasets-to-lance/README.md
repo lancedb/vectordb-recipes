@@ -38,4 +38,4 @@ mini-ImageNet Dataset: https://www.kaggle.com/datasets/vipulmaheshwarii/mini-ima
 ### Code and Blog
 If you want to understand the process of converting an image dataset to Lance format, please refer to the following blog and it's corresponding Google Colab notebook.
 
-<a href="https://colab.research.google.com/drive/12RjdHmp6m9_Lx7YMRiat4_fYWZ2g63gx?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/convert-any-image-dataset-to-lance/)
+<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/cli-sdk-to-convert-image-datasets-to-lance/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/convert-any-image-dataset-to-lance/)
