@@ -1,5 +1,7 @@
 # FarmerGPT: RAG with PDF for Farmer Data
 
+![image](../../assets/RAG_PDF_FarmerQA.png)
+ 
 This project demonstrates how to build a Retrieval-Augmented Generation (RAG) application using farmer-specific data. The data is extracted from a PDF containing crop variety information for sugarcane, turmeric, bamboo, cashew nuts, and more. The application leverages **LangChain** and **LanceDB** to create a customizable and extensible FarmerGPT solution.
 
 ---
@@ -18,7 +20,6 @@ This project demonstrates how to build a Retrieval-Augmented Generation (RAG) ap
    - To try FarmerGPT directly without setup, use the provided Google Colab notebook: <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/RAG-On-PDF
 /main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
    - Open the notebook, follow the instructions, and run the cells to interact with the application.
-
 ---
 
 ## Key Technologies
