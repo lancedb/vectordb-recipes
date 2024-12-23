@@ -6,7 +6,7 @@ An advanced **AI-driven article recommendation engine** designed to process and 
 **Demo**
 --------
 
-![Real-Time Autocomplete Demo](https://github.com/lancedb/assets/blob/main/recipes/article_recommendation_engine.gif)
+![Real-Time Autocomplete Demo](./public/assests/article_recommendation_engine.gif)
 
 
 * * * * *
