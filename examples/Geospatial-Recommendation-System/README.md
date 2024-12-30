@@ -45,3 +45,17 @@ This project is a geospatial recommendation system that uses LanceDB for vector-
 - **Geospatial Analysis**:
   - Uses Google Maps API to geocode addresses and calculate distances.
   - Provides recommendations based on proximity to the user's location.
+
+## Learn More: Blog
+
+For a detailed explanation of GraphRAG check out our blog post:
+
+[Read the Blog Post](https://blog.lancedb.com/create-a-restaurant-recommendation-system/)
+
+## Experimentation and Source Code
+
+To explore and run experiments with both GraphRAG and traditional RAG, access the source code and experiment setup in the provided Colab notebook:
+
+Run Experiments in Google Colab
+
+<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Geospatial-Recommendation-System/geospatial-recommendation.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
