@@ -16,7 +16,7 @@ For detailed installation instructions, please refer to our comprehensive guide 
  <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/RASA_Customer-support-bot/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 
-This guide will walk you through setting up each component of the Super Agent, ensuring a seamless integration process.
+This guide will walk you through setting up each component of the RASA Customer Support bot, ensuring a seamless integration process.
 
 ## Building the Customer Support Bot
 
@@ -48,7 +48,7 @@ The RASA customer support bot involves several key steps:
 
 ## Resources
 
-- **Google Colab**: For hands-on examples and detailed code snippets for implementing the Super Agent, visit our [Google Colab Notebook](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/RASA_Customer-support-bot/main.ipynb).
+- **Google Colab**: For hands-on examples and detailed code snippets for implementing the RASA Chatbot with LanceDB and OpenAI api, visit our [Google Colab Notebook](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/RASA_Customer-support-bot/main.ipynb).
 
 - **Blog Post**: For a more in-depth exploration of the concepts and methodologies discussed in this project, please visit our [Blog Post](https://blog.lancedb.com/customer-support-bot-rasa-x-lancedb/).
 
