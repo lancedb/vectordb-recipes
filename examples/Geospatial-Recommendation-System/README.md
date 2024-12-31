@@ -23,16 +23,12 @@ We can enhance later on by adding a filter to sort the recommendations based on 
 3. **Run the Notebook**:
    Open the `geospatial-recommendation.ipynb` notebook in Jupyter or Google Colab and execute the cells sequentially.
 
-## Learn More: Blog
+## Blog
 
 For a detailed explanation of GraphRAG check out our blog post:
 
 [Read the Blog Post](https://blog.lancedb.com/geospatial-restaurant-recommendation-system/)
 
-## Experimentation and Source Code
-
-To explore and run experiments with both GraphRAG and traditional RAG, access the source code and experiment setup in the provided Colab notebook:
-
-Run Experiments in Google Colab
+## Google Colab
 
 <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Geospatial-Recommendation-System/geospatial-recommendation.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
