@@ -23,9 +23,9 @@ We can enhance later on by adding a filter to sort the recommendations based on 
 3. **Run the Notebook**:
    Open the `geospatial-recommendation.ipynb` notebook in Jupyter or Google Colab and execute the cells sequentially.
 
-## Blog
+## Learn More: Blog
 
-For a detailed explanation of GraphRAG check out our blog post:
+For a detailed explanation of how this works, check out the blog post:
 
 [Read the Blog Post](https://blog.lancedb.com/geospatial-restaurant-recommendation-system/)
 
