@@ -14,7 +14,7 @@ We can enhance later on by adding a filter to sort the recommendations based on 
 1. **Install Dependencies**:
    Ensure you have Python installed. Then, install the required packages:
    ```bash
-   pip install lancedb pandas sentence-transformers requests
+   pip install lancedb pandas sentence-transformers requests openai tantivy
    ```
 
 2. **Prepare Data**:
