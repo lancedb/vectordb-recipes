@@ -1,9 +1,0 @@
-lancedb
-pandas 
-datasets 
-panns-inference 
-numpy 
-librosa  
-streamlit 
-soundfile 
-requests
