@@ -17,7 +17,7 @@ cognee enables the generation of knowledge graphs from textual, audio data and i
 ## Google Colab Walkthrough
 For a detailed, interactive walkthrough of this implementation, you can go over the Google Colab notebook I've included below. 
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://drive.google.com/file/d/1TD2tNw3lKveOObPwAclMun-IcOh56pN0/view?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1JpXENDBY5ue0c8bOgZsxNYYyTN_hR0S5?usp=sharing)
 
 
 ## Blog
