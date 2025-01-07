@@ -8,21 +8,19 @@ cognee enables the generation of knowledge graphs from textual, audio data and i
 - Indexes the data and structures it into a hierarchical knowledge graph
 - Utilizes LanceDB for fast, efficient vector similarity searches
 - Supports graph projections, complex search patterns
-- Anthropic MVC support, sdk, and an API
+- Anthropic MCP support, sdk, and an API: see [here](https://github.com/topoteretes/cognee-mcp-server)
 
 
-
-## Blog &  Tutorial
-
-Google Colab Walkthrough
-
+‚
+# Blog & Tutorial
 
 ## Google Colab Walkthrough
 For a detailed, interactive walkthrough of this implementation, you can go over the Google Colab notebook I've included below. 
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1g-Qnx6l_ecHZi0IOw23rg0qC4TYvEvWZ?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://drive.google.com/file/d/1TD2tNw3lKveOObPwAclMun-IcOh56pN0/view?usp=sharing)
 
 
 ## Blog
 
-For a detailed explanation of how cognee works with the various data formats to generate graphs, check out  [blog link ](tbd).
+For a detailed explanation of how cognee works with the various data formats to generate graphs, check out [cognee blog](tbd).
+‚
