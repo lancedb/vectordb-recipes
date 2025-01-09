@@ -110,7 +110,7 @@ Replace or augment the job posting dataset for tailored results:
 
 3.  Restart the backend server to apply the changes.
 
-For example, utilize the **Jobs Dataset** from Kaggle: Jobs Dataset on Kaggle
+For example, utilize the **Jobs Dataset** from Kaggle: Jobs Dataset on Kaggle [Jobs posting dataset](https://www.kaggle.com/datasets/ravindrasinghrana/job-description-dataset)
 
 * * * * *
 
