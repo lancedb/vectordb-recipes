@@ -1,0 +1,211 @@
+#root {}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.app-container {
+  font-family: Arial, sans-serif;
+  padding: 20px 60px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.search-section {
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  width: calc(100% - 120px);
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.skill-pills {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.job-results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-pill {
+  padding: 8px 16px;
+  background-color: #e0e7ff;
+  color: #3730a3;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.skill-pill:hover {
+  background-color: #c7d2fe;
+}
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.job-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.job-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.job-skills {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.job-description {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.apply-button {
+  padding: 10px 20px;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.apply-button:hover {
+  background-color: #059669;
+}
+
+
+/* Base track (hidden) */
+.slider {
+  -webkit-appearance: none;
+  position: absolute;
+  height: 2px;
+  pointer-events: none;
+  width: 100%;
+}
+
+/* Slider Thumb */
+.slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+}
+
+.slider-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background: #007bff;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider-thumb::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  background: #007bff;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Slider Track */
+.slider-thumb::-webkit-slider-runnable-track {
+  background: transparent; /* Track styling is handled by the parent container */
+}
+
+.slider-thumb::-moz-range-track {
+  background: transparent; /* Track styling is handled by the parent container */
+}
+
+.slider-custom-class{
+  border: none;
+  box-shadow: none;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.bar-inner{
+  border: none !important;
+  background-color: #8b5cf6 !important;
+}
