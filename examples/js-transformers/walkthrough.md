@@ -8,7 +8,7 @@ This example shows how to use the [transformers.js](https://github.com/xenova/tr
 ### Setting up
 First, install the dependencies:
 ```bash
-npm install vectordb
+npm install @lancedb/lancedb
 npm i @xenova/transformers
 ```
 
@@ -17,7 +17,8 @@ We will also be using the [all-MiniLM-L6-v2](https://huggingface.co/Xenova/all-M
 Within our `index.js` file we will import the necessary libraries and define our model and database:
 
 ```javascript
-const lancedb = require('vectordb')
+import * as lancedb from "@lancedb/lancedb"
+
 const { pipeline } = await import('@xenova/transformers')
 const pipe = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
 ```
@@ -75,9 +76,9 @@ Now, we can perform the search using the `search` function. LanceDB automaticall
 // Query the table
 const results = await table
     .search("a sweet fruit to eat")
-    .metricType("cosine")
+    .distanceType("cosine")
     .limit(2)
-    .execute()
+    .toArray()
 console.log(results.map(r => r.text))
 ```
 ```bash

@@ -14,11 +14,10 @@
 
 'use strict'
 
+import * as lancedb from "@lancedb/lancedb"
 
 async function example() {
-
-    const lancedb = require('vectordb')
-
+    
     // Import transformers and the all-MiniLM-L6-v2 model (https://huggingface.co/Xenova/all-MiniLM-L6-v2)
     const { pipeline } = await import('@xenova/transformers')
     const pipe = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
@@ -64,9 +63,9 @@ async function example() {
     let query = (await embed_fun.embed(['a sweet fruit to eat']))[0]
     const results = await table
         .search(query)
-        .metricType("cosine")
+        .distanceType("cosine")
         .limit(2)
-        .execute()
+        .toArray()
     console.log(results.map(r => r.text))
 }
 
