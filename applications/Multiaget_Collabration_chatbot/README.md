@@ -1,5 +1,8 @@
 # Multi-Agent Collaboration Chatbot
 
+![Multilingual-Collaboration-Chatbot](https://github.com/akashAD98/vectordb-recipes/blob/main/assets/multiagent_chatbot.png)
+
+
 This project is a multi-agent collaboration chatbot designed to answer questions related to stock markets using multiple tools and APIs. It intelligently combines:
 
 - **LanceDB**: For retrieving information from uploaded PDF documents.
