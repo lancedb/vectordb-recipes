@@ -1,6 +1,0 @@
-lancedb
-openai
-langchain 
-langgraph
-tavily-python
-polygon
