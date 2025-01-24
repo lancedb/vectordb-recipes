@@ -1,7 +1,7 @@
 
 # Multi-Agent Collaboration Chatbot
 
-![Multilingual-Collaboration-Chatbot](https://github.com/akashAD98/vectordb-recipes/blob/main/assets/multiagent_chatbot.png)
+![Multilingual-Collaboration-Chatbot](https://github.com/akashAD98/vectordb-recipes/blob/application/multi_collabartion_chatbot/assets/Streamlite_multicolabration_chat.png)
 
 This project is a multi-agent collaboration chatbot designed to answer questions related to stock markets using multiple tools and APIs. It intelligently combines:
 
@@ -35,6 +35,9 @@ The chatbot is powered by **Streamlit**, providing an intuitive web interface fo
 
 ## How It Works
 
+![Multilingual-Collaboration-Chatbot](https://github.com/akashAD98/vectordb-recipes/blob/main/assets/multiagent_chatbot.png)
+
+
 ### 1. Uploading Documents
 Users must upload PDF files related to the stock market to build a document-based knowledge base. These documents are processed and split into manageable chunks for efficient retrieval.
 
@@ -56,7 +59,6 @@ Users must upload PDF files related to the stock market to build a document-base
       Answer is fetched using the Polygon Tool
    - "Latest news about the S&P 500?"
      - Answer is retrieved using Tavily Tool
-
 ---
 
 ## Prerequisites
@@ -84,21 +86,3 @@ Add these keys to your environment variables or configuration file.
    streamlit run main.py
    ```
 4. Open the provided URL in your browser.
-
----
-
-## Usage Instructions
-
-1. **Upload Documents**:
-   - Drag and drop or browse to upload your stock market-related PDF files.
-   - The chatbot will process and index the content.
-
-2. **Ask Questions**:
-   - Enter your question in the input box (e.g., "What are the financial statements of AAPL?").
-   - The chatbot will first attempt to retrieve answers from the documents.
-
-3. **Fallback Tools**:
-   - If the answer is not found in the documents, the chatbot will use the appropriate tool:
-     - **Polygon API** for finance-related data.
-     - **Tavily** for internet-based search or news.
----
