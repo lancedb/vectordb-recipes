@@ -1,5 +1,3 @@
-
-
 import os
 from typing import Annotated, TypedDict
 import tempfile
@@ -23,11 +21,11 @@ from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
-
 os.environ["ANTHROPIC_API_KEY"] = ""
 os.environ["TAVILY_API_KEY"] = ""
 os.environ["OPENAI_API_KEY"] = ""
-os.environ["POLYGON_API_KEY"]=  ''
+os.environ["POLYGON_API_KEY"] = ""
+
 
 def load_documents(uploaded_files):
     documents = []
@@ -51,8 +49,14 @@ def load_documents(uploaded_files):
             continue
     return documents
 
+
 def main():
-    st.set_page_config(page_title="Stock Market MultitAgent Chatbot  ", page_icon="📈", layout="centered", initial_sidebar_state="expanded")
+    st.set_page_config(
+        page_title="Stock Market MultitAgent Chatbot  ",
+        page_icon="📈",
+        layout="centered",
+        initial_sidebar_state="expanded",
+    )
 
     st.title("📈 Stock Market MultitAgent Chatbot")
 
@@ -62,11 +66,15 @@ def main():
             "Upload your **stock market-related files** (PDF or DOCX) here to build a knowledge base for queries."
         )
         uploaded_files = st.file_uploader(
-            "Drag and drop or browse files", type=["pdf", "docx"], accept_multiple_files=True
+            "Drag and drop or browse files",
+            type=["pdf", "docx"],
+            accept_multiple_files=True,
         )
 
         if not uploaded_files:
-            st.warning("Please upload PDF or DOCX files related to the stock market to proceed.")
+            st.warning(
+                "Please upload PDF or DOCX files related to the stock market to proceed."
+            )
             return  # Exit
 
         if uploaded_files:
@@ -91,7 +99,9 @@ def main():
             @tool(args_schema=RagToolSchema)
             def retriever_tool(question):
                 """Answer stock market-related questions using RAG."""
-                retriever_result = docsearch.similarity_search_with_relevance_scores(question)
+                retriever_result = docsearch.similarity_search_with_relevance_scores(
+                    question
+                )
                 return retriever_result
 
             tavilytool = TavilySearchResults(
@@ -104,7 +114,7 @@ def main():
             api_wrapper = PolygonAPIWrapper()
             financials_tool = PolygonFinancials(api_wrapper=api_wrapper)
 
-            tools = [retriever_tool, financials_tool, tavilytool,bing_tool]
+            tools = [retriever_tool, financials_tool, tavilytool, bing_tool]
             llm = ChatOpenAI(model_name="gpt-4o")
             llm_with_tools = llm.bind_tools(tools=tools)
 
@@ -132,7 +142,10 @@ def main():
     st.markdown(
         "Type your **stock market-related question** in the search box below. The chatbot will use the uploaded documents to generate answers."
     )
-    query = st.text_input("Enter your question:", placeholder="E.g. What are the financial statements of AAPL ")
+    query = st.text_input(
+        "Enter your question:",
+        placeholder="E.g. What are the financial statements of AAPL ",
+    )
 
     if query:
         inputs = [HumanMessage(content=query)]
@@ -154,6 +167,7 @@ def main():
                 elif isinstance(msg, AIMessageChunk):
                     result += msg.content
                     placeholder.write(result)
+
 
 if __name__ == "__main__":
     main()
