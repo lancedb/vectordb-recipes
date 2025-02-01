@@ -36,9 +36,10 @@ The following examples are organized into different tables to make similar types
 
 
 ### 🌟 New 🌟 
-- Multimodal Vector Search: **Voyage AI X LanceDB** - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/voyagexlancedb/Voyage_x_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+- Multimodal Vector Search: **Voyage AI x LanceDB** - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/voyagexlancedb/Voyage_x_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 - Advanced RAG: Context Enrichment Window - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Advanced_RAG_Context_Enrichment_Window/Advanced_RAG_Context_Enrichment_Window.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
-- Build autonomous Customer support agent using Langgraph - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main//examples/customer_support_agent_langgraph/LangGraph_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+- Build autonomous Customer support agent using Langgraph - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/customer_support_agent_langgraph/LangGraph_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+- Comparing ModernBERT with series of Bert Models - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/modernbert_comparison/ModernBERT.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 
 
