@@ -3,13 +3,26 @@
 ## Introduction
 DeepSeek R1 and GPT-4o are emerging as powerhouses in the AI world, competing in real-world business applications. This comparison covers key factors like **cost, architecture, and RAG performance** to determine which model excels in different scenarios. Is DeepSeek R1's cost advantage enough to challenge GPT-4o's speed and multimodal capabilities?
 
-## Experiment Setup
-We tested both models on a Zomato case study using RAG-based retrieval to understand how the thinking model gives different answers than chat models.
+### Experiment Setup  
 
-### Configuration
-- Running DeepSeek R1 (1.5B) locally on Ollama (not the full 671B MoE model, which surpasses GPT-4o in accuracy)
-- Using the DeepSeek API for further experimentation (optional)
-- Comparing DeepSeek R1 (1.5B) vs. GPT-4o in reasoning performance on Zomato-related business queries
+We conducted an evaluation of two models using a **Zomato case study** with **RAG-based retrieval** to compare the reasoning capabilities of a **thinking model** versus a **chat model**.  
+
+### Configuration  
+
+- **Model Used**: DeepSeek R1 (1.5B) running locally via **Ollama** (Note: This is not the full **671B MoE model**, which outperforms GPT-4o in accuracy).  
+- **Inference Setup**:  
+  - Running **DeepSeek R1 (1.5B)** locally using [Ollama](https://ollama.com/library/deepseek-r1:1.5b).  
+  - You can experiment with larger models if desired.  
+  - To run the model locally:  
+    ```bash
+    ollama run deepseek-r1:1.5b
+    ```  
+  - Start the application:  
+    ```bash
+    python app.py
+    ```  
+- **Further Experimentation**: Optionally, you can use the **DeepSeek API** for extended testing.  
+
 
 ## Comparative Analysis
 
