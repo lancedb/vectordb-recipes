@@ -37,11 +37,11 @@ The following examples are organized into different tables to make similar types
 
 ### 🌟 New 🌟 
 - Multimodal Vector Search: **Voyage AI x LanceDB** - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/voyagexlancedb/Voyage_x_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
-- Advanced RAG: Context Enrichment Window - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Advanced_RAG_Context_Enrichment_Window/Advanced_RAG_Context_Enrichment_Window.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 - Build autonomous Customer support agent using Langgraph - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/customer_support_agent_langgraph/LangGraph_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
-- Comparing ModernBERT with series of Bert Models - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/modernbert_comparison/ModernBERT.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
-
-
+- Comparing **ModernBERT** with series of Bert Models - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/modernbert_comparison/ModernBERT.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+- Comparing **Deepseek's r1 VS OpenAI's o1** for RAG - [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./examples/Deepseek_R1_VS_GPT_4o/README.md)
+- Testing **Deepseek Janus-Pro's** multimodality over Flickr 30K - 
+<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Janus-Pro/Janus_Pro.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 ### Build from Scratch
 
@@ -76,6 +76,7 @@ Develop a Retrieval-Augmented Generation (RAG) application using LanceDB for eff
 | RAG &nbsp; &nbsp;| Interactive Notebook & Scripts | Blog |
 | --------- | -------------------------- | ----------- |
 ||||
+| [RAG using Deepseek R1 vs OpenAI o1](./examples/Deepseek_R1_VS_GPT_4o) | [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./examples/Deepseek_R1_VS_GPT_4o/README.md)  [![Analysis](https://img.shields.io/badge/Analysis-FF3333)](#) |
 | [RAG On PDF](/examples/RAG-On-PDF/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/RAG-On-PDF/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![LLM](https://img.shields.io/badge/local-llm-green)](#) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|
 | [RAG with Contextual Retrieval and Hybrid search](./examples/Contextual-RAG/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Contextual-RAG/Anthropic_Contextual_RAG.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![LLM](https://img.shields.io/badge/openai-api-white)](#)  [![intermediate](https://img.shields.io/badge/intermediate-FFDA33)](#)| [![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/guide-to-use-contextual-retrieval-and-prompt-caching-with-lancedb/) |
 | [RAG with Matryoshka Embeddings and LlamaIndex](./tutorials/RAG-with_MatryoshkaEmbed-Llamaindex/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/RAG-with_MatryoshkaEmbed-Llamaindex/RAG_with_MatryoshkaEmbedding_and_Llamaindex.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![intermediate](https://img.shields.io/badge/intermediate-FFDA33)](#)||
