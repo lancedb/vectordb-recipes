@@ -9,9 +9,11 @@ from langchain_ollama import OllamaEmbeddings
 from langchain_ollama.llms import OllamaLLM
 from langchain.memory import ConversationBufferMemory
 
-#Pass opeani key or use any LLM
+# Pass opeani key or use any LLM
 import os
+
 os.environ["OPENAI_API_KEY"] = ""
+
 
 class QueryProcessor:
     def __init__(self, file_path, db_url="lancedb_temp", table_name="lancedb_indic"):
@@ -31,9 +33,9 @@ class QueryProcessor:
 
         # Initialize embeddings and vector store
 
-        #deepseek-r1:1.5b embeddings
+        # deepseek-r1:1.5b embeddings
         embeddings = OllamaEmbeddings(model="deepseek-r1:1.5b")
-        
+
         # Add reranker
         self.reranker = LinearCombinationReranker(weight=0.3)
         self.docsearch = LanceDB.from_documents(
@@ -42,15 +44,14 @@ class QueryProcessor:
 
         print("Embedding stored in lancedb")
 
-        #deepseek-r1:1.5b llm 
-        self.llm = OllamaLLM(
-                model="deepseek-r1:1.5b",
-                streaming=True
-                )
-      
+        # deepseek-r1:1.5b llm
+        self.llm = OllamaLLM(model="deepseek-r1:1.5b", streaming=True)
+
         self.memory = ConversationBufferMemory(memory_key="chat_history")
 
-    def generate_prompt_template(self, main_instructions, prompt_instructions, context_name, query):
+    def generate_prompt_template(
+        self, main_instructions, prompt_instructions, context_name, query
+    ):
         """
         Generate a prompt template for LangChain LLM.
 
@@ -74,7 +75,9 @@ class QueryProcessor:
         {{chat_history}}
         Human: {query}
         Chatbot:"""
-        return PromptTemplate(template=template, input_variables=["context", "chat_history"])
+        return PromptTemplate(
+            template=template, input_variables=["context", "chat_history"]
+        )
 
     def get_answer(self, query):
         """
@@ -108,6 +111,7 @@ class QueryProcessor:
         # Invoke the chain and get the answer
         answer = chain.invoke({"context": docs, "chat_history": self.memory})
         return answer
+
 
 # Initialize the QueryProcessor with the PDF file (done once)
 file_path = "Dolat_Capital_Zomato_Initiating_Coverage.pdf"
