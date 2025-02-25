@@ -1,4 +1,5 @@
 # **Multi-Source RAG Agent for Export/Import Guidance**
+![image](../../assets/multikb_diagram.jpeg)
 
 This project implements a **multi-source RAG (Retrieval Augmented Generation) agent** to handle export and import queries. It uses **LanceDB** for document retrieval and **Tavily** for real-time external searches, helping users with export/import policies, product details, and related news.
 
