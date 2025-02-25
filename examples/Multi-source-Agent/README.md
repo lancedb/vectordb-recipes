@@ -38,3 +38,6 @@ pip install langchain langchain_community langchain_openai lancedb langchain_tex
 inputs = {"messages": [("user", "How can I export organic chemicals?")]}
 print_stream(graph.stream(inputs, stream_mode="values"))
 ```
+
+Full code on collab 
+<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Multi-source-Agent/Multi_kb_RAG_Agent.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  
