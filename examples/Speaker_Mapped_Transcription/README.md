@@ -4,6 +4,12 @@ This project enables speaker diarization and transcription by mapping detected s
 
 Colab - https://colab.research.google.com/drive/1kJlAhfi0N6Djo1AQTc5HEVZZXgSSucsL?usp=sharing
 
+### How are we doing this?
+This high-level flow diagram will help you understand how we are building this. We are creating a known database of speakers, and when generating the transcription, we utilize this database to get the correct speaker names.
+
+![image](https://github.com/user-attachments/assets/b586a210-b04c-46df-8939-8a5d41b48e60)
+
+
 ### Features  
 - Speaker diarization and transcription  
 - Mapping detected speakers to actual names 
