@@ -5,7 +5,7 @@ This project enables speaker diarization and transcription by mapping detected s
 ### Usage  
 Process audio files, generate diarization results, map speakers using vector search, and export transcriptions with speaker labels. Note that we are saving our embeddings on **Azure Blob Storage** in this example. You can chose to switch to local or any other object store as per your preference.
 
-Colab -  <a href="https://colab.research.google.com/github/vectordb-recipes/blob/main/examples/Speaker_Mapped_Transcription/Speaker_Mapping.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+Colab -  <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Speaker_Mapped_Transcription/Speaker_Mapping.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 ### Creating Known Database of Speakers using LanceDB
 We first create a known database of speakers (say employees in a company). This database is used to get correct speaker names based on audio similarity.
