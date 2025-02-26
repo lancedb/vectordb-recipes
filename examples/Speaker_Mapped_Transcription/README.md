@@ -2,7 +2,7 @@
 
 This project enables speaker diarization and transcription by mapping detected speakers to their actual names using vector search. It uses diarization outputs, applies speaker-name mapping, and aligns timestamps with transcriptions.  
 
-Colab - https://colab.research.google.com/drive/1kJlAhfi0N6Djo1AQTc5HEVZZXgSSucsL?usp=sharing
+Colab -  https://colab.research.google.com/github/vectordb-recipes/blob/main/examples/Speaker_Mapped_Transcription/Speaker_Mapping.ipynb
 
 ### How are we doing this?
 This high-level flow diagram will help you understand how we are building this. We are creating a known database of speakers, and when generating the transcription, we utilize this database to get the correct speaker names.
