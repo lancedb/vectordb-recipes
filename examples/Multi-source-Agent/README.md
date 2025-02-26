@@ -16,7 +16,7 @@ This project implements a **multi-source RAG (Retrieval Augmented Generation) ag
 1. **Install dependencies**:
 
 ```bash
-pip install langchain langchain_community langchain_openai lancedb langchain_text_splitters tavily
+pip install langchain langchain_community langchain_openai lancedb langchain_text_splitters tavily pypdf langgraph
 ```
 
 2. **Configure Directories**:  
@@ -39,5 +39,6 @@ inputs = {"messages": [("user", "How can I export organic chemicals?")]}
 print_stream(graph.stream(inputs, stream_mode="values"))
 ```
 
-Full code on collab 
+For a complete implementation, check out the full example on Google Colab:
+
 <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Multi-source-Agent/Multi_kb_RAG_Agent.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  
