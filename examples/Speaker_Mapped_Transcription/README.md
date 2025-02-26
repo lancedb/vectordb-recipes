@@ -1,8 +1,11 @@
-# Speaker Mapped Transcription  
+# Speaker Identification and Transcription Mapping Using Vector Search
 
 This project enables speaker diarization and transcription by mapping detected speakers to their actual names using vector search. It uses diarization outputs, applies speaker-name mapping, and aligns timestamps with transcriptions.  
 
-Colab -  https://colab.research.google.com/github/vectordb-recipes/blob/main/examples/Speaker_Mapped_Transcription/Speaker_Mapping.ipynb
+### Usage  
+Process audio files, generate diarization results, map speakers using vector search, and export transcriptions with speaker labels. Note that we are saving our embeddings on **Azure Blob Storage** in this example. You can chose to switch to local or any other object store as per your preference.
+
+Colab -  <a href="https://colab.research.google.com/github/vectordb-recipes/blob/main/examples/Speaker_Mapped_Transcription/Speaker_Mapping.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 ### Creating Known Database of Speakers using LanceDB
 We first create a known database of speakers (say employees in a company). This database is used to get correct speaker names based on audio similarity.
@@ -24,9 +27,6 @@ This high-level flow diagram will help you understand how we are building this t
 - Mapping detected speakers to actual names using LanceDB vector search.
 - Forced alignment for accurate word timestamps (limited)  
 - Updated RTTM File with correct speaker names.
-
-### Usage  
-Process audio files, generate diarization results, map speakers using vector search, and export transcriptions with speaker labels. Note that we are saving our embeddings on **Azure Blob Storage** in this example. You can chose to switch to local or any other object store as per your preference.
 
 ### Notes  
 Ensure proper speaker colab setup for accurate mapping. Adjust configurations based on the data and computation.  
