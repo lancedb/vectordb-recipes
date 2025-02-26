@@ -12,12 +12,12 @@ This high-level flow diagram will help you understand how we are building this. 
 
 ### Features  
 - Speaker diarization and transcription  
-- Mapping detected speakers to actual names 
+- Mapping detected speakers to actual names using LanceDB vector search.
 - Forced alignment for accurate word timestamps (limited)  
 - Updated RTTM File with correct speaker names 
 
 ### Usage  
-Process audio files, generate diarization results, map speakers, and export transcriptions with speaker labels.  
+Process audio files, generate diarization results, map speakers using vector search, and export transcriptions with speaker labels.  
 
 ### Notes  
 Ensure proper speaker colab setup for accurate mapping. Adjust configurations based on the data and computation.  
