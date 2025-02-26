@@ -9,7 +9,7 @@ This application processes employee feedback (both structured and unstructured),
 **Demo**
 --------
 
-![demo](../feedback-analyser/src/assets/AI-Powered-feedback-search-and-analysis.gif)
+![demo](/assets/AI-Powered-feedback-search-and-analysis.gif))
 
 * * *
 
