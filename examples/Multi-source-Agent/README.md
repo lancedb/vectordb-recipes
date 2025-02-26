@@ -1,44 +1,35 @@
 # **Multi-Source RAG Agent for Export/Import Guidance**
+
+
+This project implements a **multi-source Retrieval Augmented Generation (RAG) agent** designed to assist users with **export and import guidance**. It integrates **LanceDB** for efficient document retrieval and **Tavily** for real-time external searches. The system helps users navigate **export/import policies, product classifications, compliance guidelines, and industry updates**.
+
 ![image](../../assets/multikb_diagram.jpeg)
 
-This project implements a **multi-source RAG (Retrieval Augmented Generation) agent** to handle export and import queries. It uses **LanceDB** for document retrieval and **Tavily** for real-time external searches, helping users with export/import policies, product details, and related news.
+
+## **Use Case**
+Businesses and individuals involved in **international trade** often struggle to find relevant regulations, policies, and procedural guidelines. This agent provides an AI-powered solution to:
+- Retrieve **export/import documentation** for different regions.
+- Fetch **latest policy updates and HS codes**.
+- Provide **real-time news and insights** to help with decision-making.
+- Assist **logistics, trade consultants, and businesses** with compliance.
+
+### **Who can use it?**
+- **Exporters & Importers**: To check policies and trade regulations.
+- **Trade Compliance Officers**: To stay updated with changing laws.
+- **Supply Chain & Logistics Teams**: To streamline trade operations.
+- **Government & Policy Analysts**: To analyze trade trends.
+
 
 ## **Features**
-- **3 Data Sources**:  
-  - **Export/Import Guides**  
-  - **Export Policies**  
-  - **Import Policies**
-  
-- **Real-Time News**: Fetch the latest updates using **Tavily**.
-- **Streaming Memory Support**: Track ongoing conversations.
+✔ **Multi-source Data Retrieval using [LanceDB](https://lancedb.com/)**  
+✔ **Real-time Policy Updates & News using [Tavily](https://tavily.com/)**  
+✔ **Memory & Streaming Management using [LangGraph](https://www.langchain.com/langgraph)**
 
-## **Setup Instructions**
-1. **Install dependencies**:
-
-```bash
-pip install langchain langchain_community langchain_openai lancedb langchain_text_splitters tavily pypdf langgraph
-```
-
-2. **Configure Directories**:  
-   Define paths for your PDF directories containing documents related to export/import guides, export policies, and import policies.
-
-3. **Document Manager**:  
-   Loads and processes documents using **LanceDB** for retrieval and **OpenAIEmbeddings** for querying.
-
-4. **Tools**:  
-   - `guide_on_how_to_export`: Fetch export/import guides.
-   - `export_policy`: Fetch export policies and related documents.
-   - `import_policy`: Fetch import policies and HS codes.
-   - `news_export`: Fetch real-time export/import news.
-
-5. **Usage**:  
-   Define a `graph` with the agent and use `print_stream` to display results. Example:
-
-```python
-inputs = {"messages": [("user", "How can I export organic chemicals?")]}
-print_stream(graph.stream(inputs, stream_mode="values"))
-```
-
-For a complete implementation, check out the full example on Google Colab:
+## Colab Demo
+For hands-on testing, check out the Google Colab notebook:
 
 <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Multi-source-Agent/Multi_kb_RAG_Agent.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  
+
+### Note
+
+This template.You can use for multiple use cases. Feel free to try or let us know if you have any requirements.
