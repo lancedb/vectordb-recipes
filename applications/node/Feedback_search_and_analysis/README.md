@@ -28,40 +28,11 @@ This application processes employee feedback (both structured and unstructured),
 -   **💡 Advanced Data Customization**: Modify datasets to tailor performance evaluation for different roles and industries.
 
 
-How it works..flow chart
+**How it works?**
+--------------------------------
 
-Feedback Collection\
-- Employees submit feedback (ratings & Subjective feedback comments)\
-- Data is structured and preprocessed\
-⬇
-
-Vectorization & Storage (LanceDB)\
-- Feedback is converted into vector embeddings\
-- LanceDB enables **fast & efficient** retrieval using similarity search\
-⬇
-
-Retrieval & Querying (LanceDB)\
-- A manager searches for an employee's feedback\
-- LanceDB finds the most **relevant past feedback**\
-- Enables **semantic search** to identify patterns across feedback\
-⬇
-
-AI-Powered Analysis (Ambient Agent)\
-- Extracts **key themes, sentiment, and insights**\
-- Summarizes **strengths & weaknesses**\
-- Generates **recommendations** for improvement\
-⬇
-
-Visualization & Insights\
-- Creates a **Performance Scorecard**\
-- Helps managers make **informed decisions**\
-⬇
-
-Outcome\
-- **LanceDB** enables **high-speed, scalable feedback retrieval**\
-- **Ambient Agent** transforms raw data into **actionable insights**\
-- **Enhances HR decision-making & employee growth**
-
+![demo](../Feedback_search_and_analysis/public/assets/flow-chart.png)
+Flow chart of implementation
 
 
 **Why LanceDB & Ambient Agent?**
