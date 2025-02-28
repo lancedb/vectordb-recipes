@@ -24,18 +24,19 @@ The following examples are organized into different tables to make similar types
 
 ### Sections
 
-- [Build from Scratch](#build-from-scratch) - Build applications/examples from scratch using LanceDB for efficient vector-based document retrieval.
-- [Multimodal](#multimodal) - Build a multimodal search application with input text or image as queries.
-- [RAG](#rag) - Build a variety of RAG by loading data from different formats and query with text.
-- [Vector Search](#vector-search) - Build vector search application using different search algorithms.
-- [Chatbot](#chatbot) - Build chatbot application where user input queries to retrieve relevant context and generate coherent, context-aware replies.
-- [Evalution](#evaluation) - Evaluate reference and candidate texts to measure their performance on various metrics.
-- [AI Agents](#ai-agents) - Design an application powered with AI agents to exchange information, coordinate tasks, and achieve shared goals effectively.
-- [Recommender Systems](#recommender-systems) - Build Recommendation systems which generate personalized recommendations and enhance user experience.
-- [Concepts](#concepts) - Concepts related to LLM applications pipeline to ensures accurate information retrieval.
+- [Build from Scratch](#build-from-scratch) - Step-by-step guides to create AI applications from scratch.
+- [Multimodal](#multimodal) - Build apps that process and search across both text and images.
+- [RAG](#rag) - Combine document retrieval with LLM-powered responses.
+- [Vector Search](#vector-search) - Learn to efficiently find relevant documents using vector-based search.
+- [Chatbot](#chatbot) - Create AI chatbots that fetch information and generate intelligent replies.
+- [Evalution](#evaluation) - Measure the quality and accuracy of AI-generated answers.
+- [AI Agents](#ai-agents) - Build LLM-driven applications where multiple agents collaborate and interact.
+- [Recommender Systems](#recommender-systems) - Develop AI-powered recommendation systems for personalized suggestions.
+- [Concepts](#concepts) - Tutorials and explanations of key techniques used in AI applications.
 
 
 ### 🌟 New 🌟 
+Stay up to date with the latest projects, tools, and improvements added to the repository.
 - Multimodal Vector Search: **Voyage AI x LanceDB** - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/voyagexlancedb/Voyage_x_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 - Build autonomous Customer support agent using Langgraph - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/customer_support_agent_langgraph/LangGraph_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 - Comparing **ModernBERT** with series of Bert Models - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/modernbert_comparison/ModernBERT.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
@@ -45,7 +46,7 @@ The following examples are organized into different tables to make similar types
 
 ### Build from Scratch
 
-Build applications/examples using LanceDB for efficient vector-based document retrieval.
+Start with the basics! These examples guide you through creating AI applications from the ground up using LanceDB for efficient document retrieval and search.
 
 | Build from Scratch &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | 
 |-------- | -------------: |
@@ -53,11 +54,12 @@ Build applications/examples using LanceDB for efficient vector-based document re
 | [Build RAG from Scratch](./tutorials/RAG-from-Scratch) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/tutorials/RAG-from-Scratch/RAG_from_Scratch.ipynb) [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
 | [Local RAG from Scratch with Llama3](./tutorials/Local-RAG-from-Scratch) | [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./tutorials/Local-RAG-from-Scratch/rag.py) [![local LLM](https://img.shields.io/badge/local-llm-green)](#) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
 | [Multi-Head RAG from Scratch](./tutorials/Multi-Head-RAG-from-Scratch/) | [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./tutorials/Multi-Head-RAG-from-Scratch/main.py) [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![local LLM](https://img.shields.io/badge/local-llm-green)](#) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
+| [Fintech AI Agent from Scratch](./examples/fintech-ai-agent) |<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/fintech-ai-agent/fintech-ai-agent.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![LLM](https://img.shields.io/badge/openai-api-white)](#)     [![advanced](https://img.shields.io/badge/advanced-FF3333)](#)|[![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/fintech-ai-agent/) |
 ||||
 
 ### MultiModal
 
-Create a multimodal search application using LanceDB for efficient vector-based retrieval of text and image data. Input text or image queries to find the most relevant documents and images from your corpus.
+Search across different types of data (text, images, and more). Build powerful search applications that work with diverse inputs.
 
 | Multimodal &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
@@ -71,7 +73,7 @@ Create a multimodal search application using LanceDB for efficient vector-based 
 
 ### RAG
 
-Develop a Retrieval-Augmented Generation (RAG) application using LanceDB for efficient vector-based information retrieval. Input text queries to retrieve relevant documents and generate comprehensive answers by combining retrieved information.
+Generated Responses by retrieving relevant documents before answering. This section covers different approaches to implementing RAG in your projects.
 
 | RAG &nbsp; &nbsp;| Interactive Notebook & Scripts | Blog |
 | --------- | -------------------------- | ----------- |
@@ -100,7 +102,7 @@ Develop a Retrieval-Augmented Generation (RAG) application using LanceDB for eff
 
 ### Vector Search
 
-Build a vector search application using LanceDB for efficient vector-based document retrieval. Input text queries to find the most relevant documents from your corpus.
+Find relevant documents quickly! These projects show how to use vector-based search techniques to make AI-powered searches faster and smarter.
 
 | Vector Search &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
@@ -120,7 +122,7 @@ Build a vector search application using LanceDB for efficient vector-based docum
 
 ### Chatbot
 
-Create a chatbot application using LanceDB for efficient vector-based response generation. Input user queries to retrieve relevant context and generate coherent, context-aware replies.
+Create chatbots that understand user queries and fetch relevant responses using LanceDB’s vector search capabilities.
 
 | Chatbot &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog &nbsp;|
 | --------- | -------------------------- | ----------- |
@@ -136,7 +138,7 @@ Create a chatbot application using LanceDB for efficient vector-based response g
 
 ### Evaluation
 
-Develop an evaluation application. Input reference and candidate texts to measure their performance on various metrics.
+These projects provide tools to compare AI-generated responses against reference data and fine-tune accuracy.
 
 | Evaluation &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
@@ -146,11 +148,12 @@ Develop an evaluation application. Input reference and candidate texts to measur
 
 ### AI Agents
 
-Design an AI agents coordination application with LanceDB for efficient vector-based communication and collaboration. Input queries to enable AI agents to exchange information, coordinate tasks, and achieve shared goals effectively.
+Build applications where multiple AI agents interact to complete tasks efficiently. These projects show how agents can collaborate, exchange data, and automate workflows.
 
 | AI Agents &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
 ||||
+| [Multi Source Agent  ](/examples/Multi-source-Agent/) |<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Multi-source-Agent/Multi_source_RAG_Agent.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![LLM](https://img.shields.io/badge/openai-api-white)](#)   [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|
 | [AI email assistant with Composio](/examples/AI-Email-Assistant-with-Composio/) |<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/AI-Email-Assistant-with-Composio/composio-lance.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![LLM](https://img.shields.io/badge/openai-api-white)](#)   [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|
 | [Assitant Bot with OpenAI Swarm](./examples/assistance-bot-with-swarm/) |<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/assistance-bot-with-swarm/assitant_bot_with_swarm.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![LLM](https://img.shields.io/badge/openai-api-white)](#)   [![intermediate](https://img.shields.io/badge/intermediate-FFDA33)](#)|
 | [AI Trends Searcher with CrewAI](./examples/AI-Trends-with-CrewAI/) |<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/AI-Trends-with-CrewAI/CrewAI_AI_Trends.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>  [![LLM](https://img.shields.io/badge/openai-api-white)](#)    [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|[![Ghost](https://img.shields.io/badge/ghost-000?style=for-the-badge&logo=ghost&logoColor=%23F7DF1E)](https://blog.lancedb.com/track-ai-trends-crewai-agents-rag/)|
@@ -163,7 +166,7 @@ Design an AI agents coordination application with LanceDB for efficient vector-b
 
 ### Recommender Systems
 
-Create a recommender system application with LanceDB for efficient vector-based item recommendation. Input user preferences or item features to generate personalized recommendations and enhance user experience.
+Personalized AI recommendations! These projects help you build recommendation engines that suggest content based on user preferences.
 
 | Recommender Systems | Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
@@ -176,7 +179,7 @@ Create a recommender system application with LanceDB for efficient vector-based 
 
 ### Concepts
 
-Checkout concepts of LLM applications pipeline to ensures accurate information retrieval.
+Learn the core ideas behind AI applications—including text chunking, retrieval strategies, and optimization techniques—to improve your understanding of vector search and AI pipelines.
 
 | Concepts | Interactive Notebook | Blog |
 | --------- | -------------------------- | ----------- |
@@ -193,7 +196,7 @@ Checkout concepts of LLM applications pipeline to ensures accurate information r
 ||||
 
 ## Projects & Applications
-These are ready to use applications built using LanceDB serverless vector database. You can explore these open source projects, use parts of them in your projects or build your applications on top of these.
+Ready-to-use AI applications built with LanceDB! Use these projects as-is, customize them, or integrate them into your own applications.
 
 ### Node applications powered by LanceDB
 | Project Name                                        | Description                                                                                                          | Screenshot                                |
