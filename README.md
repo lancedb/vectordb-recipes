@@ -220,7 +220,7 @@ Ready-to-use AI applications built with LanceDB! Use these projects as-is, custo
 | [Multimodal Myntra Fashion Search Engine](https://github.com/ishandutta0098/lancedb-multimodal-myntra-fashion-search-engine) | This app uses OpenAI's CLIP to make a search engine that can understand and deal with both written words and pictures.|![image](./assets/myntra-search-engine.png)|
 | [Multilingual-RAG](./applications/Multilingual_RAG/) | Multilingual RAG with cohere embedding & support 100+ languages|![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/be65eb39-25c4-4441-98fc-6ded09689819)|
 | [Music Recommender](./applications/Music_Recommendation/) | Music Recommendation system using audio feature extraction and vector similarity search. By utilizing **LanceDB**, **PANNs** for audio tagging, and **Librosa** for audio feature extraction, the system finds and recommends tracks with similar audio characteristics based on a query song.|![image](./applications/Music_Recommendation/Music_recommndations_lancedb.png)|
-
+| [NoOCR](https://github.com/kyryl-opens-ml/no-ocr) | End-to-end solution for complex PDFs, powered by **ColPali** and **LanceDB**.|![image](https://github.com/kyryl-opens-ml/no-ocr/blob/main/docs/flow.gif)|
 
 
 **🌟 New! 🌟 Applied GenAI and VectorDB course on Udacity**
