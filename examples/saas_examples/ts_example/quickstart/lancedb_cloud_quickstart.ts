@@ -10,7 +10,6 @@ interface Document {
     text: string;
     label: number;
     keywords: string[];
-    // embedding?: number[];
     embeddings?: number[];
     [key: string]: unknown;
 }
