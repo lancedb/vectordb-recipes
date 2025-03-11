@@ -1,7 +1,5 @@
-// External imports
 import { connect, Index, Table } from '@lancedb/lancedb';
 import { FixedSizeList, Field, Float32, Schema, Utf8 } from 'apache-arrow';
-import { pipeline } from '@xenova/transformers';
 import * as dotenv from 'dotenv';
 
 // Load environment variables
@@ -11,14 +9,10 @@ dotenv.config();
 interface Document {
     text: string;
     label: number;
-    embedding?: number[];
+    keywords: string[];
+    // embedding?: number[];
+    embeddings?: number[];
     [key: string]: unknown;
-}
-
-interface AGNewsSearchResult {
-    text: string;
-    label: number;
-    _distance: number;
 }
 
 interface HfDatasetResponse {
@@ -26,6 +20,8 @@ interface HfDatasetResponse {
         row: {
             text: string;
             label: number;
+            keywords: string[];
+            keywords_embeddings?: number[];
         };
     }[];
 }
@@ -33,39 +29,83 @@ interface HfDatasetResponse {
 // Constants
 const BATCH_SIZE = 100; // HF API default limit
 const POLL_INTERVAL = 10000; // 10 seconds
-const EMBEDDING_DIM = 384;
-const MODEL_NAME = 'Xenova/all-MiniLM-L6-v2';
+const MAX_RETRIES = 5;
+const INITIAL_RETRY_DELAY = 1000; // 1 second
 
 /**
  * Loads documents from the Hugging Face dataset API in batches
  */
-async function loadDataset(datasetName: string, split: string = 'train', targetSize: number = 1000): Promise<Document[]> {    
+async function loadDataset(datasetName: string, split: string = 'train', targetSize: number = 1000, offset: number = 0): Promise<Document[]> {    
     try {
         console.log('Fetching dataset...');
         const batches = Math.ceil(targetSize / BATCH_SIZE);
         let allDocuments: Document[] = [];
+        const hfToken = process.env.HF_TOKEN; // Optional Hugging Face token
 
         for (let i = 0; i < batches; i++) {
             const offset = i * BATCH_SIZE;
             const url = `https://datasets-server.huggingface.co/rows?dataset=${datasetName}&config=default&split=${split}&offset=${offset}&limit=${BATCH_SIZE}`;
             console.log(`Fetching batch ${i + 1}/${batches} from offset ${offset}...`);
             
-            const response = await fetch(url);
-            if (!response.ok) {
-                const errorText = await response.text();
-                console.error('Error response:', errorText);
-                throw new Error(`HTTP error! status: ${response.status}, body: ${errorText}`);
+            // Add retry logic with exponential backoff
+            let retries = 0;
+            let success = false;
+            let data: HfDatasetResponse | null = null;
+
+            while (!success && retries < MAX_RETRIES) {
+                try {
+                    const headers: HeadersInit = {
+                        'Content-Type': 'application/json',
+                    };
+                    
+                    // Add authorization header if token is available
+                    if (hfToken) {
+                        headers['Authorization'] = `Bearer ${hfToken}`;
+                    }
+                    
+                    const fetchOptions = {
+                        method: 'GET',
+                        headers,
+                        timeout: 30000, // 30 second timeout
+                    };
+                    
+                    const response = await fetch(url, fetchOptions);
+                    if (!response.ok) {
+                        const errorText = await response.text();
+                        console.error(`Error response (attempt ${retries + 1}):`, errorText);
+                        throw new Error(`HTTP error! status: ${response.status}, body: ${errorText}`);
+                    }
+                    
+                    data = JSON.parse(await response.text()) as HfDatasetResponse;
+                    if (!data.rows) {
+                        throw new Error('No rows found in response');
+                    }
+                    
+                    success = true;
+                } catch (error) {
+                    retries++;
+                    if (retries >= MAX_RETRIES) {
+                        console.error(`Failed after ${MAX_RETRIES} retries:`, error);
+                        throw error;
+                    }
+                    
+                    const delay = INITIAL_RETRY_DELAY * Math.pow(2, retries - 1);
+                    console.log(`Retry ${retries}/${MAX_RETRIES} after ${delay}ms...`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                }
             }
             
-            const data = JSON.parse(await response.text()) as HfDatasetResponse;
-            if (!data.rows) {
-                throw new Error('No rows found in response');
+            // Ensure data is defined before using it
+            if (!data || !data.rows) {
+                throw new Error('No data received after retries');
             }
             
             console.log(`Received ${data.rows.length} rows in batch ${i + 1}`);
             const documents = data.rows.map(({ row }) => ({
                 text: row.text,
-                label: row.label
+                label: row.label,
+                keywords: row.keywords,
+                embeddings: row.keywords_embeddings
             }));
             allDocuments = allDocuments.concat(documents);
             
@@ -99,52 +139,44 @@ async function waitForIndex(table: Table, indexName: string): Promise<void> {
 }
 
 /**
- * Generates embeddings for the given texts using the Xenova transformer model
- */
-async function generateEmbeddings(texts: string[]): Promise<number[][]> {
-    const embedder = await pipeline('feature-extraction', MODEL_NAME);
-    const embeddings = await Promise.all(
-        texts.map(async (text) => {
-            const embedding = await embedder(text, { pooling: 'mean', normalize: true });
-            return Array.from(embedding.data);
-        })
-    );
-    return embeddings;
-}
-
-/**
  * Main execution function
  */
 async function main() {
     try {
-        // Step 1: Load the AG News dataset
-        console.log('Loading AG News dataset...');
-        const datasetName = "fancyzhx/ag_news";
-        const sampleData = await loadDataset(datasetName);
-        console.log(`Loaded ${sampleData.length} examples from AG News dataset`);
-
-        // Step 2: Generate embeddings for the loaded data
-        console.log('Generating embeddings...');
-        const rawEmbeddings = await generateEmbeddings(sampleData.map(doc => doc.text));
-        const dataWithEmbeddings = sampleData.map((doc, i) => ({
-            ...doc,
-            embedding: rawEmbeddings[i]
-        }));
-
-        // Step 3: Connect to LanceDB and create table
+        // Step 1: Connect to LanceDB
         const dbUri = process.env.LANCEDB_URI || 'db://your-database-uri';
         const apiKey = process.env.LANCEDB_API_KEY;
         const db = await connect(dbUri, { apiKey });
         const tableName = "lancedb-cloud-quickstart";
 
-        // Create schema with vector dimension
+        // Step 2: Load the AG News dataset 
+        console.log('Loading AG News dataset...');
+        const datasetName = "sunhaozhepy/ag_news_sbert_keywords_embeddings";
+        const split = "test";
+        const targetSize = 1000;
+        const sampleData = await loadDataset(datasetName, split, targetSize);
+        console.log(`Loaded ${sampleData.length} examples from AG News dataset`);
+
+
+        const dataWithEmbeddings: Document[] = sampleData;
+        // Get embedding dimension from the first document with an embedding
+        const firstDocWithEmbedding = dataWithEmbeddings.find((doc: Document) => 
+            (doc.embeddings && Array.isArray(doc.embeddings) && doc.embeddings.length > 0));
+            
+        if (!firstDocWithEmbedding || !firstDocWithEmbedding.embeddings || !Array.isArray(firstDocWithEmbedding.embeddings)) {
+            throw new Error('No document with valid embeddings found in the dataset. Please check if keywords_embeddings field exists.');
+        }
+        const embeddingDimension = firstDocWithEmbedding.embeddings.length;
+
+        // Create schema
         const schema = new Schema([
             new Field('text', new Utf8(), true),
             new Field('label', new Float32(), true),
-            new Field('embedding', new FixedSizeList(EMBEDDING_DIM, new Field('item', new Float32(), true)), true)
+            new Field('keywords', new Utf8(), true),
+            new Field('embeddings', new FixedSizeList(embeddingDimension, new Field('item', new Float32(), true)), true)
         ]);
 
-        // Create table with explicit schema
+        // Step 3: Create table with data
         const table = await db.createTable(tableName, dataWithEmbeddings, { 
             schema,
             mode: "overwrite" 
@@ -152,32 +184,50 @@ async function main() {
         console.log('Successfully created table');
 
         // Step 4: Create and wait for index
-        await table.createIndex("embedding", {
+        await table.createIndex("embeddings", {
             config: Index.ivfPq({
                 distanceType: "cosine",
             }),
         });
 
-        const indexName = "embedding_idx";
+        const indexName = "embeddings_idx";
         await waitForIndex(table, indexName);
-        console.log(await table.indexStats(indexName));
+        console.log(await table.indexStats(indexName));        
 
         // Step 5: Perform semantic search with example query
-        const queryText = "Texas' Johnson, Benson Go Out With Win (AP) AP - Their final games will be remembered for the plays others made. Still, Texas tailback Cedric Benson and linebacker Derrick Johnson went out the way they wanted to: with a Rose Bowl win.";
-        
-        console.log('\nGenerating embedding for query...');
-        const queryRawEmbedding = (await generateEmbeddings([queryText]))[0];
-        
-        console.log('\nSearching for similar articles...');
-        const results = await table.search(queryRawEmbedding)
+        const queryDocs = await loadDataset(datasetName, split, 1, targetSize);
+        if (queryDocs.length === 0) {
+            throw new Error("Failed to load a query document");
+        }
+        const queryDoc = queryDocs[0];
+        if (!queryDoc.embeddings || !Array.isArray(queryDoc.embeddings)) {
+            throw new Error("Query document doesn't have a valid embedding after processing");
+        }
+        const results = await table.search(queryDoc.embeddings)
             .limit(5)
-            .select(['text', 'label'])
-            .toArray() as AGNewsSearchResult[];
+            .select(['text','keywords','label'])
+            .toArray();
 
         console.log('Search Results:');
         results.forEach((result, index) => {
             console.log(`\n${index + 1}. Score: ${result._distance}`);
             console.log(`Text: ${result.text}`);
+            console.log(`Keywords: ${result.keywords}`);
+            console.log(`Label: ${result.label}`);
+        });
+
+        // perform semantic search with a filter applied
+        const filteredResultsesults = await table.search(queryDoc.embeddings)
+            .where("label > 2")
+            .limit(5)
+            .select(['text', 'keywords','label'])
+            .toArray();
+
+        console.log('Search Results with filter:');
+        filteredResultsesults.forEach((result, index) => {
+            console.log(`\n${index + 1}. Score: ${result._distance}`);
+            console.log(`Text: ${result.text}`);
+            console.log(`Keywords: ${result.keywords}`);
             console.log(`Label: ${result.label}`);
         });
 
