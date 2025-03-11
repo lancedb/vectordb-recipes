@@ -1,4 +1,5 @@
 lancedb
+pylance
 openai==0.28
 datasets
 nbconvert
