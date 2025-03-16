@@ -1,0 +1,2526 @@
+[
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+][
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, specifically focusing on warehouses and those tricky situations that can pop up."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache sometimes.  Especially when you're dealing with complex dependencies and views within warehouses."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely! I've run into a few of these roadblocks myself, so I'm eager to hear what solutions we can explore."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "So, one of the first things to remember is that Fabric assumes you've deployed any dependent items before you deploy the current item.  It's like building a house \u2013 you need the foundation before you can put up the walls."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Right, so if you have a pipeline that uses a notebook, that notebook needs to be deployed first. Otherwise, the pipeline deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Makes sense.  And what about dependencies with Power BI reports? How do you track those down?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Thankfully, Fabric has a \"View Lineage\" option for each item.  That allows you to see all the linked items, so you can make sure everything is deployed in the right order."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a lifesaver.  I remember spending hours trying to figure out dependencies before that feature was available."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Now, another common issue revolves around warehouses and lakehouses.  If a warehouse uses a table in a lakehouse, and that table isn't present in the target workspace, the deployment will fail."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, even if the warehouse itself is fine, it won't deploy if its underlying data sources aren't available?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  It\u2019s crucial to have all the necessary tables in place before deploying the warehouse."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "And what about views?  I\u2019ve heard those can cause deployment problems as well."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Yes, particularly when you have views that reference other views within the same warehouse.  Fabric doesn't currently support that, which can lead to a \u2018DmsImportDatabaseException\u2019 error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "So, if view_1 depends on view_2, and both are in the same warehouse, we're in trouble?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Unfortunately, yes.  The only workaround right now is to delete the view from the source workspace, deploy the warehouse, and then recreate the view in the target workspace."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "That's a bit of a pain, but at least there's a workaround. Hopefully, this will be addressed in a future update."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Agreed. It's a good reminder to test deployments thoroughly before pushing them to production."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Speaking of testing, it's important to keep your development, staging, and production environments in sync.  It's easy to make quick fixes in staging and forget to apply those changes back to development."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, that's a classic mistake.  It can lead to a lot of confusion and frustration down the line."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely something to be mindful of. A good version control system can help with that."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely.  And don\u2019t forget to check out the Microsoft Learn documentation for more details on the deployment process. They have some helpful resources that can save you a lot of time and trouble."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Great advice. Well, I think this has been a really informative discussion. Any final thoughts, Shresth?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Just remember, while Fabric deployments can be tricky, understanding the common pitfalls and workarounds can make the process much smoother.  Don\u2019t be afraid to experiment, test thoroughly, and utilize the available resources."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Thanks for sharing your insights, Shresth. This has been really helpful!"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure!  And thanks to everyone for tuning in. Catch you next time!"
+    }
+]
