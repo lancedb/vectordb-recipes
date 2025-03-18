@@ -2,8 +2,7 @@
 A comprehensive tool that transforms blog content into engaging podcast-style conversations with realistic text-to-speech synthesis.
 ![image](https://github.com/user-attachments/assets/24749a51-0113-46fd-8100-3a75c89e168f)
 
-**Colab Link** : [Click Here](https://colab.research.google.com/github.com/shuklaji28/vectordb-recipes/blob/main/examples/Multi_Speaker_Context_Aware_Podcast_Generation/Multi_Speaker_Context_Aware_Podcast_Generation.ipynb
-) 
+**Colab Link** : [Click Here](https://colab.research.google.com/github/shuklaji28/vectordb-recipes/blob/main/examples/Multi_Speaker_Context_Aware_Podcast_Generation/Multi_Speaker_Context_Aware_Podcast_Generation.ipynb) 
 ## 🎙️ Features
 
 - **Blog Content Scraping**: Extract content from Medium and other blogging platforms
