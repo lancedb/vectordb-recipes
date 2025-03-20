@@ -37,12 +37,7 @@ The following examples are organized into different tables to make similar types
 
 ### 🌟 New 🌟 
 Stay up to date with the latest projects, tools, and improvements added to the repository.
-- Multimodal Vector Search: **Voyage AI x LanceDB** - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/voyagexlancedb/Voyage_x_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
-- Build autonomous Customer support agent using Langgraph - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/customer_support_agent_langgraph/LangGraph_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
-- Comparing **ModernBERT** with series of Bert Models - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/modernbert_comparison/ModernBERT.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
-- Comparing **Deepseek's r1 VS OpenAI's o1** for RAG - [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](./examples/Deepseek_R1_VS_GPT_4o/README.md)
-- Testing **Deepseek Janus-Pro's** multimodality over Flickr 30K - 
-<a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Janus-Pro/Janus_Pro.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+- Monitoring and Tracing RAG using HoneyHive : **HoneyHive x LanceDB** - <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/HoneyHive_x_LanceDB/HoneyHive_x_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 ### Build from Scratch
 
@@ -143,6 +138,7 @@ These projects provide tools to compare AI-generated responses against reference
 | Evaluation &nbsp; &nbsp;| Interactive Notebook & Scripts &nbsp; | Blog |
 | --------- | -------------------------- | ----------- |
 ||||
+| [Monitoring and Tracing RAG using HoneyHive](./examples/HoneyHive_x_LanceDB/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/HoneyHive_x_LanceDB/HoneyHive_x_LanceDB.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>   [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![beginner](https://img.shields.io/badge/beginner-B5FF33)](#)|  |
 | [Evaluating RAG with RAGAs](./examples/Evaluating_RAG_with_RAGAs/) | <a href="https://colab.research.google.com/github/lancedb/vectordb-recipes/blob/main/examples/Evaluating_RAG_with_RAGAs/Evaluating_RAG_with_RAGAs.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>   [![LLM](https://img.shields.io/badge/openai-api-white)](#) [![intermediate](https://img.shields.io/badge/intermediate-FFDA33)](#)|  |
 ||||
 
