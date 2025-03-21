@@ -1,0 +1,166 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap');
+
+h1 {
+  color: rgb(116, 47, 1);
+  font-size: 1.50rem;
+  font-weight: bold;
+}
+
+h2 {
+  color: rgb(116, 47, 1);
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+h3 {
+  color: rgb(116, 47, 1);
+  font-size: 1.0rem;
+  font-weight: bold;
+}
+
+h4 {
+  color: rgb(116, 47, 1);
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1rem;
+  color: rgb(68, 68, 68);
+}
+.gavel-color{
+  color: rgb(169, 87, 36);
+}
+
+
+.garamond-results {
+  font-family: 'EB Garamond', serif;
+  background-color: #e7dec2;
+  color: #333;
+  border-radius: 8px;
+  padding: 0rem 1rem 1rem 1rem;
+  position: relative;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.garamond-results::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/parchment-texture.png');
+  background-size: cover;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.garamond-content {
+  position: relative;
+  z-index: 1;
+}
+
+.garamond-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #422;
+  letter-spacing: 0.1rem;
+  border-bottom: 1px solid #c4b48c;
+  padding-bottom: 0.75rem;
+}
+
+.garamond-ornament {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #a08c5b;
+  margin: 0.25rem 0;
+}
+
+.garamond-section {
+  margin-bottom: 1.5rem;
+}
+
+.garamond-section-title {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #422;
+}
+
+.garamond-citation {
+  font-style: italic;
+  color: #555;
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.garamond-corners::before,
+.garamond-corners::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.garamond-corners::before {
+  top: 0;
+  left: 0;
+}
+
+.garamond-corners::after {
+  top: 0;
+  right: 0;
+}
+
+.garamond-corners-bottom::before,
+.garamond-corners-bottom::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.garamond-corners-bottom::before {
+  bottom: 0;
+  left: 0;
+}
+
+.garamond-corners-bottom::after {
+  bottom: 0;
+  right: 0;
+}
+
+.garamond-paragraph {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.garamond-list {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.garamond-list-item {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.garamond-list-item::before {
+  content: "§";
+  position: absolute;
+  left: -1.5rem;
+  color: #a08c5b;
+}
