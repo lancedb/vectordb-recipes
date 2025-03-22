@@ -1,0 +1,94 @@
+[
+    {
+        "speaker": "Shresth",
+        "text": "Hey everyone, and welcome to the podcast! Today, we're diving deep into the world of Fabric deployments, particularly around warehouses and those tricky views."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Yeah, deployments can be a real headache.  Especially when you're dealing with complex dependencies."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Absolutely!  I've run into so many roadblocks. It's like navigating a maze blindfolded sometimes."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Tell me about it! In a recent article I wrote, I discussed some of the common issues and solutions, building on a previous post where I tackled the dreaded 'DmsImportDatabaseException'."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh, I remember that one. It's usually related to missing tables in the target lakehouse, right?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly.  Fabric expects all dependencies to be deployed before the main item. So, if your pipeline uses a notebook, deploy the notebook first. Use the 'Select related' option, it's a lifesaver."
+    },
+    {
+        "speaker": "Geet",
+        "text": "And for Power BI reports, 'View Lineage' is your best friend. Helps you track down those hidden connections."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Good tips. But I've found that even with all dependencies in place, warehouse deployments can still fail."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Right. And I've recently discovered another culprit: views. Specifically, views that reference other views within the same warehouse. Fabric doesn't support this yet, leading to that same 'DmsImportDatabaseException' error."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Ugh, that sounds frustrating.  So, what's the workaround?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Well, the current solution is a bit of a manual process.  You have to delete the view from the source workspace and recreate it in the target after deployment.  Not ideal, I know."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Hmm, a bit of a pain. Hopefully, they'll fix that soon. It seems like a pretty fundamental feature."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "I agree. I've highlighted this issue in my article, hoping to raise awareness and maybe nudge the Fabric team in the right direction."
+    },
+    {
+        "speaker": "Geet",
+        "text": "It's important to share these experiences.  It helps everyone in the community avoid similar pitfalls."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Absolutely. I've also written about other deployment challenges, like maintaining sanity between development, staging, and production environments.  Things can get messy when you have to make manual changes in staging."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Oh yeah, the classic dev-staging-prod synchronization problem.  It's so easy to lose track of changes."
+    },
+    {
+        "speaker": "Geet",
+        "text": "I've been there.  Fixing a bug directly in staging and then forgetting to update the development environment. It's a recipe for disaster."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "And another tricky one I've encountered is with stored procedures in Data Factory pipelines.  When you change the warehouse connection, it doesn't always persist after deployment.  Super annoying."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "So, you end up having to manually update the connection in the stored procedure activity every time?"
+    },
+    {
+        "speaker": "Shresth",
+        "text": "Exactly. It's a tedious workaround, and I'm hoping for a better solution soon.  But for now, these are the realities of working with Fabric deployments.  It has its quirks, but it's a powerful platform nonetheless."
+    },
+    {
+        "speaker": "Geet",
+        "text": "Definitely powerful.  And these kinds of discussions are crucial for navigating the complexities and making the most of it."
+    },
+    {
+        "speaker": "Arjun",
+        "text": "Totally agree.  Sharing our experiences, workarounds, and frustrations helps us all learn and improve. Thanks for bringing these issues to light, Shresth."
+    },
+    {
+        "speaker": "Shresth",
+        "text": "My pleasure. Hopefully, these insights will save some of you from pulling your hair out during your next Fabric deployment. And be sure to check out my articles for more details and tips. Until next time, happy deploying!"
+    }
+]
