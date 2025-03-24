@@ -60,6 +60,18 @@ An advanced AI-powered **meme search engine** that allows users to find memes us
 cd multimodal-meme-search
 npm install`
 
+add the following in .env file
+
+`OPENAI_API_KEY = '`
+
+`LANCEDB_URI = 'database'`
+
+`LANCEDB_TABLE_NAME = 'table'`
+
+`LANCEDB_TABLE_NAME_TEXT = 'table_text'`
+
+`RF_API_KEY = ''`
+
 ### **3\. Running the Application**
 
 #### Start the Backend:
@@ -86,7 +98,7 @@ npm install`
 
 To add your own meme dataset:
 
-1.  Place your meme images in the `src/server/dataset/images/` directory. [memes dataset](https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset)
+1.  Place your meme images in the `public/images/` directory. [memes dataset](https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset)
 2.  place a labels.csv file under  `src/server/dataset/` directory.  [memes dataset](https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset)
 3.  Run the embedding script to update the database.
 4.  Restart the server to apply changes.

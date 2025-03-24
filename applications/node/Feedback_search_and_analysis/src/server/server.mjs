@@ -2,8 +2,8 @@ import express from "express";
 import fs from "fs";
 import csvParser from "csv-parser";
 import {
-  connect,
-} from "vectordb";
+  connect
+} from "@lancedb/lancedb";
 import {
   LanceDB
 } from "@langchain/community/vectorstores/lancedb";
@@ -20,7 +20,7 @@ import {
 import bodyParser from "body-parser";
 import dotenv from 'dotenv';
 import lancedb
-from 'vectordb';
+from '@lancedb/lancedb';
 
 dotenv.config();
 const port = 5400;
