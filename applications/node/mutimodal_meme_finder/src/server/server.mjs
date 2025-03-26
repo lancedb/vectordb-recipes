@@ -5,7 +5,7 @@ import {
 } from "@langchain/community/vectorstores/lancedb";
 import {
   connect
-} from "vectordb";
+} from "@lancedb/lancedb";
 import path from "path";
 import sharp from "sharp";
 import axios from "axios";
@@ -58,7 +58,7 @@ async function retrieveContext(query, table) {
     console.log("table not found")
     await createEmbeddingsTable();
   }
-  const result = await tbl.search(query).select(["img"]).limit(25).execute()
+  const result = await tbl.search(query).select(["img"]).limit(25).toArray();
   const retrived_results = result.map((r) => r.img);
   return retrived_results;
 }
@@ -138,7 +138,7 @@ async function processImgsAndText(imgs_dir, text_dir, db) {
   if (image_embeddings.length > 0) {
     for (var i = 0; i < img_files.length; i++) {
       data.push({
-        img: path.join("/", "server/dataset/images", imgs[i]),
+        img: path.join("/", "images", imgs[i]),
         vector: image_embeddings[i],
       });
     }
@@ -149,7 +149,7 @@ async function processImgsAndText(imgs_dir, text_dir, db) {
   if (text_embeddings.length > 0) {
     for (var i = 0; i < img_files.length; i++) {
       text_data.push({
-        img: path.join("/", "server/dataset/images", imgs[i]),
+        img: path.join("/", "images", imgs[i]),
         vector: text_embeddings[i],
       });
     }
@@ -214,7 +214,6 @@ async function embedImage(file) {
 
 
 export async function createEmbeddingsTable() {
-
   const LANCEDB_URI = process.env.LANCEDB_URI || "table";
   const LANCEDB_TABLE_NAME = process.env.LANCEDB_TABLE_NAME || "table";
   const LANCEDB_TABLE_NAME_TEXT = process.env.LANCEDB_TABLE_NAME_TEXT || "table_text";
@@ -225,7 +224,7 @@ export async function createEmbeddingsTable() {
   if (tableNames.includes(LANCEDB_TABLE_NAME_TEXT)) return LANCEDB_TABLE_NAME_TEXT;
 
   // file paths for data source
-  const imgs_dir = "src/server/dataset/images";
+  const imgs_dir = "public/images";
   const text_dir = "src/server/dataset/labels.csv";
   return await processImgsAndText(imgs_dir, text_dir, db);
 }

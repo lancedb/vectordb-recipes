@@ -91,10 +91,12 @@ Clone the repository and install dependencies:
 
 ### **3\. Configure API Key**
 
-Add your OpenAI API key in `.env`:
+Add the following in `.env`:
 
 ```
 OPENAI_API_KEY=your_openai_key
+LANCEDB_URI = 'database'
+LANCEDB_TABLE_NAME = 'table'
 ```
 
 ### **4\. Running the Application**

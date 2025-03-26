@@ -79,6 +79,15 @@ Ensure you have the following installed on your system:
 
 -   npm or yarn
 
+
+Add the following in `.env`:
+
+```
+OPENAI_API_KEY=your_openai_key
+LANCEDB_URI = 'database'
+LANCEDB_TABLE_NAME = 'table'
+```
+
 ### **Installation & Setup**
 
 
