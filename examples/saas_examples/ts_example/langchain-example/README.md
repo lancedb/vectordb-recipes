@@ -1,5 +1,7 @@
 # Reducing Hallucinations from AI Agents using Long-Term Memory
 
+🚀 **_If you haven’t signed up for LanceDB Cloud yet, click [here](https://cloud.lancedb.com) to get started_!**
+
 ## Introduction
 
 AI agents can help simplify and automate tedious workflows, but they often hallucinate or provide incorrect information. This example demonstrates how to reduce hallucinations from AI agents by using critique-based contexting with LanceDB Cloud as a long-term memory database.
