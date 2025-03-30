@@ -1,6 +1,6 @@
 # LanceDB Cloud Quickstart - TypeScript
 
-🚀 **_If you haven’t signed up for LanceDB Cloud yet, click [here](https://cloud.lancedb.com) to get started_!**
+🚀 **_If you haven’t signed up for LanceDB Cloud yet, click [here](https://cloud.lancedb.com) to get started!_**
 
 This project demonstrates how to use LanceDB Cloud with TypeScript to create a semantic search application using the AG News dataset and Hugging Face's transformers.
 
