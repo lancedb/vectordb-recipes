@@ -1,5 +1,7 @@
 # Hybrid Search Example with LanceDB
 
+🚀 **_If you haven’t signed up for LanceDB Cloud yet, click [here](https://cloud.lancedb.com) to get started!_**
+
 This example demonstrates how to implement hybrid search using LanceDB, combining vector search and full-text search capabilities with custom reranking.
 
 ## Features
