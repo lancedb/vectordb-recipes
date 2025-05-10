@@ -3,7 +3,7 @@ import torch
 import lancedb
 from dotenv import load_dotenv
 from constants import input_pdf
-from prompts import rag_prompt
+from prompt import rag_prompt
 from langchain_community.vectorstores import LanceDB
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -43,23 +43,20 @@ def get_rag_output(question):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=0)
     docs = text_splitter.split_documents(documents)
 
-    openai = get_registry().get("openai").create()
+    openai_model = get_registry().get("openai").create(name="text-embedding-ada-002")
 
     class Schema(LanceModel):
-        text: str = openai.SourceField()
-        vector: Vector(openai.ndims()) = openai.VectorField()
+        text: str = openai_model.SourceField()
+        vector: Vector(1536) = openai_model.VectorField()
 
     embedding_function = OpenAIEmbeddings()
 
-    db = lancedb.connect("~/langchain")
-    table = db.create_table(
-        "airbnb",
-        schema=Schema,
-        mode="overwrite",
-    )
+    db = lancedb.connect("/tmp/langchain")
+    
+    table = db.create_table("airbnb", schema=Schema, mode="overwrite")
 
     # Load the document into LanceDB
-    db = LanceDB.from_documents(docs, embedding_function, connection=table)
+    langchain_rerank = LanceDB.from_documents(docs, embedding_function, connection=table)
     table.create_fts_index("text", replace=True)
 
     reranker = ColbertReranker()
@@ -76,10 +73,10 @@ def get_rag_output(question):
         Document(page_content=text, metadata=metadata) for text in docs_n
     ]
 
-    vectorstore = LanceDB.from_documents(
-        documents=docs_with_metadata,
-        embedding=OpenAIEmbeddings(openai_api_key=os.environ["OPENAI_API_KEY"]),
-    )
+    table_re = db.create_table("retreiver", schema=Schema, mode="overwrite")
+
+    # Load the document into LanceDB
+    vectorstore = LanceDB.from_documents(docs_with_metadata, embedding_function, connection=table_re)
 
     retriever = vectorstore.as_retriever()
 
