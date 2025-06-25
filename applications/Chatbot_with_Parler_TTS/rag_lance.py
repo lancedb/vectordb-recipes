@@ -52,11 +52,13 @@ def get_rag_output(question):
     embedding_function = OpenAIEmbeddings()
 
     db = lancedb.connect("/tmp/langchain")
-    
+
     table = db.create_table("airbnb", schema=Schema, mode="overwrite")
 
     # Load the document into LanceDB
-    langchain_rerank = LanceDB.from_documents(docs, embedding_function, connection=table)
+    langchain_rerank = LanceDB.from_documents(
+        docs, embedding_function, connection=table
+    )
     table.create_fts_index("text", replace=True)
 
     reranker = ColbertReranker()
@@ -76,7 +78,9 @@ def get_rag_output(question):
     table_re = db.create_table("retreiver", schema=Schema, mode="overwrite")
 
     # Load the document into LanceDB
-    vectorstore = LanceDB.from_documents(docs_with_metadata, embedding_function, connection=table_re)
+    vectorstore = LanceDB.from_documents(
+        docs_with_metadata, embedding_function, connection=table_re
+    )
 
     retriever = vectorstore.as_retriever()
 
