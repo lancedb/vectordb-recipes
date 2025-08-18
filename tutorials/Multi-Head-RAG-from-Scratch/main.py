@@ -73,7 +73,7 @@ def LanceDBEmbeddingSpace(df):
     """
     db = lancedb.connect("/tmp/lancedb")
 
-    print("Embedding spaces creation started \U0001F6A7.....")
+    print("Embedding spaces creation started \U0001f6a7.....")
     table1 = db.create_table(
         "embed_space1",
         schema=TextModel1,

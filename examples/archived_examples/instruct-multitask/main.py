@@ -1,7 +1,7 @@
-""" Install lancedb with instructor embedding support 
-    copy this and paste it in the terminal, and install additional dependencies via requirements.txt file
-     
-       pip install git+https://github.com/lancedb/lancedb.git@main#subdirectory=python
+"""Install lancedb with instructor embedding support
+copy this and paste it in the terminal, and install additional dependencies via requirements.txt file
+
+   pip install git+https://github.com/lancedb/lancedb.git@main#subdirectory=python
 """
 
 import lancedb
