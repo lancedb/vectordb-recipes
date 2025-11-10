@@ -1,4 +1,3 @@
-
 DB_URI = "./lancedb"
 TABLE_NAME = "federal_register"
 EXPERIMENTAL_TABLE_NAME = f"{TABLE_NAME}_experimental"

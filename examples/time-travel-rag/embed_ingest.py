@@ -1,5 +1,6 @@
+from typing import Any, Dict, List
+
 from sentence_transformers import SentenceTransformer
-from typing import List, Dict, Any
 
 model_cache = {}
 

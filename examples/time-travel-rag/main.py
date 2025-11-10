@@ -1,12 +1,14 @@
-import config
-import fetch_docs
-import embed_ingest
-from datetime import datetime, timedelta
-import textwrap
-import pandas as pd
 import os
 import shutil
+import textwrap
+from datetime import datetime, timedelta
+
 import lancedb
+import pandas as pd
+
+import config
+import embed_ingest
+import fetch_docs
 
 
 def find_next_publication_date(start_date_str: str, max_days_to_search: int = 7):
