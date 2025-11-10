@@ -1,0 +1,4 @@
+lancedb
+requests
+pandas
+sentence-transformers
