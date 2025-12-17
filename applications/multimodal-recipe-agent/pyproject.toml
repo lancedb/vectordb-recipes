@@ -1,0 +1,34 @@
+[project]
+name = "recipe-agent"
+version = "0.1.0"
+description = "Multimodal recipe search and recommendation agent using LanceDB"
+requires-python = ">=3.12"
+dependencies = [
+    "streamlit>=1.28.0",
+    "lancedb>=0.4.0",
+    "sentence-transformers>=2.2.2",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "transformers>=4.30.0",
+    "pillow>=10.0.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "opencv-python>=4.8.0",
+    "tqdm>=4.65.0",
+    "plotly>=5.15.0",
+    "altair>=5.0.0",
+    "ipykernel>=6.30.1",
+    "matplotlib>=3.10.6",
+    "seaborn>=0.13.2",
+    "pydantic-ai>=1.0.9",
+    "logfire>=4.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "jupyter>=1.0.0"
+]
