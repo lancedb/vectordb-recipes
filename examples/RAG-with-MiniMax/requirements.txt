@@ -1,0 +1,5 @@
+lancedb
+sentence-transformers
+openai
+beautifulsoup4
+requests
