@@ -1,0 +1,17 @@
+[project]
+name = "nvidia-rag-blueprint-lancedb"
+version = "0.1.0"
+description = "Reference LanceDB retrieval-only integration for NVIDIA RAG Blueprint"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "lancedb>=0.30.0",
+  "langchain-core>=0.3.0",
+  "pandas>=2.0.0",
+  "pyarrow>=14.0.0",
+  "pydantic>=2.7.0",
+  "sentence-transformers>=3.0.0",
+]
+
+[tool.uv]
+package = false
