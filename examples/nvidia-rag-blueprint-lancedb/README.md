@@ -87,19 +87,21 @@ Set the path to this example so the Docker Compose override can mount the prepar
 export LANCEDB_RECIPE_DIR=$(pwd)
 ```
 
-Then from the NVIDIA repo root:
+Then run the NVIDIA services from the NVIDIA repo root.
+
+If you only want to verify retrieval and generation against an existing LanceDB collection, start the RAG server stack:
 
 ```bash
-docker compose \
-  -f deploy/compose/docker-compose-rag-server.yaml \
-  -f "$LANCEDB_RECIPE_DIR"/docker-compose.override.yml \
-  up -d --build
-
-docker compose \
-  -f deploy/compose/docker-compose-ingestor-server.yaml \
-  -f "$LANCEDB_RECIPE_DIR"/docker-compose.override.yml \
-  up -d --build
+docker compose -f deploy/compose/docker-compose-rag-server.yaml -f "$LANCEDB_RECIPE_DIR"/docker-compose.override.yml   up -d --build
 ```
+
+If you also want the ingestor service running alongside the RAG server, start that stack too:
+
+```bash
+docker compose   -f deploy/compose/docker-compose-ingestor-server.yaml   -f "$LANCEDB_RECIPE_DIR"/docker-compose.override.yml   up -d --build
+```
+
+For this first LanceDB example, the ingestor is optional because the integration is retrieval-only and the collection is prepared ahead of time.
 
 ### Important environment values
 
