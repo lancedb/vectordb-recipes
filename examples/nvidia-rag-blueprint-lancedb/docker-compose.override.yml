@@ -1,0 +1,20 @@
+services:
+  rag-server:
+    environment:
+      APP_VECTORSTORE_NAME: lancedb
+      APP_VECTORSTORE_URL: /opt/lancedb-recipe/data
+      COLLECTION_NAME: nvidia_blueprint_demo
+      APP_VECTORSTORE_SEARCHTYPE: hybrid
+      LANCEDB_RERANKER: mrr
+    volumes:
+      - ${LANCEDB_RECIPE_DIR:?set LANCEDB_RECIPE_DIR to this example directory}:/opt/lancedb-recipe:ro
+
+  ingestor-server:
+    environment:
+      APP_VECTORSTORE_NAME: lancedb
+      APP_VECTORSTORE_URL: /opt/lancedb-recipe/data
+      COLLECTION_NAME: nvidia_blueprint_demo
+      APP_VECTORSTORE_SEARCHTYPE: hybrid
+      LANCEDB_RERANKER: mrr
+    volumes:
+      - ${LANCEDB_RECIPE_DIR:?set LANCEDB_RECIPE_DIR to this example directory}:/opt/lancedb-recipe:ro

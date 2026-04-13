@@ -1,0 +1,6 @@
+lancedb>=0.30.0
+langchain-core>=0.3.0
+pandas>=2.0.0
+pyarrow>=14.0.0
+pydantic>=2.7.0
+sentence-transformers>=3.0.0
