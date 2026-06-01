@@ -4,7 +4,7 @@ RAG with MiniMax and LanceDB
 Demonstrates a Retrieval-Augmented Generation pipeline using:
 - sentence-transformers for embeddings
 - LanceDB for vector storage and retrieval
-- MiniMax M2.7 (via OpenAI-compatible API) for answer generation
+- MiniMax M3 (via OpenAI-compatible API) for answer generation
 """
 
 import json
@@ -84,7 +84,7 @@ def retrieve(query: str, table, top_k: int = 5) -> list[str]:
 
 
 def ask_minimax(query: str, context_docs: list[str]) -> str:
-    """Send a RAG query to MiniMax M2.7 via OpenAI-compatible API."""
+    """Send a RAG query to MiniMax M3 via OpenAI-compatible API."""
     api_key = os.environ.get("MINIMAX_API_KEY")
     if not api_key:
         raise ValueError("MINIMAX_API_KEY environment variable is not set")
@@ -111,7 +111,7 @@ def ask_minimax(query: str, context_docs: list[str]) -> str:
     ]
 
     response = client.chat.completions.create(
-        model="MiniMax-M2.7",
+        model="MiniMax-M3",
         messages=messages,
         temperature=0.7,
         max_tokens=1024,

@@ -205,10 +205,10 @@ class TestMiniMaxClientConfig(unittest.TestCase):
         self.assertIn("minimax", base_url)
 
     def test_model_names(self):
-        models = ["MiniMax-M2.7", "MiniMax-M2.7-highspeed"]
+        models = ["MiniMax-M3", "MiniMax-M2.7", "MiniMax-M2.7-highspeed"]
         for model in models:
             self.assertTrue(model.startswith("MiniMax-"))
-            self.assertIn("M2", model)
+            self.assertTrue("M3" in model or "M2" in model)
 
     def test_temperature_must_be_positive(self):
         temperature = 0.7

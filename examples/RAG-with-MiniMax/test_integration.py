@@ -44,7 +44,7 @@ class TestMiniMaxIntegration(unittest.TestCase):
             base_url="https://api.minimax.io/v1",
         )
         response = client.chat.completions.create(
-            model="MiniMax-M2.7",
+            model="MiniMax-M3",
             messages=[{"role": "user", "content": "Say hello in one word."}],
             temperature=0.7,
             max_tokens=10,
@@ -70,7 +70,7 @@ class TestMiniMaxIntegration(unittest.TestCase):
         query = "What is LanceDB?"
 
         response = client.chat.completions.create(
-            model="MiniMax-M2.7",
+            model="MiniMax-M3",
             messages=[
                 {
                     "role": "system",
@@ -118,7 +118,7 @@ class TestEndToEndPipeline(unittest.TestCase):
         docs = [
             "Python is a popular programming language used in AI and data science.",
             "LanceDB provides serverless vector search with no infrastructure to manage.",
-            "MiniMax M2.7 is a large language model with 1M token context window.",
+            "MiniMax M3 is the latest large language model from MiniMax.",
         ]
 
         # Create embeddings (use random vectors for speed; real pipeline uses sentence-transformers)
@@ -142,7 +142,7 @@ class TestEndToEndPipeline(unittest.TestCase):
             base_url="https://api.minimax.io/v1",
         )
         response = client.chat.completions.create(
-            model="MiniMax-M2.7",
+            model="MiniMax-M3",
             messages=[
                 {"role": "system", "content": "Answer based on context."},
                 {"role": "user", "content": f"Context:\n{context}\n\nSummarize the context."},
