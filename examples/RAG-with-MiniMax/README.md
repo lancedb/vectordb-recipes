@@ -7,14 +7,14 @@ This example demonstrates how to build a Retrieval-Augmented Generation (RAG) pi
 - **Web Scraping**: Scrapes web pages and extracts text content.
 - **Chunking & Embeddings**: Splits text into chunks and generates embeddings using `sentence-transformers`.
 - **Vector Storage**: Stores document embeddings in LanceDB for efficient similarity search.
-- **RAG Query**: Retrieves the most relevant document chunks and sends them to MiniMax M2.7 (via OpenAI-compatible API) to generate answers.
+- **RAG Query**: Retrieves the most relevant document chunks and sends them to MiniMax M3 (via OpenAI-compatible API) to generate answers.
 
 ## MiniMax API
 
 [MiniMax](https://www.minimaxi.com/) provides an OpenAI-compatible API endpoint, making it easy to integrate with existing OpenAI SDK workflows.
 
 - **Base URL**: `https://api.minimax.io/v1`
-- **Models**: `MiniMax-M2.7` (latest, 1M context), `MiniMax-M2.7-highspeed`
+- **Models**: `MiniMax-M3` (latest, default), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed`
 
 ## Setup
 
