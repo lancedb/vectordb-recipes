@@ -15,8 +15,8 @@ import lancedb
 import numpy as np
 import pandas as pd
 
-
 # ---- Inline helpers (mirroring main.py logic) ----
+
 
 def scrape_content(url: str) -> str:
     """Scrape text content from a web page."""
@@ -48,6 +48,7 @@ def chunk_text(text: str, chunk_size: int = 500) -> list:
 
 
 # ---- Tests ----
+
 
 class TestChunkText(unittest.TestCase):
     """Test the text chunking function."""
@@ -108,7 +109,9 @@ class TestScrapeContent(unittest.TestCase):
     @patch("requests.get")
     def test_successful_scrape(self, mock_get):
         mock_response = MagicMock()
-        mock_response.content = b"<html><body><p>Hello world</p><p>Second paragraph</p></body></html>"
+        mock_response.content = (
+            b"<html><body><p>Hello world</p><p>Second paragraph</p></body></html>"
+        )
         mock_get.return_value = mock_response
 
         result = scrape_content("https://example.com")
@@ -205,10 +208,10 @@ class TestMiniMaxClientConfig(unittest.TestCase):
         self.assertIn("minimax", base_url)
 
     def test_model_names(self):
-        models = ["MiniMax-M3", "MiniMax-M2.7", "MiniMax-M2.7-highspeed"]
+        models = ["MiniMax-M3.1-Flash", "MiniMax-M3"]
         for model in models:
             self.assertTrue(model.startswith("MiniMax-"))
-            self.assertTrue("M3" in model or "M2" in model)
+            self.assertIn("M3", model)
 
     def test_temperature_must_be_positive(self):
         temperature = 0.7
