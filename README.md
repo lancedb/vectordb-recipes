@@ -219,6 +219,7 @@ Ready-to-use AI applications built with LanceDB! Use these projects as-is, custo
 | [Multilingual-RAG](./applications/Multilingual_RAG/) | Multilingual RAG with cohere embedding & support 100+ languages|![image](https://github.com/akashAD98/vectordb-recipes/assets/62583018/be65eb39-25c4-4441-98fc-6ded09689819)|
 | [Music Recommender](./applications/Music_Recommendation/) | Music Recommendation system using audio feature extraction and vector similarity search. By utilizing **LanceDB**, **PANNs** for audio tagging, and **Librosa** for audio feature extraction, the system finds and recommends tracks with similar audio characteristics based on a query song.|![image](./applications/Music_Recommendation/Music_recommndations_lancedb.png)|
 | [NoOCR](https://github.com/kyryl-opens-ml/no-ocr) | End-to-end solution for complex PDFs, powered by **ColPali** and **LanceDB**.|![image](https://github.com/kyryl-opens-ml/no-ocr/blob/main/docs/flow.gif)|
+| [ThreadShelf](https://github.com/ChrystianSchutz/ThreadShelf) | Local-first archive and semantic search for AI chat history (ChatGPT, Claude, Google AI Studio, OpenRouter, LM Studio, Grok). A Node.js/TypeScript app that embeds conversations locally and stores them in embedded LanceDB, with a React UI, CLI, HTTP API and MCP server over the same index. |![ThreadShelf](https://github.com/ChrystianSchutz/ThreadShelf/raw/main/docs/assets/threadshelf-demo.gif)|
 
 
 **🌟 New! 🌟 Applied GenAI and VectorDB course on Udacity**
