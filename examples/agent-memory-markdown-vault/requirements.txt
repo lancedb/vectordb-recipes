@@ -1,0 +1,3 @@
+lancedb>=0.41
+sentence-transformers>=5
+pyarrow
