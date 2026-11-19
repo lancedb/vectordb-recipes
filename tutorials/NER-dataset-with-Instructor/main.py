@@ -50,7 +50,8 @@ table = db.create_table(table_name, schema=UserData, mode="overwrite")
 for index, row in df[:10].iterrows():
     # generate response
     structured_info = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-5.6-terra",
+        reasoning_effort="none",
         response_model=structureData,
         messages=[{"role": "user", "content": row["title_text"]}],
     )
