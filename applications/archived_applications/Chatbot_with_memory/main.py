@@ -1,4 +1,5 @@
 import os
+import shutil
 import gradio as gr
 import pymupdf4llm
 from dotenv import load_dotenv
