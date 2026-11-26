@@ -131,8 +131,8 @@ def evaluate_all(query, context_lis, response):
         "response_polarity": guard.polarity(response),
         "query_response_hallucination": comp.hallucinations(query, response),
         "context_response_hallucination": comp.hallucinations(context, response),
-        "query_response_hallucination": comp.contradiction(query, response),
-        "context_response_hallucination": comp.contradiction(context, response),
+        "query_response_contradiction": comp.contradiction(query, response),
+        "context_response_contradiction": comp.contradiction(context, response),
     }
 
     RESULT["guards"].update(guard.harmful_refusal_guards(query, context, response))

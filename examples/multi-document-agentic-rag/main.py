@@ -145,8 +145,9 @@ def retrieve_parts(query: str) -> str:
 
 def retrieve_car_details(make: str, model: str, year: int) -> str:
     """Retrieves the make, model, and year of the car."""
-    docs = car_details_retriever.retrieve(make, model, year)
+    docs = cars_retriever.retrieve(f"{make} {model} {year}")
     information = str([doc.text[:200] for doc in docs])
+    return information
 
 
 def diagnose_car_problem(symptoms: str) -> str:
