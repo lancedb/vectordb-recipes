@@ -7,6 +7,7 @@ Based on the recipe-final project but simplified for the tutorial.
 """
 
 import ast
+import io
 import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional
